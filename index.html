@@ -14,20 +14,12 @@
 </head>
 <body>
     <!-- Splash Screen -->
-    <div class="splash-screen" id="splash-screen">
-        <div class="splash-logo">
-            <i class="fas fa-atom splash-icon"></i>
-            <div class="splash-title">CCBalance</div>
-            <div class="splash-subtitle">Chemistry Game</div>
+    <div class="splash-screen" id="splash-screen" style="opacity: 1;">
+        <div class="splash-center">
+            <div class="splash-title">CC Chemistry Game</div>
         </div>
         <div class="splash-footer">
-            <div class="splash-license">
-                Published with CC0 Public Domain License<br>
-                Free to use, modify and distribute
-            </div>
-            <div class="splash-loading">
-                <div class="splash-loading-bar"></div>
-            </div>
+            <div class="splash-license">Published with CC0 Public Domain License</div>
         </div>
     </div>
 
@@ -477,6 +469,13 @@
                     <i class="fas fa-trash"></i>
                     <span>重置游戏进度</span>
                 </button>
+
+                <div class="setting-group" id="about-card">
+                    <h3><i class="fas fa-circle-info"></i> 关于</h3>
+                    <div class="setting-item" style="align-items:flex-start;">
+                        <div id="about-info" style="color: var(--text-secondary); line-height: 1.7;"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -490,6 +489,7 @@
     <!-- 脚本加载 -->
     <script src="src/js/utils.js"></script>
     <script src="src/js/storage-manager.js"></script>
+    <script src="src/js/audio-manager.js"></script>
     <script src="src/js/particle-system.js"></script>
     <script src="src/js/animation-manager.js"></script>
     <script src="src/js/chemistry-engine.js"></script>

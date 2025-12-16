@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const fs = require('fs');
 
 let mainWindow;
 
@@ -66,4 +67,25 @@ ipcMain.handle('close-window', () => {
 ipcMain.handle('toggle-fullscreen', () => {
     mainWindow.setFullScreen(!mainWindow.isFullScreen());
     return mainWindow.isFullScreen();
+});
+
+ipcMain.handle('get-app-info', () => {
+    try {
+        const pkgPath = path.join(app.getAppPath(), 'package.json');
+        const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+
+        return {
+            appVersion: app.getVersion(),
+            packageVersion: pkg?.version,
+            name: pkg?.name,
+            dependencies: pkg?.dependencies || {},
+            runtime: {
+                electron: process.versions.electron,
+                chrome: process.versions.chrome,
+                node: process.versions.node
+            }
+        };
+    } catch (e) {
+        return { error: String(e) };
+    }
 });

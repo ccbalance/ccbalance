@@ -17,6 +17,39 @@ const UIManager = {
         this.cacheElements();
         this.bindEvents();
         this.updateProgress();
+        this.renderAboutCard();
+    },
+
+    /**
+     * 渲染“关于”信息（自动读取版本，不硬编码）
+     */
+    async renderAboutCard() {
+        const el = document.getElementById('about-info');
+        if (!el) return;
+
+        const info = await window.electronAPI?.getAppInfo?.();
+        if (!info || info.error) {
+            el.textContent = '无法读取版本信息';
+            return;
+        }
+
+        const deps = info.dependencies || {};
+        const core = [];
+        if (deps.electron) core.push(`electron: ${deps.electron}`);
+
+        const runtime = info.runtime || {};
+        const runtimeLine = [
+            runtime.electron ? `Electron ${runtime.electron}` : null,
+            runtime.chrome ? `Chromium ${runtime.chrome}` : null,
+            runtime.node ? `Node ${runtime.node}` : null
+        ].filter(Boolean).join(' · ');
+
+        el.innerHTML = `
+            <div><strong style="color: var(--text-primary);">${info.name || 'CCBalance'}</strong></div>
+            <div>版本：${info.packageVersion || info.appVersion || '-'}</div>
+            ${core.length ? `<div>核心依赖：${core.join(' , ')}</div>` : ''}
+            ${runtimeLine ? `<div>运行时：${runtimeLine}</div>` : ''}
+        `;
     },
 
     /**
@@ -258,7 +291,9 @@ const UIManager = {
         if (sfxVolume) {
             sfxVolume.value = settings.sfxVolume;
             sfxVolume.addEventListener('input', (e) => {
-                StorageManager.saveSettings({ sfxVolume: parseInt(e.target.value) });
+                const value = parseInt(e.target.value);
+                StorageManager.saveSettings({ sfxVolume: value });
+                AudioManager?.setSfxVolume?.(value);
             });
         }
 
@@ -267,7 +302,9 @@ const UIManager = {
         if (bgmVolume) {
             bgmVolume.value = settings.bgmVolume;
             bgmVolume.addEventListener('input', (e) => {
-                StorageManager.saveSettings({ bgmVolume: parseInt(e.target.value) });
+                const value = parseInt(e.target.value);
+                StorageManager.saveSettings({ bgmVolume: value });
+                AudioManager?.setBgmVolume?.(value);
             });
         }
 
@@ -317,6 +354,11 @@ const UIManager = {
      * 切换屏幕
      */
     showScreen(screenName, animation = 'fade') {
+        // 主页与游戏间的背景音乐切换（渐入渐出）
+        if (screenName === 'mainMenu') {
+            AudioManager?.playMainMenuBgm?.({ fadeMs: 800 });
+        }
+
         const screenKey = screenName.replace('-', '');
 
         const targetScreen = Object.entries(this.elements.screens)
@@ -774,6 +816,11 @@ const UIManager = {
         timerSpan.textContent = seconds;
         
         this.elements.game.turnTimer.classList.toggle('warning', seconds <= 10);
+
+        // 倒计时提示音：进入最后 6 秒时仅播放一次
+        if (seconds === 6) {
+            AudioManager?.playTurnCountdownOnce?.();
+        }
     },
 
     /**

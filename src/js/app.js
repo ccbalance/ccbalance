@@ -30,6 +30,9 @@ const App = {
             // 初始化存储
             StorageManager.init();
 
+            // 初始化音频
+            AudioManager?.init?.();
+
             // 初始化UI
             UIManager.init();
 
@@ -54,6 +57,9 @@ const App = {
             // 显示主菜单
             UIManager.showScreen('mainMenu');
 
+            // 主页背景音乐（与游戏内不重叠，切换时渐入渐出）
+            AudioManager?.playMainMenuBgm?.({ fadeMs: 0 });
+
             // 解锁第一关
             StorageManager.unlockLevel(1);
 
@@ -73,15 +79,47 @@ const App = {
      * 隐藏启动画面
      */
     hideSplash() {
+        const splash = document.getElementById('splash-screen');
+        if (!splash) {
+            console.warn('Splash screen not found');
+            return;
+        }
+
+        console.log('Starting splash hide animation');
+
+        // 启动即显示，稍作停留后渐隐进入主界面
         setTimeout(() => {
-            const splash = document.getElementById('splash-screen');
-            if (splash) {
+            console.log('Applying splash fade out');
+
+            // 强制设置初始状态和过渡
+            splash.style.opacity = '1';
+            splash.style.transition = 'opacity 0.8s ease';
+            splash.classList.remove('hidden');
+
+            // 强制布局刷新
+            // eslint-disable-next-line no-unused-expressions
+            splash.offsetHeight;
+
+            requestAnimationFrame(() => {
                 splash.classList.add('hidden');
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                }, 500);
-            }
-        }, 1500);
+                console.log('Added hidden class to splash');
+            });
+
+            const onEnd = () => {
+                console.log('Splash transition ended');
+                splash.removeEventListener('transitionend', onEnd);
+                splash.style.display = 'none';
+            };
+            splash.addEventListener('transitionend', onEnd);
+
+            // 兜底：强制在1.2s后收尾（比动画时间稍长）
+            setTimeout(() => {
+                if (splash.style.display !== 'none') {
+                    console.log('Splash fallback timeout triggered');
+                    onEnd();
+                }
+            }, 1200);
+        }, 900);
     },
 
     /**
@@ -117,14 +155,18 @@ const App = {
             this.bgParticles.resize();
         }, 250));
 
-        // 鼠标交互
-        canvas.addEventListener('mousemove', Utils.throttle((e) => {
-            this.bgParticles.setMousePosition(e.clientX, e.clientY);
+        // 鼠标交互（注意：背景画布 pointer-events 为 none，需监听 document）
+        document.addEventListener('mousemove', Utils.throttle((e) => {
+            this.bgParticles?.setMousePosition?.(e.clientX, e.clientY);
         }, 16));
 
-        canvas.addEventListener('click', (e) => {
-            this.bgParticles.burst(e.clientX, e.clientY, 20);
-        });
+        document.addEventListener('click', (e) => {
+            // 背景粒子爆发
+            this.bgParticles?.burst?.(e.clientX, e.clientY, 36);
+
+            // DOM 爆发特效（更显眼）
+            AnimationManager?.playClickBurstEffect?.(e.clientX, e.clientY);
+        }, true);
     },
 
     /**
@@ -150,7 +192,13 @@ const App = {
         }
 
         // 应用音量设置
-        // 这里可以设置音频系统的音量
+        AudioManager?.applySettings?.(settings);
+
+        // 应用粒子数量（初始化后也要同步一次）
+        const counts = { low: 50, medium: 200, high: 500 };
+        if (this.bgParticles) {
+            this.bgParticles.init(counts[settings.particleCount] || 200);
+        }
     },
 
     /**

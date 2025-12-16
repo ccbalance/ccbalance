@@ -5,7 +5,10 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "electron . --dev"
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:portable": "electron-builder --win portable"
   },
   "keywords": [
     "chemistry",
@@ -14,7 +17,36 @@
     "education"
   ],
   "author": "CCBalance Team",
-  "dependencies": {
-    "electron": "^39.2.7"
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.ccbalance.game",
+    "productName": "CCBalance",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*",
+      "!build/**/*",
+      "!*.md",
+      "!package-lock.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "CCBalance-Portable-${version}.${ext}"
+    }
   }
 }

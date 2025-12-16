@@ -173,6 +173,10 @@ const GameActions = {
             pressure: Game.state.pressure
         });
 
+        if (!isAI && level?.hasGas) {
+            AudioManager?.playSteamProducing?.();
+        }
+
         const prefix = isAI ? 'AI ' : '';
         Utils.showToast(`${prefix}加压至 ${newPress}kPa`, isAI ? 'warning' : 'success');
         return { success: true };
@@ -214,6 +218,10 @@ const GameActions = {
             temperature: Game.state.temperature,
             pressure: Game.state.pressure
         });
+
+        if (!isAI && level?.hasGas) {
+            AudioManager?.playSteamProducing?.();
+        }
 
         const prefix = isAI ? 'AI ' : '';
         Utils.showToast(`${prefix}减压至 ${newPress}kPa`, isAI ? 'warning' : 'success');

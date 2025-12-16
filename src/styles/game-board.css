@@ -349,6 +349,14 @@
     animation: aiActionPulse 0.22s ease-out;
 }
 
+
+/* 键盘焦点：用于 Tab 在卡片内部切换按钮 */
+.param-btn.kbd-focus,
+#concentration-buttons button.kbd-focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
 @keyframes aiActionPulse {
     0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 0, 170, 0.4); }
     50% { transform: scale(1.06); box-shadow: 0 0 35px rgba(255, 170, 0, 0.7); }

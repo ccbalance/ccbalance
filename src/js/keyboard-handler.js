@@ -6,11 +6,11 @@
 const KeyboardHandler = {
     // 按键映射
     keyMap: {
-        // WASD - 参数调整
-        'w': { action: 'paramUp', code: 'KeyW' },
-        's': { action: 'paramDown', code: 'KeyS' },
-        'a': { action: 'paramLeft', code: 'KeyA' },
-        'd': { action: 'paramRight', code: 'KeyD' },
+        // WASD - 选择参数卡片
+        'w': { action: 'paramPrev', code: 'KeyW' },
+        's': { action: 'paramNext', code: 'KeyS' },
+        'a': { action: 'paramPrev', code: 'KeyA' },
+        'd': { action: 'paramNext', code: 'KeyD' },
         
         // 数字键 - 能力卡牌
         '1': { action: 'ability1', code: 'Digit1' },
@@ -19,23 +19,30 @@ const KeyboardHandler = {
         '4': { action: 'ability4', code: 'Digit4' },
         
         // 功能键
-        'Tab': { action: 'switchParam', code: 'Tab' },
+        'Tab': { action: 'cycleAction', code: 'Tab' },
         'Escape': { action: 'pause', code: 'Escape' },
         'r': { action: 'reset', code: 'KeyR' },
         'f': { action: 'fullscreen', code: 'KeyF' },
+
+        // 确认操作
+        'Enter': { action: 'activateAction', code: 'Enter' },
+        ' ': { action: 'activateAction', code: 'Space' },
         
-        // 方向键 - 备选参数调整
-        'ArrowUp': { action: 'paramUp', code: 'ArrowUp' },
-        'ArrowDown': { action: 'paramDown', code: 'ArrowDown' },
-        'ArrowLeft': { action: 'paramLeft', code: 'ArrowLeft' },
-        'ArrowRight': { action: 'paramRight', code: 'ArrowRight' }
+        // 方向键 - 备选参数选择
+        'ArrowUp': { action: 'paramPrev', code: 'ArrowUp' },
+        'ArrowDown': { action: 'paramNext', code: 'ArrowDown' },
+        'ArrowLeft': { action: 'paramPrev', code: 'ArrowLeft' },
+        'ArrowRight': { action: 'paramNext', code: 'ArrowRight' }
     },
 
     // 当前选中的参数
-    currentParam: 'temperature',
+    currentParam: 'concentration',
     
     // 参数列表
-    params: ['temperature', 'pressure', 'concentration'],
+    params: ['concentration', 'temperature', 'pressure'],
+
+    // 当前参数卡片内的“选中按钮”索引
+    focusedActionIndex: {},
     
     // 是否启用
     enabled: true,
@@ -52,10 +59,15 @@ const KeyboardHandler = {
         
         // 阻止某些默认行为
         document.addEventListener('keydown', (e) => {
-            if (['Tab'].includes(e.code) && this.isGameScreen()) {
+            if (['Tab', 'Space'].includes(e.code) && this.isGameScreen()) {
                 e.preventDefault();
             }
         });
+
+        // 初始化高亮
+        if (UIManager?.highlightParam) {
+            UIManager.highlightParam(this.currentParam);
+        }
     },
 
     /**
@@ -133,24 +145,21 @@ const KeyboardHandler = {
         }
 
         switch (action) {
-            case 'paramUp':
-                this.adjustCurrentParam(1);
+            case 'paramPrev':
+                this.switchParam(-1);
                 break;
-            
-            case 'paramDown':
-                this.adjustCurrentParam(-1);
+
+            case 'paramNext':
+                this.switchParam(1);
                 break;
-            
-            case 'paramLeft':
-                this.adjustCurrentParam(-1);
+
+            case 'cycleAction':
+                this.cycleAction(e.shiftKey ? -1 : 1);
+                e.preventDefault();
                 break;
-            
-            case 'paramRight':
-                this.adjustCurrentParam(1);
-                break;
-            
-            case 'switchParam':
-                this.switchToNextParam();
+
+            case 'activateAction':
+                this.activateFocusedAction();
                 e.preventDefault();
                 break;
             
@@ -176,84 +185,73 @@ const KeyboardHandler = {
         }
     },
 
-    /**
-     * 调整当前参数
-     */
-    adjustCurrentParam(direction) {
-        const step = 5; // 每次调整5单位
-        
-        switch (this.currentParam) {
-            case 'temperature':
-                this.adjustSlider('temp-slider', direction * step);
-                break;
-            
-            case 'pressure':
-                this.adjustSlider('pressure-slider', direction * step);
-                break;
-            
-            case 'concentration':
-                this.adjustConcentration(direction * step);
-                break;
+    getParamGroupElement(param) {
+        return document.querySelector(`.param-group[data-param="${param}"]`);
+    },
+
+    getActionButtonsForParam(param) {
+        const group = this.getParamGroupElement(param);
+        if (!group) return [];
+
+        // 投料按钮是动态生成到 #concentration-buttons
+        if (param === 'concentration') {
+            const container = document.getElementById('concentration-buttons');
+            if (!container) return [];
+            return Array.from(container.querySelectorAll('button'))
+                .filter(btn => !btn.disabled && btn.offsetParent !== null);
         }
+
+        return Array.from(group.querySelectorAll('button.param-btn'))
+            .filter(btn => !btn.disabled && btn.offsetParent !== null);
     },
 
-    /**
-     * 调整滑块
-     */
-    adjustSlider(sliderId, delta) {
-        const slider = document.getElementById(sliderId);
-        if (!slider) return;
-        
-        const newValue = Math.max(0, Math.min(100, 
-            parseFloat(slider.value) + delta
-        ));
-        
-        slider.value = newValue;
-        slider.dispatchEvent(new Event('input', { bubbles: true }));
-        
-        // 显示视觉反馈
-        this.showAdjustmentFeedback(slider.parentElement, delta);
+    clearActionFocus() {
+        document.querySelectorAll('.kbd-focus').forEach(el => el.classList.remove('kbd-focus'));
     },
 
-    /**
-     * 调整浓度
-     */
-    adjustConcentration(delta) {
-        const sliders = document.querySelectorAll('.conc-slider');
-        if (sliders.length === 0) return;
-        
-        // 调整所有浓度滑块或选中的浓度
-        sliders.forEach(slider => {
-            const newValue = Math.max(0, Math.min(100,
-                parseFloat(slider.value) + delta
-            ));
-            slider.value = newValue;
-            slider.dispatchEvent(new Event('input', { bubbles: true }));
-        });
+    focusActionButton(param, index) {
+        const buttons = this.getActionButtonsForParam(param);
+        if (buttons.length === 0) return;
+
+        const clampedIndex = ((index % buttons.length) + buttons.length) % buttons.length;
+        this.focusedActionIndex[param] = clampedIndex;
+
+        this.clearActionFocus();
+        const btn = buttons[clampedIndex];
+        btn.classList.add('kbd-focus');
+        btn.focus?.({ preventScroll: true });
     },
 
-    /**
-     * 切换到下一个参数
-     */
-    switchToNextParam() {
+    cycleAction(direction) {
+        const param = this.currentParam;
+        const buttons = this.getActionButtonsForParam(param);
+        if (buttons.length === 0) return;
+
+        const currentIndex = this.focusedActionIndex[param] ?? 0;
+        this.focusActionButton(param, currentIndex + direction);
+    },
+
+    activateFocusedAction() {
+        const param = this.currentParam;
+        const buttons = this.getActionButtonsForParam(param);
+        if (buttons.length === 0) return;
+
+        const index = this.focusedActionIndex[param] ?? 0;
+        const btn = buttons[Math.max(0, Math.min(buttons.length - 1, index))];
+        btn?.click?.();
+    },
+
+    switchParam(direction) {
         const currentIndex = this.params.indexOf(this.currentParam);
-        const nextIndex = (currentIndex + 1) % this.params.length;
+        const nextIndex = ((currentIndex + direction) % this.params.length + this.params.length) % this.params.length;
         this.currentParam = this.params[nextIndex];
-        
-        // 更新UI高亮
-        if (UIManager.highlightParam) {
+
+        if (UIManager?.highlightParam) {
             UIManager.highlightParam(this.currentParam);
         }
-        
-        // 显示提示
-        const paramNames = {
-            temperature: '温度',
-            pressure: '压强',
-            concentration: '浓度'
-        };
-        if (Utils.showToast) {
-            Utils.showToast(`切换到 ${paramNames[this.currentParam]}`, 'info');
-        }
+
+        // 切换卡片时，默认聚焦该卡片的第一个可用按钮
+        this.focusActionButton(this.currentParam, this.focusedActionIndex[this.currentParam] ?? 0);
     },
 
     /**
@@ -306,8 +304,12 @@ const KeyboardHandler = {
      * 重置状态
      */
     reset() {
-        this.currentParam = 'temperature';
+        this.currentParam = 'concentration';
+        this.focusedActionIndex = {};
         this.keyStates = {};
+        if (UIManager?.highlightParam) {
+            UIManager.highlightParam(this.currentParam);
+        }
     },
 
     /**
@@ -315,8 +317,9 @@ const KeyboardHandler = {
      */
     getKeyHints() {
         return {
-            movement: 'W/A/S/D 或 方向键调整参数',
-            switchParam: 'Tab 切换参数类型',
+            movement: 'W/A/S/D 或方向键切换卡片',
+            switchParam: 'Tab 切换卡片内按钮',
+            confirm: 'Space/Enter 确认操作',
             abilities: '1-4 使用能力卡牌',
             reset: 'R 重置当前回合',
             pause: 'ESC 暂停游戏',

@@ -307,6 +307,76 @@ const AnimationManager = {
     },
 
     /**
+     * 点击扩散特效
+     */
+    playClickBurstEffect(x, y) {
+        const layer = document.getElementById('effects-layer');
+        if (!layer) return;
+
+        const burst = document.createElement('div');
+        burst.className = 'burst-container';
+        burst.style.cssText = `
+            position: fixed;
+            left: ${x}px;
+            top: ${y}px;
+            width: 1px;
+            height: 1px;
+            z-index: 9998;
+        `;
+        layer.appendChild(burst);
+
+        const colors = ['var(--primary-color)', 'var(--secondary-color)', 'var(--accent-color)', 'var(--success-color)'];
+        const count = 28;
+
+        for (let i = 0; i < count; i++) {
+            const p = document.createElement('div');
+            p.className = 'burst-particle';
+
+            const angle = (i / count) * Math.PI * 2;
+            const radius = 60 + Utils.random(-10, 90);
+            const dx = Math.cos(angle) * radius;
+            const dy = Math.sin(angle) * radius;
+            const size = Utils.random(4, 12);
+
+            p.style.cssText = `
+                left: 0px;
+                top: 0px;
+                width: ${size}px;
+                height: ${size}px;
+                background: ${Utils.randomChoice(colors)};
+                --dx: ${dx}px;
+                --dy: ${dy}px;
+                box-shadow: 0 0 12px ${Utils.randomChoice(colors)};
+            `;
+            burst.appendChild(p);
+        }
+
+        // 轻微二次环
+        setTimeout(() => {
+            for (let i = 0; i < 10; i++) {
+                const p = document.createElement('div');
+                p.className = 'burst-particle';
+                const dx = Utils.random(-140, 140);
+                const dy = Utils.random(-140, 140);
+                const size = Utils.random(2, 6);
+                p.style.cssText = `
+                    left: 0px;
+                    top: 0px;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${Utils.randomChoice(colors)};
+                    --dx: ${dx}px;
+                    --dy: ${dy}px;
+                    opacity: 0.9;
+                `;
+                burst.appendChild(p);
+            }
+        }, 60);
+
+        setTimeout(() => burst.remove(), 1100);
+    },
+
+    /**
      * 失败特效
      */
     playDefeatEffect(container) {

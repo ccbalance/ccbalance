@@ -1,5 +1,104 @@
 /* CCBalance - 主样式文件 */
 
+/* 字体：不使用系统字体 */
+@font-face {
+    font-family: 'CCSplashTitle';
+    src: url('../../assets/font-assets/DancingScript/DancingScript-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CCText';
+    src: url('../../assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+2E80-2EFF,
+        U+3000-303F,
+        U+31C0-31EF,
+        U+3400-4DBF,
+        U+4E00-9FFF,
+        U+F900-FAFF,
+        U+FF00-FFEF;
+}
+
+@font-face {
+    font-family: 'CCText';
+    src: url('../../assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+2E80-2EFF,
+        U+3000-303F,
+        U+31C0-31EF,
+        U+3400-4DBF,
+        U+4E00-9FFF,
+        U+F900-FAFF,
+        U+FF00-FFEF;
+}
+
+@font-face {
+    font-family: 'CCText';
+    src: url('../../assets/font-assets/texgyreheros/texgyreheros-regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF,
+        U+0100-024F,
+        U+1E00-1EFF,
+        U+2000-206F,
+        U+20A0-20CF,
+        U+2100-214F,
+        U+2190-21FF,
+        U+2200-22FF,
+        U+2300-23FF,
+        U+2460-24FF,
+        U+25A0-25FF,
+        U+2600-26FF;
+}
+
+@font-face {
+    font-family: 'CCText';
+    src: url('../../assets/font-assets/texgyreheros/texgyreheros-regular.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range:
+        U+0000-00FF,
+        U+0100-024F,
+        U+1E00-1EFF,
+        U+2000-206F,
+        U+20A0-20CF,
+        U+2100-214F,
+        U+2190-21FF,
+        U+2200-22FF,
+        U+2300-23FF,
+        U+2460-24FF,
+        U+25A0-25FF,
+        U+2600-26FF;
+}
+
+@font-face {
+    font-family: 'CCFormula';
+    src: url('../../assets/font-assets/texgyreheros/texgyreheros-regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CCFormula';
+    src: url('../../assets/font-assets/texgyreheros/texgyreheros-regular.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* CSS变量定义 */
 :root {
     /* 主色调 */
@@ -52,10 +151,40 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    font-family: 'CCText';
     background: var(--bg-dark);
     color: var(--text-primary);
     user-select: none;
+}
+
+/* 表单控件/按钮默认不一定继承字体：显式设置（避免影响 FontAwesome 图标字体） */
+button,
+input,
+select,
+textarea,
+option {
+    font-family: 'CCText';
+}
+
+/* 公式/方程式专用字体（保证符号渲染） */
+.level-equation,
+.card-equation,
+.equation-container,
+.reactants,
+.products,
+.chemical-species {
+    font-family: 'CCFormula';
+}
+
+/* 侧边栏/控制面板强制使用自定义字体（避免粗体回退系统字体） */
+.info-panel,
+.info-panel :where(div, span, p, ul, ol, li, button, h1, h2, h3, h4, h5, h6, small, strong, em, label, kbd) {
+    font-family: 'CCText';
+}
+
+.control-panel,
+.control-panel :where(div, span, button, h1, h2, h3, h4, h5, h6, small, strong, em, label) {
+    font-family: 'CCText';
 }
 
 /* 自定义滚动条 */

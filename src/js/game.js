@@ -126,6 +126,9 @@ const Game = {
         // 初始化AI
         AISystem.init(level);
 
+        // 关卡背景音乐：随机一首 in-game 单曲循环
+        AudioManager?.playInGameBgm?.({ fadeMs: 800 });
+
         // 重置卡牌系统
         CardSystem.reset();
 
@@ -174,7 +177,7 @@ const Game = {
         this.startAIRealtime();
         
         // 播放提示音效
-        this.playSound('turn_start');
+        AudioManager?.playTurnStart?.();
         Utils.showToast('回合开始 - 与AI实时对战！', 'info');
     },
     
@@ -329,6 +332,9 @@ const Game = {
      * 结算回合
      */
     settleRound() {
+        // 回合结束：若仍在播放产气体音效则中断
+        AudioManager?.stopSteamProducing?.();
+
         // 计算平衡偏移
         const K = this.state.equilibriumConstant;
         const Q = this.state.reactionQuotient;
@@ -343,6 +349,9 @@ const Game = {
         
         // 显示回合结算
         this.showRoundResult(playerScore, aiScore, shift);
+
+        // 回合胜负音效
+        AudioManager?.playTurnResult?.(playerScore, aiScore);
         
         // 下一回合
         setTimeout(() => {
@@ -532,6 +541,9 @@ const Game = {
      * 结束游戏
      */
     endGame(playerWins = null) {
+        // 游戏结束：中断持续类音效
+        AudioManager?.stopSteamProducing?.();
+
         this.state.isRunning = false;
         this.stopTimer();
         this.stopAIRealtime();
@@ -577,8 +589,8 @@ const Game = {
 
         UIManager.showResult(result);
 
-        // 播放音效
-        this.playSound(playerWins ? 'victory' : 'defeat');
+        // 播放胜负音效
+        AudioManager?.playGameResult?.(playerWins);
     },
 
     /**
@@ -608,7 +620,6 @@ const Game = {
             UIManager.updateCardStatus();
             this.updateState();
             Utils.showToast(`使用了 ${CardSystem.cards[ability].name}`, 'success');
-            this.playSound('ability_use');
         }
     },
 
@@ -665,18 +676,6 @@ const Game = {
         }
     },
 
-    /**
-     * 播放音效
-     */
-    playSound(soundName) {
-        const settings = StorageManager.getSettings();
-        if (settings.sfxVolume <= 0) return;
-
-        // 这里可以集成音效系统
-        // 由于没有实际音频文件,暂时为空实现
-        console.log(`Play sound: ${soundName}`);
-    },
-    
     /**
      * 初始化粒子系统
      */

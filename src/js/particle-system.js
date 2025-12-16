@@ -389,6 +389,32 @@ class BackgroundParticleSystem {
         });
     }
 
+    setMousePosition(x, y) {
+        this.mouseX = x;
+        this.mouseY = y;
+    }
+
+    burst(x, y, strength = 36) {
+        // 在点击点附近“冲散”粒子（仅改变已有粒子的速度/透明度）
+        const radius = 220;
+        const push = 0.06;
+
+        for (const p of this.particles) {
+            const dx = p.x - x;
+            const dy = p.y - y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist <= 0.001 || dist > radius) continue;
+
+            const t = 1 - dist / radius;
+            const nx = dx / dist;
+            const ny = dy / dist;
+
+            p.vx += nx * push * t * strength;
+            p.vy += ny * push * t * strength;
+            p.alpha = Math.min(0.9, p.alpha + 0.15 * t);
+        }
+    }
+
     resize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
