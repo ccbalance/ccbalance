@@ -19,7 +19,9 @@ const StorageManager = {
         particleCount: 'medium',
         enableAnimations: true,
         turnTime: 30,
-        showHints: true
+        showHints: true,
+        roundsPerLevel: 10,
+        particleColor: '#00d4ff'
     },
 
     /**

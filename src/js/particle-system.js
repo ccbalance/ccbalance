@@ -380,6 +380,7 @@ class BackgroundParticleSystem {
         this.running = false;
         this.mouseX = 0;
         this.mouseY = 0;
+        this.color = '#00d4ff';
         
         this.resize();
         window.addEventListener('resize', () => this.resize());
@@ -392,6 +393,24 @@ class BackgroundParticleSystem {
     setMousePosition(x, y) {
         this.mouseX = x;
         this.mouseY = y;
+    }
+
+    setColor(hex) {
+        const value = String(hex || '').trim();
+        this.color = value || '#00d4ff';
+    }
+
+    _hexToRgb(hex) {
+        const raw = String(hex || '').trim().replace('#', '');
+        const value = raw.length === 3
+            ? raw.split('').map(ch => ch + ch).join('')
+            : raw;
+        if (!/^[0-9a-fA-F]{6}$/.test(value)) return { r: 0, g: 212, b: 255 };
+        return {
+            r: parseInt(value.slice(0, 2), 16),
+            g: parseInt(value.slice(2, 4), 16),
+            b: parseInt(value.slice(4, 6), 16)
+        };
     }
 
     burst(x, y, strength = 36) {
@@ -459,9 +478,11 @@ class BackgroundParticleSystem {
 
     render() {
         this.ctx.clearRect(0, 0, this.width, this.height);
+
+        const { r, g, b } = this._hexToRgb(this.color);
         
         // 绘制连接线
-        this.ctx.strokeStyle = 'rgba(0, 212, 255, 0.1)';
+        this.ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.12)`;
         this.ctx.lineWidth = 1;
         
         for (let i = 0; i < this.particles.length; i++) {
@@ -483,9 +504,9 @@ class BackgroundParticleSystem {
         // 绘制粒子
         for (const p of this.particles) {
             this.ctx.globalAlpha = p.alpha;
-            this.ctx.fillStyle = '#00d4ff';
+            this.ctx.fillStyle = this.color;
             this.ctx.shadowBlur = 10;
-            this.ctx.shadowColor = '#00d4ff';
+            this.ctx.shadowColor = this.color;
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             this.ctx.fill();

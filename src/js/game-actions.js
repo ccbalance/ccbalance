@@ -34,6 +34,37 @@ const GameActions = {
     },
 
     /**
+     * 计算容器类型对体积/压强的影响
+     * @param {string} species - 投入的物种
+     * @param {number} delta - 浓度增量
+     * @returns {object} - { volumeChange, pressureChange }
+     */
+    calculateContainerEffect(species, delta) {
+        const level = Game.state.levelData;
+        const containerType = level?.containerType || (level?.hasGas ? 'rigid' : 'flexible');
+        
+        let volumeChange = 0;
+        let pressureChange = 0;
+        
+        // 判断是否为液体投料
+        const isLiquid = !level?.gasSpecies?.includes(species);
+        
+        if (containerType === 'flexible' && isLiquid) {
+            // 柔性容器：液体投料增加体积
+            // 简化模型：假设 1 mol/L 浓度增加对应 0.018 L 体积增加(水的摩尔体积)
+            volumeChange = delta * 0.018;
+        } else if (containerType === 'rigid' && level?.hasGas) {
+            // 刚性容器：气体反应投料增加压强
+            // 使用理想气体定律: ΔP = (Δn * R * T) / V
+            // 简化：每增加 0.1 mol/L 浓度，压强增加约 2.5 kPa
+            const gasEffect = level?.gasSpecies?.includes(species) ? 1 : 0;
+            pressureChange = gasEffect * delta * 25;  // 简化系数
+        }
+        
+        return { volumeChange, pressureChange };
+    },
+
+    /**
      * 执行投料操作
      * @param {string} species - 物种名称
      * @param {boolean} isAI - 是否为AI操作
@@ -52,6 +83,31 @@ const GameActions = {
         const newConc = currentConc + (delta || this.params.concentrationDelta);
         
         Game.state.concentrations[species] = newConc;
+        
+        // 计算容器效应
+        const { volumeChange, pressureChange } = this.calculateContainerEffect(species, delta);
+        
+        // 应用容器效应
+        if (volumeChange > 0) {
+            // 柔性容器：体积增加导致所有浓度按比例稀释
+            const oldVolume = Game.state.volume || 1;
+            const newVolume = oldVolume + volumeChange;
+            const dilutionFactor = oldVolume / newVolume;
+            
+            for (const [s, conc] of Object.entries(Game.state.concentrations)) {
+                if (s !== species) {
+                    Game.state.concentrations[s] = conc * dilutionFactor;
+                }
+            }
+            
+            Game.state.volume = newVolume;
+        }
+        
+        if (pressureChange > 0) {
+            // 刚性容器：气体投料增加压强
+            Game.state.pressure = (Game.state.pressure || 101) + pressureChange;
+        }
+        
         this.startCooldown('concentration_' + species, this.cooldowns.concentration, isAI);
         
         Game.updateState();

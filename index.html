@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00d4ff">
     <title>CCBalance - 化学平衡策略游戏</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="src/styles/main.css">
     <link rel="stylesheet" href="src/styles/splash.css">
@@ -11,6 +13,7 @@
     <link rel="stylesheet" href="src/styles/ui-components.css">
     <link rel="stylesheet" href="src/styles/animations.css">
     <link rel="stylesheet" href="src/styles/game-board.css">
+    <link rel="stylesheet" href="src/styles/terminal.css">
 </head>
 <body>
     <!-- Splash Screen -->
@@ -60,6 +63,10 @@
                     <button class="menu-btn" id="btn-level-select">
                         <i class="fas fa-flask"></i>
                         <span>关卡选择</span>
+                    </button>
+                    <button class="menu-btn" id="btn-workshop">
+                        <i class="fas fa-wrench"></i>
+                        <span>创意工坊</span>
                     </button>
                     <button class="menu-btn" id="btn-collection">
                         <i class="fas fa-book"></i>
@@ -121,7 +128,7 @@
                 <button class="diff-btn active" data-diff="1">初级</button>
                 <button class="diff-btn" data-diff="2">中级</button>
                 <button class="diff-btn" data-diff="3">高级</button>
-                <button class="diff-btn" data-diff="4">专家</button>
+                <button class="diff-btn" data-diff="4">C·C</button>
             </div>
         </div>
 
@@ -398,6 +405,46 @@
             <div class="collection-grid" id="collection-grid"></div>
         </div>
 
+        <!-- 创意工坊界面 -->
+        <div id="workshop-screen" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" id="btn-back-menu-workshop"><i class="fas fa-arrow-left"></i></button>
+                <h2>创意工坊</h2>
+            </div>
+
+            <div class="workshop-toolbar">
+                <button class="toolbar-btn primary" id="btn-import-level">
+                    <i class="fas fa-file-import"></i>
+                    <span>导入关卡</span>
+                </button>
+                <button class="toolbar-btn" id="btn-download-level">
+                    <i class="fas fa-download"></i>
+                    <span>从网络下载</span>
+                </button>
+                <button class="toolbar-btn" id="btn-create-template">
+                    <i class="fas fa-plus"></i>
+                    <span>创建模板</span>
+                </button>
+                <button class="toolbar-btn danger" id="btn-clear-workshop">
+                    <i class="fas fa-trash"></i>
+                    <span>清空所有</span>
+                </button>
+            </div>
+
+            <div class="workshop-info">
+                <i class="fas fa-info-circle"></i>
+                <span>创意工坊支持自定义关卡,使用 .ccb 文件格式。详见 <a href="#" id="link-ccb-format">CCB 格式规范</a></span>
+            </div>
+
+            <div class="workshop-levels" id="workshop-levels">
+                <div class="empty-hint">
+                    <i class="fas fa-box-open"></i>
+                    <p>还没有导入任何关卡</p>
+                    <p>点击上方按钮导入或创建关卡</p>
+                </div>
+            </div>
+        </div>
+
         <!-- 设置界面 -->
         <div id="settings-screen" class="screen">
             <div class="screen-header">
@@ -452,7 +499,62 @@
                             <span class="toggle-slider"></span>
                         </label>
                     </div>
+                    <div class="setting-item">
+                        <span>关卡回合数</span>
+                        <select class="setting-select" id="rounds-per-level">
+                            <option value="1">1 回合</option>
+                            <option value="3">3 回合</option>
+                            <option value="5">5 回合</option>
+                            <option value="7">7 回合</option>
+                            <option value="10" selected>10 回合</option>
+                        </select>
+                    </div>
                 </div>
+                <div class="setting-group">
+                    <h3><i class="fas fa-palette"></i> 粒子效果</h3>
+                    <div class="setting-item">
+                        <span>粒子颜色</span>
+                        <input type="color" class="setting-color" id="particle-color" value="#00d4ff">
+                    </div>
+                </div>
+                
+                <div class="setting-group">
+                    <h3><i class="fas fa-server"></i> PWA 服务器</h3>
+                    <div class="setting-item">
+                        <span>服务器状态</span>
+                        <div class="server-status">
+                            <span id="server-status-text">未运行</span>
+                            <span class="status-indicator" id="server-status-indicator"></span>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <span>服务器端口</span>
+                        <input type="number" class="setting-input" id="pwa-port" value="3000" min="1024" max="65535">
+                    </div>
+                    <div class="setting-item">
+                        <span>服务器地址</span>
+                        <a href="#" id="pwa-server-url" target="_blank" style="color: var(--primary-color);">-</a>
+                    </div>
+                    <div class="server-controls">
+                        <button class="menu-btn" id="btn-pwa-start">
+                            <i class="fas fa-play"></i>
+                            <span>启动服务器</span>
+                        </button>
+                        <button class="menu-btn danger" id="btn-pwa-stop">
+                            <i class="fas fa-stop"></i>
+                            <span>停止服务器</span>
+                        </button>
+                        <button class="menu-btn" id="btn-pwa-open">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>在浏览器中打开</span>
+                        </button>
+                    </div>
+                    <div class="setting-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span>启动 PWA 服务器后,可在浏览器中访问应用,支持离线使用</span>
+                    </div>
+                </div>
+                
                 <div class="setting-group">
                     <h3><i class="fas fa-keyboard"></i> 快捷键</h3>
                     <div class="hotkey-list">
@@ -463,6 +565,7 @@
                         <div class="hotkey-item"><span>暂停/菜单</span><kbd>Esc</kbd></div>
                         <div class="hotkey-item"><span>重置操作</span><kbd>R</kbd></div>
                         <div class="hotkey-item"><span>全屏切换</span><kbd>F</kbd></div>
+                        <div class="hotkey-item"><span>打开终端</span><kbd>T</kbd></div>
                     </div>
                 </div>
                 <button class="menu-btn danger" id="btn-reset-progress">
@@ -483,6 +586,27 @@
     <!-- 全局特效层 -->
     <div id="effects-layer"></div>
     
+    <!-- 终端界面 -->
+    <div id="terminal-overlay" class="terminal-overlay hidden">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-title">
+                    <i class="fas fa-terminal"></i>
+                    <span>CCBalance Terminal</span>
+                </div>
+                <button class="terminal-close" id="btn-terminal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="terminal-output" id="terminal-output"></div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">$</span>
+                <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="terminal-suggestions" id="terminal-suggestions"></div>
+        </div>
+    </div>
+    
     <!-- 提示信息 -->
     <div id="toast-container"></div>
 
@@ -494,9 +618,11 @@
     <script src="src/js/animation-manager.js"></script>
     <script src="src/js/chemistry-engine.js"></script>
     <script src="src/js/levels.js"></script>
+    <script src="src/js/workshop-manager.js"></script>
     <script src="src/js/ai-system.js"></script>
     <script src="src/js/card-system.js"></script>
     <script src="src/js/game-actions.js"></script>
+    <script src="src/js/terminal.js"></script>
     <script src="src/js/ui-manager.js"></script>
     <script src="src/js/keyboard-handler.js"></script>
     <script src="src/js/chart-renderer.js"></script>

@@ -61,31 +61,31 @@ const AISystem = {
         const d = Utils?.clamp ? Utils.clamp(difficulty || 2, 1, 4) : (difficulty || 2);
         switch (d) {
             case 1:
-                // Easy：更不频繁出手 + 策略受限（更像新手）
+                // Easy：低频出手 + 高随机性 + 只能投料（像新手）
                 return {
-                    randomness: 0.7,
-                    topK: 4,
-                    actChance: 0.35,
+                    randomness: 0.85,
+                    topK: 5,
+                    actChance: 0.2,
                     allowConcentration: true,
                     allowTemperature: false,
                     allowPressure: false
                 };
             case 2:
-                // Medium：会投料，偶尔调温；压强默认不常用
+                // Medium：中频出手，会投料和调温
                 return {
-                    randomness: 0.35,
+                    randomness: 0.4,
                     topK: 3,
-                    actChance: 0.6,
+                    actChance: 0.55,
                     allowConcentration: true,
                     allowTemperature: true,
                     allowPressure: false
                 };
             case 3:
-                // Hard：基本每次都出手，三类因素都能用
+                // Hard：高频出手，三类因素都能用
                 return {
-                    randomness: 0.15,
+                    randomness: 0.1,
                     topK: 2,
-                    actChance: 0.85,
+                    actChance: 0.95,
                     allowConcentration: true,
                     allowTemperature: true,
                     allowPressure: true
@@ -228,15 +228,31 @@ const AISystem = {
             candidates.push({ type: 'pressurize' }, { type: 'depressurize' });
         }
 
+        // 能力卡候选（中高难度）
+        if (difficulty >= 2 && gameState.aiAbilities) {
+            for (const [cardId, cardState] of Object.entries(gameState.aiAbilities)) {
+                if (cardState.available && !isOnCd({ type: 'card', cardId })) {
+                    candidates.push({ type: 'card', cardId });
+                }
+            }
+        }
+
         const scored = [];
         for (const action of candidates) {
             if (action.type === 'addSpecies' && !action.species) continue;
             if (isOnCd(action)) continue;
 
-            const sim = this.simulateAction(gameState, level, action);
-            const aiScore = this.calculateRoundScore(sim.shift, goal);
-            // tie-break：同分时更倾向更“极端”的shift
-            scored.push({ action, aiScore, shiftAbs: Math.abs(sim.shift) });
+            let sim, aiScore;
+            if (action.type === 'card') {
+                // 评估能力卡收益
+                aiScore = this.evaluateCardBenefit(action.cardId, gameState, level, goal);
+            } else {
+                sim = this.simulateAction(gameState, level, action);
+                aiScore = this.calculateRoundScore(sim.shift, goal);
+            }
+            
+            // tie-break：同分时更倾向更"极端"的shift（卡牌默认0）
+            scored.push({ action, aiScore, shiftAbs: sim ? Math.abs(sim.shift) : 0 });
         }
 
         if (scored.length === 0) return null;
@@ -251,6 +267,35 @@ const AISystem = {
         }
 
         return scored[0].action;
+    },
+
+    /**
+     * 评估能力卡收益（用于实时模式选择）
+     */
+    evaluateCardBenefit(cardId, gameState, level, goal) {
+        const analysis = this.analyzeState(gameState, level);
+        
+        switch (cardId) {
+            case 'catalyst':
+                // 催化剂：距离目标越远收益越高
+                return analysis.distanceToGoal * 0.8;
+                
+            case 'buffer':
+                // 缓冲液：领先时保护优势
+                return analysis.isWinning ? 0.6 : 0.1;
+                
+            case 'heatexchange':
+                // 热交换：温度影响大时收益高
+                const tempMag = analysis.tempEffect?.magnitude || 0;
+                return tempMag > 0.3 ? 0.7 : 0.2;
+                
+            case 'quantum':
+                // 量子跃迁：劣势时逆转，优势时避免
+                return !analysis.isWinning && analysis.distanceToGoal > 0.7 ? 0.9 : 0.05;
+                
+            default:
+                return 0.3;
+        }
     },
 
     /**
@@ -483,7 +528,7 @@ const AISystem = {
     },
 
     /**
-     * 专家策略
+     * C·C 策略（专家级）
      */
     expertStrategy(decision, analysis, gameState, reaction, randomFactor) {
         // 最优决策
@@ -802,7 +847,7 @@ const AISystem = {
             1: '初级AI：随机决策，反应较慢',
             2: '中级AI：基础策略，有一定智能',
             3: '高级AI：精确计算，策略性强',
-            4: '专家AI：最优决策，难以战胜'
+            4: 'C·C AI：最优决策，难以战胜'
         };
         return descriptions[this.currentDifficulty] || descriptions[1];
     }

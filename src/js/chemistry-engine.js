@@ -97,16 +97,28 @@ const ChemistryEngine = {
      * 使用范特霍夫方程
      */
     calculateK(levelOrTemp, temperature) {
+        const MIN_K = 1e-300;
+        const MAX_K = 1e300;
+
         // 如果传入level对象和温度
         if (typeof levelOrTemp === 'object' && temperature !== undefined) {
             const level = levelOrTemp;
-            const K0 = level.equilibriumConstant;
+            const K0 = (Number.isFinite(level.equilibriumConstant) && level.equilibriumConstant > 0)
+                ? level.equilibriumConstant
+                : 1;
             const T0 = level.initialTemp || 298;
             const T = temperature;
             const dH = level.deltaH || 0;
-            
-            const lnRatio = -(dH * 1000) / this.R * (1/T - 1/T0);
-            return K0 * Math.exp(lnRatio);
+
+            const sensitivity = Number.isFinite(level.temperatureSensitivity)
+                ? level.temperatureSensitivity
+                : 1;
+
+            const lnRatio = (-(dH * 1000) / this.R * (1/T - 1/T0)) * sensitivity;
+            let K = K0 * Math.exp(lnRatio);
+            if (!Number.isFinite(K)) K = lnRatio > 0 ? MAX_K : MIN_K;
+            if (K <= 0) K = MIN_K;
+            return Utils?.clamp ? Utils.clamp(K, MIN_K, MAX_K) : Math.min(MAX_K, Math.max(MIN_K, K));
         }
         
         // 否则使用当前反应
@@ -114,16 +126,23 @@ const ChemistryEngine = {
         if (!this.currentReaction) return 1;
         
         const { equilibriumConstant, deltaH, initialTemp } = this.currentReaction;
-        const K0 = equilibriumConstant;
+        const K0 = (Number.isFinite(equilibriumConstant) && equilibriumConstant > 0)
+            ? equilibriumConstant
+            : 1;
         const T0 = initialTemp || 298;
         const T = temperature;
         const dH = deltaH || 0; // kJ/mol
         
         // ln(K2/K1) = -ΔH/R * (1/T2 - 1/T1)
-        const lnRatio = -(dH * 1000) / this.R * (1/temp - 1/T0);
-        const K = K0 * Math.exp(lnRatio);
-        
-        return K;
+        const sensitivity = Number.isFinite(this.currentReaction.temperatureSensitivity)
+            ? this.currentReaction.temperatureSensitivity
+            : 1;
+
+        const lnRatio = (-(dH * 1000) / this.R * (1/temp - 1/T0)) * sensitivity;
+        let K = K0 * Math.exp(lnRatio);
+        if (!Number.isFinite(K)) K = lnRatio > 0 ? MAX_K : MIN_K;
+        if (K <= 0) K = MIN_K;
+        return Utils?.clamp ? Utils.clamp(K, MIN_K, MAX_K) : Math.min(MAX_K, Math.max(MIN_K, K));
     },
 
     /**

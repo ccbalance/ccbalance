@@ -94,11 +94,14 @@ const Game = {
 
         this.state.currentLevel = levelId;
         this.state.levelData = level;
-        this.state.maxRounds = level.maxRounds || 10;
+        const settings = StorageManager.getSettings();
+        const settingsRounds = Number.isFinite(settings.roundsPerLevel) ? settings.roundsPerLevel : 10;
+        this.state.maxRounds = level.maxRounds ?? settingsRounds;
 
         // 初始化化学状态
         this.state.temperature = level.initialTemperature || level.initialTemp || 298;
         this.state.pressure = level.initialPressure || 101.325;
+        this.state.volume = level.initialVolume || 1.0;  // 初始体积1L
 
         // 计算当前温度下的K，并生成满足 Q=K 的基准初始浓度
         this.state.equilibriumConstant = ChemistryEngine.calculateK(level, this.state.temperature);
@@ -111,6 +114,9 @@ const Game = {
 
         // 随机分配目标
         this.assignGoals();
+
+        // 关键：能力卡（如热交换）会读取 AISystem.goal，必须与 aiGoal 同步
+        AISystem.setGoal?.(this.state.aiGoal);
 
         // 设置UI
         UIManager.setupGameUI(level, this.state.playerGoal, this.state.aiGoal);
@@ -125,6 +131,7 @@ const Game = {
 
         // 初始化AI
         AISystem.init(level);
+        AISystem.setGoal?.(this.state.aiGoal);
 
         // 关卡背景音乐：随机一首 in-game 单曲循环
         AudioManager?.playInGameBgm?.({ fadeMs: 800 });
@@ -140,6 +147,59 @@ const Game = {
         this.state.round = 1;
 
         // 更新初始状态
+        this.updateState();
+        this.startTurn();
+
+        return true;
+    },
+
+    /**
+     * 试玩/游玩自定义关卡（来自创意工坊 .ccb）
+     */
+    startCustomLevel(level) {
+        this.reset();
+
+        if (!level || typeof level !== 'object') {
+            Utils.showToast('关卡数据无效', 'error');
+            return false;
+        }
+
+        this.state.currentLevel = level.id || 'custom';
+        this.state.levelData = level;
+
+        const settings = StorageManager.getSettings();
+        const settingsRounds = Number.isFinite(settings.roundsPerLevel) ? settings.roundsPerLevel : 10;
+        this.state.maxRounds = level.maxRounds ?? settingsRounds;
+
+        this.state.temperature = level.initialTemperature || level.initialTemp || 298;
+        this.state.pressure = level.initialPressure || 101.325;
+        this.state.volume = level.initialVolume || 1.0;
+
+        this.state.equilibriumConstant = ChemistryEngine.calculateK(level, this.state.temperature);
+        this.state.baseConcentrations = LevelData.adjustInitialConcentrations(level, this.state.temperature);
+        this.state.concentrations = { ...this.state.baseConcentrations };
+
+        this.state.playerTotalScore = 0;
+        this.state.aiTotalScore = 0;
+
+        this.assignGoals();
+
+        UIManager.setupGameUI(level, this.state.playerGoal, this.state.aiGoal);
+        UIManager.updateRoundInfo(1, this.state.maxRounds);
+
+        const allSpecies = [...(level.reactants || []), ...(level.products || [])];
+        ChartRenderer.reset(allSpecies);
+
+        this.initParticleSystem();
+
+        AISystem.init(level);
+        AudioManager?.playInGameBgm?.({ fadeMs: 800 });
+        CardSystem.reset();
+        KeyboardHandler.reset();
+
+        this.state.isRunning = true;
+        this.state.round = 1;
+
         this.updateState();
         this.startTurn();
 
@@ -242,6 +302,9 @@ const Game = {
         const level = this.state.levelData;
         const settings = StorageManager.getSettings();
         const difficulty = settings.difficulty || 2;
+
+        // 持续同步，避免中途状态不一致导致卡牌方向反了
+        AISystem.setGoal?.(this.state.aiGoal);
         
         // AI分析当前状态
         const gameState = {
@@ -253,7 +316,8 @@ const Game = {
             reactionQuotient: this.state.reactionQuotient,
             goal: this.state.aiGoal,
             round: this.state.round,
-            maxRounds: this.state.maxRounds
+            maxRounds: this.state.maxRounds,
+            aiAbilities: this.state.aiAbilities
         };
         
         const action = AISystem.selectBestAction(gameState, level, difficulty);
@@ -278,6 +342,11 @@ const Game = {
                 break;
             case 'depressurize':
                 GameActions.depressurize(true);
+                break;
+            case 'card':
+                if (action.cardId) {
+                    this.useAbilityCard(action.cardId, 'ai');
+                }
                 break;
         }
     },

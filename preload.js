@@ -5,5 +5,33 @@ contextBridge.exposeInMainWorld('electronAPI', {
     maximizeWindow: () => ipcRenderer.invoke('maximize-window'),
     closeWindow: () => ipcRenderer.invoke('close-window'),
     toggleFullscreen: () => ipcRenderer.invoke('toggle-fullscreen'),
-    getAppInfo: () => ipcRenderer.invoke('get-app-info')
+    getAppInfo: () => ipcRenderer.invoke('get-app-info'),
+    
+    // 接收命令行参数
+    onCommandLineArgs: (callback) => {
+        ipcRenderer.on('command-line-args', (event, args) => callback(args));
+    },
+    
+    // PWA 服务器控制
+    pwaServerStart: (port) => ipcRenderer.invoke('pwa-server-start', port),
+    pwaServerStop: () => ipcRenderer.invoke('pwa-server-stop'),
+    pwaServerStatus: () => ipcRenderer.invoke('pwa-server-status'),
+    pwaServerChangePort: (port) => ipcRenderer.invoke('pwa-server-change-port', port),
+    onPWAServerStatusChanged: (callback) => {
+        ipcRenderer.on('pwa-server-status-changed', (event, status) => callback(status));
+    },
+    
+    // 关卡编辑器
+    openLevelEditor: (levelData) => ipcRenderer.invoke('open-level-editor', levelData),
+    saveEditedLevel: (levelData) => ipcRenderer.invoke('save-edited-level', levelData),
+    onLevelEdited: (callback) => {
+        ipcRenderer.on('level-edited', (event, levelData) => callback(levelData));
+    },
+    onLoadLevelData: (callback) => {
+        ipcRenderer.on('load-level-data', (event, levelData) => callback(levelData));
+    },
+    
+    // 文件操作
+    readFile: (filePath) => ipcRenderer.invoke('read-file', filePath),
+    writeFile: (filePath, data) => ipcRenderer.invoke('write-file', filePath, data)
 });

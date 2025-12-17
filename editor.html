@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCBalance - 关卡编辑器</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'CCText';
+            background: #0a0a1a;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        /* 编辑器滚动条：自定义样式（避免系统默认） */
+        .editor-form::-webkit-scrollbar,
+        .editor-preview::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .editor-form::-webkit-scrollbar-track,
+        .editor-preview::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .editor-form::-webkit-scrollbar-thumb,
+        .editor-preview::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.22);
+            border-radius: 6px;
+            border: 2px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .editor-form::-webkit-scrollbar-thumb:hover,
+        .editor-preview::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.32);
+        }
+
+        .editor-container {
+            display: flex;
+            height: calc(100vh - var(--title-bar-height));
+            flex-direction: column;
+            margin-top: var(--title-bar-height);
+        }
+
+        .editor-header {
+            padding: 15px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .editor-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #00d4ff;
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'CCText';
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00d4ff;
+        }
+
+        .btn.primary {
+            background: #00d4ff;
+            color: #0a0a1a;
+            border-color: #00d4ff;
+        }
+
+        .btn.primary:hover {
+            background: #00ffff;
+        }
+
+        .editor-body {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .editor-form {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .editor-preview {
+            width: 350px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 1px solid rgba(0, 212, 255, 0.3);
+            overflow-y: auto;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a0a0a0;
+            font-size: 14px;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            font-family: 'CCText';
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+
+        .form-textarea {
+            min-height: 80px;
+            resize: vertical;
+            font-family: 'Consolas', monospace;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .preview-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .preview-title {
+            color: #00d4ff;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .preview-text {
+            color: #a0a0a0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .error-message {
+            color: #ff4466;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            color: #00ff88;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 自定义标题栏（与主窗口同款） -->
+    <div class="title-bar">
+        <div class="title-bar-drag">
+            <span class="title-logo"><i class="fas fa-atom"></i></span>
+            <span class="title-text">关卡编辑器</span>
+        </div>
+        <div class="title-bar-controls">
+            <button class="title-btn" id="btn-minimize" title="最小化"><i class="fas fa-minus"></i></button>
+            <button class="title-btn" id="btn-maximize" title="最大化/还原"><i class="fas fa-square"></i></button>
+            <button class="title-btn title-btn-close" id="btn-close" title="关闭"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <div class="editor-container">
+        <div class="editor-header">
+            <div class="editor-title">
+                <i class="fas fa-edit"></i>
+                关卡编辑器
+            </div>
+            <div class="editor-actions">
+                <button class="btn" id="btn-validate">
+                    <i class="fas fa-check"></i> 验证
+                </button>
+                <button class="btn primary" id="btn-save">
+                    <i class="fas fa-save"></i> 保存
+                </button>
+                <button class="btn" id="btn-cancel">
+                    <i class="fas fa-times"></i> 取消
+                </button>
+            </div>
+        </div>
+
+        <div class="editor-body">
+            <div class="editor-form">
+                <!-- 基本信息 -->
+                <div class="form-section">
+                    <h3><i class="fas fa-info-circle"></i> 基本信息</h3>
+                    <div class="form-group">
+                        <label class="form-label">关卡 ID</label>
+                        <input type="text" class="form-input" id="level-id" placeholder="唯一标识符" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">关卡名称</label>
+                        <input type="text" class="form-input" id="level-name" placeholder="关卡名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">作者</label>
+                        <input type="text" class="form-input" id="level-author" placeholder="作者名称">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">描述</label>
+                        <textarea class="form-textarea" id="level-description" placeholder="关卡描述"></textarea>
+                    </div>
+                </div>
+
+                <!-- 化学反应 -->
+                <div class="form-section">
+                    <h3><i class="fas fa-flask"></i> 化学反应</h3>
+                    <div class="form-group">
+                        <label class="form-label">化学方程式</label>
+                        <input type="text" class="form-input" id="level-equation" placeholder="例如: 2H2 + O2 = 2H2O" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">反应物 (JSON)</label>
+                        <textarea class="form-textarea" id="level-reactants" placeholder='["H2", "O2"]'></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">生成物 (JSON)</label>
+                        <textarea class="form-textarea" id="level-products" placeholder='["H2O"]'></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">化学计量数 (JSON)</label>
+                        <textarea class="form-textarea" id="level-coefficients" placeholder='{"H2": 2, "O2": 1, "H2O": 2}'></textarea>
+                    </div>
+                </div>
+
+                <!-- 参数设置 -->
+                <div class="form-section">
+                    <h3><i class="fas fa-sliders-h"></i> 参数设置</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">平衡常数 K</label>
+                            <input type="number" class="form-input" id="level-k" placeholder="1" step="any">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">反应热 ΔH (kJ/mol)</label>
+                            <input type="number" class="form-input" id="level-deltaH" placeholder="0" step="any">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">温度变化率系数 (0-1)</label>
+                        <input type="number" class="form-input" id="level-tempSensitivity" placeholder="1" step="0.1" min="0" max="1">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">初始温度 (K)</label>
+                            <input type="number" class="form-input" id="level-temp" placeholder="298" step="any">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">初始压强 (kPa)</label>
+                            <input type="number" class="form-input" id="level-pressure" placeholder="101" step="any">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">难度 (1-4)</label>
+                            <select class="form-select" id="level-difficulty">
+                                <option value="1">简单</option>
+                                <option value="2">普通</option>
+                                <option value="3">困难</option>
+                                <option value="4">C·C</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">是否包含气体</label>
+                            <select class="form-select" id="level-hasGas">
+                                <option value="false">否</option>
+                                <option value="true">是</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="validation-message"></div>
+            </div>
+
+            <div class="editor-preview">
+                <h3 style="color: #00d4ff; margin-bottom: 15px;">预览</h3>
+                <div class="preview-card">
+                    <div class="preview-title">关卡信息</div>
+                    <div class="preview-text" id="preview-info">等待输入...</div>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-title">化学反应</div>
+                    <div class="preview-text" id="preview-reaction">等待输入...</div>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-title">参数</div>
+                    <div class="preview-text" id="preview-params">等待输入...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/utils.js"></script>
+    <script src="src/js/workshop-manager.js"></script>
+    <script>
+        // 编辑器逻辑
+        let currentLevel = null;
+
+        // 无边框窗口：标题栏按钮
+        const canControlWindow = !!window.electronAPI;
+        const btnMinimize = document.getElementById('btn-minimize');
+        const btnMaximize = document.getElementById('btn-maximize');
+        const btnClose = document.getElementById('btn-close');
+
+        if (btnMinimize) {
+            btnMinimize.addEventListener('click', () => {
+                if (canControlWindow) window.electronAPI.minimizeWindow();
+            });
+        }
+        if (btnMaximize) {
+            btnMaximize.addEventListener('click', () => {
+                if (canControlWindow) window.electronAPI.maximizeWindow();
+            });
+        }
+        if (btnClose) {
+            btnClose.addEventListener('click', () => {
+                if (canControlWindow) window.electronAPI.closeWindow();
+                else window.close();
+            });
+        }
+
+        // 接收关卡数据
+        if (window.electronAPI?.onLoadLevelData) {
+            window.electronAPI.onLoadLevelData((levelData) => {
+                currentLevel = levelData;
+                loadLevelData(levelData);
+            });
+        }
+
+        // 加载关卡数据到表单
+        function loadLevelData(data) {
+            if (!data) return;
+
+            // 兼容 CCB 文件结构
+            document.getElementById('level-id').value = data.metadata?.id || '';
+            document.getElementById('level-name').value = data.metadata?.name || '';
+            document.getElementById('level-author').value = data.metadata?.author || '';
+            document.getElementById('level-description').value = data.metadata?.description || '';
+
+            document.getElementById('level-equation').value = data.reaction?.displayEquation || '';
+            document.getElementById('level-reactants').value = JSON.stringify(data.reaction?.reactants || [], null, 2);
+            document.getElementById('level-products').value = JSON.stringify(data.reaction?.products || [], null, 2);
+            document.getElementById('level-coefficients').value = JSON.stringify(data.reaction?.coefficients || {}, null, 2);
+
+            document.getElementById('level-k').value = data.reaction?.equilibriumConstant ?? 1;
+            document.getElementById('level-deltaH').value = data.reaction?.deltaH ?? 0;
+            document.getElementById('level-tempSensitivity').value = data.reaction?.temperatureSensitivity ?? 1;
+            document.getElementById('level-temp').value = data.reaction?.initialTemp ?? data.reaction?.initialTemperature ?? 298;
+            document.getElementById('level-pressure').value = data.reaction?.initialPressure ?? 101.325;
+
+            document.getElementById('level-difficulty').value = data.difficulty?.aiLevel ?? 1;
+            document.getElementById('level-hasGas').value = data.reaction?.hasGas ? 'true' : 'false';
+
+            updatePreview();
+        }
+
+        // 从表单收集数据
+        function collectLevelData() {
+            try {
+                const base = (currentLevel && typeof currentLevel === 'object') ? currentLevel : {};
+                const metadata = { ...(base.metadata || {}) };
+                const reaction = { ...(base.reaction || {}) };
+                const difficulty = { ...(base.difficulty || {}) };
+
+                metadata.id = document.getElementById('level-id').value;
+                metadata.name = document.getElementById('level-name').value;
+                metadata.author = document.getElementById('level-author').value;
+                metadata.description = document.getElementById('level-description').value;
+                if (!metadata.createdAt) metadata.createdAt = Date.now();
+
+                reaction.displayEquation = document.getElementById('level-equation').value;
+                reaction.reactants = JSON.parse(document.getElementById('level-reactants').value);
+                reaction.products = JSON.parse(document.getElementById('level-products').value);
+                reaction.coefficients = JSON.parse(document.getElementById('level-coefficients').value);
+                reaction.equilibriumConstant = parseFloat(document.getElementById('level-k').value);
+                reaction.deltaH = parseFloat(document.getElementById('level-deltaH').value);
+                {
+                    const raw = parseFloat(document.getElementById('level-tempSensitivity').value);
+                    const value = Number.isFinite(raw) ? raw : 1;
+                    reaction.temperatureSensitivity = Math.max(0, Math.min(1, value));
+                }
+                reaction.initialTemp = parseFloat(document.getElementById('level-temp').value);
+                reaction.initialPressure = parseFloat(document.getElementById('level-pressure').value);
+                reaction.hasGas = document.getElementById('level-hasGas').value === 'true';
+
+                difficulty.aiLevel = parseInt(document.getElementById('level-difficulty').value, 10);
+
+                return {
+                    ...base,
+                    version: base.version || '1.0.0',
+                    metadata,
+                    reaction,
+                    difficulty
+                };
+            } catch (error) {
+                throw new Error('数据格式错误: ' + error.message);
+            }
+        }
+
+        // 更新预览
+        function updatePreview() {
+            try {
+                const data = collectLevelData();
+                
+                document.getElementById('preview-info').innerHTML = `
+                    ID: ${data.metadata.id}<br>
+                    名称: ${data.metadata.name}<br>
+                    作者: ${data.metadata.author}<br>
+                    难度: ${['简单', '普通', '困难', 'C·C'][(data.difficulty?.aiLevel || 1) - 1]}
+                `;
+
+                document.getElementById('preview-reaction').innerHTML = `
+                    ${data.reaction.displayEquation}<br>
+                    反应物: ${data.reaction.reactants.join(', ')}<br>
+                    生成物: ${data.reaction.products.join(', ')}
+                `;
+
+                document.getElementById('preview-params').innerHTML = `
+                    K = ${data.reaction.equilibriumConstant}<br>
+                    ΔH = ${data.reaction.deltaH} kJ/mol<br>
+                    温度变化率系数 = ${data.reaction.temperatureSensitivity ?? 1}<br>
+                    T = ${data.reaction.initialTemp} K<br>
+                    P = ${data.reaction.initialPressure} kPa<br>
+                    气体: ${data.reaction.hasGas ? '是' : '否'}
+                `;
+            } catch (error) {
+                // Ignore preview errors
+            }
+        }
+
+        // 验证
+        document.getElementById('btn-validate').addEventListener('click', () => {
+            const msgDiv = document.getElementById('validation-message');
+            try {
+                const data = collectLevelData();
+                const result = WorkshopManager.validateCCBData(data);
+                
+                if (result.valid) {
+                    msgDiv.innerHTML = '<div class="success-message">✓ 验证通过</div>';
+                } else {
+                    msgDiv.innerHTML = '<div class="error-message">✗ 验证失败:<br>' + result.errors.join('<br>') + '</div>';
+                }
+            } catch (error) {
+                msgDiv.innerHTML = '<div class="error-message">✗ 错误: ' + error.message + '</div>';
+            }
+        });
+
+        // 保存
+        document.getElementById('btn-save').addEventListener('click', async () => {
+            try {
+                const data = collectLevelData();
+                const result = WorkshopManager.validateCCBData(data);
+                
+                if (!result.valid) {
+                    alert('验证失败:\n' + result.errors.join('\n'));
+                    return;
+                }
+
+                if (window.electronAPI?.saveEditedLevel) {
+                    await window.electronAPI.saveEditedLevel(data);
+                    window.close();
+                }
+            } catch (error) {
+                alert('保存失败: ' + error.message);
+            }
+        });
+
+        // 取消
+        document.getElementById('btn-cancel').addEventListener('click', () => {
+            window.close();
+        });
+
+        // 实时更新预览
+        document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(el => {
+            el.addEventListener('input', updatePreview);
+        });
+    </script>
+</body>
+</html>

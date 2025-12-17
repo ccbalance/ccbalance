@@ -3,14 +3,20 @@
 /* 关卡选择 */
 #level-select {
     flex-direction: column;
+    overflow: hidden;
 }
 
 .category-tabs {
     display: flex;
     gap: 10px;
-    padding: 20px 30px;
+    padding: 12px 20px;
     background: rgba(0, 0, 0, 0.2);
     overflow-x: auto;
+    overflow-y: hidden;
+    align-items: center;
+    /* 固定高度，避免被误用为垂直滚动容器 */
+    flex: 0 0 64px;
+    height: 64px;
 }
 
 .category-tab {
@@ -44,11 +50,20 @@
 }
 
 .levels-grid {
-    flex: 1;
+    flex: 1 1 auto;
+    min-height: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* 每列最小宽度增加，避免卡片被压扁 */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
     padding: 30px;
+    overflow-y: auto;
+}
+
+/* 确保 id 为 levels-container 的容器负责垂直滚动（优先级更高） */
+#levels-container {
+    flex: 1 1 auto;
+    min-height: 0;
     overflow-y: auto;
 }
 
@@ -62,6 +77,13 @@
     cursor: pointer;
     transition: var(--transition-normal);
     overflow: hidden;
+
+    /* 固定卡片大小以保持列表整齐 */
+    min-width: 220px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .level-card::before {
@@ -161,6 +183,7 @@
     padding: 20px 30px;
     background: rgba(0, 0, 0, 0.3);
     border-top: 1px solid var(--glass-border);
+    flex: 0 0 auto;
 }
 
 .difficulty-selector span {
@@ -276,6 +299,25 @@
 
 .setting-select option {
     background: var(--bg-dark);
+}
+
+.setting-color {
+    width: 54px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    background: var(--glass-bg);
+    cursor: pointer;
+}
+
+.setting-color::-webkit-color-swatch-wrapper {
+    padding: 4px;
+}
+
+.setting-color::-webkit-color-swatch {
+    border: none;
+    border-radius: 6px;
 }
 
 /* 开关按钮 */
@@ -623,4 +665,258 @@ kbd {
     opacity: 1;
     visibility: visible;
     bottom: calc(100% + 8px);
+}
+
+/* 创意工坊 */
+#workshop-screen {
+    flex-direction: column;
+}
+
+.workshop-toolbar {
+    display: flex;
+    gap: 12px;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.toolbar-btn:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.toolbar-btn.primary {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 45, 255, 0.2));
+    border-color: var(--primary-color);
+}
+
+.toolbar-btn.primary:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(123, 45, 255, 0.3));
+}
+
+.toolbar-btn.danger {
+    border-color: #ff4466;
+    color: #ff4466;
+}
+
+.toolbar-btn.danger:hover {
+    background: rgba(255, 68, 102, 0.1);
+    border-color: #ff6688;
+}
+
+.workshop-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    background: rgba(0, 212, 255, 0.05);
+    border-left: 3px solid var(--primary-color);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.workshop-info a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.workshop-info a:hover {
+    color: #00ffff;
+}
+
+.workshop-levels {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.workshop-level-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--glass-bg);
+    transition: var(--transition-normal);
+    flex-wrap: wrap;
+}
+
+.workshop-level-card:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.workshop-level-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 45, 255, 0.2));
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.workshop-level-info {
+    flex: 1;
+}
+
+.workshop-level-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.workshop-level-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+}
+
+.workshop-level-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.workshop-level-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.workshop-action-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.workshop-action-btn:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.workshop-action-btn.delete {
+    border-color: #ff4466;
+    color: #ff4466;
+}
+
+.workshop-action-btn.delete:hover {
+    background: rgba(255, 68, 102, 0.1);
+}
+
+.empty-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-align: center;
+}
+
+.empty-hint i {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty-hint p {
+    margin: 5px 0;
+}
+
+/* PWA 服务器控制 */
+.server-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #666;
+    transition: var(--transition-fast);
+}
+
+.status-indicator.running {
+    background: #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.server-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.server-controls .menu-btn {
+    flex: 1;
+    min-width: 140px;
+}
+
+.setting-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(0, 212, 255, 0.05);
+    border-left: 3px solid var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.setting-hint i {
+    margin-top: 2px;
+    color: var(--primary-color);
+}
+
+.setting-input {
+    width: 100px;
+    padding: 6px 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.setting-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
 }

@@ -18,6 +18,18 @@ const UIManager = {
         this.bindEvents();
         this.updateProgress();
         this.renderAboutCard();
+
+        // 编辑器窗口保存回传（Electron）
+        window.electronAPI?.onLevelEdited?.((levelData) => {
+            try {
+                WorkshopManager?.addLevel?.(levelData);
+                this.renderWorkshop();
+                this.showMessage('关卡已保存', 'success');
+            } catch (e) {
+                console.error('Failed to apply edited level:', e);
+                this.showMessage('关卡保存回传失败', 'error');
+            }
+        });
     },
 
     /**
@@ -63,7 +75,8 @@ const UIManager = {
             gameScreen: document.getElementById('game-screen'),
             resultScreen: document.getElementById('result-screen'),
             collectionScreen: document.getElementById('collection-screen'),
-            settingsScreen: document.getElementById('settings-screen')
+            settingsScreen: document.getElementById('settings-screen'),
+            workshopScreen: document.getElementById('workshop-screen')
         };
 
         // 按钮
@@ -159,6 +172,10 @@ const UIManager = {
         this.elements.buttons.levelSelect?.addEventListener('click', () => {
             this.showScreen('levelSelect', 'slide-right');
         });
+        document.getElementById('btn-workshop')?.addEventListener('click', () => {
+            this.showScreen('workshopScreen', 'slide-right');
+            this.renderWorkshop();
+        });
         this.elements.buttons.collection?.addEventListener('click', () => {
             this.showScreen('collectionScreen', 'scale');
             this.renderCollection();
@@ -175,6 +192,9 @@ const UIManager = {
             this.showScreen('mainMenu', 'slide-left');
         });
         this.elements.buttons.backMenu3?.addEventListener('click', () => {
+            this.showScreen('mainMenu', 'slide-left');
+        });
+        document.getElementById('btn-back-menu-workshop')?.addEventListener('click', () => {
             this.showScreen('mainMenu', 'slide-left');
         });
 
@@ -240,12 +260,13 @@ const UIManager = {
         });
 
         // 信息面板切换
-        document.getElementById('toggle-info')?.addEventListener('click', () => {
+        document.getElementById('toggle-info')?.addEventListener('click', (e) => {
+            e.stopPropagation();
             this.elements.game.infoPanel?.classList.toggle('collapsed');
         });
 
         // 侧边栏收起后：点击侧边栏任意位置展开
-        this.elements.game.infoPanel?.addEventListener('click', () => {
+        this.elements.game.infoPanel?.addEventListener('click', (e) => {
             const panel = this.elements.game.infoPanel;
             if (!panel) return;
             if (panel.classList.contains('collapsed')) {
@@ -261,6 +282,9 @@ const UIManager = {
                 this.renderCollection(e.target.dataset.filter);
             });
         });
+
+        // 创意工坊事件
+        this.bindWorkshopEvents();
 
         // 设置控件
         this.bindSettingsEvents();
@@ -322,6 +346,17 @@ const UIManager = {
             });
         }
 
+        // 粒子颜色
+        const particleColor = document.getElementById('particle-color');
+        if (particleColor) {
+            particleColor.value = settings.particleColor || '#00d4ff';
+            particleColor.addEventListener('input', (e) => {
+                const value = String(e.target.value || '').trim() || '#00d4ff';
+                StorageManager.saveSettings({ particleColor: value });
+                window.bgParticles?.setColor?.(value);
+            });
+        }
+
         // 动画效果
         const enableAnimations = document.getElementById('enable-animations');
         if (enableAnimations) {
@@ -348,6 +383,184 @@ const UIManager = {
                 StorageManager.saveSettings({ showHints: e.target.checked });
             });
         }
+
+        // 关卡回合数
+        const roundsPerLevel = document.getElementById('rounds-per-level');
+        if (roundsPerLevel) {
+            roundsPerLevel.value = String(settings.roundsPerLevel ?? 10);
+            roundsPerLevel.addEventListener('change', (e) => {
+                const value = parseInt(e.target.value, 10);
+                StorageManager.saveSettings({ roundsPerLevel: Number.isFinite(value) ? value : 10 });
+            });
+        }
+
+        // PWA 服务器控制
+        this.bindPWAServerEvents();
+    },
+
+    /**
+     * 绑定 PWA 服务器事件
+     */
+    bindPWAServerEvents() {
+        if (!window.electronAPI) return;
+
+        const startBtn = document.getElementById('btn-pwa-start');
+        const stopBtn = document.getElementById('btn-pwa-stop');
+        const openBtn = document.getElementById('btn-pwa-open');
+        const portInput = document.getElementById('pwa-port');
+
+        // 初始化服务器状态
+        this.updatePWAServerStatus();
+
+        startBtn?.addEventListener('click', async () => {
+            AudioManager?.playSound?.('click');
+            const port = parseInt(portInput?.value || 3000);
+            try {
+                const result = await window.electronAPI.pwaServerStart(port);
+                if (result.success) {
+                    this.showMessage('PWA 服务器已启动');
+                    this.updatePWAServerStatus();
+                } else {
+                    this.showMessage('启动失败: ' + (result.error || '未知错误'));
+                }
+            } catch (error) {
+                this.showMessage('启动失败: ' + error.message);
+            }
+        });
+
+        stopBtn?.addEventListener('click', async () => {
+            AudioManager?.playSound?.('click');
+            try {
+                const result = await window.electronAPI.pwaServerStop();
+                if (result.success) {
+                    this.showMessage('PWA 服务器已停止');
+                    this.updatePWAServerStatus();
+                } else {
+                    this.showMessage('停止失败: ' + (result.error || '未知错误'));
+                }
+            } catch (error) {
+                this.showMessage('停止失败: ' + error.message);
+            }
+        });
+
+        openBtn?.addEventListener('click', async () => {
+            AudioManager?.playSound?.('click');
+            const status = await window.electronAPI.pwaServerStatus();
+            if (status.isRunning && status.url) {
+                window.open(status.url, '_blank');
+            } else {
+                this.showMessage('服务器未运行');
+            }
+        });
+
+        // 监听服务器状态变化
+        window.electronAPI.onPWAServerStatusChanged?.((status) => {
+            this.updatePWAServerStatus(status);
+        });
+    },
+
+    /**
+     * 更新 PWA 服务器状态显示
+     */
+    async updatePWAServerStatus(status) {
+        if (!window.electronAPI) return;
+
+        if (!status) {
+            status = await window.electronAPI.pwaServerStatus();
+        }
+
+        const statusText = document.getElementById('server-status-text');
+        const indicator = document.getElementById('server-status-indicator');
+        const urlLink = document.getElementById('pwa-server-url');
+
+        if (statusText) {
+            statusText.textContent = status.isRunning ? '运行中' : '未运行';
+        }
+
+        if (indicator) {
+            indicator.classList.toggle('running', status.isRunning);
+        }
+
+        if (urlLink) {
+            if (status.isRunning && status.url) {
+                urlLink.textContent = status.url;
+                urlLink.href = status.url;
+                urlLink.style.pointerEvents = 'auto';
+            } else {
+                urlLink.textContent = '-';
+                urlLink.href = '#';
+                urlLink.style.pointerEvents = 'none';
+            }
+        }
+    },
+
+    /**
+     * 统一提示（兼容旧代码里的 this.showMessage 调用）
+     */
+    showMessage(message, type = 'info') {
+        if (Utils?.showToast) {
+            Utils.showToast(message, type);
+        } else {
+            console.log(`[${type}] ${message}`);
+        }
+    },
+
+    /**
+     * 代替 prompt()（Electron 环境不支持原生 prompt）
+     */
+    promptText({ title = '请输入', label = '', placeholder = '', defaultValue = '' } = {}) {
+        return new Promise((resolve) => {
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-overlay active';
+            overlay.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>${title}</h3>
+                        <button class="modal-close" type="button" aria-label="Close"><i class="fas fa-times"></i></button>
+                    </div>
+                    ${label ? `<div style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">${label}</div>` : ''}
+                    <input class="setting-input" style="width: 100%;" placeholder="${placeholder}" value="${defaultValue}" />
+                    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top: 16px;">
+                        <button class="toolbar-btn" type="button" data-action="cancel">取消</button>
+                        <button class="toolbar-btn primary" type="button" data-action="ok">确定</button>
+                    </div>
+                </div>
+            `;
+
+            const cleanup = () => overlay.remove();
+            const closeBtn = overlay.querySelector('.modal-close');
+            const input = overlay.querySelector('input');
+
+            const finish = (value) => {
+                cleanup();
+                resolve(value);
+            };
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) finish(null);
+            });
+            closeBtn?.addEventListener('click', () => finish(null));
+            overlay.querySelector('[data-action="cancel"]')?.addEventListener('click', () => finish(null));
+            overlay.querySelector('[data-action="ok"]')?.addEventListener('click', () => {
+                const v = (input?.value || '').trim();
+                finish(v || null);
+            });
+
+            input?.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const v = (input?.value || '').trim();
+                    finish(v || null);
+                }
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    finish(null);
+                }
+            });
+
+            document.body.appendChild(overlay);
+            setTimeout(() => input?.focus(), 0);
+        });
     },
 
     /**
@@ -561,10 +774,14 @@ const UIManager = {
         // 设置焓变标签
         const deltaH = level.deltaH || 0;
         const isEndothermic = deltaH > 0;
+        const thermoHint = isEndothermic
+            ? '吸热反应：升温促进正向，降温促进逆向'
+            : '放热反应：升温促进逆向，降温促进正向';
         this.elements.game.enthalpyBadge.innerHTML = `
             <i class="fas ${isEndothermic ? 'fa-snowflake' : 'fa-fire'}"></i>
             <span>${isEndothermic ? '吸热反应' : '放热反应'}</span>
         `;
+        this.elements.game.enthalpyBadge.title = thermoHint;
         this.elements.game.enthalpyBadge.classList.toggle('exothermic', !isEndothermic);
 
         // 设置投料按钮
@@ -859,8 +1076,17 @@ const UIManager = {
         // 更新浓度列表
         const concList = this.elements.game.concentrationList;
         concList.innerHTML = '';
-        
-        for (const [species, conc] of Object.entries(state.concentrations)) {
+
+        const level = window.Game?.state?.levelData;
+        const preferredSpecies = (level?.reactants && level?.products)
+            ? [...level.reactants, ...level.products]
+            : null;
+
+        const entries = preferredSpecies
+            ? preferredSpecies.map(species => [species, state.concentrations?.[species] ?? 0])
+            : Object.entries(state.concentrations || {});
+
+        for (const [species, conc] of entries) {
             const item = document.createElement('div');
             item.className = 'conc-item';
             item.innerHTML = `
@@ -957,6 +1183,268 @@ const UIManager = {
             group.classList.toggle('active', group.dataset.param === param);
         });
         this.focusedParam = param;
+    },
+
+    /**
+     * 绑定创意工坊事件
+     */
+    bindWorkshopEvents() {
+        const importBtn = document.getElementById('btn-import-level');
+        const downloadBtn = document.getElementById('btn-download-level');
+        const createBtn = document.getElementById('btn-create-template');
+        const clearBtn = document.getElementById('btn-clear-workshop');
+        const formatLink = document.getElementById('link-ccb-format');
+
+        importBtn?.addEventListener('click', () => {
+            AudioManager?.playSound?.('click');
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.ccb,application/json,.json';
+            input.addEventListener('change', async () => {
+                const file = input.files?.[0];
+                if (!file) return;
+                try {
+                    const text = await file.text();
+                    const data = JSON.parse(text);
+                    const validation = WorkshopManager?.validateCCBData?.(data);
+                    if (!validation?.valid) {
+                        this.showMessage('导入失败: ' + (validation?.errors?.[0] || '格式不合法'), 'error');
+                        return;
+                    }
+                    WorkshopManager.addLevel(data);
+                    this.renderWorkshop();
+                    this.showMessage('导入成功', 'success');
+                } catch (e) {
+                    this.showMessage('导入失败: ' + e.message, 'error');
+                }
+            });
+            input.click();
+        });
+
+        downloadBtn?.addEventListener('click', () => {
+            AudioManager?.playSound?.('click');
+            this.promptText({
+                title: '从网络下载关卡',
+                label: '请输入 .ccb 的 URL（需返回 JSON）',
+                placeholder: 'https://example.com/level.ccb'
+            }).then((url) => {
+                if (url) this.downloadWorkshopLevel(url);
+            });
+        });
+
+        createBtn?.addEventListener('click', () => {
+            AudioManager?.playSound?.('click');
+            const template = WorkshopManager.createTemplate();
+            WorkshopManager.addLevel(template);
+            this.renderWorkshop();
+            this.showMessage('已创建空白关卡模板');
+        });
+
+        clearBtn?.addEventListener('click', () => {
+            AudioManager?.playSound?.('click');
+            if (confirm('确定要清空所有创意工坊关卡吗？此操作不可撤销。')) {
+                WorkshopManager.clearAll();
+                this.renderWorkshop();
+                this.showMessage('已清空所有创意工坊关卡');
+            }
+        });
+
+        formatLink?.addEventListener('click', (e) => {
+            e.preventDefault();
+            AudioManager?.playSound?.('click');
+            // TODO: 打开格式文档(需要 Electron 或 browser API)
+            this.showMessage('请查看 docs/CCB_FILE_FORMAT.md 文件');
+        });
+    },
+
+    /**
+     * 渲染创意工坊
+     */
+    renderWorkshop() {
+        const container = document.getElementById('workshop-levels');
+        if (!container) return;
+
+        const levels = WorkshopManager.getAllLevels();
+        
+        if (levels.length === 0) {
+            container.innerHTML = `
+                <div class="empty-hint">
+                    <i class="fas fa-box-open"></i>
+                    <p>还没有导入任何关卡</p>
+                    <p>点击上方按钮导入或创建关卡</p>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = levels.map(level => this.createWorkshopLevelCard(level)).join('');
+
+        // 绑定卡片事件
+        container.querySelectorAll('.workshop-action-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const action = btn.dataset.action;
+                const levelId = btn.dataset.levelId;
+                this.handleWorkshopAction(action, levelId);
+            });
+        });
+    },
+
+    /**
+     * 创建工坊关卡卡片
+     */
+    createWorkshopLevelCard(level) {
+        const aiLevel = Number(level?.difficulty?.aiLevel ?? 2);
+        const difficulty = ['简单', '普通', '困难', 'C·C'][aiLevel - 1] || '未知';
+        const id = level?.metadata?.id || '';
+        const name = level?.metadata?.name || '未命名关卡';
+        const author = level?.metadata?.author || '匿名';
+        const version = level?.version || '-';
+        return `
+            <div class="workshop-level-card">
+                <div class="workshop-level-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <div class="workshop-level-info">
+                    <div class="workshop-level-name">${name}</div>
+                    <div class="workshop-level-meta">
+                        <span><i class="fas fa-user"></i> ${author}</span>
+                        <span><i class="fas fa-signal"></i> ${difficulty}</span>
+                        <span><i class="fas fa-tag"></i> v${version}</span>
+                        <span><i class="fas fa-fingerprint"></i> ${id}</span>
+                    </div>
+                </div>
+                <div class="workshop-level-actions">
+                    <button class="workshop-action-btn" data-action="play" data-level-id="${id}">
+                        <i class="fas fa-play"></i> 试玩
+                    </button>
+                    <button class="workshop-action-btn" data-action="edit" data-level-id="${id}">
+                        <i class="fas fa-edit"></i> 编辑
+                    </button>
+                    <button class="workshop-action-btn" data-action="export" data-level-id="${id}">
+                        <i class="fas fa-file-export"></i> 导出
+                    </button>
+                    <button class="workshop-action-btn delete" data-action="delete" data-level-id="${id}">
+                        <i class="fas fa-trash"></i> 删除
+                    </button>
+                </div>
+            </div>
+        `;
+    },
+
+    /**
+     * 处理工坊操作
+     */
+    handleWorkshopAction(action, levelId) {
+        AudioManager?.playSound?.('click');
+
+        const levelData = WorkshopManager?.getLevel?.(levelId);
+
+        switch (action) {
+            case 'play':
+                if (!levelData) {
+                    this.showMessage('关卡不存在', 'error');
+                    return;
+                }
+
+                // 将 CCB 结构转换为游戏关卡结构
+                const level = {
+                    id: levelData.metadata?.id,
+                    category: 'custom',
+                    name: levelData.metadata?.name || '自定义关卡',
+                    description: levelData.metadata?.description || '',
+                    equation: levelData.reaction?.displayEquation || '',
+                    displayEquation: levelData.reaction?.displayEquation || '',
+                    reactants: levelData.reaction?.reactants || [],
+                    products: levelData.reaction?.products || [],
+                    coefficients: levelData.reaction?.coefficients || {},
+                    initialConcentrations: levelData.reaction?.initialConcentrations || {},
+                    equilibriumConstant: levelData.reaction?.equilibriumConstant ?? 1,
+                    deltaH: levelData.reaction?.deltaH ?? 0,
+                    initialTemp: levelData.reaction?.initialTemp ?? levelData.reaction?.initialTemperature ?? 298,
+                    initialPressure: levelData.reaction?.initialPressure ?? 101.325,
+                    hasGas: !!levelData.reaction?.hasGas,
+                    containerType: levelData.reaction?.containerType || 'rigid',
+                    maxRounds: levelData.difficulty?.maxRounds ?? null
+                };
+
+                this.showScreen('gameScreen');
+                Game.startCustomLevel(level);
+                break;
+
+            case 'edit':
+                if (!levelData) {
+                    this.showMessage('关卡不存在', 'error');
+                    return;
+                }
+
+                if (window.electronAPI?.openLevelEditor) {
+                    window.electronAPI.openLevelEditor(levelData);
+                } else {
+                    try {
+                        sessionStorage.setItem('ccbalance_edit_level', JSON.stringify(levelData));
+                        window.open('editor.html', '_blank');
+                    } catch (e) {
+                        this.showMessage('无法打开编辑器: ' + e.message, 'error');
+                    }
+                }
+                break;
+                
+            case 'export':
+                if (!levelData) {
+                    this.showMessage('关卡不存在', 'error');
+                    return;
+                }
+
+                try {
+                    const content = JSON.stringify(levelData, null, 2);
+                    const blob = new Blob([content], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    const safeName = (levelData.metadata?.name || levelId || 'level')
+                        .toString()
+                        .replace(/[\\/:*?"<>|]+/g, '_')
+                        .slice(0, 80);
+                    a.href = url;
+                    a.download = `${safeName}.ccb`;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    URL.revokeObjectURL(url);
+                    this.showMessage('已导出 .ccb 文件', 'success');
+                } catch (e) {
+                    this.showMessage('导出失败: ' + e.message, 'error');
+                }
+                break;
+                
+            case 'delete':
+                if (confirm('确定要删除这个关卡吗？')) {
+                    WorkshopManager.deleteLevel(levelId);
+                    this.renderWorkshop();
+                    this.showMessage('已删除关卡', 'success');
+                }
+                break;
+        }
+    },
+
+    /**
+     * 从网络下载关卡
+     */
+    async downloadWorkshopLevel(url) {
+        try {
+            this.showMessage('正在下载关卡...');
+            const result = await WorkshopManager.downloadFromURL(url);
+            if (!result?.success) {
+                const err = result?.errors?.join('；') || result?.error || '格式不合法或下载失败';
+                this.showMessage('下载失败: ' + err, 'error');
+                return;
+            }
+            WorkshopManager.addLevel(result.data);
+            this.renderWorkshop();
+            this.showMessage('关卡下载成功！', 'success');
+        } catch (error) {
+            this.showMessage('下载失败: ' + error.message, 'error');
+            console.error('Download failed:', error);
+        }
     }
 };
 

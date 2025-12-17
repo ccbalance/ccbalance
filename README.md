@@ -2,6 +2,21 @@
 
 一款赛博朋克风格的化学平衡策略对战游戏。通过调节温度、压强和浓度来控制化学平衡,与AI进行对战。
 
+## 版本信息
+
+**当前版本**: v0.1.1  
+**更新日期**: 2024
+
+### v0.1.1 新增功能
+
+- **难度系统优化**: 最高难度改名为"C·C",AI 能力卡使用策略优化
+- **创意工坊系统**: 支持自定义关卡导入/导出,使用 .ccb 文件格式(详见 [CCB 文件格式规范](docs/CCB_FILE_FORMAT.md))
+- **侧边栏修复**: 修复侧边栏按钮点击事件传播问题
+- **响应式布局**: 针对小屏幕设备优化布局,支持 800px 以下高度和 900px 以下宽度
+- **粒子效果定制**: 设置中新增粒子颜色调色板,可自定义背景粒子颜色
+- **关卡回合数设置**: 可在设置中调整每关默认回合数(1/3/5/7/10 可选)
+- **单实例锁定**: 同时只能运行一个应用实例,再次启动将聚焦已有窗口并支持命令行参数传递
+
 ## 安装与运行
 
 ```bash
@@ -11,8 +26,12 @@ npm install
 # 运行游戏
 npm start
 
-# 开发模式
+# 开发模式(开启 DevTools)
 npm run dev
+
+# 命令行启动示例
+npm start play 5      # 直接启动第5关
+npm start pass 3      # 解锁第4关(通过第3关)
 ```
 
 ## 游戏玩法
@@ -77,33 +96,60 @@ ccbalance/
 ├── main.js              # Electron主进程
 ├── preload.js           # 预加载脚本
 ├── index.html           # 主页面
+├── LICENSE              # CC0 公共领域许可证
 ├── fontawesome/         # FontAwesome字体图标
+├── docs/
+│   └── CCB_FILE_FORMAT.md # CCB 文件格式规范
 └── src/
     ├── styles/
     │   ├── main.css          # 主样式
     │   ├── ui-components.css # UI组件
-    │   ├── game-board.css    # 游戏界面
+    │   ├── game-board.css    # 游戏界面(含响应式规则)
     │   ├── particles.css     # 粒子效果
     │   └── animations.css    # 动画效果
     └── js/
         ├── utils.js           # 工具函数
-        ├── storage-manager.js # 本地存储
-        ├── particle-system.js # 粒子系统
+        ├── storage-manager.js # 本地存储(含新设置项)
+        ├── particle-system.js # 粒子系统(支持动态颜色)
         ├── animation-manager.js # 动画管理
         ├── chemistry-engine.js # 化学引擎
         ├── levels.js          # 关卡数据
-        ├── ai-system.js       # AI系统
+        ├── ai-system.js       # AI系统(能力卡集成)
         ├── card-system.js     # 能力卡牌
-        ├── ui-manager.js      # UI管理
+        ├── ui-manager.js      # UI管理(侧边栏修复)
         ├── keyboard-handler.js # 键盘处理
         ├── chart-renderer.js  # 图表渲染
-        ├── game.js            # 游戏主循环
-        └── app.js             # 应用入口
+        ├── game-actions.js    # 游戏操作
+        ├── game.js            # 游戏主循环(支持AI能力卡)
+        ├── workshop-manager.js # 创意工坊管理器
+        └── app.js             # 应用入口(命令行参数支持)
 
 ## 开发调试
 
 在控制台输入 `debug()` 启用调试模式,可通过 `window.DEBUG` 访问所有模块。
 
+## 创意工坊
+
+支持自定义关卡功能,可导入/导出 .ccb 文件格式的关卡。详细的文件格式规范请参阅 [CCB 文件格式规范](docs/CCB_FILE_FORMAT.md)。
+
+### 使用方法
+
+1. **导入关卡**: 在创意工坊界面点击"导入关卡"按钮,选择 .ccb 文件
+2. **在线下载**: 输入关卡 URL 直接下载并导入
+3. **导出关卡**: 选择已有关卡,点击"导出"保存为本地文件
+4. **创建模板**: 使用内置模板快速创建新关卡
+
+### CCB 文件格式
+
+CCB (CCBalance Level) 文件采用 JSON 格式,包含关卡元数据、化学反应数据、难度等信息。当前版本支持 1.0.0 格式规范。
+
 ## 许可证
 
-MIT License
+本项目采用 **CC0 1.0 Universal (CC0 1.0) 公共领域贡献** 许可证。
+
+您可以自由地:
+- 复制、修改、发布、使用、编译、出售本作品
+- 用于商业或非商业目的
+- 无需署名、无需许可
+
+详见 [LICENSE](LICENSE) 文件或访问 https://creativecommons.org/publicdomain/zero/1.0/

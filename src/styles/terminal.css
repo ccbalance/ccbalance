@@ -1,0 +1,195 @@
+/* CCBalance - 终端样式 */
+
+.terminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.terminal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.terminal-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 70%;
+    max-height: 600px;
+    background: rgba(10, 10, 26, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(0, 212, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.terminal-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #00d4ff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.terminal-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: rgba(255, 68, 102, 0.1);
+    color: #ff4466;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.terminal-close:hover {
+    background: rgba(255, 68, 102, 0.2);
+    transform: scale(1.1);
+}
+
+.terminal-output {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.terminal-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.3);
+    border-radius: 4px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.5);
+}
+
+.terminal-line {
+    margin-bottom: 8px;
+}
+
+.terminal-line.command {
+    color: #00d4ff;
+}
+
+.terminal-line.output {
+    color: #e0e0e0;
+}
+
+.terminal-line.error {
+    color: #ff4466;
+}
+
+.terminal-line.success {
+    color: #00ff88;
+}
+
+.terminal-line.warning {
+    color: #ffaa00;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.terminal-prompt {
+    color: #00d4ff;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e0e0e0;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.terminal-suggestions {
+    max-height: 150px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    display: none;
+}
+
+.terminal-suggestions.show {
+    display: block;
+}
+
+.terminal-suggestion-item {
+    padding: 8px 20px;
+    color: #a0a0a0;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.terminal-suggestion-item:hover,
+.terminal-suggestion-item.active {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+}
+
+.terminal-suggestion-cmd {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.terminal-suggestion-desc {
+    font-size: 12px;
+    color: #808080;
+    margin-left: 10px;
+}
+
+/* 终端动画 */
+@keyframes terminalBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #00d4ff;
+    margin-left: 2px;
+    animation: terminalBlink 1s infinite;
+}

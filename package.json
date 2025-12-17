@@ -1,8 +1,9 @@
 {
   "name": "ccbalance",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CCBalance - 化学平衡策略对战游戏",
   "main": "main.js",
+  "license": "CC0-1.0",
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
@@ -17,7 +18,9 @@
     "education"
   ],
   "author": "CCBalance Team",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.22.1"
+  },
   "devDependencies": {
     "electron": "^39.2.7",
     "electron-builder": "^26.0.12"
