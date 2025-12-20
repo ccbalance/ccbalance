@@ -606,6 +606,10 @@
                         <input type="number" class="setting-input" id="pwa-port" value="3000" min="1024" max="65535">
                     </div>
                     <div class="setting-item">
+                        <span>HTTPS 证书</span>
+                        <span id="pwa-cert-status" style="color: var(--text-secondary);">未配置（HTTP）</span>
+                    </div>
+                    <div class="setting-item">
                         <span>服务器地址</span>
                         <a href="#" id="pwa-server-url" target="_blank" style="color: var(--primary-color);">-</a>
                     </div>
@@ -622,10 +626,18 @@
                             <i class="fas fa-external-link-alt"></i>
                             <span>在浏览器中打开</span>
                         </button>
+                        <button class="menu-btn" id="btn-pwa-cert-select">
+                            <i class="fas fa-certificate"></i>
+                            <span>选择证书</span>
+                        </button>
+                        <button class="menu-btn danger" id="btn-pwa-cert-clear">
+                            <i class="fas fa-trash"></i>
+                            <span>卸除证书</span>
+                        </button>
                     </div>
                     <div class="setting-hint">
                         <i class="fas fa-info-circle"></i>
-                        <span>启动 PWA 服务器后,可在浏览器中访问应用,支持离线使用</span>
+                        <span>未选择证书时使用 HTTP；选择证书后将使用 HTTPS（PWA 安装/离线需要 HTTPS 或 localhost）。</span>
                     </div>
                 </div>
 

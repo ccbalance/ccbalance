@@ -556,9 +556,12 @@ const UIManager = {
         const stopBtn = document.getElementById('btn-pwa-stop');
         const openBtn = document.getElementById('btn-pwa-open');
         const portInput = document.getElementById('pwa-port');
+        const certSelectBtn = document.getElementById('btn-pwa-cert-select');
+        const certClearBtn = document.getElementById('btn-pwa-cert-clear');
 
         // 初始化服务器状态
         this.updatePWAServerStatus();
+        this.updatePWAServerCertStatus();
 
         startBtn?.addEventListener('click', async () => {
             AudioManager?.playSound?.('click');
@@ -605,6 +608,64 @@ const UIManager = {
         window.electronAPI.onPWAServerStatusChanged?.((status) => {
             this.updatePWAServerStatus(status);
         });
+
+        certSelectBtn?.addEventListener('click', async () => {
+            try {
+                const pick = await window.electronAPI.pwaServerSelectCert?.();
+                if (!pick || pick.canceled) return;
+
+                const pwd = await this.promptText({
+                    title: 'HTTPS 证书密码（可留空）',
+                    label: '如果你的 PFX/P12 没有密码，直接点“确定”即可。',
+                    placeholder: 'passphrase（可选）',
+                    defaultValue: ''
+                });
+
+                const result = await window.electronAPI.pwaServerSetCert?.(pick.filePath, pwd || '');
+                if (result?.success) {
+                    this.showMessage('证书已设置（服务器会自动切换到 HTTPS）', 'success');
+                    await this.updatePWAServerCertStatus();
+                    await this.updatePWAServerStatus();
+                } else {
+                    this.showMessage('证书设置失败: ' + (result?.error || '未知错误'), 'error');
+                }
+            } catch (e) {
+                this.showMessage('证书设置失败: ' + (e?.message || String(e)), 'error');
+            }
+        });
+
+        certClearBtn?.addEventListener('click', async () => {
+            try {
+                const result = await window.electronAPI.pwaServerClearCert?.();
+                if (result?.success) {
+                    this.showMessage('证书已卸除（服务器将使用 HTTP）', 'success');
+                    await this.updatePWAServerCertStatus();
+                    await this.updatePWAServerStatus();
+                } else {
+                    this.showMessage('卸除失败: ' + (result?.error || '未知错误'), 'error');
+                }
+            } catch (e) {
+                this.showMessage('卸除失败: ' + (e?.message || String(e)), 'error');
+            }
+        });
+    },
+
+    async updatePWAServerCertStatus() {
+        if (!window.electronAPI?.pwaServerCertStatus) return;
+        const el = document.getElementById('pwa-cert-status');
+        if (!el) return;
+
+        try {
+            const st = await window.electronAPI.pwaServerCertStatus();
+            if (st?.enabled && st?.filePath) {
+                const name = String(st.filePath).split(/[/\\]/).pop();
+                el.textContent = `已配置：${name}`;
+            } else {
+                el.textContent = '未配置（HTTP）';
+            }
+        } catch {
+            el.textContent = '未配置（HTTP）';
+        }
     },
 
     /**
@@ -647,6 +708,9 @@ const UIManager = {
                 urlLink.onclick = null;
             }
         }
+
+        // 同步刷新证书状态（尤其是启动/切换协议后）
+        this.updatePWAServerCertStatus();
     },
 
     /**

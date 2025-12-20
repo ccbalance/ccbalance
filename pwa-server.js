@@ -6,6 +6,7 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 
 class PWAServer {
@@ -14,6 +15,33 @@ class PWAServer {
         this.server = null;
         this.port = 3000;
         this.isRunning = false;
+
+        // TLS 配置（可选）
+        this._tls = null; // { pfxPath, passphrase }
+        this._protocol = 'http';
+    }
+
+    setTlsConfig(tls) {
+        // tls: { pfxPath, passphrase }
+        if (!tls || !tls.pfxPath) {
+            this._tls = null;
+            return;
+        }
+        this._tls = {
+            pfxPath: String(tls.pfxPath),
+            passphrase: tls.passphrase != null ? String(tls.passphrase) : undefined
+        };
+    }
+
+    clearTlsConfig() {
+        this._tls = null;
+    }
+
+    getTlsStatus() {
+        return {
+            enabled: !!(this._tls && this._tls.pfxPath),
+            pfxPath: this._tls?.pfxPath || null
+        };
     }
 
     /**
@@ -45,7 +73,7 @@ class PWAServer {
         this.app.get('/favicon.ico', (req, res) => {
             res.setHeader('Content-Type', 'image/x-icon');
             res.setHeader('Cache-Control', 'public, max-age=31536000');
-            res.sendFile(path.join(__dirname, 'build/icons/icon.ico'));
+            res.sendFile(path.join(__dirname, 'assets/icon.ico'));
         });
 
         // 版本信息（用于 Service Worker 缓存版本与 package.json 同步）
@@ -95,13 +123,38 @@ class PWAServer {
                 this.init(this.port);
             }
 
-            this.server = this.app.listen(this.port, () => {
+            let server;
+            let protocol = 'http';
+            try {
+                const tls = this._tls;
+                if (tls && tls.pfxPath) {
+                    const abs = path.isAbsolute(tls.pfxPath) ? tls.pfxPath : path.join(__dirname, tls.pfxPath);
+                    if (!fs.existsSync(abs)) {
+                        throw new Error(`证书文件不存在: ${abs}`);
+                    }
+                    const pfx = fs.readFileSync(abs);
+                    server = https.createServer({ pfx, passphrase: tls.passphrase }, this.app);
+                    protocol = 'https';
+                } else {
+                    server = http.createServer(this.app);
+                    protocol = 'http';
+                }
+            } catch (e) {
+                reject(e);
+                return;
+            }
+
+            this.server = server;
+            this._protocol = protocol;
+
+            server.listen(this.port, () => {
                 this.isRunning = true;
-                console.log(`PWA Server running at http://localhost:${this.port}`);
+                console.log(`PWA Server running at ${protocol}://localhost:${this.port}`);
                 resolve({
                     success: true,
                     port: this.port,
-                    url: `http://localhost:${this.port}`
+                    protocol,
+                    url: `${protocol}://localhost:${this.port}`
                 });
             });
 
@@ -149,7 +202,8 @@ class PWAServer {
         return {
             isRunning: this.isRunning,
             port: this.port,
-            url: this.isRunning ? `http://localhost:${this.port}` : null
+            protocol: this._protocol || 'http',
+            url: this.isRunning ? `${this._protocol || 'http'}://localhost:${this.port}` : null
         };
     }
 

@@ -119,41 +119,6 @@
 
         document.body.appendChild(card);
 
-        // drag
-        let dragging = false;
-        let startX = 0;
-        let startY = 0;
-        let startLeft = 0;
-        let startTop = 0;
-
-        const header = card.querySelector('.pwa-card-header');
-        header.addEventListener('pointerdown', (e) => {
-            dragging = true;
-            card.setPointerCapture(e.pointerId);
-            startX = e.clientX;
-            startY = e.clientY;
-            const rect = card.getBoundingClientRect();
-            startLeft = rect.left;
-            startTop = rect.top;
-        });
-
-        header.addEventListener('pointermove', (e) => {
-            if (!dragging) return;
-            const dx = e.clientX - startX;
-            const dy = e.clientY - startY;
-            const left = clamp(startLeft + dx, 10, window.innerWidth - 10 - card.offsetWidth);
-            const top = clamp(startTop + dy, 10, window.innerHeight - 10 - card.offsetHeight);
-            card.style.left = `${left}px`;
-            card.style.top = `${top}px`;
-            card.style.right = 'auto';
-            card.style.bottom = 'auto';
-        });
-
-        header.addEventListener('pointerup', (e) => {
-            dragging = false;
-            try { card.releasePointerCapture(e.pointerId); } catch {}
-        });
-
         card.querySelector('.pwa-card-close').addEventListener('click', () => {
             card.style.display = 'none';
         });
@@ -184,7 +149,7 @@
                 display:flex;align-items:center;justify-content:space-between;
                 padding: 10px 12px;
                 border-bottom: 1px solid var(--glass-border);
-                cursor: grab;
+                cursor: default;
             }
             #pwa-download-card .pwa-card-title{font-weight:700;font-size:13px;}
             #pwa-download-card .pwa-card-close{border:none;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:18px;line-height:18px;}
@@ -209,10 +174,10 @@
         const subEl = document.getElementById('pwa-dl-sub');
 
         const cacheStorage = globalThis.caches;
-        if (!cacheStorage || !globalThis.isSecureContext) {
-            const hint = !globalThis.isSecureContext
-                ? '离线缓存不可用：部署需要 HTTPS（或 localhost）'
-                : '离线缓存不可用：当前浏览器不支持 Cache Storage';
+        if (!cacheStorage) {
+            const hint = globalThis.isSecureContext
+                ? '离线缓存不可用：当前浏览器不支持 Cache Storage'
+                : '离线缓存不可用：需要 HTTPS（或 localhost）';
             if (lineEl) lineEl.textContent = hint;
             if (statusEl) statusEl.textContent = '不可用';
             if (barEl) barEl.style.width = '0%';
@@ -281,7 +246,7 @@
         // 完成后稍后自动收起
         setTimeout(() => {
             if (card) card.style.display = 'none';
-        }, 1500);
+        }, 4000);
     }
 
     function setupInstallPrompt() {
@@ -339,17 +304,36 @@
         setupInstallPrompt();
 
         // 部署到非 HTTPS 的 http 站点时：Service Worker/Cache Storage/安装都会被浏览器禁用
-        const canOffline = !!globalThis.caches && !!globalThis.isSecureContext;
+        const canOffline = !!globalThis.caches;
         if (!canOffline) {
             const statusEl = document.getElementById('pwa-assets-status');
             if (statusEl) {
-                statusEl.textContent = !globalThis.isSecureContext
-                    ? '需要 HTTPS（或 localhost）'
-                    : '浏览器不支持离线缓存';
+                statusEl.textContent = globalThis.isSecureContext
+                    ? '浏览器不支持离线缓存'
+                    : '需要 HTTPS（或 localhost）';
             }
             document.getElementById('btn-pwa-redownload') && (document.getElementById('btn-pwa-redownload').disabled = true);
             document.getElementById('btn-pwa-unregister') && (document.getElementById('btn-pwa-unregister').disabled = true);
+
+            // 仍然弹出状态卡提示原因（避免用户误以为“没运行”）
+            const card = window.__pwaDlCard || createCard();
+            window.__pwaDlCard = card;
+            card.style.display = 'block';
+            const lineEl = document.getElementById('pwa-dl-line');
+            const barEl = document.getElementById('pwa-dl-bar');
+            const subEl = document.getElementById('pwa-dl-sub');
+            if (lineEl) {
+                lineEl.textContent = globalThis.isSecureContext
+                    ? '离线缓存不可用：当前浏览器不支持 Cache Storage'
+                    : '离线缓存不可用：需要 HTTPS（或 localhost）';
+            }
+            if (barEl) barEl.style.width = '0%';
+            if (subEl) subEl.textContent = '0 / 0';
+
             // install 按钮是否可用由 beforeinstallprompt 决定；这里不强行改
+            setTimeout(() => {
+                if (card) card.style.display = 'none';
+            }, 6000);
             return;
         }
 
@@ -363,12 +347,13 @@
             location.reload();
         });
 
-        // 自动下载：等 SW ready（若已注册）
+        // 自动下载：先立即尝试一次（不依赖 SW ready），再在 SW ready 后补一次确保缓存完整
         const go = () => downloadAll({ force: false });
+        go();
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.ready.then(go).catch(go);
-        } else {
-            go();
+            navigator.serviceWorker.ready.then(go).catch(() => {
+                // ignore
+            });
         }
     }
 

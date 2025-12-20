@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, shell } = require('electron');
+const { dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
@@ -38,6 +39,54 @@ function loadPWAServer() {
     return pwaServer;
 }
 
+function getPwaTlsConfigPath() {
+    try {
+        return path.join(app.getPath('userData'), 'pwa-tls.json');
+    } catch {
+        // fallback to app dir
+        return path.join(__dirname, 'pwa-tls.json');
+    }
+}
+
+function readPwaTlsConfig() {
+    try {
+        const cfgPath = getPwaTlsConfigPath();
+        if (!fs.existsSync(cfgPath)) return null;
+        const raw = fs.readFileSync(cfgPath, 'utf-8');
+        const cfg = JSON.parse(raw);
+        if (!cfg || !cfg.filePath) return null;
+        return {
+            filePath: String(cfg.filePath),
+            passphrase: cfg.passphrase != null ? String(cfg.passphrase) : undefined
+        };
+    } catch {
+        return null;
+    }
+}
+
+function writePwaTlsConfig(cfg) {
+    const cfgPath = getPwaTlsConfigPath();
+    if (!cfg) {
+        try { if (fs.existsSync(cfgPath)) fs.unlinkSync(cfgPath); } catch { /* ignore */ }
+        return;
+    }
+    const data = {
+        filePath: String(cfg.filePath),
+        passphrase: cfg.passphrase != null ? String(cfg.passphrase) : undefined
+    };
+    fs.writeFileSync(cfgPath, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+function applyTlsToServer(server) {
+    if (!server) return;
+    const cfg = readPwaTlsConfig();
+    if (cfg && cfg.filePath) {
+        server.setTlsConfig?.({ pfxPath: cfg.filePath, passphrase: cfg.passphrase });
+    } else {
+        server.clearTlsConfig?.();
+    }
+}
+
 // 单实例锁定
 const gotTheLock = app.requestSingleInstanceLock();
 
@@ -67,6 +116,22 @@ if (!gotTheLock) {
                 const server = loadPWAServer();
                 if (!server) return;
 
+                // 若用户已配置证书，则直接启用 HTTPS
+                applyTlsToServer(server);
+
+                // 命令行覆盖：--pwa-cert <path> / --pwa-cert=<path>，可选 --pwa-cert-pass
+                try {
+                    const certEq = args.find((a) => a.startsWith('--pwa-cert='));
+                    const certPath = certEq ? certEq.substring('--pwa-cert='.length) : (args.includes('--pwa-cert') ? args[args.indexOf('--pwa-cert') + 1] : null);
+                    const passEq = args.find((a) => a.startsWith('--pwa-cert-pass='));
+                    const certPass = passEq ? passEq.substring('--pwa-cert-pass='.length) : (args.includes('--pwa-cert-pass') ? args[args.indexOf('--pwa-cert-pass') + 1] : null);
+                    if (certPath) {
+                        server.setTlsConfig?.({ pfxPath: certPath, passphrase: certPass != null ? String(certPass) : undefined });
+                    }
+                } catch {
+                    // ignore
+                }
+
                 const eq = args.find((a) => a.startsWith('--port='));
                 const portRaw = eq ? eq.substring('--port='.length) : (args.includes('--port') ? args[args.indexOf('--port') + 1] : null);
                 const port = portRaw ? Number(portRaw) : null;
@@ -95,6 +160,16 @@ if (!gotTheLock) {
                 if (!server) {
                     console.error('PWA server module not available');
                     return;
+                }
+
+                // 若用户已配置证书，则直接启用 HTTPS（也支持命令行覆盖）
+                applyTlsToServer(server);
+                const cliPfx = getArgValue('--pwa-cert');
+                const cliPass = getArgValue('--pwa-cert-pass');
+                if (cliPfx) {
+                    try {
+                        server.setTlsConfig?.({ pfxPath: cliPfx, passphrase: cliPass != null ? String(cliPass) : undefined });
+                    } catch { /* ignore */ }
                 }
 
                 const portRaw = getArgValue('--port');
@@ -156,6 +231,7 @@ if (!gotTheLock) {
 
     function getSafeAppIcon() {
         const candidates = [
+            path.join(__dirname, 'assets/icon.ico'),
             path.join(__dirname, 'build/icons/icon.ico'),
             path.join(__dirname, 'assets/tray-icon.png'),
             path.join(__dirname, 'assets/icon.png')
@@ -439,6 +515,7 @@ ipcMain.handle('pwa-server-start', async (event, port) => {
     }
     
     try {
+        applyTlsToServer(server);
         if (port && port !== server.port) {
             await server.changePort(port);
         }
@@ -468,8 +545,76 @@ ipcMain.handle('pwa-server-status', () => {
     if (!server) {
         return { isRunning: false, error: 'PWA server module not available' };
     }
-    
+    applyTlsToServer(server);
     return server.getStatus();
+});
+
+ipcMain.handle('pwa-server-cert-status', () => {
+    const cfg = readPwaTlsConfig();
+    return {
+        enabled: !!(cfg && cfg.filePath),
+        filePath: cfg?.filePath || null
+    };
+});
+
+ipcMain.handle('pwa-server-select-cert', async () => {
+    try {
+        const win = BrowserWindow.getFocusedWindow() || mainWindow || splashWindow;
+        const result = await dialog.showOpenDialog(win, {
+            title: '选择 HTTPS 证书（PFX）',
+            properties: ['openFile'],
+            filters: [
+                { name: 'PFX Certificate', extensions: ['pfx', 'p12'] },
+                { name: 'All Files', extensions: ['*'] }
+            ]
+        });
+        if (result.canceled || !result.filePaths?.length) return { canceled: true };
+        return { canceled: false, filePath: result.filePaths[0] };
+    } catch (e) {
+        return { canceled: true, error: String(e) };
+    }
+});
+
+ipcMain.handle('pwa-server-set-cert', async (event, { filePath, passphrase } = {}) => {
+    try {
+        if (!filePath) return { success: false, error: 'missing filePath' };
+        writePwaTlsConfig({ filePath, passphrase });
+
+        const server = loadPWAServer();
+        if (server) {
+            applyTlsToServer(server);
+            const wasRunning = server.isRunning;
+            if (wasRunning) {
+                await server.stop();
+                await server.start();
+            }
+            if (mainWindow) mainWindow.webContents.send('pwa-server-status-changed', server.getStatus());
+        }
+
+        return { success: true };
+    } catch (e) {
+        return { success: false, error: String(e) };
+    }
+});
+
+ipcMain.handle('pwa-server-clear-cert', async () => {
+    try {
+        writePwaTlsConfig(null);
+
+        const server = loadPWAServer();
+        if (server) {
+            applyTlsToServer(server);
+            const wasRunning = server.isRunning;
+            if (wasRunning) {
+                await server.stop();
+                await server.start();
+            }
+            if (mainWindow) mainWindow.webContents.send('pwa-server-status-changed', server.getStatus());
+        }
+        return { success: true };
+    } catch (e) {
+        return { success: false, error: String(e) };
+    }
 });
 
 ipcMain.handle('pwa-server-change-port', async (event, newPort) => {

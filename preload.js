@@ -17,6 +17,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
     pwaServerStop: () => ipcRenderer.invoke('pwa-server-stop'),
     pwaServerStatus: () => ipcRenderer.invoke('pwa-server-status'),
     pwaServerChangePort: (port) => ipcRenderer.invoke('pwa-server-change-port', port),
+    pwaServerCertStatus: () => ipcRenderer.invoke('pwa-server-cert-status'),
+    pwaServerSelectCert: () => ipcRenderer.invoke('pwa-server-select-cert'),
+    pwaServerSetCert: (filePath, passphrase) => ipcRenderer.invoke('pwa-server-set-cert', { filePath, passphrase }),
+    pwaServerClearCert: () => ipcRenderer.invoke('pwa-server-clear-cert'),
     onPWAServerStatusChanged: (callback) => {
         ipcRenderer.on('pwa-server-status-changed', (event, status) => callback(status));
     },

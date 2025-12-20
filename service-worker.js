@@ -205,6 +205,39 @@ self.addEventListener('fetch', (event) => {
             }
 
             // 非 Range：网络优先
+            // 字体资源：cache-first（命中缓存就不再走网络，避免每次启动都重复下载字体）
+            const isFontReq =
+                req.destination === 'font' ||
+                /\.(?:ttf|otf|woff2?|eot)$/i.test(url.pathname) ||
+                url.pathname.includes('/font-assets/') ||
+                url.pathname.includes('/webfonts/');
+
+            if (isFontReq) {
+                const cachedFont = await caches.match(req);
+                if (cachedFont) return cachedFont;
+
+                try {
+                    const resp = await fetch(req);
+                    if (resp && resp.ok && resp.status === 200 && resp.type !== 'opaque') {
+                        const clone = resp.clone();
+                        CACHE_NAME_PROMISE
+                            .then((cacheName) => caches.open(cacheName))
+                            .then((cache) => cache.put(req, clone))
+                            .catch(() => { });
+                    }
+                    return resp;
+                } catch {
+                    // 最后兜底
+                    const fallback = await caches.match(req);
+                    if (fallback) return fallback;
+                    return new Response('离线模式：字体不可用', {
+                        status: 503,
+                        statusText: 'Service Unavailable',
+                        headers: new Headers({ 'Content-Type': 'text/plain' })
+                    });
+                }
+            }
+
             try {
                 const response = await fetch(req);
 
