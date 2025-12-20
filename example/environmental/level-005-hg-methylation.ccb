@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-005",
+    "name": "重金属汞的生物甲基化",
+    "description": "探索Hg²⁺在环境中转化为甲基汞的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "重金属", "生物甲基化"]
+  },
+  "reaction": {
+    "id": "mercury-methylation",
+    "displayEquation": "Hg²⁺ + CH₃⁻ ⇌ CH₃Hg⁺",
+    "equilibriumConstant": 4.5e12,
+    "reactants": ["Hg²⁺", "CH₃⁻"],
+    "products": ["CH₃Hg⁺"],
+    "coefficients": {
+      "Hg²⁺": 1,
+      "CH₃⁻": 1,
+      "CH₃Hg⁺": 1
+    },
+    "deltaH": -95.0,
+    "temperatureSensitivity": 0.22,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 288,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Hg²⁺": 0.00001,
+      "CH₃⁻": 0.00005,
+      "CH₃Hg⁺": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-003",
+    "name": "合成WiFi信号",
+    "description": "现代社会必需品的化学制备方法",
+    "author": "CCBalance Team",
+    "createdAt": 1734638600000,
+    "tags": ["愚人节", "搞笑", "网络"]
+  },
+  "reaction": {
+    "id": "wifi-synthesis",
+    "displayEquation": "2H₂ + O₂ + 电波 ⇌ WiFi",
+    "equilibriumConstant": 5.0e20,
+    "reactants": ["H₂", "O₂", "电波"],
+    "products": ["WiFi"],
+    "coefficients": {
+      "H₂": 2,
+      "O₂": 1,
+      "电波": 1,
+      "WiFi": 1
+    },
+    "deltaH": -404.0,
+    "temperatureSensitivity": 5.0,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂": 0.08,
+      "O₂": 0.04,
+      "电波": 0.1,
+      "WiFi": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

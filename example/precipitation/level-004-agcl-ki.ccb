@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-004",
+    "name": "氯化银与碘化钾的沉淀转化",
+    "description": "探索AgCl沉淀与KI溶液反应生成AgI沉淀的转化过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "沉淀转化", "银盐"]
+  },
+  "reaction": {
+    "id": "agcl-ki-precipitation",
+    "displayEquation": "AgCl(s) + I⁻ ⇌ AgI(s) + Cl⁻",
+    "equilibriumConstant": 5.6e5,
+    "reactants": ["AgCl", "I⁻"],
+    "products": ["AgI", "Cl⁻"],
+    "coefficients": {
+      "AgCl": 1,
+      "I⁻": 1,
+      "AgI": 1,
+      "Cl⁻": 1
+    },
+    "deltaH": -25.3,
+    "temperatureSensitivity": 0.15,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "AgCl": 0.001,
+      "I⁻": 0.1,
+      "AgI": 0,
+      "Cl⁻": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

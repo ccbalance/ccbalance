@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-014",
+    "name": "一氧化氮的氧化",
+    "description": "一氧化氮被氧气氧化成二氧化氮",
+    "author": "CCBalance Team",
+    "createdAt": 1734626900000,
+    "tags": ["氧化还原", "氮氧化物", "大气化学"]
+  },
+  "reaction": {
+    "id": "no-oxidation",
+    "displayEquation": "2NO + O₂ ⇌ 2NO₂",
+    "equilibriumConstant": 1.6e12,
+    "reactants": ["NO", "O₂"],
+    "products": ["NO₂"],
+    "coefficients": {
+      "NO": 2,
+      "O₂": 1,
+      "NO₂": 2
+    },
+    "deltaH": -114.1,
+    "temperatureSensitivity": 1.5,
+    "hasGas": true,
+    "gasSpecies": ["NO", "O₂", "NO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO": 0.1,
+      "O₂": 0.1,
+      "NO₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

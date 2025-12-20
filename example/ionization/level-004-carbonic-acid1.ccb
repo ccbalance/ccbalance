@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-004",
+    "name": "碳酸的第一步电离",
+    "description": "碳酸是二元弱酸的第一步电离",
+    "author": "CCBalance Team",
+    "createdAt": 1734629100000,
+    "tags": ["电离", "弱酸", "多元酸"]
+  },
+  "reaction": {
+    "id": "h2co3-ionization1",
+    "displayEquation": "H₂CO₃ ⇌ H⁺ + HCO₃⁻",
+    "equilibriumConstant": 4.3e-7,
+    "reactants": ["H₂CO₃"],
+    "products": ["H⁺", "HCO₃⁻"],
+    "coefficients": {
+      "H₂CO₃": 1,
+      "H⁺": 1,
+      "HCO₃⁻": 1
+    },
+    "deltaH": 1.8,
+    "temperatureSensitivity": 0.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂CO₃": 0.1,
+      "H⁺": 0.0001,
+      "HCO₃⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

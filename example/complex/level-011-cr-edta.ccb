@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-011",
+    "name": "铬EDTA络合",
+    "description": "三价铬与EDTA形成强螯合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734631400000,
+    "tags": ["螯合", "铬", "EDTA"]
+  },
+  "reaction": {
+    "id": "cr-edta-complex",
+    "displayEquation": "Cr³⁺ + EDTA⁴⁻ ⇌ [Cr(EDTA)]⁻",
+    "equilibriumConstant": 1.0e23,
+    "reactants": ["Cr³⁺", "EDTA⁴⁻"],
+    "products": ["[Cr(EDTA)]⁻"],
+    "coefficients": {
+      "Cr³⁺": 1,
+      "EDTA⁴⁻": 1,
+      "[Cr(EDTA)]⁻": 1
+    },
+    "deltaH": -95.4,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cr³⁺": 0.01,
+      "EDTA⁴⁻": 0.015,
+      "[Cr(EDTA)]⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

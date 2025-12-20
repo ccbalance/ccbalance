@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-002",
+    "name": "硝酸银与氯化钠的复分解",
+    "description": "硝酸银溶液与氯化钠溶液反应生成氯化银沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734624100000,
+    "tags": ["离子反应", "复分解", "沉淀"]
+  },
+  "reaction": {
+    "id": "agcl-precipitation",
+    "displayEquation": "Ag⁺ + Cl⁻ ⇌ AgCl(s)",
+    "equilibriumConstant": 5.5e9,
+    "reactants": ["Ag⁺", "Cl⁻"],
+    "products": ["AgCl(s)"],
+    "coefficients": {
+      "Ag⁺": 1,
+      "Cl⁻": 1,
+      "AgCl(s)": 1
+    },
+    "deltaH": -65.5,
+    "temperatureSensitivity": 0.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ag⁺": 0.1,
+      "Cl⁻": 0.1,
+      "AgCl(s)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 30
+  }
+}

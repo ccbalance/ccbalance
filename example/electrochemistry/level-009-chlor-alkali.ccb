@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-009",
+    "name": "氯碱工业电解",
+    "description": "电解饱和食盐水制氯气和氢氧化钠",
+    "author": "CCBalance Team",
+    "createdAt": 1734632800000,
+    "tags": ["电化学", "电解", "工业"]
+  },
+  "reaction": {
+    "id": "chlor-alkali-electrolysis",
+    "displayEquation": "2NaCl + 2H₂O ⇌ Cl₂ + H₂ + 2NaOH",
+    "equilibriumConstant": 1.0e-38,
+    "reactants": ["NaCl", "H₂O"],
+    "products": ["Cl₂", "H₂", "NaOH"],
+    "coefficients": {
+      "NaCl": 2,
+      "H₂O": 2,
+      "Cl₂": 1,
+      "H₂": 1,
+      "NaOH": 2
+    },
+    "deltaH": 452.0,
+    "temperatureSensitivity": 2.5,
+    "hasGas": true,
+    "gasSpecies": ["Cl₂", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaCl": 0.5,
+      "H₂O": 1.0,
+      "Cl₂": 0.0,
+      "H₂": 0.0,
+      "NaOH": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

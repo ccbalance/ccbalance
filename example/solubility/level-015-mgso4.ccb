@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-015",
+    "name": "溶解度 - 硫酸镁",
+    "description": "泻盐的溶解特性",
+    "author": "CCBalance Team",
+    "createdAt": 1734643000000,
+    "tags": ["溶解度", "硫酸镁", "泻盐"]
+  },
+  "reaction": {
+    "id": "mgso4-solubility",
+    "displayEquation": "MgSO₄·7H₂O(s) ⇌ Mg²⁺(aq) + SO₄²⁻(aq) + 7H₂O(l)",
+    "equilibriumConstant": 3.5,
+    "reactants": ["MgSO₄·7H₂O(s)"],
+    "products": ["Mg²⁺(aq)", "SO₄²⁻(aq)", "7H₂O(l)"],
+    "coefficients": {
+      "MgSO₄·7H₂O(s)": 1,
+      "Mg²⁺(aq)": 1,
+      "SO₄²⁻(aq)": 1,
+      "7H₂O(l)": 1
+    },
+    "deltaH": 13.3,
+    "temperatureSensitivity": 2.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "MgSO₄·7H₂O(s)": 1.0,
+      "Mg²⁺(aq)": 0.0,
+      "SO₄²⁻(aq)": 0.0,
+      "7H₂O(l)": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

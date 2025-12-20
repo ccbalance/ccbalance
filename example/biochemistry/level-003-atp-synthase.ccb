@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-003",
+    "name": "ATP合酶反应",
+    "description": "探索质子梯度驱动的ATP合成",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "ATP合酶", "氧化磷酸化"]
+  },
+  "reaction": {
+    "id": "atp-synthase",
+    "displayEquation": "ADP + Pᵢ + 3H⁺(out) ⇌ ATP + H₂O + 3H⁺(in)",
+    "equilibriumConstant": 4.8e5,
+    "reactants": ["ADP", "Pᵢ", "H⁺"],
+    "products": ["ATP", "H₂O"],
+    "coefficients": {
+      "ADP": 1,
+      "Pᵢ": 1,
+      "H⁺": 3,
+      "ATP": 1,
+      "H₂O": 1
+    },
+    "deltaH": 30.5,
+    "temperatureSensitivity": 0.20,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "ADP": 0.002,
+      "Pᵢ": 0.005,
+      "H⁺": 0.0001,
+      "ATP": 0.003,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 23
+  }
+}

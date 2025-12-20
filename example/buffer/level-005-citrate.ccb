@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-005",
+    "name": "柠檬酸缓冲液",
+    "description": "三元弱酸缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643600000,
+    "tags": ["缓冲溶液", "柠檬酸", "多元酸"]
+  },
+  "reaction": {
+    "id": "citrate-buffer",
+    "displayEquation": "H₂C₆H₅O₇⁻(aq) ⇌ H⁺(aq) + HC₆H₅O₇²⁻(aq)",
+    "equilibriumConstant": 1.7e-5,
+    "reactants": ["H₂C₆H₅O₇⁻(aq)"],
+    "products": ["H⁺(aq)", "HC₆H₅O₇²⁻(aq)"],
+    "coefficients": {
+      "H₂C₆H₅O₇⁻(aq)": 1,
+      "H⁺(aq)": 1,
+      "HC₆H₅O₇²⁻(aq)": 1
+    },
+    "deltaH": 2.2,
+    "temperatureSensitivity": 0.03,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂C₆H₅O₇⁻(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "HC₆H₅O₇²⁻(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

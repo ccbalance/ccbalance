@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-014",
+    "name": "咪唑缓冲液",
+    "description": "组氨酸侧链模型缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734644500000,
+    "tags": ["缓冲溶液", "咪唑", "蛋白质化学"]
+  },
+  "reaction": {
+    "id": "imidazole-buffer",
+    "displayEquation": "ImH⁺(aq) ⇌ H⁺(aq) + Im(aq)",
+    "equilibriumConstant": 1.0e-7,
+    "reactants": ["ImH⁺(aq)"],
+    "products": ["H⁺(aq)", "Im(aq)"],
+    "coefficients": {
+      "ImH⁺(aq)": 1,
+      "H⁺(aq)": 1,
+      "Im(aq)": 1
+    },
+    "deltaH": 36.8,
+    "temperatureSensitivity": 0.21,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "ImH⁺(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "Im(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

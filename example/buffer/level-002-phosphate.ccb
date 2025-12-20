@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-002",
+    "name": "磷酸盐缓冲液",
+    "description": "生物化学中的重要缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643300000,
+    "tags": ["缓冲溶液", "磷酸盐", "生物缓冲"]
+  },
+  "reaction": {
+    "id": "phosphate-buffer",
+    "displayEquation": "H₂PO₄⁻(aq) ⇌ H⁺(aq) + HPO₄²⁻(aq)",
+    "equilibriumConstant": 6.2e-8,
+    "reactants": ["H₂PO₄⁻(aq)"],
+    "products": ["H⁺(aq)", "HPO₄²⁻(aq)"],
+    "coefficients": {
+      "H₂PO₄⁻(aq)": 1,
+      "H⁺(aq)": 1,
+      "HPO₄²⁻(aq)": 1
+    },
+    "deltaH": 3.6,
+    "temperatureSensitivity": 0.05,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂PO₄⁻(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "HPO₄²⁻(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

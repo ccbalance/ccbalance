@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-004",
+    "name": "一氧化碳与水蒸气",
+    "description": "水煤气变换反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734633900000,
+    "tags": ["气体平衡", "工业", "水煤气"]
+  },
+  "reaction": {
+    "id": "water-gas-shift",
+    "displayEquation": "CO + H₂O ⇌ CO₂ + H₂",
+    "equilibriumConstant": 5.1,
+    "reactants": ["CO", "H₂O"],
+    "products": ["CO₂", "H₂"],
+    "coefficients": {
+      "CO": 1,
+      "H₂O": 1,
+      "CO₂": 1,
+      "H₂": 1
+    },
+    "deltaH": -41.2,
+    "temperatureSensitivity": 1.3,
+    "hasGas": true,
+    "gasSpecies": ["CO", "H₂O", "CO₂", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 773,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO": 0.1,
+      "H₂O": 0.1,
+      "CO₂": 0.0,
+      "H₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

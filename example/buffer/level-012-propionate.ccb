@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-012",
+    "name": "丙酸缓冲液",
+    "description": "短链脂肪酸缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734644300000,
+    "tags": ["缓冲溶液", "丙酸", "脂肪酸"]
+  },
+  "reaction": {
+    "id": "propionate-buffer",
+    "displayEquation": "C₂H₅COOH(aq) ⇌ H⁺(aq) + C₂H₅COO⁻(aq)",
+    "equilibriumConstant": 1.3e-5,
+    "reactants": ["C₂H₅COOH(aq)"],
+    "products": ["H⁺(aq)", "C₂H₅COO⁻(aq)"],
+    "coefficients": {
+      "C₂H₅COOH(aq)": 1,
+      "H⁺(aq)": 1,
+      "C₂H₅COO⁻(aq)": 1
+    },
+    "deltaH": -0.2,
+    "temperatureSensitivity": 0.01,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₂H₅COOH(aq)": 0.1,
+      "H⁺(aq)": 0.0,
+      "C₂H₅COO⁻(aq)": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

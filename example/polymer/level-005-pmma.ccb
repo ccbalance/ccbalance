@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-005",
+    "name": "聚甲基丙烯酸甲酯",
+    "description": "探索有机玻璃（PMMA）的自由基聚合",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "PMMA", "有机玻璃"]
+  },
+  "reaction": {
+    "id": "pmma-polymerization",
+    "displayEquation": "nC₅H₈O₂ ⇌ (C₅H₈O₂)ₙ",
+    "equilibriumConstant": 3.5e15,
+    "reactants": ["C₅H₈O₂"],
+    "products": ["(C₅H₈O₂)ₙ"],
+    "coefficients": {
+      "C₅H₈O₂": 30,
+      "(C₅H₈O₂)ₙ": 1
+    },
+    "deltaH": -56.4,
+    "temperatureSensitivity": 0.14,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 363,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₅H₈O₂": 0.6,
+      "(C₅H₈O₂)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

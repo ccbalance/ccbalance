@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-010",
+    "name": "氰化钠水解",
+    "description": "剧毒盐的碱性水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645700000,
+    "tags": ["水解", "氰化钠", "剧毒"]
+  },
+  "reaction": {
+    "id": "nacn-hydrolysis",
+    "displayEquation": "CN⁻(aq) + H₂O(l) ⇌ HCN(aq) + OH⁻(aq)",
+    "equilibriumConstant": 1.6e-5,
+    "reactants": ["CN⁻(aq)", "H₂O(l)"],
+    "products": ["HCN(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "CN⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "HCN(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -25.0,
+    "temperatureSensitivity": -0.15,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CN⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "HCN(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-011",
+    "name": "奶茶合成工艺",
+    "description": "奶茶店的商业机密",
+    "author": "CCBalance Team",
+    "createdAt": 1734639400000,
+    "tags": ["愚人节", "搞笑", "奶茶"]
+  },
+  "reaction": {
+    "id": "bubble-tea-synthesis",
+    "displayEquation": "Milk + Tea + 珍珠 + 糖 ⇌ 奶茶 + Happiness",
+    "equilibriumConstant": 520.1314,
+    "reactants": ["Milk", "Tea", "珍珠", "糖"],
+    "products": ["奶茶", "Happiness"],
+    "coefficients": {
+      "Milk": 1,
+      "Tea": 1,
+      "珍珠": 1,
+      "糖": 1,
+      "奶茶": 1,
+      "Happiness": 1
+    },
+    "deltaH": -30.0,
+    "temperatureSensitivity": 1.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Milk": 0.1,
+      "Tea": 0.1,
+      "珍珠": 0.05,
+      "糖": 0.2,
+      "奶茶": 0.0,
+      "Happiness": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

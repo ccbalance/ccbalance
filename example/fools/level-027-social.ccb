@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-027",
+    "name": "社交电量",
+    "description": "内向人的能量守恒",
+    "author": "CCBalance Team",
+    "createdAt": 1734641000000,
+    "tags": ["愚人节", "搞笑", "社交"]
+  },
+  "reaction": {
+    "id": "social-battery",
+    "displayEquation": "社交 + 能量 ⇌ 疲惫 + 独处渴望",
+    "equilibriumConstant": 9999.0,
+    "reactants": ["社交", "能量"],
+    "products": ["疲惫", "独处渴望"],
+    "coefficients": {
+      "社交": 1,
+      "能量": 1,
+      "疲惫": 1,
+      "独处渴望": 1
+    },
+    "deltaH": 555.0,
+    "temperatureSensitivity": 2.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "社交": 0.5,
+      "能量": 0.3,
+      "疲惫": 0.0,
+      "独处渴望": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

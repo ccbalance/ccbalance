@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-003",
+    "name": "碳酸钙的溶解",
+    "description": "碳酸钙在水中的溶解平衡,产生钙离子和碳酸根离子",
+    "author": "CCBalance Team",
+    "createdAt": 1734624200000,
+    "tags": ["离子反应", "溶解", "中级"]
+  },
+  "reaction": {
+    "id": "caco3-dissolution",
+    "displayEquation": "CaCO₃(s) ⇌ Ca²⁺ + CO₃²⁻",
+    "equilibriumConstant": 3.36e-9,
+    "reactants": ["CaCO₃(s)"],
+    "products": ["Ca²⁺", "CO₃²⁻"],
+    "coefficients": {
+      "CaCO₃(s)": 1,
+      "Ca²⁺": 1,
+      "CO₃²⁻": 1
+    },
+    "deltaH": 12.0,
+    "temperatureSensitivity": 1.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CaCO₃(s)": 10.0,
+      "Ca²⁺": 0.0001,
+      "CO₃²⁻": 0.0001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

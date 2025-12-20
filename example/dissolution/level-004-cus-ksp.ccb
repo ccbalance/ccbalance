@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-004",
+    "name": "硫化铜的溶解",
+    "description": "硫化铜在水中的溶解平衡,溶解度极低",
+    "author": "CCBalance Team",
+    "createdAt": 1734627500000,
+    "tags": ["溶解平衡", "硫化物", "极难溶"]
+  },
+  "reaction": {
+    "id": "cus-ksp",
+    "displayEquation": "CuS(s) ⇌ Cu²⁺ + S²⁻",
+    "equilibriumConstant": 6.0e-37,
+    "reactants": ["CuS(s)"],
+    "products": ["Cu²⁺", "S²⁻"],
+    "coefficients": {
+      "CuS(s)": 1,
+      "Cu²⁺": 1,
+      "S²⁻": 1
+    },
+    "deltaH": 25.0,
+    "temperatureSensitivity": 2.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CuS(s)": 5.0,
+      "Cu²⁺": 0.0,
+      "S²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

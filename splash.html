@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen Smooth Gradient</title>
+    <style>
+        :root {
+            --bg-black: #000000;
+            --bg-white: #ffffff;
+            /* 字体变量：英文/中文分别指定 */
+            --font-en: 'TexGyreHeros';
+            --font-zh: 'LXGWZhenKai';
+            --text-font: var(--font-en), var(--font-zh), 'Segoe UI', Roboto, sans-serif;
+        }
+        @font-face {
+            font-family: 'TexGyreHeros';
+            src: url('./assets/font-assets/texgyreheros/texgyreheros-regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'LXGWZhenKai';
+            src: url('./assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: var(--text-font);
+            background-color: var(--bg-black);
+        }
+
+        /* 主容器 */
+        .splash-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* 核心：使用径向渐变创建平滑圆润的过渡效果 */
+            /* circle at 90% 90% 表示圆心在右下角附近 */
+            /* 颜色从白到黑过渡，中间的百分比差值决定了渐变的柔和程度 */
+            background: 
+                radial-gradient(
+                    circle at 85% 85%,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0) 30%, /* 白色区域透明，显示背景图 */
+                    var(--bg-black) 78%, /* 渐变到黑色（拉长过渡区） */
+                    var(--bg-black) 100%
+                ),
+                var(--bg-white); /* 兜底纯白背景 */
+            background-image: 
+                radial-gradient(
+                    circle at 85% 85%,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0) 30%,
+                    var(--bg-black) 78%,
+                    var(--bg-black) 100%
+                ),
+                var(--splash-bg-image);
+            background-size: cover, cover;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
+        }
+
+        /* 左侧内容区域容器 */
+        .content-left-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10vw;
+            z-index: 10; /* 确保文字在背景之上 */
+            pointer-events: none; /* 让鼠标事件穿透，如果不穿透可能挡住图片交互 */
+        }
+
+        /* 左侧文本内容的实际布局 */
+        .left-content {
+            color: var(--bg-white);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 60%; /* 限制宽度防止与右侧过渡区重叠太多 */
+            pointer-events: auto; /* 恢复文字的可交互性（如需复制） */
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 5vw, 5rem); /* 响应式字体大小 */
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-family: var(--font-en), var(--font-zh), sans-serif;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: var(--font-en), var(--font-zh), sans-serif;
+        }
+
+        /* 版本号标签（无容器，白字） */
+        .version-tag {
+            background: transparent;
+            border: none;
+            color: var(--bg-white);
+            padding: 0;
+            font-weight: 700;
+            font-size: 1.3rem;
+            width: fit-content;
+            font-family: var(--font-en), var(--font-zh), sans-serif;
+        }
+
+        /* 协议标签 - 仅显示图片，无边框无padding */
+        .license-tag {
+            display: inline-block;
+            width: fit-content;
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        /* 右上角自定义文字 */
+        .custom-text-top {
+            position: absolute;
+            top: 8%;
+            right: 8%;
+            color: var(--bg-white);
+            font-size: 1.6rem;
+            font-weight: 700;
+            z-index: 10;
+            font-family: var(--font-zh), var(--font-en), sans-serif;
+        }
+
+        /* license 标签内的图片样式（CC0 图标） */
+        .license-tag img {
+            display: block;
+            max-height: 2.4rem;
+            height: auto;
+            width: auto;
+            object-fit: contain;
+        }
+
+    </style>
+</head>
+<body>
+
+    <script src="./splash-config.js"></script>
+
+    <div class="splash-container">
+        <div id="custom-text-top" class="custom-text-top"></div>
+
+        <div class="content-left-wrapper">
+            <div class="left-content">
+                <h1 id="app-title" class="title"></h1>
+                <h2 id="app-subtitle" class="subtitle"></h2>
+                <div id="app-version" class="version-tag"></div>
+                <div id="app-license" class="license-tag"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // ==========================================
+        // 渲染逻辑 (将配置数据应用到DOM元素)
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", () => {
+            // 注入背景图片 CSS 变量
+            document.documentElement.style.setProperty('--splash-bg-image', splashConfig.splashBackgroundImage);
+
+            // 绑定文本内容
+            document.getElementById('app-title').textContent = splashConfig.mainTitle;
+            document.getElementById('app-subtitle').textContent = splashConfig.subTitle;
+            document.getElementById('app-version').textContent = splashConfig.version;
+            document.getElementById('custom-text-top').textContent = splashConfig.topRightText;
+
+            // 将 license 标签替换为 CC0 图像（不再使用文字）
+            const licenseEl = document.getElementById('app-license');
+            licenseEl.textContent = '';
+            const licenseImg = document.createElement('img');
+            licenseImg.src = splashConfig.licenseImageSource;
+            licenseImg.alt = splashConfig.mainTitle + ' License';
+            licenseEl.appendChild(licenseImg);
+        });
+    </script>
+</body>
+</html>

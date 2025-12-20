@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-012",
+    "name": "草酸中和反应",
+    "description": "草酸与氢氧化钠反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734636300000,
+    "tags": ["酸碱", "中和", "草酸"]
+  },
+  "reaction": {
+    "id": "h2c2o4-naoh",
+    "displayEquation": "H₂C₂O₄ + 2NaOH ⇌ Na₂C₂O₄ + 2H₂O",
+    "equilibriumConstant": 1.0e20,
+    "reactants": ["H₂C₂O₄", "NaOH"],
+    "products": ["Na₂C₂O₄", "H₂O"],
+    "coefficients": {
+      "H₂C₂O₄": 1,
+      "NaOH": 2,
+      "Na₂C₂O₄": 1,
+      "H₂O": 2
+    },
+    "deltaH": -110.0,
+    "temperatureSensitivity": 1.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂C₂O₄": 0.05,
+      "NaOH": 0.1,
+      "Na₂C₂O₄": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

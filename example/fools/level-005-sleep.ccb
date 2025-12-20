@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-005",
+    "name": "睡眠合成反应",
+    "description": "加班族的救星：直接合成睡眠",
+    "author": "CCBalance Team",
+    "createdAt": 1734638800000,
+    "tags": ["愚人节", "搞笑", "睡眠"]
+  },
+  "reaction": {
+    "id": "sleep-synthesis",
+    "displayEquation": "Bed + 黑暗 ⇌ Sleep + Dream",
+    "equilibriumConstant": 1.0e-10,
+    "reactants": ["Bed", "黑暗"],
+    "products": ["Sleep", "Dream"],
+    "coefficients": {
+      "Bed": 1,
+      "黑暗": 1,
+      "Sleep": 1,
+      "Dream": 1
+    },
+    "deltaH": -233.0,
+    "temperatureSensitivity": 0.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Bed": 0.1,
+      "黑暗": 0.1,
+      "Sleep": 0.0,
+      "Dream": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

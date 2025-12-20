@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-007",
+    "name": "硫化钠水解",
+    "description": "硫化物的分步水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645400000,
+    "tags": ["水解", "硫化钠", "强碱性"]
+  },
+  "reaction": {
+    "id": "na2s-hydrolysis",
+    "displayEquation": "S²⁻(aq) + H₂O(l) ⇌ HS⁻(aq) + OH⁻(aq)",
+    "equilibriumConstant": 0.1,
+    "reactants": ["S²⁻(aq)", "H₂O(l)"],
+    "products": ["HS⁻(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "S²⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "HS⁻(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -40.6,
+    "temperatureSensitivity": -0.25,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "S²⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "HS⁻(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

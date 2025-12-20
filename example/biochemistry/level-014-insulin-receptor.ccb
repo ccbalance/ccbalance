@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-014",
+    "name": "胰岛素受体信号",
+    "description": "研究胰岛素受体的酪氨酸激酶活性",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "信号转导", "受体激酶"]
+  },
+  "reaction": {
+    "id": "insulin-receptor",
+    "displayEquation": "Insulin-R + ATP ⇌ Insulin-R-P + ADP",
+    "equilibriumConstant": 5.8e7,
+    "reactants": ["Insulin-R", "ATP"],
+    "products": ["Insulin-R-P", "ADP"],
+    "coefficients": {
+      "Insulin-R": 1,
+      "ATP": 1,
+      "Insulin-R-P": 1,
+      "ADP": 1
+    },
+    "deltaH": -30.5,
+    "temperatureSensitivity": 0.16,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Insulin-R": 0.0001,
+      "ATP": 0.005,
+      "Insulin-R-P": 0,
+      "ADP": 0.001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

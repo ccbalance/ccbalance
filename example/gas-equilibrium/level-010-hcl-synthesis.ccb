@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-010",
+    "name": "氯化氢合成",
+    "description": "氢气与氯气合成氯化氢",
+    "author": "CCBalance Team",
+    "createdAt": 1734634500000,
+    "tags": ["气体平衡", "合成", "氯化氢"]
+  },
+  "reaction": {
+    "id": "hcl-synthesis",
+    "displayEquation": "H₂ + Cl₂ ⇌ 2HCl",
+    "equilibriumConstant": 2.5e33,
+    "reactants": ["H₂", "Cl₂"],
+    "products": ["HCl"],
+    "coefficients": {
+      "H₂": 1,
+      "Cl₂": 1,
+      "HCl": 2
+    },
+    "deltaH": -184.6,
+    "temperatureSensitivity": 2.0,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "Cl₂", "HCl"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂": 0.05,
+      "Cl₂": 0.05,
+      "HCl": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-028",
+    "name": "天气控制",
+    "description": "气象局的最高机密",
+    "author": "CCBalance Team",
+    "createdAt": 1734641100000,
+    "tags": ["愚人节", "搞笑", "天气"]
+  },
+  "reaction": {
+    "id": "weather-control",
+    "displayEquation": "雨天 + 心情 ⇌ 晴天",
+    "equilibriumConstant": 0.618,
+    "reactants": ["雨天", "心情"],
+    "products": ["晴天"],
+    "coefficients": {
+      "雨天": 1,
+      "心情": 1,
+      "晴天": 1
+    },
+    "deltaH": -365.25,
+    "temperatureSensitivity": 20.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "雨天": 0.6,
+      "心情": 0.3,
+      "晴天": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

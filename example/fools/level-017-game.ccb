@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-017",
+    "name": "游戏胜利反应",
+    "description": "游戏玩家的化学秘籍",
+    "author": "CCBalance Team",
+    "createdAt": 1734640000000,
+    "tags": ["愚人节", "搞笑", "游戏"]
+  },
+  "reaction": {
+    "id": "game-victory",
+    "displayEquation": "Skill + Luck + 外挂 ⇌ Victory",
+    "equilibriumConstant": 99999.0,
+    "reactants": ["Skill", "Luck", "外挂"],
+    "products": ["Victory"],
+    "coefficients": {
+      "Skill": 1,
+      "Luck": 1,
+      "外挂": 1,
+      "Victory": 1
+    },
+    "deltaH": -666.0,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Skill": 0.3,
+      "Luck": 0.1,
+      "外挂": 0.9,
+      "Victory": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

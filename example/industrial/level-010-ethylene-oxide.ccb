@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-010",
+    "name": "环氧乙烷生产",
+    "description": "研究乙烯的银催化直接氧化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "环氧化", "乙烯"]
+  },
+  "reaction": {
+    "id": "ethylene-oxide-production",
+    "displayEquation": "C₂H₄(g) + ½O₂(g) ⇌ C₂H₄O(g)",
+    "equilibriumConstant": 3.2e22,
+    "reactants": ["C₂H₄", "O₂"],
+    "products": ["C₂H₄O"],
+    "coefficients": {
+      "C₂H₄": 1,
+      "O₂": 0.5,
+      "C₂H₄O": 1
+    },
+    "deltaH": -106.5,
+    "temperatureSensitivity": 0.20,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₄", "O₂", "C₂H₄O"],
+    "containerType": "rigid",
+    "initialTemp": 523,
+    "initialPressure": 1013,
+    "initialConcentrations": {
+      "C₂H₄": 0.3,
+      "O₂": 0.07,
+      "C₂H₄O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 31
+  }
+}

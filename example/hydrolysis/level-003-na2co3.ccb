@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-003",
+    "name": "碳酸钠水解",
+    "description": "弱酸强碱盐的分步水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645000000,
+    "tags": ["水解", "碳酸钠", "分步水解"]
+  },
+  "reaction": {
+    "id": "na2co3-hydrolysis",
+    "displayEquation": "CO₃²⁻(aq) + H₂O(l) ⇌ HCO₃⁻(aq) + OH⁻(aq)",
+    "equilibriumConstant": 2.1e-4,
+    "reactants": ["CO₃²⁻(aq)", "H₂O(l)"],
+    "products": ["HCO₃⁻(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "CO₃²⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "HCO₃⁻(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -7.7,
+    "temperatureSensitivity": -0.12,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO₃²⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "HCO₃⁻(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

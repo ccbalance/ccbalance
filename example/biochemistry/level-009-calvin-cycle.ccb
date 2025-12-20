@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-009",
+    "name": "Calvin循环",
+    "description": "探索CO₂固定和糖合成的暗反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "光合作用", "Calvin循环"]
+  },
+  "reaction": {
+    "id": "calvin-cycle",
+    "displayEquation": "3CO₂ + 9ATP + 6NADPH + 6H₂O ⇌ C₃H₆O₃ + 9ADP + 8Pᵢ + 6NADP⁺",
+    "equilibriumConstant": 4.5e15,
+    "reactants": ["CO₂", "ATP", "NADPH", "H₂O"],
+    "products": ["C₃H₆O₃", "ADP", "Pᵢ", "NADP⁺"],
+    "coefficients": {
+      "CO₂": 3,
+      "ATP": 9,
+      "NADPH": 6,
+      "H₂O": 6,
+      "C₃H₆O₃": 1,
+      "ADP": 9,
+      "Pᵢ": 8,
+      "NADP⁺": 6
+    },
+    "deltaH": -185.0,
+    "temperatureSensitivity": 0.24,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO₂": 0.001,
+      "ATP": 0.003,
+      "NADPH": 0.001,
+      "H₂O": 55.5,
+      "C₃H₆O₃": 0,
+      "ADP": 0.001,
+      "Pᵢ": 0.005,
+      "NADP⁺": 0.001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

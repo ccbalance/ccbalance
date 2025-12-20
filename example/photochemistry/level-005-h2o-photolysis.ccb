@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-005",
+    "name": "水的光解",
+    "description": "探索H₂O在紫外光下分解为H₂和O₂的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "水分解", "光催化"]
+  },
+  "reaction": {
+    "id": "h2o-photolysis",
+    "displayEquation": "2H₂O(l) + hν ⇌ 2H₂(g) + O₂(g)",
+    "equilibriumConstant": 1.2e-83,
+    "reactants": ["H₂O"],
+    "products": ["H₂", "O₂"],
+    "coefficients": {
+      "H₂O": 2,
+      "H₂": 2,
+      "O₂": 1
+    },
+    "deltaH": 571.6,
+    "temperatureSensitivity": 0.35,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂O": 55.5,
+      "H₂": 0,
+      "O₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

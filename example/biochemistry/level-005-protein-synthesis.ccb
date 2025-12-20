@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-005",
+    "name": "蛋白质合成（翻译）",
+    "description": "探索核糖体催化的肽链延伸反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "蛋白质合成", "翻译"]
+  },
+  "reaction": {
+    "id": "protein-synthesis",
+    "displayEquation": "(Peptide)ₙ + aa-tRNA + GTP ⇌ (Peptide)ₙ₊₁ + tRNA + GDP + Pᵢ",
+    "equilibriumConstant": 6.5e10,
+    "reactants": ["(Peptide)ₙ", "aa-tRNA", "GTP"],
+    "products": ["(Peptide)ₙ₊₁", "tRNA", "GDP", "Pᵢ"],
+    "coefficients": {
+      "(Peptide)ₙ": 1,
+      "aa-tRNA": 1,
+      "GTP": 1,
+      "(Peptide)ₙ₊₁": 1,
+      "tRNA": 1,
+      "GDP": 1,
+      "Pᵢ": 1
+    },
+    "deltaH": -28.5,
+    "temperatureSensitivity": 0.17,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "(Peptide)ₙ": 0.0002,
+      "aa-tRNA": 0.001,
+      "GTP": 0.002,
+      "(Peptide)ₙ₊₁": 0,
+      "tRNA": 0,
+      "GDP": 0,
+      "Pᵢ": 0.005
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

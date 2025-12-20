@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-007",
+    "name": "水煤气变换反应",
+    "description": "探索铁铬催化剂促进CO与H₂O转化为CO₂和H₂",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "水煤气", "制氢"]
+  },
+  "reaction": {
+    "id": "water-gas-shift",
+    "displayEquation": "CO(g) + H₂O(g) ⇌ CO₂(g) + H₂(g)",
+    "equilibriumConstant": 1.44,
+    "reactants": ["CO", "H₂O"],
+    "products": ["CO₂", "H₂"],
+    "coefficients": {
+      "CO": 1,
+      "H₂O": 1,
+      "CO₂": 1,
+      "H₂": 1
+    },
+    "deltaH": -41.2,
+    "temperatureSensitivity": 0.18,
+    "hasGas": true,
+    "gasSpecies": ["CO", "H₂O", "CO₂", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 723,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO": 0.3,
+      "H₂O": 0.3,
+      "CO₂": 0,
+      "H₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

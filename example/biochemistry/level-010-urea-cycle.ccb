@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-010",
+    "name": "尿素循环",
+    "description": "研究氨转化为尿素的解毒过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "氮代谢", "尿素循环"]
+  },
+  "reaction": {
+    "id": "urea-cycle",
+    "displayEquation": "NH₃ + CO₂ + 3ATP + Asp ⇌ Urea + Fum + 2ADP + AMP + 2Pᵢ + PPᵢ",
+    "equilibriumConstant": 8.5e9,
+    "reactants": ["NH₃", "CO₂", "ATP", "Asp"],
+    "products": ["Urea", "Fum", "ADP", "AMP", "Pᵢ", "PPᵢ"],
+    "coefficients": {
+      "NH₃": 1,
+      "CO₂": 1,
+      "ATP": 3,
+      "Asp": 1,
+      "Urea": 1,
+      "Fum": 1,
+      "ADP": 2,
+      "AMP": 1,
+      "Pᵢ": 2,
+      "PPᵢ": 1
+    },
+    "deltaH": -52.0,
+    "temperatureSensitivity": 0.20,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₃": 0.001,
+      "CO₂": 0.001,
+      "ATP": 0.003,
+      "Asp": 0.001,
+      "Urea": 0,
+      "Fum": 0,
+      "ADP": 0.001,
+      "AMP": 0.0005,
+      "Pᵢ": 0.005,
+      "PPᵢ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 31
+  }
+}

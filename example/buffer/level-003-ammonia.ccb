@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-003",
+    "name": "氨-氯化铵缓冲液",
+    "description": "弱碱-强酸盐缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643400000,
+    "tags": ["缓冲溶液", "氨水", "碱性缓冲"]
+  },
+  "reaction": {
+    "id": "ammonia-buffer",
+    "displayEquation": "NH₄⁺(aq) ⇌ H⁺(aq) + NH₃(aq)",
+    "equilibriumConstant": 5.6e-10,
+    "reactants": ["NH₄⁺(aq)"],
+    "products": ["H⁺(aq)", "NH₃(aq)"],
+    "coefficients": {
+      "NH₄⁺(aq)": 1,
+      "H⁺(aq)": 1,
+      "NH₃(aq)": 1
+    },
+    "deltaH": 52.2,
+    "temperatureSensitivity": 0.3,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₄⁺(aq)": 0.1,
+      "H⁺(aq)": 0.0,
+      "NH₃(aq)": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-016",
+    "name": "联氨的电离",
+    "description": "联氨是弱碱,用作火箭燃料",
+    "author": "CCBalance Team",
+    "createdAt": 1734630300000,
+    "tags": ["电离", "弱碱", "火箭燃料"]
+  },
+  "reaction": {
+    "id": "hydrazine-ionization",
+    "displayEquation": "N₂H₄ + H₂O ⇌ N₂H₅⁺ + OH⁻",
+    "equilibriumConstant": 1.3e-6,
+    "reactants": ["N₂H₄", "H₂O"],
+    "products": ["N₂H₅⁺", "OH⁻"],
+    "coefficients": {
+      "N₂H₄": 1,
+      "H₂O": 1,
+      "N₂H₅⁺": 1,
+      "OH⁻": 1
+    },
+    "deltaH": -8.5,
+    "temperatureSensitivity": 1.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "N₂H₄": 0.1,
+      "H₂O": 55.5,
+      "N₂H₅⁺": 0.0,
+      "OH⁻": 0.00001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

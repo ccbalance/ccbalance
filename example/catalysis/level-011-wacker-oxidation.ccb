@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-011",
+    "name": "Wacker氧化",
+    "description": "探索钯催化乙烯氧化为乙醛的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "钯催化", "氧化反应"]
+  },
+  "reaction": {
+    "id": "wacker-oxidation",
+    "displayEquation": "C₂H₄(g) + ½O₂(g) ⇌ CH₃CHO",
+    "equilibriumConstant": 2.4e28,
+    "reactants": ["C₂H₄", "O₂"],
+    "products": ["CH₃CHO"],
+    "coefficients": {
+      "C₂H₄": 1,
+      "O₂": 0.5,
+      "CH₃CHO": 1
+    },
+    "deltaH": -242.8,
+    "temperatureSensitivity": 0.27,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₄", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 373,
+    "initialPressure": 304,
+    "initialConcentrations": {
+      "C₂H₄": 0.1,
+      "O₂": 0.05,
+      "CH₃CHO": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-003",
+    "name": "溶解度曲线 - 硫酸铜",
+    "description": "五水硫酸铜的溶解特性",
+    "author": "CCBalance Team",
+    "createdAt": 1734641800000,
+    "tags": ["溶解度", "硫酸铜", "结晶水"]
+  },
+  "reaction": {
+    "id": "cuso4-solubility",
+    "displayEquation": "CuSO₄·5H₂O(s) ⇌ Cu²⁺(aq) + SO₄²⁻(aq) + 5H₂O(l)",
+    "equilibriumConstant": 1.4,
+    "reactants": ["CuSO₄·5H₂O(s)"],
+    "products": ["Cu²⁺(aq)", "SO₄²⁻(aq)", "5H₂O(l)"],
+    "coefficients": {
+      "CuSO₄·5H₂O(s)": 1,
+      "Cu²⁺(aq)": 1,
+      "SO₄²⁻(aq)": 1,
+      "5H₂O(l)": 1
+    },
+    "deltaH": 11.7,
+    "temperatureSensitivity": 1.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CuSO₄·5H₂O(s)": 1.0,
+      "Cu²⁺(aq)": 0.0,
+      "SO₄²⁻(aq)": 0.0,
+      "5H₂O(l)": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

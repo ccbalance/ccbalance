@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-003",
+    "name": "铂催化氨氧化",
+    "description": "探索Ostwald法中铂催化NH₃氧化制NO的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "铂催化", "氨氧化"]
+  },
+  "reaction": {
+    "id": "ostwald-process",
+    "displayEquation": "4NH₃(g) + 5O₂(g) ⇌ 4NO(g) + 6H₂O(g)",
+    "equilibriumConstant": 3.5e55,
+    "reactants": ["NH₃", "O₂"],
+    "products": ["NO", "H₂O"],
+    "coefficients": {
+      "NH₃": 4,
+      "O₂": 5,
+      "NO": 4,
+      "H₂O": 6
+    },
+    "deltaH": -905.2,
+    "temperatureSensitivity": 0.30,
+    "hasGas": true,
+    "gasSpecies": ["NH₃", "O₂", "NO", "H₂O"],
+    "containerType": "rigid",
+    "initialTemp": 1173,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₃": 0.1,
+      "O₂": 0.15,
+      "NO": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 23
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-008",
+    "name": "光合作用光反应",
+    "description": "研究光系统II中的水裂解和氧气释放",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "光合作用", "光反应"]
+  },
+  "reaction": {
+    "id": "photosynthesis-light",
+    "displayEquation": "2H₂O + 2NADP⁺ + 3ADP + 3Pᵢ + light ⇌ O₂(g) + 2NADPH + 3ATP",
+    "equilibriumConstant": 1.2e-8,
+    "reactants": ["H₂O", "NADP⁺", "ADP", "Pᵢ"],
+    "products": ["O₂", "NADPH", "ATP"],
+    "coefficients": {
+      "H₂O": 2,
+      "NADP⁺": 2,
+      "ADP": 3,
+      "Pᵢ": 3,
+      "O₂": 1,
+      "NADPH": 2,
+      "ATP": 3
+    },
+    "deltaH": 465.0,
+    "temperatureSensitivity": 0.32,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂O": 55.5,
+      "NADP⁺": 0.001,
+      "ADP": 0.002,
+      "Pᵢ": 0.005,
+      "O₂": 0,
+      "NADPH": 0,
+      "ATP": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 29
+  }
+}

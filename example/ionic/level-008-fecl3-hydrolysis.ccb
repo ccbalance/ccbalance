@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-008",
+    "name": "氯化铁的水解",
+    "description": "氯化铁在水溶液中水解呈酸性",
+    "author": "CCBalance Team",
+    "createdAt": 1734624700000,
+    "tags": ["离子反应", "水解", "盐类"]
+  },
+  "reaction": {
+    "id": "fecl3-hydrolysis",
+    "displayEquation": "Fe³⁺ + 3H₂O ⇌ Fe(OH)₃ + 3H⁺",
+    "equilibriumConstant": 6.0e-3,
+    "reactants": ["Fe³⁺", "H₂O"],
+    "products": ["Fe(OH)₃", "H⁺"],
+    "coefficients": {
+      "Fe³⁺": 1,
+      "H₂O": 3,
+      "Fe(OH)₃": 1,
+      "H⁺": 3
+    },
+    "deltaH": 12.5,
+    "temperatureSensitivity": 1.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe³⁺": 0.1,
+      "H₂O": 55.5,
+      "Fe(OH)₃": 0.0,
+      "H⁺": 0.0001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

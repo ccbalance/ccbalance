@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-008",
+    "name": "过氧化氢的歧化",
+    "description": "过氧化氢分解生成水和氧气",
+    "author": "CCBalance Team",
+    "createdAt": 1734626300000,
+    "tags": ["氧化还原", "歧化反应", "催化分解"]
+  },
+  "reaction": {
+    "id": "h2o2-decomposition",
+    "displayEquation": "2H₂O₂ ⇌ 2H₂O + O₂",
+    "equilibriumConstant": 1.0e30,
+    "reactants": ["H₂O₂"],
+    "products": ["H₂O", "O₂"],
+    "coefficients": {
+      "H₂O₂": 2,
+      "H₂O": 2,
+      "O₂": 1
+    },
+    "deltaH": -196.0,
+    "temperatureSensitivity": 2.0,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "flexible",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂O₂": 0.3,
+      "H₂O": 55.5,
+      "O₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

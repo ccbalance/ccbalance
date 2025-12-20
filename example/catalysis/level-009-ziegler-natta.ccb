@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-009",
+    "name": "Ziegler-Natta聚合",
+    "description": "探索钛催化剂引发乙烯的立构规整聚合",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "聚合反应", "配位聚合"]
+  },
+  "reaction": {
+    "id": "ziegler-natta",
+    "displayEquation": "nC₂H₄ ⇌ (C₂H₄)ₙ",
+    "equilibriumConstant": 5.8e20,
+    "reactants": ["C₂H₄"],
+    "products": ["(C₂H₄)ₙ"],
+    "coefficients": {
+      "C₂H₄": 100,
+      "(C₂H₄)ₙ": 1
+    },
+    "deltaH": -103.0,
+    "temperatureSensitivity": 0.20,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₄"],
+    "containerType": "rigid",
+    "initialTemp": 343,
+    "initialPressure": 506,
+    "initialConcentrations": {
+      "C₂H₄": 2.0,
+      "(C₂H₄)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

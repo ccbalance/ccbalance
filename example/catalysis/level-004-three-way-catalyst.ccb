@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-004",
+    "name": "三效催化转化器",
+    "description": "研究汽车尾气中CO、HC和NOₓ的同时催化转化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "环境催化", "汽车催化"]
+  },
+  "reaction": {
+    "id": "three-way-catalyst",
+    "displayEquation": "2CO(g) + 2NO(g) ⇌ 2CO₂(g) + N₂(g)",
+    "equilibriumConstant": 2.1e47,
+    "reactants": ["CO", "NO"],
+    "products": ["CO₂", "N₂"],
+    "coefficients": {
+      "CO": 2,
+      "NO": 2,
+      "CO₂": 2,
+      "N₂": 1
+    },
+    "deltaH": -746.8,
+    "temperatureSensitivity": 0.32,
+    "hasGas": true,
+    "gasSpecies": ["CO", "NO", "CO₂", "N₂"],
+    "containerType": "rigid",
+    "initialTemp": 673,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO": 0.02,
+      "NO": 0.01,
+      "CO₂": 0.15,
+      "N₂": 0.78
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

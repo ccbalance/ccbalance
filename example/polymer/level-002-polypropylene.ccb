@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-002",
+    "name": "聚丙烯合成",
+    "description": "研究丙烯单体的配位聚合反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "配位聚合", "立构规整"]
+  },
+  "reaction": {
+    "id": "polypropylene-polymerization",
+    "displayEquation": "nC₃H₆ ⇌ (C₃H₆)ₙ",
+    "equilibriumConstant": 6.2e17,
+    "reactants": ["C₃H₆"],
+    "products": ["(C₃H₆)ₙ"],
+    "coefficients": {
+      "C₃H₆": 50,
+      "(C₃H₆)ₙ": 1
+    },
+    "deltaH": -84.0,
+    "temperatureSensitivity": 0.17,
+    "hasGas": true,
+    "gasSpecies": ["C₃H₆"],
+    "containerType": "rigid",
+    "initialTemp": 343,
+    "initialPressure": 405,
+    "initialConcentrations": {
+      "C₃H₆": 1.2,
+      "(C₃H₆)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 22
+  }
+}

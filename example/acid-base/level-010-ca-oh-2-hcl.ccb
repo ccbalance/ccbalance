@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-010",
+    "name": "氢氧化钙中和",
+    "description": "氢氧化钙与盐酸反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734636100000,
+    "tags": ["酸碱", "中和", "氢氧化钙"]
+  },
+  "reaction": {
+    "id": "ca-oh-2-hcl",
+    "displayEquation": "Ca(OH)₂ + 2HCl ⇌ CaCl₂ + 2H₂O",
+    "equilibriumConstant": 1.0e28,
+    "reactants": ["Ca(OH)₂", "HCl"],
+    "products": ["CaCl₂", "H₂O"],
+    "coefficients": {
+      "Ca(OH)₂": 1,
+      "HCl": 2,
+      "CaCl₂": 1,
+      "H₂O": 2
+    },
+    "deltaH": -111.6,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ca(OH)₂": 0.05,
+      "HCl": 0.1,
+      "CaCl₂": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-013",
+    "name": "烯烃复分解",
+    "description": "探索钌催化剂促进烯烃间的双键重组反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "烯烃复分解", "Grubbs催化剂"]
+  },
+  "reaction": {
+    "id": "olefin-metathesis",
+    "displayEquation": "2RCH=CHR' ⇌ RCH=CHR + R'CH=CHR'",
+    "equilibriumConstant": 1.0,
+    "reactants": ["RCH=CHR'"],
+    "products": ["RCH=CHR", "R'CH=CHR'"],
+    "coefficients": {
+      "RCH=CHR'": 2,
+      "RCH=CHR": 1,
+      "R'CH=CHR'": 1
+    },
+    "deltaH": 0,
+    "temperatureSensitivity": 0.10,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 313,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "RCH=CHR'": 0.1,
+      "RCH=CHR": 0,
+      "R'CH=CHR'": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

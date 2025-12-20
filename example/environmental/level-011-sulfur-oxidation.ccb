@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-011",
+    "name": "硫的生物氧化",
+    "description": "探索硫化物在环境中的微生物氧化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "硫循环", "生物氧化"]
+  },
+  "reaction": {
+    "id": "sulfur-biooxidation",
+    "displayEquation": "H₂S + 2O₂ ⇌ H₂SO₄",
+    "equilibriumConstant": 5.6e52,
+    "reactants": ["H₂S", "O₂"],
+    "products": ["H₂SO₄"],
+    "coefficients": {
+      "H₂S": 1,
+      "O₂": 2,
+      "H₂SO₄": 1
+    },
+    "deltaH": -562.0,
+    "temperatureSensitivity": 0.30,
+    "hasGas": true,
+    "gasSpecies": ["H₂S", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂S": 0.0001,
+      "O₂": 0.008,
+      "H₂SO₄": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

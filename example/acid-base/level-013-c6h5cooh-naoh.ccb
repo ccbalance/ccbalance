@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-013",
+    "name": "苯甲酸中和",
+    "description": "苯甲酸与氢氧化钠反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734636400000,
+    "tags": ["酸碱", "中和", "苯甲酸"]
+  },
+  "reaction": {
+    "id": "c6h5cooh-naoh",
+    "displayEquation": "C₆H₅COOH + NaOH ⇌ C₆H₅COONa + H₂O",
+    "equilibriumConstant": 6.5e8,
+    "reactants": ["C₆H₅COOH", "NaOH"],
+    "products": ["C₆H₅COONa", "H₂O"],
+    "coefficients": {
+      "C₆H₅COOH": 1,
+      "NaOH": 1,
+      "C₆H₅COONa": 1,
+      "H₂O": 1
+    },
+    "deltaH": -54.8,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₅COOH": 0.1,
+      "NaOH": 0.1,
+      "C₆H₅COONa": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

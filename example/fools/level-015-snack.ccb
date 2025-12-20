@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-015",
+    "name": "零食无限增殖",
+    "description": "吃货的终极梦想反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734639800000,
+    "tags": ["愚人节", "搞笑", "零食"]
+  },
+  "reaction": {
+    "id": "snack-multiplication",
+    "displayEquation": "Snack ⇌ 2Snack",
+    "equilibriumConstant": 1.618,
+    "reactants": ["Snack"],
+    "products": ["Snack"],
+    "coefficients": {
+      "Snack": 1,
+      "Snack": 2
+    },
+    "deltaH": -42.0,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Snack": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

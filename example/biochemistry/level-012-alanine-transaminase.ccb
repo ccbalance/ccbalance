@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-012",
+    "name": "丙氨酸转氨",
+    "description": "研究氨基酸代谢中的转氨基反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "氨基酸代谢", "转氨酶"]
+  },
+  "reaction": {
+    "id": "alanine-transaminase",
+    "displayEquation": "Ala + α-KG ⇌ Pyr + Glu",
+    "equilibriumConstant": 1.2,
+    "reactants": ["Ala", "α-KG"],
+    "products": ["Pyr", "Glu"],
+    "coefficients": {
+      "Ala": 1,
+      "α-KG": 1,
+      "Pyr": 1,
+      "Glu": 1
+    },
+    "deltaH": -2.5,
+    "temperatureSensitivity": 0.08,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ala": 0.002,
+      "α-KG": 0.001,
+      "Pyr": 0.0005,
+      "Glu": 0.005
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

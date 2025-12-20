@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-007",
+    "name": "丙烯氨氧化制丙烯腈",
+    "description": "探索催化氨氧化Sohio工艺",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "氨氧化", "丙烯腈"]
+  },
+  "reaction": {
+    "id": "acrylonitrile-production",
+    "displayEquation": "C₃H₆(g) + NH₃(g) + 3/2O₂(g) ⇌ C₃H₃N(g) + 3H₂O(g)",
+    "equilibriumConstant": 4.5e42,
+    "reactants": ["C₃H₆", "NH₃", "O₂"],
+    "products": ["C₃H₃N", "H₂O"],
+    "coefficients": {
+      "C₃H₆": 1,
+      "NH₃": 1,
+      "O₂": 1.5,
+      "C₃H₃N": 1,
+      "H₂O": 3
+    },
+    "deltaH": -515.0,
+    "temperatureSensitivity": 0.32,
+    "hasGas": true,
+    "gasSpecies": ["C₃H₆", "NH₃", "O₂", "C₃H₃N", "H₂O"],
+    "containerType": "rigid",
+    "initialTemp": 723,
+    "initialPressure": 202.65,
+    "initialConcentrations": {
+      "C₃H₆": 0.3,
+      "NH₃": 0.3,
+      "O₂": 0.4,
+      "C₃H₃N": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

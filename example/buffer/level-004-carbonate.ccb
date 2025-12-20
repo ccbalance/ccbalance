@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-004",
+    "name": "碳酸-碳酸氢钠缓冲液",
+    "description": "血液中的重要缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643500000,
+    "tags": ["缓冲溶液", "碳酸盐", "血液缓冲"]
+  },
+  "reaction": {
+    "id": "carbonate-buffer",
+    "displayEquation": "H₂CO₃(aq) ⇌ H⁺(aq) + HCO₃⁻(aq)",
+    "equilibriumConstant": 4.3e-7,
+    "reactants": ["H₂CO₃(aq)"],
+    "products": ["H⁺(aq)", "HCO₃⁻(aq)"],
+    "coefficients": {
+      "H₂CO₃(aq)": 1,
+      "H⁺(aq)": 1,
+      "HCO₃⁻(aq)": 1
+    },
+    "deltaH": 7.7,
+    "temperatureSensitivity": 0.12,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂CO₃(aq)": 0.0012,
+      "H⁺(aq)": 0.0,
+      "HCO₃⁻(aq)": 0.024
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

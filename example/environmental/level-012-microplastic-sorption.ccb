@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-012",
+    "name": "微塑料吸附有机污染物",
+    "description": "研究微塑料表面对疏水性有机物的吸附",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "微塑料", "吸附"]
+  },
+  "reaction": {
+    "id": "microplastic-sorption",
+    "displayEquation": "POPs + Microplastic ⇌ POPs-Microplastic",
+    "equilibriumConstant": 8.5e5,
+    "reactants": ["POPs", "Microplastic"],
+    "products": ["POPs-Microplastic"],
+    "coefficients": {
+      "POPs": 1,
+      "Microplastic": 1,
+      "POPs-Microplastic": 1
+    },
+    "deltaH": -25.0,
+    "temperatureSensitivity": 0.15,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 288,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "POPs": 0.00001,
+      "Microplastic": 0.001,
+      "POPs-Microplastic": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

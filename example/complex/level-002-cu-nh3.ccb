@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-002",
+    "name": "铜氨络离子的形成",
+    "description": "铜离子与氨形成深蓝色络合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734630500000,
+    "tags": ["络合", "配位化合物", "铜"]
+  },
+  "reaction": {
+    "id": "cu-ammonia-complex",
+    "displayEquation": "Cu²⁺ + 4NH₃ ⇌ [Cu(NH₃)₄]²⁺",
+    "equilibriumConstant": 1.1e13,
+    "reactants": ["Cu²⁺", "NH₃"],
+    "products": ["[Cu(NH₃)₄]²⁺"],
+    "coefficients": {
+      "Cu²⁺": 1,
+      "NH₃": 4,
+      "[Cu(NH₃)₄]²⁺": 1
+    },
+    "deltaH": -84.5,
+    "temperatureSensitivity": 1.5,
+    "hasGas": true,
+    "gasSpecies": ["NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu²⁺": 0.01,
+      "NH₃": 0.2,
+      "[Cu(NH₃)₄]²⁺": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

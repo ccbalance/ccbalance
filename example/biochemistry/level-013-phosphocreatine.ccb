@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-013",
+    "name": "磷酸肌酸系统",
+    "description": "探索肌肉中的高能磷酸储备系统",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "能量代谢", "肌肉"]
+  },
+  "reaction": {
+    "id": "phosphocreatine-system",
+    "displayEquation": "PCr + ADP ⇌ Cr + ATP",
+    "equilibriumConstant": 150,
+    "reactants": ["PCr", "ADP"],
+    "products": ["Cr", "ATP"],
+    "coefficients": {
+      "PCr": 1,
+      "ADP": 1,
+      "Cr": 1,
+      "ATP": 1
+    },
+    "deltaH": -12.5,
+    "temperatureSensitivity": 0.10,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "PCr": 0.025,
+      "ADP": 0.001,
+      "Cr": 0.005,
+      "ATP": 0.005
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

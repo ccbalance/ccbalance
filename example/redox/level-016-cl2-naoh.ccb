@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-016",
+    "name": "氯气与氢氧化钠反应",
+    "description": "氯气的歧化反应生成次氯酸钠和氯化钠",
+    "author": "CCBalance Team",
+    "createdAt": 1734627100000,
+    "tags": ["氧化还原", "歧化", "漂白剂"]
+  },
+  "reaction": {
+    "id": "cl2-naoh-disproportionation",
+    "displayEquation": "Cl₂ + 2OH⁻ ⇌ ClO⁻ + Cl⁻ + H₂O",
+    "equilibriumConstant": 7.5e15,
+    "reactants": ["Cl₂", "OH⁻"],
+    "products": ["ClO⁻", "Cl⁻", "H₂O"],
+    "coefficients": {
+      "Cl₂": 1,
+      "OH⁻": 2,
+      "ClO⁻": 1,
+      "Cl⁻": 1,
+      "H₂O": 1
+    },
+    "deltaH": -102.0,
+    "temperatureSensitivity": 1.2,
+    "hasGas": true,
+    "gasSpecies": ["Cl₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cl₂": 0.05,
+      "OH⁻": 0.2,
+      "ClO⁻": 0.0,
+      "Cl⁻": 0.0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

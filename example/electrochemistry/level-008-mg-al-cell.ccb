@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-008",
+    "name": "镁铝原电池",
+    "description": "镁铝在氢氧化钠溶液中的原电池",
+    "author": "CCBalance Team",
+    "createdAt": 1734632700000,
+    "tags": ["电化学", "原电池", "镁铝"]
+  },
+  "reaction": {
+    "id": "mg-al-cell",
+    "displayEquation": "2Al + 2OH⁻ + 6H₂O ⇌ 2[Al(OH)₄]⁻ + 3H₂",
+    "equilibriumConstant": 1.0e35,
+    "reactants": ["Al", "OH⁻", "H₂O"],
+    "products": ["[Al(OH)₄]⁻", "H₂"],
+    "coefficients": {
+      "Al": 2,
+      "OH⁻": 2,
+      "H₂O": 6,
+      "[Al(OH)₄]⁻": 2,
+      "H₂": 3
+    },
+    "deltaH": -425.0,
+    "temperatureSensitivity": 2.2,
+    "hasGas": true,
+    "gasSpecies": ["H₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Al": 0.1,
+      "OH⁻": 0.2,
+      "H₂O": 1.0,
+      "[Al(OH)₄]⁻": 0.0,
+      "H₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

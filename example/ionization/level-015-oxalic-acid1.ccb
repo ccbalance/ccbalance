@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-015",
+    "name": "草酸的第一步电离",
+    "description": "草酸是强的二元有机酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734630200000,
+    "tags": ["电离", "有机酸", "二元酸"]
+  },
+  "reaction": {
+    "id": "oxalic-acid-ionization1",
+    "displayEquation": "H₂C₂O₄ ⇌ H⁺ + HC₂O₄⁻",
+    "equilibriumConstant": 5.9e-2,
+    "reactants": ["H₂C₂O₄"],
+    "products": ["H⁺", "HC₂O₄⁻"],
+    "coefficients": {
+      "H₂C₂O₄": 1,
+      "H⁺": 1,
+      "HC₂O₄⁻": 1
+    },
+    "deltaH": 1.2,
+    "temperatureSensitivity": 0.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂C₂O₄": 0.1,
+      "H⁺": 0.0001,
+      "HC₂O₄⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

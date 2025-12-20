@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-008",
+    "name": "甲烷蒸汽重整",
+    "description": "研究镍催化CH₄与H₂O反应制取合成气",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "蒸汽重整", "制氢"]
+  },
+  "reaction": {
+    "id": "steam-reforming",
+    "displayEquation": "CH₄(g) + H₂O(g) ⇌ CO(g) + 3H₂(g)",
+    "equilibriumConstant": 1.2e-25,
+    "reactants": ["CH₄", "H₂O"],
+    "products": ["CO", "H₂"],
+    "coefficients": {
+      "CH₄": 1,
+      "H₂O": 1,
+      "CO": 1,
+      "H₂": 3
+    },
+    "deltaH": 206.0,
+    "temperatureSensitivity": 0.35,
+    "hasGas": true,
+    "gasSpecies": ["CH₄", "H₂O", "CO", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 1073,
+    "initialPressure": 2026,
+    "initialConcentrations": {
+      "CH₄": 0.25,
+      "H₂O": 0.75,
+      "CO": 0,
+      "H₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 29
+  }
+}

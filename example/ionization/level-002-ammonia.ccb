@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-002",
+    "name": "氨水的电离",
+    "description": "氨水是弱碱,在水中部分电离",
+    "author": "CCBalance Team",
+    "createdAt": 1734628900000,
+    "tags": ["电离", "弱碱", "氨"]
+  },
+  "reaction": {
+    "id": "nh3-ionization",
+    "displayEquation": "NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
+    "equilibriumConstant": 1.8e-5,
+    "reactants": ["NH₃", "H₂O"],
+    "products": ["NH₄⁺", "OH⁻"],
+    "coefficients": {
+      "NH₃": 1,
+      "H₂O": 1,
+      "NH₄⁺": 1,
+      "OH⁻": 1
+    },
+    "deltaH": -4.5,
+    "temperatureSensitivity": 0.8,
+    "hasGas": true,
+    "gasSpecies": ["NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₃": 0.1,
+      "H₂O": 55.5,
+      "NH₄⁺": 0.0,
+      "OH⁻": 0.00001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 30
+  }
+}

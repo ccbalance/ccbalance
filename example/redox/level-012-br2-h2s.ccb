@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-012",
+    "name": "溴与硫化氢反应",
+    "description": "溴单质氧化硫化氢生成硫和溴化氢",
+    "author": "CCBalance Team",
+    "createdAt": 1734626700000,
+    "tags": ["氧化还原", "卤素", "硫化物"]
+  },
+  "reaction": {
+    "id": "br2-h2s-redox",
+    "displayEquation": "Br₂ + H₂S ⇌ 2HBr + S",
+    "equilibriumConstant": 5.0e8,
+    "reactants": ["Br₂", "H₂S"],
+    "products": ["HBr", "S"],
+    "coefficients": {
+      "Br₂": 1,
+      "H₂S": 1,
+      "HBr": 2,
+      "S": 1
+    },
+    "deltaH": -52.0,
+    "temperatureSensitivity": 0.8,
+    "hasGas": true,
+    "gasSpecies": ["H₂S"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Br₂": 0.05,
+      "H₂S": 0.05,
+      "HBr": 0.0,
+      "S": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

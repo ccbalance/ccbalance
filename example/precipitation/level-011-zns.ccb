@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-011",
+    "name": "硫化锌沉淀",
+    "description": "锌离子与硫离子生成硫化锌沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734637800000,
+    "tags": ["沉淀", "硫化物", "锌"]
+  },
+  "reaction": {
+    "id": "zns-precipitation",
+    "displayEquation": "Zn²⁺ + S²⁻ ⇌ ZnS",
+    "equilibriumConstant": 5.0e24,
+    "reactants": ["Zn²⁺", "S²⁻"],
+    "products": ["ZnS"],
+    "coefficients": {
+      "Zn²⁺": 1,
+      "S²⁻": 1,
+      "ZnS": 1
+    },
+    "deltaH": -42.3,
+    "temperatureSensitivity": 1.3,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Zn²⁺": 0.01,
+      "S²⁻": 0.01,
+      "ZnS": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

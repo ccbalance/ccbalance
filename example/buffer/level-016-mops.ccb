@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-016",
+    "name": "MOPS缓冲液",
+    "description": "中性范围Good's缓冲剂",
+    "author": "CCBalance Team",
+    "createdAt": 1734644700000,
+    "tags": ["缓冲溶液", "MOPS", "中性pH"]
+  },
+  "reaction": {
+    "id": "mops-buffer",
+    "displayEquation": "MOPSH(aq) ⇌ H⁺(aq) + MOPS⁻(aq)",
+    "equilibriumConstant": 6.3e-8,
+    "reactants": ["MOPSH(aq)"],
+    "products": ["H⁺(aq)", "MOPS⁻(aq)"],
+    "coefficients": {
+      "MOPSH(aq)": 1,
+      "H⁺(aq)": 1,
+      "MOPS⁻(aq)": 1
+    },
+    "deltaH": 21.1,
+    "temperatureSensitivity": 0.015,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "MOPSH(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "MOPS⁻(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

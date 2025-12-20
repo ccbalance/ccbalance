@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-008",
+    "name": "甘氨酸缓冲液",
+    "description": "两性物质缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643900000,
+    "tags": ["缓冲溶液", "甘氨酸", "两性物质"]
+  },
+  "reaction": {
+    "id": "glycine-buffer",
+    "displayEquation": "H₃N⁺CH₂COOH(aq) ⇌ H⁺(aq) + H₃N⁺CH₂COO⁻(aq)",
+    "equilibriumConstant": 4.5e-3,
+    "reactants": ["H₃N⁺CH₂COOH(aq)"],
+    "products": ["H⁺(aq)", "H₃N⁺CH₂COO⁻(aq)"],
+    "coefficients": {
+      "H₃N⁺CH₂COOH(aq)": 1,
+      "H⁺(aq)": 1,
+      "H₃N⁺CH₂COO⁻(aq)": 1
+    },
+    "deltaH": 4.4,
+    "temperatureSensitivity": 0.06,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₃N⁺CH₂COOH(aq)": 0.1,
+      "H⁺(aq)": 0.0,
+      "H₃N⁺CH₂COO⁻(aq)": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

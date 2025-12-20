@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-001",
+    "name": "葡萄糖的糖酵解",
+    "description": "探索葡萄糖分解为丙酮酸的代谢途径",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "糖酵解", "代谢"]
+  },
+  "reaction": {
+    "id": "glycolysis",
+    "displayEquation": "C₆H₁₂O₆ + 2NAD⁺ + 2ADP + 2Pᵢ ⇌ 2C₃H₄O₃ + 2NADH + 2ATP + 2H₂O",
+    "equilibriumConstant": 3.8e18,
+    "reactants": ["C₆H₁₂O₆", "NAD⁺", "ADP", "Pᵢ"],
+    "products": ["C₃H₄O₃", "NADH", "ATP", "H₂O"],
+    "coefficients": {
+      "C₆H₁₂O₆": 1,
+      "NAD⁺": 2,
+      "ADP": 2,
+      "Pᵢ": 2,
+      "C₃H₄O₃": 2,
+      "NADH": 2,
+      "ATP": 2,
+      "H₂O": 2
+    },
+    "deltaH": -85.0,
+    "temperatureSensitivity": 0.18,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₁₂O₆": 0.005,
+      "NAD⁺": 0.001,
+      "ADP": 0.002,
+      "Pᵢ": 0.005,
+      "C₃H₄O₃": 0,
+      "NADH": 0,
+      "ATP": 0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

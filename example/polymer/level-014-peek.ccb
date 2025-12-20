@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-014",
+    "name": "聚醚醚酮合成",
+    "description": "研究PEEK高性能工程塑料的缩聚反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "PEEK", "高性能材料"]
+  },
+  "reaction": {
+    "id": "peek-synthesis",
+    "displayEquation": "nC₁₂H₈O₂ + nC₁₃H₈O₃ ⇌ (C₁₉H₁₂O₃)ₙ + nH₂O",
+    "equilibriumConstant": 2.9e12,
+    "reactants": ["C₁₂H₈O₂", "C₁₃H₈O₃"],
+    "products": ["(C₁₉H₁₂O₃)ₙ", "H₂O"],
+    "coefficients": {
+      "C₁₂H₈O₂": 20,
+      "C₁₃H₈O₃": 20,
+      "(C₁₉H₁₂O₃)ₙ": 1,
+      "H₂O": 20
+    },
+    "deltaH": -48.5,
+    "temperatureSensitivity": 0.23,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 653,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₁₂H₈O₂": 0.25,
+      "C₁₃H₈O₃": 0.25,
+      "(C₁₉H₁₂O₃)ₙ": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

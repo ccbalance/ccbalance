@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-001",
+    "name": "强酸强碱中和",
+    "description": "盐酸与氢氧化钠的中和反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734635200000,
+    "tags": ["酸碱", "中和", "强酸强碱"]
+  },
+  "reaction": {
+    "id": "strong-acid-base",
+    "displayEquation": "HCl + NaOH ⇌ NaCl + H₂O",
+    "equilibriumConstant": 1.0e14,
+    "reactants": ["HCl", "NaOH"],
+    "products": ["NaCl", "H₂O"],
+    "coefficients": {
+      "HCl": 1,
+      "NaOH": 1,
+      "NaCl": 1,
+      "H₂O": 1
+    },
+    "deltaH": -55.8,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HCl": 0.1,
+      "NaOH": 0.1,
+      "NaCl": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-001",
+    "name": "氯碱工业电解",
+    "description": "探索电解食盐水生产氯气、氢气和烧碱",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "电解", "氯碱"]
+  },
+  "reaction": {
+    "id": "chloralkali-process",
+    "displayEquation": "2NaCl + 2H₂O → Cl₂(g) + H₂(g) + 2NaOH",
+    "equilibriumConstant": 1.0e-76,
+    "reactants": ["NaCl", "H₂O"],
+    "products": ["Cl₂", "H₂", "NaOH"],
+    "coefficients": {
+      "NaCl": 2,
+      "H₂O": 2,
+      "Cl₂": 1,
+      "H₂": 1,
+      "NaOH": 2
+    },
+    "deltaH": 450.5,
+    "temperatureSensitivity": 0.35,
+    "hasGas": true,
+    "gasSpecies": ["Cl₂", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 353,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaCl": 5.0,
+      "H₂O": 55.5,
+      "Cl₂": 0,
+      "H₂": 0,
+      "NaOH": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

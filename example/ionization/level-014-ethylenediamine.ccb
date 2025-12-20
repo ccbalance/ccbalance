@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-014",
+    "name": "乙二胺的电离",
+    "description": "乙二胺是二元弱碱",
+    "author": "CCBalance Team",
+    "createdAt": 1734630100000,
+    "tags": ["电离", "弱碱", "有机碱"]
+  },
+  "reaction": {
+    "id": "ethylenediamine-ionization1",
+    "displayEquation": "H₂NCH₂CH₂NH₂ + H₂O ⇌ H₂NCH₂CH₂NH₃⁺ + OH⁻",
+    "equilibriumConstant": 8.5e-5,
+    "reactants": ["H₂NCH₂CH₂NH₂", "H₂O"],
+    "products": ["H₂NCH₂CH₂NH₃⁺", "OH⁻"],
+    "coefficients": {
+      "H₂NCH₂CH₂NH₂": 1,
+      "H₂O": 1,
+      "H₂NCH₂CH₂NH₃⁺": 1,
+      "OH⁻": 1
+    },
+    "deltaH": -5.5,
+    "temperatureSensitivity": 0.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂NCH₂CH₂NH₂": 0.1,
+      "H₂O": 55.5,
+      "H₂NCH₂CH₂NH₃⁺": 0.0,
+      "OH⁻": 0.00001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

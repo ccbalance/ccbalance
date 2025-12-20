@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-012",
+    "name": "碘化氢合成",
+    "description": "氢气与碘蒸气合成碘化氢",
+    "author": "CCBalance Team",
+    "createdAt": 1734634700000,
+    "tags": ["气体平衡", "合成", "碘化氢"]
+  },
+  "reaction": {
+    "id": "hi-synthesis",
+    "displayEquation": "H₂ + I₂ ⇌ 2HI",
+    "equilibriumConstant": 50.0,
+    "reactants": ["H₂", "I₂"],
+    "products": ["HI"],
+    "coefficients": {
+      "H₂": 1,
+      "I₂": 1,
+      "HI": 2
+    },
+    "deltaH": -11.0,
+    "temperatureSensitivity": 1.1,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "I₂", "HI"],
+    "containerType": "rigid",
+    "initialTemp": 764,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂": 0.05,
+      "I₂": 0.05,
+      "HI": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-013",
+    "name": "碘酸钾与亚硫酸钠",
+    "description": "碘酸钾氧化亚硫酸钠",
+    "author": "CCBalance Team",
+    "createdAt": 1734626800000,
+    "tags": ["氧化还原", "时钟反应", "突变"]
+  },
+  "reaction": {
+    "id": "kio3-na2so3",
+    "displayEquation": "IO₃⁻ + 3SO₃²⁻ ⇌ I⁻ + 3SO₄²⁻",
+    "equilibriumConstant": 1.0e30,
+    "reactants": ["IO₃⁻", "SO₃²⁻"],
+    "products": ["I⁻", "SO₄²⁻"],
+    "coefficients": {
+      "IO₃⁻": 1,
+      "SO₃²⁻": 3,
+      "I⁻": 1,
+      "SO₄²⁻": 3
+    },
+    "deltaH": -248.0,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "IO₃⁻": 0.01,
+      "SO₃²⁻": 0.03,
+      "I⁻": 0.0,
+      "SO₄²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

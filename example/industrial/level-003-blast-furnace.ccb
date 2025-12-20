@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-003",
+    "name": "炼铁高炉反应",
+    "description": "探索焦炭还原铁矿石的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "冶金", "高炉"]
+  },
+  "reaction": {
+    "id": "blast-furnace",
+    "displayEquation": "Fe₂O₃ + 3CO(g) ⇌ 2Fe + 3CO₂(g)",
+    "equilibriumConstant": 8.5e12,
+    "reactants": ["Fe₂O₃", "CO"],
+    "products": ["Fe", "CO₂"],
+    "coefficients": {
+      "Fe₂O₃": 1,
+      "CO": 3,
+      "Fe": 2,
+      "CO₂": 3
+    },
+    "deltaH": -23.0,
+    "temperatureSensitivity": 0.15,
+    "hasGas": true,
+    "gasSpecies": ["CO", "CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 1473,
+    "initialPressure": 202.65,
+    "initialConcentrations": {
+      "Fe₂O₃": 0.5,
+      "CO": 0.9,
+      "Fe": 0,
+      "CO₂": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 23
+  }
+}

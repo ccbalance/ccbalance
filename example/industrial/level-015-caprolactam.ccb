@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-015",
+    "name": "己内酰胺生产",
+    "description": "探索环己酮肟的Beckmann重排制尼龙-6原料",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "己内酰胺", "重排反应"]
+  },
+  "reaction": {
+    "id": "caprolactam-production",
+    "displayEquation": "C₆H₁₁NO + H₂SO₄ ⇌ C₆H₁₁NO + H₂O",
+    "equilibriumConstant": 6.5e9,
+    "reactants": ["C₆H₁₁NO", "H₂SO₄"],
+    "products": ["C₆H₁₁NO", "H₂O"],
+    "coefficients": {
+      "C₆H₁₁NO": 1,
+      "H₂SO₄": 1,
+      "H₂O": 1
+    },
+    "deltaH": -45.0,
+    "temperatureSensitivity": 0.18,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 398,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₁₁NO": 1.0,
+      "H₂SO₄": 5.0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

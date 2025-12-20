@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-011",
+    "name": "次氯酸钠水解",
+    "description": "漂白剂的水解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734645800000,
+    "tags": ["水解", "次氯酸钠", "漂白剂"]
+  },
+  "reaction": {
+    "id": "naclo-hydrolysis",
+    "displayEquation": "ClO⁻(aq) + H₂O(l) ⇌ HClO(aq) + OH⁻(aq)",
+    "equilibriumConstant": 3.3e-7,
+    "reactants": ["ClO⁻(aq)", "H₂O(l)"],
+    "products": ["HClO(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "ClO⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "HClO(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -18.0,
+    "temperatureSensitivity": -0.11,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "ClO⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "HClO(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

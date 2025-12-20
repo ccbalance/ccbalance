@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-007",
+    "name": "糖异生作用",
+    "description": "探索非糖物质合成葡萄糖的代谢途径",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "糖异生", "糖代谢"]
+  },
+  "reaction": {
+    "id": "gluconeogenesis",
+    "displayEquation": "2C₃H₄O₃ + 4ATP + 2GTP + 2NADH + 6H₂O ⇌ C₆H₁₂O₆ + 4ADP + 2GDP + 6Pᵢ + 2NAD⁺",
+    "equilibriumConstant": 2.3e-12,
+    "reactants": ["C₃H₄O₃", "ATP", "GTP", "NADH", "H₂O"],
+    "products": ["C₆H₁₂O₆", "ADP", "GDP", "Pᵢ", "NAD⁺"],
+    "coefficients": {
+      "C₃H₄O₃": 2,
+      "ATP": 4,
+      "GTP": 2,
+      "NADH": 2,
+      "H₂O": 6,
+      "C₆H₁₂O₆": 1,
+      "ADP": 4,
+      "GDP": 2,
+      "Pᵢ": 6,
+      "NAD⁺": 2
+    },
+    "deltaH": 38.0,
+    "temperatureSensitivity": 0.22,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₃H₄O₃": 0.002,
+      "ATP": 0.003,
+      "GTP": 0.001,
+      "NADH": 0.0005,
+      "H₂O": 55.5,
+      "C₆H₁₂O₆": 0,
+      "ADP": 0.001,
+      "GDP": 0.0005,
+      "Pᵢ": 0.005,
+      "NAD⁺": 0.001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

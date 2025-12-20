@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-014",
+    "name": "磷化氢分解",
+    "description": "磷化氢高温分解",
+    "author": "CCBalance Team",
+    "createdAt": 1734634900000,
+    "tags": ["气体平衡", "分解", "磷化氢"]
+  },
+  "reaction": {
+    "id": "ph3-decomposition",
+    "displayEquation": "4PH₃ ⇌ P₄ + 6H₂",
+    "equilibriumConstant": 1.0e-10,
+    "reactants": ["PH₃"],
+    "products": ["P₄", "H₂"],
+    "coefficients": {
+      "PH₃": 4,
+      "P₄": 1,
+      "H₂": 6
+    },
+    "deltaH": 24.7,
+    "temperatureSensitivity": 0.82,
+    "hasGas": true,
+    "gasSpecies": ["PH₃", "P₄", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 873,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "PH₃": 0.1,
+      "P₄": 0.0,
+      "H₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

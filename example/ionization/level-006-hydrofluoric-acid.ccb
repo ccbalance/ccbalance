@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-006",
+    "name": "氢氟酸的电离",
+    "description": "氢氟酸是唯一的弱氢卤酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734629300000,
+    "tags": ["电离", "弱酸", "特殊卤酸"]
+  },
+  "reaction": {
+    "id": "hf-ionization",
+    "displayEquation": "HF ⇌ H⁺ + F⁻",
+    "equilibriumConstant": 3.5e-4,
+    "reactants": ["HF"],
+    "products": ["H⁺", "F⁻"],
+    "coefficients": {
+      "HF": 1,
+      "H⁺": 1,
+      "F⁻": 1
+    },
+    "deltaH": 2.7,
+    "temperatureSensitivity": 0.9,
+    "hasGas": true,
+    "gasSpecies": ["HF"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HF": 0.1,
+      "H⁺": 0.0001,
+      "F⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

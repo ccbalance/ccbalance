@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-002",
+    "name": "侯氏制碱法",
+    "description": "研究联合制碱法生产纯碱和氯化铵",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "制碱", "侯氏法"]
+  },
+  "reaction": {
+    "id": "hou-process",
+    "displayEquation": "NaCl + NH₃ + CO₂ + H₂O ⇌ NaHCO₃ + NH₄Cl",
+    "equilibriumConstant": 2.8e5,
+    "reactants": ["NaCl", "NH₃", "CO₂", "H₂O"],
+    "products": ["NaHCO₃", "NH₄Cl"],
+    "coefficients": {
+      "NaCl": 1,
+      "NH₃": 1,
+      "CO₂": 1,
+      "H₂O": 1,
+      "NaHCO₃": 1,
+      "NH₄Cl": 1
+    },
+    "deltaH": -42.0,
+    "temperatureSensitivity": 0.19,
+    "hasGas": true,
+    "gasSpecies": ["NH₃", "CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 303,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaCl": 5.0,
+      "NH₃": 2.0,
+      "CO₂": 0.01,
+      "H₂O": 55.5,
+      "NaHCO₃": 0,
+      "NH₄Cl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 22
+  }
+}

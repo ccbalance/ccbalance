@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-008",
+    "name": "甲醇羰基化制乙酸",
+    "description": "研究Monsanto法铑催化羰基化反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "羰基化", "乙酸"]
+  },
+  "reaction": {
+    "id": "monsanto-process",
+    "displayEquation": "CH₃OH + CO(g) ⇌ CH₃COOH",
+    "equilibriumConstant": 5.8e15,
+    "reactants": ["CH₃OH", "CO"],
+    "products": ["CH₃COOH"],
+    "coefficients": {
+      "CH₃OH": 1,
+      "CO": 1,
+      "CH₃COOH": 1
+    },
+    "deltaH": -135.5,
+    "temperatureSensitivity": 0.25,
+    "hasGas": true,
+    "gasSpecies": ["CO"],
+    "containerType": "rigid",
+    "initialTemp": 453,
+    "initialPressure": 3039,
+    "initialConcentrations": {
+      "CH₃OH": 2.0,
+      "CO": 1.5,
+      "CH₃COOH": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 29
+  }
+}

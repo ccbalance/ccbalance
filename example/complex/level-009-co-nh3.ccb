@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-009",
+    "name": "钴氨络离子",
+    "description": "钴离子与氨形成粉红色络合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734631200000,
+    "tags": ["络合", "钴", "氨"]
+  },
+  "reaction": {
+    "id": "co-ammonia-complex",
+    "displayEquation": "Co²⁺ + 6NH₃ ⇌ [Co(NH₃)₆]²⁺",
+    "equilibriumConstant": 7.7e4,
+    "reactants": ["Co²⁺", "NH₃"],
+    "products": ["[Co(NH₃)₆]²⁺"],
+    "coefficients": {
+      "Co²⁺": 1,
+      "NH₃": 6,
+      "[Co(NH₃)₆]²⁺": 1
+    },
+    "deltaH": -78.5,
+    "temperatureSensitivity": 1.5,
+    "hasGas": true,
+    "gasSpecies": ["NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Co²⁺": 0.01,
+      "NH₃": 0.15,
+      "[Co(NH₃)₆]²⁺": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

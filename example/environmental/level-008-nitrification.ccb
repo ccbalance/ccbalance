@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-008",
+    "name": "硝化作用",
+    "description": "研究土壤中氨的微生物氧化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "氮循环", "硝化"]
+  },
+  "reaction": {
+    "id": "nitrification",
+    "displayEquation": "NH₄⁺ + 2O₂ ⇌ NO₃⁻ + 2H⁺ + H₂O",
+    "equilibriumConstant": 6.8e28,
+    "reactants": ["NH₄⁺", "O₂"],
+    "products": ["NO₃⁻", "H⁺", "H₂O"],
+    "coefficients": {
+      "NH₄⁺": 1,
+      "O₂": 2,
+      "NO₃⁻": 1,
+      "H⁺": 2,
+      "H₂O": 1
+    },
+    "deltaH": -275.0,
+    "temperatureSensitivity": 0.26,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₄⁺": 0.001,
+      "O₂": 0.008,
+      "NO₃⁻": 0,
+      "H⁺": 0.000001,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 29
+  }
+}

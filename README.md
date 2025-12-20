@@ -4,8 +4,8 @@
 
 ## 版本信息
 
-**当前版本**: v0.1.1  
-**更新日期**: 2024
+**当前版本**: v0.1.3  
+**更新日期**: 2025.12.20
 
 ### v0.1.1 新增功能
 
@@ -51,7 +51,7 @@ npm start pass 3      # 解锁第4关(通过第3关)
 #### 键盘快捷键
 
 | 按键 | 功能 |
-|------|------|
+| ------ | ------ |
 | W/S 或 方向键 | 增大/减小当前参数 |
 | A/D 或 方向键 | 调整当前参数 |
 | Tab | 切换参数类型 |
@@ -148,8 +148,9 @@ CCB (CCBalance Level) 文件采用 JSON 格式,包含关卡元数据、化学反
 本项目采用 **CC0 1.0 Universal (CC0 1.0) 公共领域贡献** 许可证。
 
 您可以自由地:
+
 - 复制、修改、发布、使用、编译、出售本作品
 - 用于商业或非商业目的
 - 无需署名、无需许可
 
-详见 [LICENSE](LICENSE) 文件或访问 https://creativecommons.org/publicdomain/zero/1.0/
+详见 [LICENSE](LICENSE) 文件或访问 <https://creativecommons.org/publicdomain/zero/1.0/>

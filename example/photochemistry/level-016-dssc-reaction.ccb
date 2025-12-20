@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-016",
+    "name": "染料敏化太阳能电池反应",
+    "description": "研究染料分子在光照下的电子转移和再生循环",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "太阳能电池", "电子转移"]
+  },
+  "reaction": {
+    "id": "dssc-electron-transfer",
+    "displayEquation": "Dye + hν + I⁻ ⇌ Dye* → Dye⁺ + e⁻ → Dye + I₃⁻",
+    "equilibriumConstant": 1.2e7,
+    "reactants": ["Dye", "I⁻"],
+    "products": ["Dye", "I₃⁻", "e⁻"],
+    "coefficients": {
+      "Dye": 1,
+      "I⁻": 3,
+      "I₃⁻": 1,
+      "e⁻": 2
+    },
+    "deltaH": -125.5,
+    "temperatureSensitivity": 0.26,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Dye": 0.001,
+      "I⁻": 0.5,
+      "I₃⁻": 0,
+      "e⁻": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

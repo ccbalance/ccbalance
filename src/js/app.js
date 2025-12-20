@@ -83,9 +83,6 @@ const App = {
 
             this.initialized = true;
             console.log('初始化完成');
-            
-            // 隐藏启动画面
-            this.hideSplash();
 
         } catch (error) {
             console.error('初始化失败:', error);
@@ -185,53 +182,6 @@ const App = {
         UIManager.showScreen('game');
         Game.startLevel(level);
         AudioManager?.playGameBgm?.({ fadeMs: 500 });
-    },
-
-    /**
-     * 隐藏启动画面
-     */
-    hideSplash() {
-        const splash = document.getElementById('splash-screen');
-        if (!splash) {
-            console.warn('Splash screen not found');
-            return;
-        }
-
-        console.log('Starting splash hide animation');
-
-        // 启动即显示，稍作停留后渐隐进入主界面
-        setTimeout(() => {
-            console.log('Applying splash fade out');
-
-            // 强制设置初始状态和过渡
-            splash.style.opacity = '1';
-            splash.style.transition = 'opacity 0.8s ease';
-            splash.classList.remove('hidden');
-
-            // 强制布局刷新
-            // eslint-disable-next-line no-unused-expressions
-            splash.offsetHeight;
-
-            requestAnimationFrame(() => {
-                splash.classList.add('hidden');
-                console.log('Added hidden class to splash');
-            });
-
-            const onEnd = () => {
-                console.log('Splash transition ended');
-                splash.removeEventListener('transitionend', onEnd);
-                splash.style.display = 'none';
-            };
-            splash.addEventListener('transitionend', onEnd);
-
-            // 兜底：强制在1.2s后收尾（比动画时间稍长）
-            setTimeout(() => {
-                if (splash.style.display !== 'none') {
-                    console.log('Splash fallback timeout triggered');
-                    onEnd();
-                }
-            }, 1200);
-        }, 900);
     },
 
     /**

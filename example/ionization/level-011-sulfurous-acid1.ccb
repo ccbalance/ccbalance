@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-011",
+    "name": "亚硫酸的第一步电离",
+    "description": "亚硫酸是二元弱酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734629800000,
+    "tags": ["电离", "弱酸", "含硫化合物"]
+  },
+  "reaction": {
+    "id": "h2so3-ionization1",
+    "displayEquation": "H₂SO₃ ⇌ H⁺ + HSO₃⁻",
+    "equilibriumConstant": 1.54e-2,
+    "reactants": ["H₂SO₃"],
+    "products": ["H⁺", "HSO₃⁻"],
+    "coefficients": {
+      "H₂SO₃": 1,
+      "H⁺": 1,
+      "HSO₃⁻": 1
+    },
+    "deltaH": 3.2,
+    "temperatureSensitivity": 0.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂SO₃": 0.1,
+      "H⁺": 0.0001,
+      "HSO₃⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

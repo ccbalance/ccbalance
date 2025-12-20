@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-013",
+    "name": "一氧化氮氧化",
+    "description": "一氧化氮氧化为二氧化氮",
+    "author": "CCBalance Team",
+    "createdAt": 1734634800000,
+    "tags": ["气体平衡", "氧化", "氮氧化物"]
+  },
+  "reaction": {
+    "id": "no-oxidation",
+    "displayEquation": "2NO + O₂ ⇌ 2NO₂",
+    "equilibriumConstant": 1.6e12,
+    "reactants": ["NO", "O₂"],
+    "products": ["NO₂"],
+    "coefficients": {
+      "NO": 2,
+      "O₂": 1,
+      "NO₂": 2
+    },
+    "deltaH": -114.1,
+    "temperatureSensitivity": 1.8,
+    "hasGas": true,
+    "gasSpecies": ["NO", "O₂", "NO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO": 0.1,
+      "O₂": 0.1,
+      "NO₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

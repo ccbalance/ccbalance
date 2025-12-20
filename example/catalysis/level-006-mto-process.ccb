@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-006",
+    "name": "甲醇制烯烃（MTO）",
+    "description": "研究分子筛催化甲醇转化为乙烯和丙烯",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "分子筛", "烯烃合成"]
+  },
+  "reaction": {
+    "id": "mto-process",
+    "displayEquation": "2CH₃OH ⇌ C₂H₄ + 2H₂O",
+    "equilibriumConstant": 3.5e8,
+    "reactants": ["CH₃OH"],
+    "products": ["C₂H₄", "H₂O"],
+    "coefficients": {
+      "CH₃OH": 2,
+      "C₂H₄": 1,
+      "H₂O": 2
+    },
+    "deltaH": -32.6,
+    "temperatureSensitivity": 0.22,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₄", "H₂O"],
+    "containerType": "rigid",
+    "initialTemp": 723,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₃OH": 0.4,
+      "C₂H₄": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 27
+  }
+}

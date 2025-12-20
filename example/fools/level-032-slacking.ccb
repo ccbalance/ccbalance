@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-032",
+    "name": "摸鱼大法",
+    "description": "打工人的生存智慧",
+    "author": "CCBalance Team",
+    "createdAt": 1734641500000,
+    "tags": ["愚人节", "搞笑", "摸鱼"]
+  },
+  "reaction": {
+    "id": "slacking-off",
+    "displayEquation": "工作 + 划水 ⇌ KPI + 愉悦",
+    "equilibriumConstant": 996.0,
+    "reactants": ["工作", "划水"],
+    "products": ["KPI", "愉悦"],
+    "coefficients": {
+      "工作": 1,
+      "划水": 1,
+      "KPI": 1,
+      "愉悦": 1
+    },
+    "deltaH": -996.0,
+    "temperatureSensitivity": 0.007,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "工作": 0.2,
+      "划水": 0.8,
+      "KPI": 0.0,
+      "愉悦": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

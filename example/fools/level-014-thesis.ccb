@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-014",
+    "name": "论文写作催化剂",
+    "description": "研究生的救命稻草",
+    "author": "CCBalance Team",
+    "createdAt": 1734639700000,
+    "tags": ["愚人节", "搞笑", "论文"]
+  },
+  "reaction": {
+    "id": "thesis-catalyst",
+    "displayEquation": "Data + 文献 + Deadline ⇌ Paper + Stress",
+    "equilibriumConstant": 0.5,
+    "reactants": ["Data", "文献", "Deadline"],
+    "products": ["Paper", "Stress"],
+    "coefficients": {
+      "Data": 1,
+      "文献": 1,
+      "Deadline": 1,
+      "Paper": 1,
+      "Stress": 1
+    },
+    "deltaH": 365.25,
+    "temperatureSensitivity": 7.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Data": 0.05,
+      "文献": 0.3,
+      "Deadline": 0.9,
+      "Paper": 0.0,
+      "Stress": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

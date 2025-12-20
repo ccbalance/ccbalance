@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-016",
+    "name": "醋酸钠的水解",
+    "description": "醋酸根离子在水中的水解反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734625500000,
+    "tags": ["离子反应", "水解", "弱酸盐"]
+  },
+  "reaction": {
+    "id": "ch3coona-hydrolysis",
+    "displayEquation": "CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻",
+    "equilibriumConstant": 5.6e-10,
+    "reactants": ["CH₃COO⁻", "H₂O"],
+    "products": ["CH₃COOH", "OH⁻"],
+    "coefficients": {
+      "CH₃COO⁻": 1,
+      "H₂O": 1,
+      "CH₃COOH": 1,
+      "OH⁻": 1
+    },
+    "deltaH": 3.5,
+    "temperatureSensitivity": 0.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₃COO⁻": 0.1,
+      "H₂O": 55.5,
+      "CH₃COOH": 0.0,
+      "OH⁻": 0.00001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

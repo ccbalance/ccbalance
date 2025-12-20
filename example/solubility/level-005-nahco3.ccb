@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-005",
+    "name": "溶解度 - 碳酸氢钠",
+    "description": "小苏打的溶解特性",
+    "author": "CCBalance Team",
+    "createdAt": 1734642000000,
+    "tags": ["溶解度", "碳酸氢钠", "小苏打"]
+  },
+  "reaction": {
+    "id": "nahco3-solubility",
+    "displayEquation": "NaHCO₃(s) ⇌ Na⁺(aq) + HCO₃⁻(aq)",
+    "equilibriumConstant": 0.96,
+    "reactants": ["NaHCO₃(s)"],
+    "products": ["Na⁺(aq)", "HCO₃⁻(aq)"],
+    "coefficients": {
+      "NaHCO₃(s)": 1,
+      "Na⁺(aq)": 1,
+      "HCO₃⁻(aq)": 1
+    },
+    "deltaH": 16.4,
+    "temperatureSensitivity": 1.6,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaHCO₃(s)": 1.0,
+      "Na⁺(aq)": 0.0,
+      "HCO₃⁻(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

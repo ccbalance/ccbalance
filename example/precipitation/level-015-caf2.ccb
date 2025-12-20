@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-015",
+    "name": "氟化钙沉淀",
+    "description": "钙离子与氟离子生成氟化钙沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734638200000,
+    "tags": ["沉淀", "氟化物", "钙"]
+  },
+  "reaction": {
+    "id": "caf2-precipitation",
+    "displayEquation": "Ca²⁺ + 2F⁻ ⇌ CaF₂",
+    "equilibriumConstant": 2.90e10,
+    "reactants": ["Ca²⁺", "F⁻"],
+    "products": ["CaF₂"],
+    "coefficients": {
+      "Ca²⁺": 1,
+      "F⁻": 2,
+      "CaF₂": 1
+    },
+    "deltaH": -58.7,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ca²⁺": 0.01,
+      "F⁻": 0.02,
+      "CaF₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

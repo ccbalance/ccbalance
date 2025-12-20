@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-009",
+    "name": "硫化锡沉淀",
+    "description": "研究Sn²⁺与H₂S反应生成SnS沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "硫化物", "锡化合物"]
+  },
+  "reaction": {
+    "id": "sns-precipitation",
+    "displayEquation": "Sn²⁺ + H₂S(g) ⇌ SnS(s) + 2H⁺",
+    "equilibriumConstant": 3.2e25,
+    "reactants": ["Sn²⁺", "H₂S"],
+    "products": ["SnS", "H⁺"],
+    "coefficients": {
+      "Sn²⁺": 1,
+      "H₂S": 1,
+      "SnS": 1,
+      "H⁺": 2
+    },
+    "deltaH": -35.6,
+    "temperatureSensitivity": 0.19,
+    "hasGas": true,
+    "gasSpecies": ["H₂S"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Sn²⁺": 0.05,
+      "H₂S": 0.01,
+      "SnS": 0,
+      "H⁺": 0.001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 29
+  }
+}

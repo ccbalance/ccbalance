@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-010",
+    "name": "选择性催化还原（SCR）",
+    "description": "研究钒钛催化剂促进氨选择性还原NOₓ",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "环境催化", "脱硝"]
+  },
+  "reaction": {
+    "id": "scr-denox",
+    "displayEquation": "4NO(g) + 4NH₃(g) + O₂(g) ⇌ 4N₂(g) + 6H₂O(g)",
+    "equilibriumConstant": 8.5e88,
+    "reactants": ["NO", "NH₃", "O₂"],
+    "products": ["N₂", "H₂O"],
+    "coefficients": {
+      "NO": 4,
+      "NH₃": 4,
+      "O₂": 1,
+      "N₂": 4,
+      "H₂O": 6
+    },
+    "deltaH": -1627.2,
+    "temperatureSensitivity": 0.33,
+    "hasGas": true,
+    "gasSpecies": ["NO", "NH₃", "O₂", "N₂", "H₂O"],
+    "containerType": "rigid",
+    "initialTemp": 623,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO": 0.001,
+      "NH₃": 0.001,
+      "O₂": 0.05,
+      "N₂": 0.78,
+      "H₂O": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 31
+  }
+}

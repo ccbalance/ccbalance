@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-003",
+    "name": "二氧化氮的光解",
+    "description": "探索NO₂在可见光下分解为NO和O的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "氮氧化物", "污染物"]
+  },
+  "reaction": {
+    "id": "no2-photolysis",
+    "displayEquation": "NO₂(g) + hν ⇌ NO(g) + O",
+    "equilibriumConstant": 3.2e-3,
+    "reactants": ["NO₂"],
+    "products": ["NO", "O"],
+    "coefficients": {
+      "NO₂": 1,
+      "NO": 1,
+      "O": 1
+    },
+    "deltaH": 72.5,
+    "temperatureSensitivity": 0.22,
+    "hasGas": true,
+    "gasSpecies": ["NO₂", "NO"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO₂": 0.03,
+      "NO": 0.01,
+      "O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 23
+  }
+}

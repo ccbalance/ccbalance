@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-001",
+    "name": "氯化银的溶解平衡",
+    "description": "氯化银在水中建立溶解平衡,溶解度极小",
+    "author": "CCBalance Team",
+    "createdAt": 1734627200000,
+    "tags": ["溶解平衡", "难溶盐", "Ksp"]
+  },
+  "reaction": {
+    "id": "agcl-ksp",
+    "displayEquation": "AgCl(s) ⇌ Ag⁺ + Cl⁻",
+    "equilibriumConstant": 1.77e-10,
+    "reactants": ["AgCl(s)"],
+    "products": ["Ag⁺", "Cl⁻"],
+    "coefficients": {
+      "AgCl(s)": 1,
+      "Ag⁺": 1,
+      "Cl⁻": 1
+    },
+    "deltaH": 65.5,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "AgCl(s)": 5.0,
+      "Ag⁺": 0.0,
+      "Cl⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-006",
+    "name": "Tris-HCl缓冲液",
+    "description": "生物化学常用缓冲剂",
+    "author": "CCBalance Team",
+    "createdAt": 1734643700000,
+    "tags": ["缓冲溶液", "Tris", "生化实验"]
+  },
+  "reaction": {
+    "id": "tris-buffer",
+    "displayEquation": "TrisH⁺(aq) ⇌ H⁺(aq) + Tris(aq)",
+    "equilibriumConstant": 6.3e-9,
+    "reactants": ["TrisH⁺(aq)"],
+    "products": ["H⁺(aq)", "Tris(aq)"],
+    "coefficients": {
+      "TrisH⁺(aq)": 1,
+      "H⁺(aq)": 1,
+      "Tris(aq)": 1
+    },
+    "deltaH": 47.5,
+    "temperatureSensitivity": 0.28,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "TrisH⁺(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "Tris(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-003",
+    "name": "高锰酸钾氧化草酸",
+    "description": "高锰酸钾在酸性条件下氧化草酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734625800000,
+    "tags": ["氧化还原", "强氧化剂", "滴定"]
+  },
+  "reaction": {
+    "id": "kmno4-h2c2o4",
+    "displayEquation": "2MnO₄⁻ + 5H₂C₂O₄ + 6H⁺ ⇌ 2Mn²⁺ + 10CO₂ + 8H₂O",
+    "equilibriumConstant": 1.0e40,
+    "reactants": ["MnO₄⁻", "H₂C₂O₄", "H⁺"],
+    "products": ["Mn²⁺", "CO₂", "H₂O"],
+    "coefficients": {
+      "MnO₄⁻": 2,
+      "H₂C₂O₄": 5,
+      "H⁺": 6,
+      "Mn²⁺": 2,
+      "CO₂": 10,
+      "H₂O": 8
+    },
+    "deltaH": -545.0,
+    "temperatureSensitivity": 1.8,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "flexible",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "MnO₄⁻": 0.02,
+      "H₂C₂O₄": 0.05,
+      "H⁺": 0.1,
+      "Mn²⁺": 0.0,
+      "CO₂": 0.0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

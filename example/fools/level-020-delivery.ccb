@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-020",
+    "name": "外卖秒到术",
+    "description": "外卖的终极秘密",
+    "author": "CCBalance Team",
+    "createdAt": 1734640300000,
+    "tags": ["愚人节", "搞笑", "外卖"]
+  },
+  "reaction": {
+    "id": "instant-delivery",
+    "displayEquation": "订单 + 饥饿 ⇌ 外卖 + 满足",
+    "equilibriumConstant": 1800.0,
+    "reactants": ["订单", "饥饿"],
+    "products": ["外卖", "满足"],
+    "coefficients": {
+      "订单": 1,
+      "饥饿": 1,
+      "外卖": 1,
+      "满足": 1
+    },
+    "deltaH": -1800.0,
+    "temperatureSensitivity": 30.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "订单": 0.1,
+      "饥饿": 0.9,
+      "外卖": 0.0,
+      "满足": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

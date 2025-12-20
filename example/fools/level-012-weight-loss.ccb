@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-012",
+    "name": "减肥药炼制",
+    "description": "健身房最怕的化学反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734639500000,
+    "tags": ["愚人节", "搞笑", "减肥"]
+  },
+  "reaction": {
+    "id": "weight-loss-magic",
+    "displayEquation": "Fat + 意志力 ⇌ Muscle",
+    "equilibriumConstant": 0.00001,
+    "reactants": ["Fat", "意志力"],
+    "products": ["Muscle"],
+    "coefficients": {
+      "Fat": 1,
+      "意志力": 1,
+      "Muscle": 1
+    },
+    "deltaH": 999.99,
+    "temperatureSensitivity": 0.01,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fat": 0.8,
+      "意志力": 0.001,
+      "Muscle": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

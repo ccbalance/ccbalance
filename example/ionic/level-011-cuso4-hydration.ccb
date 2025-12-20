@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-011",
+    "name": "硫酸铜的水合",
+    "description": "硫酸铜在水溶液中与水分子配位",
+    "author": "CCBalance Team",
+    "createdAt": 1734625000000,
+    "tags": ["离子反应", "水合", "配位"]
+  },
+  "reaction": {
+    "id": "cuso4-hydration",
+    "displayEquation": "Cu²⁺ + 4H₂O ⇌ [Cu(H₂O)₄]²⁺",
+    "equilibriumConstant": 1.0e6,
+    "reactants": ["Cu²⁺", "H₂O"],
+    "products": ["[Cu(H₂O)₄]²⁺"],
+    "coefficients": {
+      "Cu²⁺": 1,
+      "H₂O": 4,
+      "[Cu(H₂O)₄]²⁺": 1
+    },
+    "deltaH": -15.8,
+    "temperatureSensitivity": 0.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu²⁺": 0.1,
+      "H₂O": 55.5,
+      "[Cu(H₂O)₄]²⁺": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

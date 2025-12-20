@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-003",
+    "name": "氨的分解",
+    "description": "氨气高温分解为氮气和氢气",
+    "author": "CCBalance Team",
+    "createdAt": 1734633800000,
+    "tags": ["气体平衡", "分解", "氨"]
+  },
+  "reaction": {
+    "id": "ammonia-decomposition",
+    "displayEquation": "2NH₃ ⇌ N₂ + 3H₂",
+    "equilibriumConstant": 1.67e-6,
+    "reactants": ["NH₃"],
+    "products": ["N₂", "H₂"],
+    "coefficients": {
+      "NH₃": 2,
+      "N₂": 1,
+      "H₂": 3
+    },
+    "deltaH": 92.4,
+    "temperatureSensitivity": 0.56,
+    "hasGas": true,
+    "gasSpecies": ["NH₃", "N₂", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 673,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₃": 0.1,
+      "N₂": 0.0,
+      "H₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-001",
+    "name": "氯化钠的溶解平衡",
+    "description": "在水溶液中,氯化钠的溶解与析出达到平衡状态",
+    "author": "CCBalance Team",
+    "createdAt": 1734624000000,
+    "tags": ["离子反应", "溶解平衡", "初级"]
+  },
+  "reaction": {
+    "id": "nacl-dissolution",
+    "displayEquation": "NaCl(s) ⇌ Na⁺(aq) + Cl⁻(aq)",
+    "equilibriumConstant": 36.0,
+    "reactants": ["NaCl(s)"],
+    "products": ["Na⁺", "Cl⁻"],
+    "coefficients": {
+      "NaCl(s)": 1,
+      "Na⁺": 1,
+      "Cl⁻": 1
+    },
+    "deltaH": 3.9,
+    "temperatureSensitivity": 0.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaCl(s)": 5.0,
+      "Na⁺": 0.5,
+      "Cl⁻": 0.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 30
+  }
+}

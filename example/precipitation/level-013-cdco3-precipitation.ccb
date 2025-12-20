@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-013",
+    "name": "碳酸镉沉淀",
+    "description": "研究Cd²⁺与CO₃²⁻反应生成CdCO₃白色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "碳酸盐", "镉化合物"]
+  },
+  "reaction": {
+    "id": "cdco3-precipitation",
+    "displayEquation": "Cd²⁺ + CO₃²⁻ ⇌ CdCO₃(s)",
+    "equilibriumConstant": 1.8e12,
+    "reactants": ["Cd²⁺", "CO₃²⁻"],
+    "products": ["CdCO₃"],
+    "coefficients": {
+      "Cd²⁺": 1,
+      "CO₃²⁻": 1,
+      "CdCO₃": 1
+    },
+    "deltaH": -43.5,
+    "temperatureSensitivity": 0.22,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cd²⁺": 0.06,
+      "CO₃²⁻": 0.08,
+      "CdCO₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

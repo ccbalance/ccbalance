@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-011",
+    "name": "硅橡胶合成",
+    "description": "探索环硅氧烷的开环聚合反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "有机硅", "硅橡胶"]
+  },
+  "reaction": {
+    "id": "silicone-polymerization",
+    "displayEquation": "n(Si(CH₃)₂O)₄ ⇌ (Si(CH₃)₂O)ₙ",
+    "equilibriumConstant": 5.4e10,
+    "reactants": ["(Si(CH₃)₂O)₄"],
+    "products": ["(Si(CH₃)₂O)ₙ"],
+    "coefficients": {
+      "(Si(CH₃)₂O)₄": 15,
+      "(Si(CH₃)₂O)ₙ": 1
+    },
+    "deltaH": -12.5,
+    "temperatureSensitivity": 0.12,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 423,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "(Si(CH₃)₂O)₄": 0.2,
+      "(Si(CH₃)₂O)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

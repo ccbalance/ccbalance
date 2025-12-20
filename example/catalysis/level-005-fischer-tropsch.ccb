@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-005",
+    "name": "Fischer-Tropsch合成",
+    "description": "探索铁或钴催化CO和H₂合成烃的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "合成气转化", "烃合成"]
+  },
+  "reaction": {
+    "id": "fischer-tropsch",
+    "displayEquation": "CO(g) + 2H₂(g) ⇌ CH₂ + H₂O(g)",
+    "equilibriumConstant": 1.8e10,
+    "reactants": ["CO", "H₂"],
+    "products": ["CH₂", "H₂O"],
+    "coefficients": {
+      "CO": 1,
+      "H₂": 2,
+      "CH₂": 1,
+      "H₂O": 1
+    },
+    "deltaH": -152.0,
+    "temperatureSensitivity": 0.26,
+    "hasGas": true,
+    "gasSpecies": ["CO", "H₂", "H₂O"],
+    "containerType": "rigid",
+    "initialTemp": 573,
+    "initialPressure": 2532,
+    "initialConcentrations": {
+      "CO": 0.3,
+      "H₂": 0.6,
+      "CH₂": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

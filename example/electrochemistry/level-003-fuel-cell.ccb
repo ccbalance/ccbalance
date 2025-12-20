@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-003",
+    "name": "氢氧燃料电池",
+    "description": "氢气与氧气的电化学反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734632200000,
+    "tags": ["电化学", "燃料电池", "清洁能源"]
+  },
+  "reaction": {
+    "id": "h2-o2-fuel-cell",
+    "displayEquation": "2H₂ + O₂ ⇌ 2H₂O",
+    "equilibriumConstant": 1.0e40,
+    "reactants": ["H₂", "O₂"],
+    "products": ["H₂O"],
+    "coefficients": {
+      "H₂": 2,
+      "O₂": 1,
+      "H₂O": 2
+    },
+    "deltaH": -483.6,
+    "temperatureSensitivity": 2.3,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂": 0.08,
+      "O₂": 0.04,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

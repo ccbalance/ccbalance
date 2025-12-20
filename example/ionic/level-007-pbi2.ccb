@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-007",
+    "name": "碘化铅的沉淀溶解",
+    "description": "碘化铅在水中的溶解平衡,呈现黄色",
+    "author": "CCBalance Team",
+    "createdAt": 1734624600000,
+    "tags": ["离子反应", "沉淀", "颜色反应"]
+  },
+  "reaction": {
+    "id": "pbi2-dissolution",
+    "displayEquation": "PbI₂(s) ⇌ Pb²⁺ + 2I⁻",
+    "equilibriumConstant": 9.8e-9,
+    "reactants": ["PbI₂(s)"],
+    "products": ["Pb²⁺", "I⁻"],
+    "coefficients": {
+      "PbI₂(s)": 1,
+      "Pb²⁺": 1,
+      "I⁻": 2
+    },
+    "deltaH": 46.0,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "PbI₂(s)": 5.0,
+      "Pb²⁺": 0.0002,
+      "I⁻": 0.0004
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

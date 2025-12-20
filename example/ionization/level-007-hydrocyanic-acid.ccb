@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-007",
+    "name": "氰酸的电离",
+    "description": "氰酸是剧毒的弱酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734629400000,
+    "tags": ["电离", "弱酸", "剧毒"]
+  },
+  "reaction": {
+    "id": "hcn-ionization",
+    "displayEquation": "HCN ⇌ H⁺ + CN⁻",
+    "equilibriumConstant": 4.9e-10,
+    "reactants": ["HCN"],
+    "products": ["H⁺", "CN⁻"],
+    "coefficients": {
+      "HCN": 1,
+      "H⁺": 1,
+      "CN⁻": 1
+    },
+    "deltaH": 4.2,
+    "temperatureSensitivity": 1.0,
+    "hasGas": true,
+    "gasSpecies": ["HCN"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HCN": 0.1,
+      "H⁺": 0.0001,
+      "CN⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

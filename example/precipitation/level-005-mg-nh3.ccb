@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-005",
+    "name": "镁离子与氨水的沉淀",
+    "description": "研究Mg²⁺与氨水反应生成Mg(OH)₂沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "氢氧化物", "碱性沉淀"]
+  },
+  "reaction": {
+    "id": "mg-nh3-precipitation",
+    "displayEquation": "Mg²⁺ + 2NH₃·H₂O ⇌ Mg(OH)₂(s) + 2NH₄⁺",
+    "equilibriumConstant": 2.8e8,
+    "reactants": ["Mg²⁺", "NH₃·H₂O"],
+    "products": ["Mg(OH)₂", "NH₄⁺"],
+    "coefficients": {
+      "Mg²⁺": 1,
+      "NH₃·H₂O": 2,
+      "Mg(OH)₂": 1,
+      "NH₄⁺": 2
+    },
+    "deltaH": -38.5,
+    "temperatureSensitivity": 0.18,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Mg²⁺": 0.05,
+      "NH₃·H₂O": 0.2,
+      "Mg(OH)₂": 0,
+      "NH₄⁺": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

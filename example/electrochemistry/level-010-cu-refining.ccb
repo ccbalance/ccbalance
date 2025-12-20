@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-010",
+    "name": "铜的电解精炼",
+    "description": "粗铜电解精炼为纯铜",
+    "author": "CCBalance Team",
+    "createdAt": 1734632900000,
+    "tags": ["电化学", "电解", "精炼"]
+  },
+  "reaction": {
+    "id": "copper-refining",
+    "displayEquation": "Cu²⁺ + 2e⁻ ⇌ Cu",
+    "equilibriumConstant": 1.0e12,
+    "reactants": ["Cu²⁺", "e⁻"],
+    "products": ["Cu"],
+    "coefficients": {
+      "Cu²⁺": 1,
+      "e⁻": 2,
+      "Cu": 1
+    },
+    "deltaH": -65.5,
+    "temperatureSensitivity": 1.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu²⁺": 0.2,
+      "e⁻": 0.5,
+      "Cu": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

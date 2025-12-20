@@ -1,6 +1,6 @@
 {
   "name": "ccbalance",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "CCBalance - 化学平衡策略对战游戏",
   "main": "main.js",
   "license": "CC0-1.0",

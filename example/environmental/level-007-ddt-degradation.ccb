@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-007",
+    "name": "持久性有机污染物降解",
+    "description": "探索DDT的生物降解过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "POPs", "生物降解"]
+  },
+  "reaction": {
+    "id": "ddt-degradation",
+    "displayEquation": "C₁₄H₉Cl₅ + O₂ ⇌ C₁₄H₈Cl₄O + HCl",
+    "equilibriumConstant": 8.5e6,
+    "reactants": ["C₁₄H₉Cl₅", "O₂"],
+    "products": ["C₁₄H₈Cl₄O", "HCl"],
+    "coefficients": {
+      "C₁₄H₉Cl₅": 1,
+      "O₂": 1,
+      "C₁₄H₈Cl₄O": 1,
+      "HCl": 1
+    },
+    "deltaH": -85.0,
+    "temperatureSensitivity": 0.20,
+    "hasGas": true,
+    "gasSpecies": ["O₂", "HCl"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₁₄H₉Cl₅": 0.00001,
+      "O₂": 0.008,
+      "C₁₄H₈Cl₄O": 0,
+      "HCl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

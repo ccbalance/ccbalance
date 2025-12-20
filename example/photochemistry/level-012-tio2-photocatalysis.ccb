@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-012",
+    "name": "氧化钛的光催化",
+    "description": "研究TiO₂在紫外光下催化有机物降解的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "光催化", "环境净化"]
+  },
+  "reaction": {
+    "id": "tio2-photocatalysis",
+    "displayEquation": "RH + O₂ + TiO₂ + hν ⇌ ROH + H₂O",
+    "equilibriumConstant": 7.2e8,
+    "reactants": ["RH", "O₂"],
+    "products": ["ROH", "H₂O"],
+    "coefficients": {
+      "RH": 1,
+      "O₂": 1,
+      "ROH": 1,
+      "H₂O": 1
+    },
+    "deltaH": -215.6,
+    "temperatureSensitivity": 0.25,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "RH": 0.01,
+      "O₂": 0.008,
+      "ROH": 0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

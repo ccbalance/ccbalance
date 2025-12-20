@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-005",
+    "name": "氢氧化镁的溶解平衡",
+    "description": "氢氧化镁在水中微溶,建立溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734624400000,
+    "tags": ["离子反应", "溶解平衡", "弱碱"]
+  },
+  "reaction": {
+    "id": "mgoh2-dissolution",
+    "displayEquation": "Mg(OH)₂(s) ⇌ Mg²⁺ + 2OH⁻",
+    "equilibriumConstant": 5.61e-12,
+    "reactants": ["Mg(OH)₂(s)"],
+    "products": ["Mg²⁺", "OH⁻"],
+    "coefficients": {
+      "Mg(OH)₂(s)": 1,
+      "Mg²⁺": 1,
+      "OH⁻": 2
+    },
+    "deltaH": 8.5,
+    "temperatureSensitivity": 0.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Mg(OH)₂(s)": 8.0,
+      "Mg²⁺": 0.0001,
+      "OH⁻": 0.0002
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

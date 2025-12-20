@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-013",
+    "name": "环氧丙烷生产（氯醇法）",
+    "description": "探索丙烯氯醇化制环氧丙烷",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "环氧丙烷", "氯醇法"]
+  },
+  "reaction": {
+    "id": "propylene-oxide-chlorohydrin",
+    "displayEquation": "C₃H₆ + Cl₂ + H₂O → C₃H₇ClO → C₃H₆O + HCl",
+    "equilibriumConstant": 4.5e10,
+    "reactants": ["C₃H₆", "Cl₂", "H₂O"],
+    "products": ["C₃H₆O", "HCl"],
+    "coefficients": {
+      "C₃H₆": 1,
+      "Cl₂": 1,
+      "H₂O": 1,
+      "C₃H₆O": 1,
+      "HCl": 1
+    },
+    "deltaH": -125.0,
+    "temperatureSensitivity": 0.24,
+    "hasGas": true,
+    "gasSpecies": ["C₃H₆", "Cl₂", "HCl"],
+    "containerType": "rigid",
+    "initialTemp": 323,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₃H₆": 0.4,
+      "Cl₂": 0.4,
+      "H₂O": 55.5,
+      "C₃H₆O": 0,
+      "HCl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

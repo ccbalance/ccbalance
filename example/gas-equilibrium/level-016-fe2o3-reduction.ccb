@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-016",
+    "name": "氧化铁还原",
+    "description": "一氧化碳还原氧化铁",
+    "author": "CCBalance Team",
+    "createdAt": 1734635100000,
+    "tags": ["气体平衡", "还原", "冶金"]
+  },
+  "reaction": {
+    "id": "fe2o3-reduction",
+    "displayEquation": "Fe₂O₃ + 3CO ⇌ 2Fe + 3CO₂",
+    "equilibriumConstant": 1.0e20,
+    "reactants": ["Fe₂O₃", "CO"],
+    "products": ["Fe", "CO₂"],
+    "coefficients": {
+      "Fe₂O₃": 1,
+      "CO": 3,
+      "Fe": 2,
+      "CO₂": 3
+    },
+    "deltaH": -25.8,
+    "temperatureSensitivity": 1.2,
+    "hasGas": true,
+    "gasSpecies": ["CO", "CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 1073,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe₂O₃": 0.05,
+      "CO": 0.15,
+      "Fe": 0.0,
+      "CO₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

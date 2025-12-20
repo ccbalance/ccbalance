@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-002",
+    "name": "接触法制硫酸",
+    "description": "研究V₂O₅催化SO₂氧化为SO₃的关键步骤",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "工业催化", "钒催化剂"]
+  },
+  "reaction": {
+    "id": "contact-process",
+    "displayEquation": "2SO₂(g) + O₂(g) ⇌ 2SO₃(g)",
+    "equilibriumConstant": 4.2e24,
+    "reactants": ["SO₂", "O₂"],
+    "products": ["SO₃"],
+    "coefficients": {
+      "SO₂": 2,
+      "O₂": 1,
+      "SO₃": 2
+    },
+    "deltaH": -196.6,
+    "temperatureSensitivity": 0.28,
+    "hasGas": true,
+    "gasSpecies": ["SO₂", "O₂", "SO₃"],
+    "containerType": "rigid",
+    "initialTemp": 723,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "SO₂": 0.14,
+      "O₂": 0.21,
+      "SO₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 22
+  }
+}

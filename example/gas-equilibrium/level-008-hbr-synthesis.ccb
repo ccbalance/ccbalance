@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-008",
+    "name": "氢溴酸合成",
+    "description": "氢气与溴蒸气合成氢溴酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734634300000,
+    "tags": ["气体平衡", "合成", "氢溴酸"]
+  },
+  "reaction": {
+    "id": "hbr-synthesis",
+    "displayEquation": "H₂ + Br₂ ⇌ 2HBr",
+    "equilibriumConstant": 5.4e18,
+    "reactants": ["H₂", "Br₂"],
+    "products": ["HBr"],
+    "coefficients": {
+      "H₂": 1,
+      "Br₂": 1,
+      "HBr": 2
+    },
+    "deltaH": -103.7,
+    "temperatureSensitivity": 1.7,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "Br₂", "HBr"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂": 0.05,
+      "Br₂": 0.05,
+      "HBr": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

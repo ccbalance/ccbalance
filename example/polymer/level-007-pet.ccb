@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-007",
+    "name": "聚对苯二甲酸乙二醇酯",
+    "description": "探索PET的酯交换缩聚反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "PET", "聚酯"]
+  },
+  "reaction": {
+    "id": "pet-polymerization",
+    "displayEquation": "nC₁₀H₁₀O₄ + nC₂H₆O₂ ⇌ (C₁₀H₈O₄)ₙ + 2nH₂O",
+    "equilibriumConstant": 4.5e11,
+    "reactants": ["C₁₀H₁₀O₄", "C₂H₆O₂"],
+    "products": ["(C₁₀H₈O₄)ₙ", "H₂O"],
+    "coefficients": {
+      "C₁₀H₁₀O₄": 25,
+      "C₂H₆O₂": 25,
+      "(C₁₀H₈O₄)ₙ": 1,
+      "H₂O": 50
+    },
+    "deltaH": -38.5,
+    "temperatureSensitivity": 0.18,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 563,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₁₀H₁₀O₄": 0.5,
+      "C₂H₆O₂": 0.5,
+      "(C₁₀H₈O₄)ₙ": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

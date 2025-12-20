@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-012",
+    "name": "煤制天然气（SNG）",
+    "description": "研究煤气化后的甲烷化反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "煤化工", "甲烷化"]
+  },
+  "reaction": {
+    "id": "coal-to-sng",
+    "displayEquation": "CO(g) + 3H₂(g) ⇌ CH₄(g) + H₂O(g)",
+    "equilibriumConstant": 1.8e7,
+    "reactants": ["CO", "H₂"],
+    "products": ["CH₄", "H₂O"],
+    "coefficients": {
+      "CO": 1,
+      "H₂": 3,
+      "CH₄": 1,
+      "H₂O": 1
+    },
+    "deltaH": -206.2,
+    "temperatureSensitivity": 0.30,
+    "hasGas": true,
+    "gasSpecies": ["CO", "H₂", "CH₄", "H₂O"],
+    "containerType": "rigid",
+    "initialTemp": 623,
+    "initialPressure": 2026,
+    "initialConcentrations": {
+      "CO": 0.25,
+      "H₂": 0.75,
+      "CH₄": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

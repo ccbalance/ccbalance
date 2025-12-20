@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-006",
+    "name": "硫化铜沉淀",
+    "description": "铜离子与硫离子生成硫化铜沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734637300000,
+    "tags": ["沉淀", "硫化物", "铜"]
+  },
+  "reaction": {
+    "id": "cus-precipitation",
+    "displayEquation": "Cu²⁺ + S²⁻ ⇌ CuS",
+    "equilibriumConstant": 1.67e36,
+    "reactants": ["Cu²⁺", "S²⁻"],
+    "products": ["CuS"],
+    "coefficients": {
+      "Cu²⁺": 1,
+      "S²⁻": 1,
+      "CuS": 1
+    },
+    "deltaH": -53.1,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu²⁺": 0.01,
+      "S²⁻": 0.01,
+      "CuS": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

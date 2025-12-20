@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-016",
+    "name": "银的电解精炼",
+    "description": "粗银电解精炼为纯银",
+    "author": "CCBalance Team",
+    "createdAt": 1734633500000,
+    "tags": ["电化学", "电解", "精炼", "银"]
+  },
+  "reaction": {
+    "id": "silver-refining",
+    "displayEquation": "Ag⁺ + e⁻ ⇌ Ag",
+    "equilibriumConstant": 1.0e8,
+    "reactants": ["Ag⁺", "e⁻"],
+    "products": ["Ag"],
+    "coefficients": {
+      "Ag⁺": 1,
+      "e⁻": 1,
+      "Ag": 1
+    },
+    "deltaH": -105.6,
+    "temperatureSensitivity": 1.3,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ag⁺": 0.15,
+      "e⁻": 0.3,
+      "Ag": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

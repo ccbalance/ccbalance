@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-005",
+    "name": "氯化铁水解",
+    "description": "Fe³⁺的逐级水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645200000,
+    "tags": ["水解", "氯化铁", "三价铁"]
+  },
+  "reaction": {
+    "id": "fecl3-hydrolysis",
+    "displayEquation": "Fe³⁺(aq) + 3H₂O(l) ⇌ Fe(OH)₃(s) + 3H⁺(aq)",
+    "equilibriumConstant": 1.0e-38,
+    "reactants": ["Fe³⁺(aq)", "3H₂O(l)"],
+    "products": ["Fe(OH)₃(s)", "3H⁺(aq)"],
+    "coefficients": {
+      "Fe³⁺(aq)": 1,
+      "3H₂O(l)": 1,
+      "Fe(OH)₃(s)": 1,
+      "3H⁺(aq)": 1
+    },
+    "deltaH": 112.0,
+    "temperatureSensitivity": 0.6,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe³⁺(aq)": 0.1,
+      "3H₂O(l)": 55.5,
+      "Fe(OH)₃(s)": 0.0,
+      "3H⁺(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 4,
+    "maxRounds": 16,
+    "turnTime": 36
+  }
+}

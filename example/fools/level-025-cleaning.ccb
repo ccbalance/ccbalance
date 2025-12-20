@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-025",
+    "name": "清洁自动化",
+    "description": "懒人的终极发明",
+    "author": "CCBalance Team",
+    "createdAt": 1734640800000,
+    "tags": ["愚人节", "搞笑", "清洁"]
+  },
+  "reaction": {
+    "id": "auto-cleaning",
+    "displayEquation": "垃圾 + 意念 ⇌ 清洁",
+    "equilibriumConstant": 0.00001,
+    "reactants": ["垃圾", "意念"],
+    "products": ["清洁"],
+    "coefficients": {
+      "垃圾": 1,
+      "意念": 1,
+      "清洁": 1
+    },
+    "deltaH": 8888.0,
+    "temperatureSensitivity": 0.01,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "垃圾": 0.9,
+      "意念": 0.1,
+      "清洁": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 4,
+    "maxRounds": 16,
+    "turnTime": 36
+  }
+}

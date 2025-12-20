@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-001",
+    "name": "溶解度曲线 - 硝酸钾",
+    "description": "探索硝酸钾的温度依赖性溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734641600000,
+    "tags": ["溶解度", "温度效应", "硝酸钾"]
+  },
+  "reaction": {
+    "id": "kno3-solubility",
+    "displayEquation": "KNO₃(s) ⇌ K⁺(aq) + NO₃⁻(aq)",
+    "equilibriumConstant": 3.6,
+    "reactants": ["KNO₃(s)"],
+    "products": ["K⁺(aq)", "NO₃⁻(aq)"],
+    "coefficients": {
+      "KNO₃(s)": 1,
+      "K⁺(aq)": 1,
+      "NO₃⁻(aq)": 1
+    },
+    "deltaH": 34.9,
+    "temperatureSensitivity": 2.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "KNO₃(s)": 1.0,
+      "K⁺(aq)": 0.0,
+      "NO₃⁻(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

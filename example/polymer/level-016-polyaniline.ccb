@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-016",
+    "name": "导电聚合物聚苯胺",
+    "description": "研究苯胺的氧化聚合形成导电聚合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "导电聚合物", "聚苯胺"]
+  },
+  "reaction": {
+    "id": "polyaniline-synthesis",
+    "displayEquation": "nC₆H₅NH₂ + ¼nO₂ ⇌ (C₆H₄NH)ₙ + ½nH₂O",
+    "equilibriumConstant": 8.7e16,
+    "reactants": ["C₆H₅NH₂", "O₂"],
+    "products": ["(C₆H₄NH)ₙ", "H₂O"],
+    "coefficients": {
+      "C₆H₅NH₂": 30,
+      "O₂": 7.5,
+      "(C₆H₄NH)ₙ": 1,
+      "H₂O": 15
+    },
+    "deltaH": -88.5,
+    "temperatureSensitivity": 0.20,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₅NH₂": 0.4,
+      "O₂": 0.1,
+      "(C₆H₄NH)ₙ": 0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

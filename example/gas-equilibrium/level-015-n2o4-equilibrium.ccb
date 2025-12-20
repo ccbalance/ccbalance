@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-015",
+    "name": "四氧化二氮平衡",
+    "description": "低温下二氧化氮与四氧化二氮平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734635000000,
+    "tags": ["气体平衡", "低温", "氮氧化物"]
+  },
+  "reaction": {
+    "id": "n2o4-equilibrium",
+    "displayEquation": "N₂O₄ ⇌ 2NO₂",
+    "equilibriumConstant": 0.147,
+    "reactants": ["N₂O₄"],
+    "products": ["NO₂"],
+    "coefficients": {
+      "N₂O₄": 1,
+      "NO₂": 2
+    },
+    "deltaH": 57.2,
+    "temperatureSensitivity": 0.65,
+    "hasGas": true,
+    "gasSpecies": ["N₂O₄", "NO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "N₂O₄": 0.1,
+      "NO₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

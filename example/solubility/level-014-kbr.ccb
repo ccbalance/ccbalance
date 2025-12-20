@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-014",
+    "name": "溶解度 - 溴化钾",
+    "description": "溴化钾的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734642900000,
+    "tags": ["溶解度", "溴化钾", "卤化物"]
+  },
+  "reaction": {
+    "id": "kbr-solubility",
+    "displayEquation": "KBr(s) ⇌ K⁺(aq) + Br⁻(aq)",
+    "equilibriumConstant": 7.0,
+    "reactants": ["KBr(s)"],
+    "products": ["K⁺(aq)", "Br⁻(aq)"],
+    "coefficients": {
+      "KBr(s)": 1,
+      "K⁺(aq)": 1,
+      "Br⁻(aq)": 1
+    },
+    "deltaH": 19.9,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "KBr(s)": 1.0,
+      "K⁺(aq)": 0.0,
+      "Br⁻(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

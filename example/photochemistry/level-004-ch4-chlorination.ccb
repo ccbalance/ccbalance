@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-004",
+    "name": "甲烷的光氯化",
+    "description": "研究CH₄与Cl₂在光照下的自由基取代反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "有机反应", "自由基"]
+  },
+  "reaction": {
+    "id": "ch4-chlorination",
+    "displayEquation": "CH₄(g) + Cl₂(g) + hν ⇌ CH₃Cl(g) + HCl(g)",
+    "equilibriumConstant": 4.5e12,
+    "reactants": ["CH₄", "Cl₂"],
+    "products": ["CH₃Cl", "HCl"],
+    "coefficients": {
+      "CH₄": 1,
+      "Cl₂": 1,
+      "CH₃Cl": 1,
+      "HCl": 1
+    },
+    "deltaH": -98.3,
+    "temperatureSensitivity": 0.18,
+    "hasGas": true,
+    "gasSpecies": ["CH₄", "Cl₂", "CH₃Cl", "HCl"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₄": 0.06,
+      "Cl₂": 0.06,
+      "CH₃Cl": 0,
+      "HCl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

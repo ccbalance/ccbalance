@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-009",
+    "name": "Bug修复反应",
+    "description": "程序员的终极幻想：Bug自动消失",
+    "author": "CCBalance Team",
+    "createdAt": 1734639200000,
+    "tags": ["愚人节", "搞笑", "编程"]
+  },
+  "reaction": {
+    "id": "bug-fix",
+    "displayEquation": "Bug + 加班 ⇌ MoreBug",
+    "equilibriumConstant": 9.99e9,
+    "reactants": ["Bug", "加班"],
+    "products": ["MoreBug"],
+    "coefficients": {
+      "Bug": 1,
+      "加班": 1,
+      "MoreBug": 1
+    },
+    "deltaH": 996.0,
+    "temperatureSensitivity": 2.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Bug": 0.1,
+      "加班": 0.3,
+      "MoreBug": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-004",
+    "name": "氯化铝水解",
+    "description": "高价金属离子的水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645100000,
+    "tags": ["水解", "氯化铝", "金属离子"]
+  },
+  "reaction": {
+    "id": "alcl3-hydrolysis",
+    "displayEquation": "Al³⁺(aq) + 3H₂O(l) ⇌ Al(OH)₃(s) + 3H⁺(aq)",
+    "equilibriumConstant": 1.0e-32,
+    "reactants": ["Al³⁺(aq)", "3H₂O(l)"],
+    "products": ["Al(OH)₃(s)", "3H⁺(aq)"],
+    "coefficients": {
+      "Al³⁺(aq)": 1,
+      "3H₂O(l)": 1,
+      "Al(OH)₃(s)": 1,
+      "3H⁺(aq)": 1
+    },
+    "deltaH": 95.4,
+    "temperatureSensitivity": 0.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Al³⁺(aq)": 0.1,
+      "3H₂O(l)": 55.5,
+      "Al(OH)₃(s)": 0.0,
+      "3H⁺(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 4,
+    "maxRounds": 16,
+    "turnTime": 36
+  }
+}

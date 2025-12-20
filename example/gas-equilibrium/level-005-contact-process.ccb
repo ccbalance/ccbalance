@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-005",
+    "name": "硫酸工业接触法",
+    "description": "二氧化硫氧化为三氧化硫",
+    "author": "CCBalance Team",
+    "createdAt": 1734634000000,
+    "tags": ["气体平衡", "工业", "硫酸"]
+  },
+  "reaction": {
+    "id": "contact-process",
+    "displayEquation": "2SO₂ + O₂ ⇌ 2SO₃",
+    "equilibriumConstant": 4.0e24,
+    "reactants": ["SO₂", "O₂"],
+    "products": ["SO₃"],
+    "coefficients": {
+      "SO₂": 2,
+      "O₂": 1,
+      "SO₃": 2
+    },
+    "deltaH": -197.8,
+    "temperatureSensitivity": 2.1,
+    "hasGas": true,
+    "gasSpecies": ["SO₂", "O₂", "SO₃"],
+    "containerType": "rigid",
+    "initialTemp": 723,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "SO₂": 0.1,
+      "O₂": 0.1,
+      "SO₃": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-009",
+    "name": "碳酸银的溶解",
+    "description": "碳酸银在水中的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734628000000,
+    "tags": ["溶解平衡", "碳酸盐", "难溶"]
+  },
+  "reaction": {
+    "id": "ag2co3-ksp",
+    "displayEquation": "Ag₂CO₃(s) ⇌ 2Ag⁺ + CO₃²⁻",
+    "equilibriumConstant": 8.46e-12,
+    "reactants": ["Ag₂CO₃(s)"],
+    "products": ["Ag⁺", "CO₃²⁻"],
+    "coefficients": {
+      "Ag₂CO₃(s)": 1,
+      "Ag⁺": 2,
+      "CO₃²⁻": 1
+    },
+    "deltaH": 55.0,
+    "temperatureSensitivity": 1.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ag₂CO₃(s)": 5.0,
+      "Ag⁺": 0.0,
+      "CO₃²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

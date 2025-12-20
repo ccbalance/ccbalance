@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-003",
+    "name": "碳酸钙沉淀",
+    "description": "氯化钙与碳酸钠生成碳酸钙沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734637000000,
+    "tags": ["沉淀", "碳酸盐", "离子反应"]
+  },
+  "reaction": {
+    "id": "caco3-precipitation",
+    "displayEquation": "Ca²⁺ + CO₃²⁻ ⇌ CaCO₃",
+    "equilibriumConstant": 2.8e8,
+    "reactants": ["Ca²⁺", "CO₃²⁻"],
+    "products": ["CaCO₃"],
+    "coefficients": {
+      "Ca²⁺": 1,
+      "CO₃²⁻": 1,
+      "CaCO₃": 1
+    },
+    "deltaH": -12.5,
+    "temperatureSensitivity": 1.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ca²⁺": 0.01,
+      "CO₃²⁻": 0.01,
+      "CaCO₃": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

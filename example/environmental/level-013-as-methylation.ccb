@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-013",
+    "name": "砷的甲基化",
+    "description": "探索As³⁺的生物甲基化毒性转化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "砷", "生物甲基化"]
+  },
+  "reaction": {
+    "id": "arsenic-methylation",
+    "displayEquation": "As(OH)₃ + 3CH₃⁺ ⇌ (CH₃)₃As + 3H₂O",
+    "equilibriumConstant": 3.5e10,
+    "reactants": ["As(OH)₃", "CH₃⁺"],
+    "products": ["(CH₃)₃As", "H₂O"],
+    "coefficients": {
+      "As(OH)₃": 1,
+      "CH₃⁺": 3,
+      "(CH₃)₃As": 1,
+      "H₂O": 3
+    },
+    "deltaH": -68.0,
+    "temperatureSensitivity": 0.19,
+    "hasGas": true,
+    "gasSpecies": ["(CH₃)₃As"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "As(OH)₃": 0.00001,
+      "CH₃⁺": 0.0001,
+      "(CH₃)₃As": 0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

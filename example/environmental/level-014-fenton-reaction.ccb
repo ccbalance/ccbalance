@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-014",
+    "name": "Fenton反应处理废水",
+    "description": "研究Fe²⁺/H₂O₂体系降解有机污染物",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "高级氧化", "废水处理"]
+  },
+  "reaction": {
+    "id": "fenton-reaction",
+    "displayEquation": "Fe²⁺ + H₂O₂ + RH ⇌ Fe³⁺ + OH⁻ + ·OH + R·",
+    "equilibriumConstant": 7.6e12,
+    "reactants": ["Fe²⁺", "H₂O₂", "RH"],
+    "products": ["Fe³⁺", "OH⁻", "·OH", "R·"],
+    "coefficients": {
+      "Fe²⁺": 1,
+      "H₂O₂": 1,
+      "RH": 1,
+      "Fe³⁺": 1,
+      "OH⁻": 1,
+      "·OH": 1,
+      "R·": 1
+    },
+    "deltaH": -85.0,
+    "temperatureSensitivity": 0.21,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe²⁺": 0.001,
+      "H₂O₂": 0.01,
+      "RH": 0.005,
+      "Fe³⁺": 0,
+      "OH⁻": 0.000001,
+      "·OH": 0,
+      "R·": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

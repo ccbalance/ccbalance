@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-004",
+    "name": "作业分解反应",
+    "description": "学生梦寐以求的化学反应：作业自动分解",
+    "author": "CCBalance Team",
+    "createdAt": 1734638700000,
+    "tags": ["愚人节", "搞笑", "学生"]
+  },
+  "reaction": {
+    "id": "homework-decomposition",
+    "displayEquation": "2Homework ⇌ Freedom + Sleep",
+    "equilibriumConstant": 1.0e30,
+    "reactants": ["Homework"],
+    "products": ["Freedom", "Sleep"],
+    "coefficients": {
+      "Homework": 2,
+      "Freedom": 1,
+      "Sleep": 1
+    },
+    "deltaH": 520.0,
+    "temperatureSensitivity": 0.25,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Homework": 0.5,
+      "Freedom": 0.0,
+      "Sleep": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

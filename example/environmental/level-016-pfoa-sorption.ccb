@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-016",
+    "name": "全氟化合物的环境迁移",
+    "description": "研究PFOA在水-土界面的吸附解吸平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "PFAS", "新型污染物"]
+  },
+  "reaction": {
+    "id": "pfoa-sorption",
+    "displayEquation": "PFOA(aq) + Soil ⇌ PFOA-Soil",
+    "equilibriumConstant": 6.5e4,
+    "reactants": ["PFOA(aq)", "Soil"],
+    "products": ["PFOA-Soil"],
+    "coefficients": {
+      "PFOA(aq)": 1,
+      "Soil": 1,
+      "PFOA-Soil": 1
+    },
+    "deltaH": -22.0,
+    "temperatureSensitivity": 0.14,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 288,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "PFOA(aq)": 0.00001,
+      "Soil": 0.01,
+      "PFOA-Soil": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

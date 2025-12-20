@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-003",
+    "name": "聚苯乙烯合成",
+    "description": "探索苯乙烯的自由基聚合形成聚苯乙烯",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "苯乙烯", "通用塑料"]
+  },
+  "reaction": {
+    "id": "polystyrene-polymerization",
+    "displayEquation": "nC₈H₈ ⇌ (C₈H₈)ₙ",
+    "equilibriumConstant": 4.8e16,
+    "reactants": ["C₈H₈"],
+    "products": ["(C₈H₈)ₙ"],
+    "coefficients": {
+      "C₈H₈": 40,
+      "(C₈H₈)ₙ": 1
+    },
+    "deltaH": -69.5,
+    "temperatureSensitivity": 0.16,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 373,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₈H₈": 0.8,
+      "(C₈H₈)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 23
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-010",
+    "name": "叶绿素的光激发",
+    "description": "研究叶绿素分子在光照下的电子激发过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "叶绿素", "光合作用"]
+  },
+  "reaction": {
+    "id": "chlorophyll-photoexcitation",
+    "displayEquation": "Chl + hν ⇌ Chl*",
+    "equilibriumConstant": 1.5e-5,
+    "reactants": ["Chl"],
+    "products": ["Chl*"],
+    "coefficients": {
+      "Chl": 1,
+      "Chl*": 1
+    },
+    "deltaH": 180.0,
+    "temperatureSensitivity": 0.28,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Chl": 0.001,
+      "Chl*": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 31
+  }
+}

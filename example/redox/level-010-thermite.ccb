@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-010",
+    "name": "铝热反应",
+    "description": "铝粉还原氧化铁生成铁单质和氧化铝",
+    "author": "CCBalance Team",
+    "createdAt": 1734626500000,
+    "tags": ["氧化还原", "置换", "强放热"]
+  },
+  "reaction": {
+    "id": "thermite-reaction",
+    "displayEquation": "2Al + Fe₂O₃ ⇌ Al₂O₃ + 2Fe",
+    "equilibriumConstant": 1.0e50,
+    "reactants": ["Al", "Fe₂O₃"],
+    "products": ["Al₂O₃", "Fe"],
+    "coefficients": {
+      "Al": 2,
+      "Fe₂O₃": 1,
+      "Al₂O₃": 1,
+      "Fe": 2
+    },
+    "deltaH": -852.0,
+    "temperatureSensitivity": 3.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Al": 1.0,
+      "Fe₂O₃": 0.5,
+      "Al₂O₃": 0.0,
+      "Fe": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

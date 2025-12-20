@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-002",
+    "name": "工业制取学校",
+    "description": "教育产业的化学秘密：二氧化硫与盐酸反应生成学校",
+    "author": "CCBalance Team",
+    "createdAt": 1734638500000,
+    "tags": ["愚人节", "搞笑", "教育"]
+  },
+  "reaction": {
+    "id": "school-synthesis",
+    "displayEquation": "SO₂ + HCl ⇌ School",
+    "equilibriumConstant": 666.0,
+    "reactants": ["SO₂", "HCl"],
+    "products": ["School"],
+    "coefficients": {
+      "SO₂": 1,
+      "HCl": 1,
+      "School": 1
+    },
+    "deltaH": -1024.0,
+    "temperatureSensitivity": 2.33,
+    "hasGas": true,
+    "gasSpecies": ["SO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "SO₂": 0.1,
+      "HCl": 0.1,
+      "School": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

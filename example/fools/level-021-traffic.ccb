@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-021",
+    "name": "塞车消解反应",
+    "description": "上班族的救星",
+    "author": "CCBalance Team",
+    "createdAt": 1734640400000,
+    "tags": ["愚人节", "搞笑", "交通"]
+  },
+  "reaction": {
+    "id": "traffic-jam-dissolve",
+    "displayEquation": "100Car ⇌ 空路",
+    "equilibriumConstant": 0.0001,
+    "reactants": ["100Car"],
+    "products": ["空路"],
+    "coefficients": {
+      "100Car": 1,
+      "空路": 1
+    },
+    "deltaH": 9999.0,
+    "temperatureSensitivity": 0.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "100Car": 0.9,
+      "空路": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 4,
+    "maxRounds": 16,
+    "turnTime": 36
+  }
+}

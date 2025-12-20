@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-016",
+    "name": "时间延缓反应",
+    "description": "迟到者的终极武器",
+    "author": "CCBalance Team",
+    "createdAt": 1734639900000,
+    "tags": ["愚人节", "搞笑", "时间"]
+  },
+  "reaction": {
+    "id": "time-dilation",
+    "displayEquation": "1分钟 + 急迫 ⇌ 1小时",
+    "equilibriumConstant": 0.0167,
+    "reactants": ["1分钟", "急迫"],
+    "products": ["1小时"],
+    "coefficients": {
+      "1分钟": 1,
+      "急迫": 1,
+      "1小时": 1
+    },
+    "deltaH": 3600.0,
+    "temperatureSensitivity": 60.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "1分钟": 0.1,
+      "急迫": 0.9,
+      "1小时": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

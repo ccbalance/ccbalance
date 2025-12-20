@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-016",
+    "name": "核糖体肽基转移",
+    "description": "研究肽键形成的核酶催化反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "蛋白质合成", "核酶"]
+  },
+  "reaction": {
+    "id": "peptidyl-transferase",
+    "displayEquation": "Peptidyl-tRNA + Aminoacyl-tRNA ⇌ Peptidyl(n+1)-tRNA + tRNA",
+    "equilibriumConstant": 8.5e6,
+    "reactants": ["Peptidyl-tRNA", "Aminoacyl-tRNA"],
+    "products": ["Peptidyl(n+1)-tRNA", "tRNA"],
+    "coefficients": {
+      "Peptidyl-tRNA": 1,
+      "Aminoacyl-tRNA": 1,
+      "Peptidyl(n+1)-tRNA": 1,
+      "tRNA": 1
+    },
+    "deltaH": -18.0,
+    "temperatureSensitivity": 0.14,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Peptidyl-tRNA": 0.0002,
+      "Aminoacyl-tRNA": 0.001,
+      "Peptidyl(n+1)-tRNA": 0,
+      "tRNA": 0.005
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

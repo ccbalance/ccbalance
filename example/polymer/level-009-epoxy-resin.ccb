@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-009",
+    "name": "环氧树脂固化",
+    "description": "探索环氧基团与胺类固化剂的交联反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "环氧树脂", "交联"]
+  },
+  "reaction": {
+    "id": "epoxy-curing",
+    "displayEquation": "nEpoxy + nRNH₂ ⇌ (Epoxy-NH-R)ₙ",
+    "equilibriumConstant": 8.2e13,
+    "reactants": ["Epoxy", "RNH₂"],
+    "products": ["(Epoxy-NH-R)ₙ"],
+    "coefficients": {
+      "Epoxy": 25,
+      "RNH₂": 25,
+      "(Epoxy-NH-R)ₙ": 1
+    },
+    "deltaH": -95.3,
+    "temperatureSensitivity": 0.21,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 393,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Epoxy": 0.4,
+      "RNH₂": 0.4,
+      "(Epoxy-NH-R)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

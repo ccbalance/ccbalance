@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-006",
+    "name": "碳酸钙分解",
+    "description": "石灰石热分解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734634100000,
+    "tags": ["气体平衡", "分解", "碳酸钙"]
+  },
+  "reaction": {
+    "id": "caco3-decomposition",
+    "displayEquation": "CaCO₃ ⇌ CaO + CO₂",
+    "equilibriumConstant": 1.0e-23,
+    "reactants": ["CaCO₃"],
+    "products": ["CaO", "CO₂"],
+    "coefficients": {
+      "CaCO₃": 1,
+      "CaO": 1,
+      "CO₂": 1
+    },
+    "deltaH": 178.3,
+    "temperatureSensitivity": 0.45,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 1173,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CaCO₃": 0.1,
+      "CaO": 0.0,
+      "CO₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

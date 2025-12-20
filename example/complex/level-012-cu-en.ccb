@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-012",
+    "name": "铜乙二胺络合",
+    "description": "铜离子与乙二胺形成螯合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734631500000,
+    "tags": ["螯合", "铜", "乙二胺"]
+  },
+  "reaction": {
+    "id": "cu-en-complex",
+    "displayEquation": "Cu²⁺ + 2en ⇌ [Cu(en)₂]²⁺",
+    "equilibriumConstant": 1.0e20,
+    "reactants": ["Cu²⁺", "en"],
+    "products": ["[Cu(en)₂]²⁺"],
+    "coefficients": {
+      "Cu²⁺": 1,
+      "en": 2,
+      "[Cu(en)₂]²⁺": 1
+    },
+    "deltaH": -98.7,
+    "temperatureSensitivity": 1.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu²⁺": 0.01,
+      "en": 0.05,
+      "[Cu(en)₂]²⁺": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

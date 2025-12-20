@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-005",
+    "name": "铅酸蓄电池放电",
+    "description": "铅酸电池的放电反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734632400000,
+    "tags": ["电化学", "蓄电池", "铅酸"]
+  },
+  "reaction": {
+    "id": "lead-acid-discharge",
+    "displayEquation": "Pb + PbO₂ + 2H₂SO₄ ⇌ 2PbSO₄ + 2H₂O",
+    "equilibriumConstant": 1.0e30,
+    "reactants": ["Pb", "PbO₂", "H₂SO₄"],
+    "products": ["PbSO₄", "H₂O"],
+    "coefficients": {
+      "Pb": 1,
+      "PbO₂": 1,
+      "H₂SO₄": 2,
+      "PbSO₄": 2,
+      "H₂O": 2
+    },
+    "deltaH": -365.0,
+    "temperatureSensitivity": 2.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Pb": 0.1,
+      "PbO₂": 0.1,
+      "H₂SO₄": 0.5,
+      "PbSO₄": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

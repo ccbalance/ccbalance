@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-011",
+    "name": "溶解度 - 硫代硫酸钠",
+    "description": "海波的溶解特性",
+    "author": "CCBalance Team",
+    "createdAt": 1734642600000,
+    "tags": ["溶解度", "硫代硫酸钠", "海波"]
+  },
+  "reaction": {
+    "id": "na2s2o3-solubility",
+    "displayEquation": "Na₂S₂O₃·5H₂O(s) ⇌ 2Na⁺(aq) + S₂O₃²⁻(aq) + 5H₂O(l)",
+    "equilibriumConstant": 2.5,
+    "reactants": ["Na₂S₂O₃·5H₂O(s)"],
+    "products": ["2Na⁺(aq)", "S₂O₃²⁻(aq)", "5H₂O(l)"],
+    "coefficients": {
+      "Na₂S₂O₃·5H₂O(s)": 1,
+      "2Na⁺(aq)": 1,
+      "S₂O₃²⁻(aq)": 1,
+      "5H₂O(l)": 1
+    },
+    "deltaH": 46.4,
+    "temperatureSensitivity": 3.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Na₂S₂O₃·5H₂O(s)": 1.0,
+      "2Na⁺(aq)": 0.0,
+      "S₂O₃²⁻(aq)": 0.0,
+      "5H₂O(l)": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-001",
+    "name": "酸雨形成",
+    "description": "探索SO₂与水反应形成酸雨的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "酸雨", "大气污染"]
+  },
+  "reaction": {
+    "id": "acid-rain-formation",
+    "displayEquation": "SO₂(g) + H₂O + ½O₂(g) ⇌ H₂SO₄",
+    "equilibriumConstant": 2.5e18,
+    "reactants": ["SO₂", "H₂O", "O₂"],
+    "products": ["H₂SO₄"],
+    "coefficients": {
+      "SO₂": 1,
+      "H₂O": 1,
+      "O₂": 0.5,
+      "H₂SO₄": 1
+    },
+    "deltaH": -286.5,
+    "temperatureSensitivity": 0.28,
+    "hasGas": true,
+    "gasSpecies": ["SO₂", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 288,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "SO₂": 0.001,
+      "H₂O": 55.5,
+      "O₂": 0.008,
+      "H₂SO₄": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-006",
+    "name": "水体富营养化",
+    "description": "研究磷酸盐促进藻类生长的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "富营养化", "水污染"]
+  },
+  "reaction": {
+    "id": "eutrophication",
+    "displayEquation": "106CO₂ + 16NO₃⁻ + HPO₄²⁻ + 122H₂O + 18H⁺ ⇌ C₁₀₆H₂₆₃O₁₁₀N₁₆P + 138O₂",
+    "equilibriumConstant": 1.2e85,
+    "reactants": ["CO₂", "NO₃⁻", "HPO₄²⁻", "H₂O", "H⁺"],
+    "products": ["C₁₀₆H₂₆₃O₁₁₀N₁₆P", "O₂"],
+    "coefficients": {
+      "CO₂": 106,
+      "NO₃⁻": 16,
+      "HPO₄²⁻": 1,
+      "H₂O": 122,
+      "H⁺": 18,
+      "C₁₀₆H₂₆₃O₁₁₀N₁₆P": 1,
+      "O₂": 138
+    },
+    "deltaH": -2850.0,
+    "temperatureSensitivity": 0.35,
+    "hasGas": true,
+    "gasSpecies": ["CO₂", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO₂": 0.0004,
+      "NO₃⁻": 0.001,
+      "HPO₄²⁻": 0.0001,
+      "H₂O": 55.5,
+      "H⁺": 0.000001,
+      "C₁₀₆H₂₆₃O₁₁₀N₁₆P": 0,
+      "O₂": 0.008
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 27
+  }
+}

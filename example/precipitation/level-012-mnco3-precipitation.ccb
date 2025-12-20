@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-012",
+    "name": "碳酸锰沉淀",
+    "description": "探索Mn²⁺与CO₃²⁻反应生成MnCO₃粉红色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "碳酸盐", "锰化合物"]
+  },
+  "reaction": {
+    "id": "mnco3-precipitation",
+    "displayEquation": "Mn²⁺ + CO₃²⁻ ⇌ MnCO₃(s)",
+    "equilibriumConstant": 4.5e10,
+    "reactants": ["Mn²⁺", "CO₃²⁻"],
+    "products": ["MnCO₃"],
+    "coefficients": {
+      "Mn²⁺": 1,
+      "CO₃²⁻": 1,
+      "MnCO₃": 1
+    },
+    "deltaH": -39.8,
+    "temperatureSensitivity": 0.20,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Mn²⁺": 0.07,
+      "CO₃²⁻": 0.05,
+      "MnCO₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

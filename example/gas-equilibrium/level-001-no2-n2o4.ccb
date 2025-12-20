@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-001",
+    "name": "二氧化氮平衡",
+    "description": "NO₂与N₂O₄之间的气体平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734633600000,
+    "tags": ["气体平衡", "氮氧化物"]
+  },
+  "reaction": {
+    "id": "no2-n2o4-equilibrium",
+    "displayEquation": "2NO₂ ⇌ N₂O₄",
+    "equilibriumConstant": 6.8,
+    "reactants": ["NO₂"],
+    "products": ["N₂O₄"],
+    "coefficients": {
+      "NO₂": 2,
+      "N₂O₄": 1
+    },
+    "deltaH": -57.2,
+    "temperatureSensitivity": 1.5,
+    "hasGas": true,
+    "gasSpecies": ["NO₂", "N₂O₄"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO₂": 0.1,
+      "N₂O₄": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-007",
+    "name": "溶解度 - 明矾",
+    "description": "硫酸铝钾的复盐溶解",
+    "author": "CCBalance Team",
+    "createdAt": 1734642200000,
+    "tags": ["溶解度", "明矾", "复盐"]
+  },
+  "reaction": {
+    "id": "alum-solubility",
+    "displayEquation": "KAl(SO₄)₂·12H₂O(s) ⇌ K⁺(aq) + Al³⁺(aq) + 2SO₄²⁻(aq) + 12H₂O(l)",
+    "equilibriumConstant": 0.71,
+    "reactants": ["KAl(SO₄)₂·12H₂O(s)"],
+    "products": ["K⁺(aq)", "Al³⁺(aq)", "2SO₄²⁻(aq)", "12H₂O(l)"],
+    "coefficients": {
+      "KAl(SO₄)₂·12H₂O(s)": 1,
+      "K⁺(aq)": 1,
+      "Al³⁺(aq)": 1,
+      "2SO₄²⁻(aq)": 1,
+      "12H₂O(l)": 1
+    },
+    "deltaH": 107.0,
+    "temperatureSensitivity": 4.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "KAl(SO₄)₂·12H₂O(s)": 1.0,
+      "K⁺(aq)": 0.0,
+      "Al³⁺(aq)": 0.0,
+      "2SO₄²⁻(aq)": 0.0,
+      "12H₂O(l)": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-003",
+    "name": "强酸弱碱中和",
+    "description": "盐酸与氨水的中和反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734635400000,
+    "tags": ["酸碱", "中和", "强酸弱碱"]
+  },
+  "reaction": {
+    "id": "strong-acid-weak-base",
+    "displayEquation": "HCl + NH₃ ⇌ NH₄Cl",
+    "equilibriumConstant": 1.8e9,
+    "reactants": ["HCl", "NH₃"],
+    "products": ["NH₄Cl"],
+    "coefficients": {
+      "HCl": 1,
+      "NH₃": 1,
+      "NH₄Cl": 1
+    },
+    "deltaH": -51.2,
+    "temperatureSensitivity": 1.4,
+    "hasGas": true,
+    "gasSpecies": ["NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HCl": 0.1,
+      "NH₃": 0.1,
+      "NH₄Cl": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

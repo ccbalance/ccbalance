@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-003",
+    "name": "臭氧层破坏",
+    "description": "探索氯自由基催化臭氧分解的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "臭氧层", "CFC"]
+  },
+  "reaction": {
+    "id": "ozone-depletion",
+    "displayEquation": "2O₃ + Cl· ⇌ 3O₂ + Cl·",
+    "equilibriumConstant": 1.8e25,
+    "reactants": ["O₃", "Cl·"],
+    "products": ["O₂", "Cl·"],
+    "coefficients": {
+      "O₃": 2,
+      "Cl·": 1,
+      "O₂": 3
+    },
+    "deltaH": -285.6,
+    "temperatureSensitivity": 0.30,
+    "hasGas": true,
+    "gasSpecies": ["O₃", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 220,
+    "initialPressure": 10.1325,
+    "initialConcentrations": {
+      "O₃": 0.000001,
+      "Cl·": 0.0000001,
+      "O₂": 0.21
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 23
+  }
+}

@@ -20,6 +20,9 @@ const AudioManager = {
     // SFX 预加载缓存
     _sfxCache: new Map(),
 
+    // 正在播放的短音效实例（可停止）
+    _activeSfx: new Set(),
+
     // 产气体音效：需要可中断
     _steamAudio: null,
 
@@ -104,9 +107,43 @@ const AudioManager = {
         const base = this._getOrCreateSfx(src);
         const audio = base.cloneNode(true);
         audio.volume = Math.max(0, Math.min(1, volume)) * this._sfxVolume;
-        audio.play().catch(() => {
-            // 忽略自动播放限制等错误
-        });
+        const playPromise = audio.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {
+                // 忽略自动播放限制等错误
+            });
+        }
+
+        // 追踪以便在退出或重置时停止
+        try {
+            this._activeSfx.add(audio);
+            const cleanup = () => {
+                try { this._activeSfx.delete(audio); } catch { }
+                audio.removeEventListener('ended', cleanup);
+                audio.removeEventListener('pause', cleanup);
+            };
+            audio.addEventListener('ended', cleanup);
+            audio.addEventListener('pause', cleanup);
+        } catch {
+            // ignore any host restrictions
+        }
+    },
+
+    /**
+     * 停止所有短音效（用于退出/重置游戏时）
+     */
+    stopAllSfx() {
+        if (!this._activeSfx || this._activeSfx.size === 0) return;
+        for (const a of Array.from(this._activeSfx)) {
+            try {
+                a.pause();
+                a.currentTime = 0;
+            } catch {
+                // ignore
+            }
+            try { this._activeSfx.delete(a); } catch {}
+        }
+        this._activeSfx.clear();
     },
 
     playButtonClick() {

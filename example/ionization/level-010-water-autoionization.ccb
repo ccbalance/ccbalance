@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-010",
+    "name": "水的自电离",
+    "description": "水的自电离建立酸碱中性标准",
+    "author": "CCBalance Team",
+    "createdAt": 1734629700000,
+    "tags": ["电离", "自电离", "水"]
+  },
+  "reaction": {
+    "id": "water-autoionization",
+    "displayEquation": "2H₂O ⇌ H₃O⁺ + OH⁻",
+    "equilibriumConstant": 1.0e-14,
+    "reactants": ["H₂O"],
+    "products": ["H₃O⁺", "OH⁻"],
+    "coefficients": {
+      "H₂O": 2,
+      "H₃O⁺": 1,
+      "OH⁻": 1
+    },
+    "deltaH": 55.8,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂O": 55.5,
+      "H₃O⁺": 1.0e-7,
+      "OH⁻": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

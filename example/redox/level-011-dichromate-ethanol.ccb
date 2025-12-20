@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-011",
+    "name": "重铬酸钾氧化醇",
+    "description": "重铬酸钾在酸性条件下氧化乙醇",
+    "author": "CCBalance Team",
+    "createdAt": 1734626600000,
+    "tags": ["氧化还原", "有机氧化", "呼气测试"]
+  },
+  "reaction": {
+    "id": "k2cr2o7-ethanol",
+    "displayEquation": "Cr₂O₇²⁻ + 3C₂H₅OH + 8H⁺ ⇌ 2Cr³⁺ + 3CH₃CHO + 7H₂O",
+    "equilibriumConstant": 1.0e25,
+    "reactants": ["Cr₂O₇²⁻", "C₂H₅OH", "H⁺"],
+    "products": ["Cr³⁺", "CH₃CHO", "H₂O"],
+    "coefficients": {
+      "Cr₂O₇²⁻": 1,
+      "C₂H₅OH": 3,
+      "H⁺": 8,
+      "Cr³⁺": 2,
+      "CH₃CHO": 3,
+      "H₂O": 7
+    },
+    "deltaH": -385.0,
+    "temperatureSensitivity": 1.6,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cr₂O₇²⁻": 0.01,
+      "C₂H₅OH": 0.05,
+      "H⁺": 0.1,
+      "Cr³⁺": 0.0,
+      "CH₃CHO": 0.0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

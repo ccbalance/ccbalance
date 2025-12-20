@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-011",
+    "name": "血红蛋白氧合",
+    "description": "探索血红蛋白与氧气的协同结合",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "血红蛋白", "氧合"]
+  },
+  "reaction": {
+    "id": "hemoglobin-oxygenation",
+    "displayEquation": "Hb + 4O₂ ⇌ Hb(O₂)₄",
+    "equilibriumConstant": 2.8e8,
+    "reactants": ["Hb", "O₂"],
+    "products": ["Hb(O₂)₄"],
+    "coefficients": {
+      "Hb": 1,
+      "O₂": 4,
+      "Hb(O₂)₄": 1
+    },
+    "deltaH": -68.0,
+    "temperatureSensitivity": 0.15,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Hb": 0.002,
+      "O₂": 0.008,
+      "Hb(O₂)₄": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

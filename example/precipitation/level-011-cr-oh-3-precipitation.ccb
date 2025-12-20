@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-011",
+    "name": "氢氧化铬沉淀",
+    "description": "研究Cr³⁺与OH⁻反应生成Cr(OH)₃沉淀及其两性性质",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "两性氢氧化物", "铬化合物"]
+  },
+  "reaction": {
+    "id": "croh3-precipitation",
+    "displayEquation": "Cr³⁺ + 3OH⁻ ⇌ Cr(OH)₃(s)",
+    "equilibriumConstant": 1.6e30,
+    "reactants": ["Cr³⁺", "OH⁻"],
+    "products": ["Cr(OH)₃"],
+    "coefficients": {
+      "Cr³⁺": 1,
+      "OH⁻": 3,
+      "Cr(OH)₃": 1
+    },
+    "deltaH": -52.7,
+    "temperatureSensitivity": 0.23,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cr³⁺": 0.06,
+      "OH⁻": 0.2,
+      "Cr(OH)₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 14,
+    "turnTime": 31
+  }
+}

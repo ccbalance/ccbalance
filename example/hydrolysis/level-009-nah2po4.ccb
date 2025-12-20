@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-009",
+    "name": "磷酸二氢钠水解",
+    "description": "磷酸盐的第一级水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645600000,
+    "tags": ["水解", "磷酸盐", "弱酸性"]
+  },
+  "reaction": {
+    "id": "nah2po4-hydrolysis",
+    "displayEquation": "H₂PO₄⁻(aq) + H₂O(l) ⇌ H₃PO₄(aq) + OH⁻(aq)",
+    "equilibriumConstant": 1.3e-12,
+    "reactants": ["H₂PO₄⁻(aq)", "H₂O(l)"],
+    "products": ["H₃PO₄(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "H₂PO₄⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "H₃PO₄(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -12.4,
+    "temperatureSensitivity": -0.08,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂PO₄⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "H₃PO₄(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

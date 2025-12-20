@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-001",
+    "name": "氯化银沉淀",
+    "description": "硝酸银与氯化钠生成氯化银沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734636800000,
+    "tags": ["沉淀", "卤化银", "离子反应"]
+  },
+  "reaction": {
+    "id": "agcl-precipitation",
+    "displayEquation": "Ag⁺ + Cl⁻ ⇌ AgCl",
+    "equilibriumConstant": 5.5e9,
+    "reactants": ["Ag⁺", "Cl⁻"],
+    "products": ["AgCl"],
+    "coefficients": {
+      "Ag⁺": 1,
+      "Cl⁻": 1,
+      "AgCl": 1
+    },
+    "deltaH": -65.5,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ag⁺": 0.01,
+      "Cl⁻": 0.01,
+      "AgCl": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

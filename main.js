@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 let mainWindow;
+let splashWindow;
 let editorWindow;
 let tray;
 let commandLineArgs = [];
@@ -45,8 +46,10 @@ if (!gotTheLock) {
     app.whenReady().then(() => {
         commandLineArgs = process.argv.slice(1);
         try {
-            createWindow();
-            createTray();
+            createSplashWindow(() => {
+                createWindow();
+                createTray();
+            });
         } catch (error) {
             console.error('Failed to initialize app windows/tray:', error);
         }
@@ -68,6 +71,42 @@ if (!gotTheLock) {
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO3WkZkAAAAASUVORK5CYII='
         );
     }
+
+/**
+ * 创建Splash窗口
+ */
+function createSplashWindow(onDone) {
+    splashWindow = new BrowserWindow({
+        width: 960,
+        height: 540,
+        frame: false,
+        transparent: false,
+        alwaysOnTop: true,
+        center: true,
+        resizable: false,
+        backgroundColor: '#ffffff',
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
+    });
+
+    splashWindow.loadFile('splash.html');
+
+    splashWindow.on('closed', () => {
+        splashWindow = null;
+        if (typeof onDone === 'function') {
+            onDone();
+        }
+    });
+
+    // 3秒后关闭splash窗口
+    setTimeout(() => {
+        if (splashWindow) {
+            splashWindow.close();
+        }
+    }, 3000);
+}
 
 /**
  * 创建系统托盘

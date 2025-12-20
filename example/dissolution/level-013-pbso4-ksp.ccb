@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-013",
+    "name": "硫酸铅的溶解",
+    "description": "硫酸铅在水中的溶解平衡,铅蓄电池",
+    "author": "CCBalance Team",
+    "createdAt": 1734628400000,
+    "tags": ["溶解平衡", "硫酸盐", "电池"]
+  },
+  "reaction": {
+    "id": "pbso4-ksp",
+    "displayEquation": "PbSO₄(s) ⇌ Pb²⁺ + SO₄²⁻",
+    "equilibriumConstant": 2.53e-8,
+    "reactants": ["PbSO₄(s)"],
+    "products": ["Pb²⁺", "SO₄²⁻"],
+    "coefficients": {
+      "PbSO₄(s)": 1,
+      "Pb²⁺": 1,
+      "SO₄²⁻": 1
+    },
+    "deltaH": 27.5,
+    "temperatureSensitivity": 1.6,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "PbSO₄(s)": 5.0,
+      "Pb²⁺": 0.0,
+      "SO₄²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-010",
+    "name": "甲酸-甲酸钠缓冲液",
+    "description": "简单有机酸缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734644100000,
+    "tags": ["缓冲溶液", "甲酸", "有机酸"]
+  },
+  "reaction": {
+    "id": "formate-buffer",
+    "displayEquation": "HCOOH(aq) ⇌ H⁺(aq) + HCOO⁻(aq)",
+    "equilibriumConstant": 1.8e-4,
+    "reactants": ["HCOOH(aq)"],
+    "products": ["H⁺(aq)", "HCOO⁻(aq)"],
+    "coefficients": {
+      "HCOOH(aq)": 1,
+      "H⁺(aq)": 1,
+      "HCOO⁻(aq)": 1
+    },
+    "deltaH": -0.5,
+    "temperatureSensitivity": 0.01,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HCOOH(aq)": 0.1,
+      "H⁺(aq)": 0.0,
+      "HCOO⁻(aq)": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

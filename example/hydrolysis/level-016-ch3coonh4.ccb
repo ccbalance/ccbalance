@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-016",
+    "name": "醋酸铵水解",
+    "description": "弱酸弱碱盐的双重水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734646300000,
+    "tags": ["水解", "醋酸铵", "双重水解"]
+  },
+  "reaction": {
+    "id": "ch3coonh4-hydrolysis",
+    "displayEquation": "CH₃COO⁻(aq) + NH₄⁺(aq) + 2H₂O(l) ⇌ CH₃COOH(aq) + NH₃(aq) + H₂O(l) + OH⁻(aq) + H⁺(aq)",
+    "equilibriumConstant": 3.1e-19,
+    "reactants": ["CH₃COO⁻(aq)", "NH₄⁺(aq)", "2H₂O(l)"],
+    "products": ["CH₃COOH(aq)", "NH₃(aq)", "H₂O(l)", "OH⁻(aq)", "H⁺(aq)"],
+    "coefficients": {
+      "CH₃COO⁻(aq)": 1,
+      "NH₄⁺(aq)": 1,
+      "2H₂O(l)": 1,
+      "CH₃COOH(aq)": 1,
+      "NH₃(aq)": 1,
+      "H₂O(l)": 1,
+      "OH⁻(aq)": 1,
+      "H⁺(aq)": 1
+    },
+    "deltaH": 52.6,
+    "temperatureSensitivity": 0.31,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₃COO⁻(aq)": 0.1,
+      "NH₄⁺(aq)": 0.1,
+      "2H₂O(l)": 55.5,
+      "CH₃COOH(aq)": 0.0,
+      "NH₃(aq)": 0.0,
+      "H₂O(l)": 55.5,
+      "OH⁻(aq)": 1.0e-7,
+      "H⁺(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 4,
+    "maxRounds": 16,
+    "turnTime": 36
+  }
+}

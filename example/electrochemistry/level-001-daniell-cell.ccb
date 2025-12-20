@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-001",
+    "name": "丹尼尔电池",
+    "description": "铜锌原电池的经典示例",
+    "author": "CCBalance Team",
+    "createdAt": 1734632000000,
+    "tags": ["电化学", "原电池", "氧化还原"]
+  },
+  "reaction": {
+    "id": "daniell-cell",
+    "displayEquation": "Zn + Cu²⁺ ⇌ Zn²⁺ + Cu",
+    "equilibriumConstant": 1.0e37,
+    "reactants": ["Zn", "Cu²⁺"],
+    "products": ["Zn²⁺", "Cu"],
+    "coefficients": {
+      "Zn": 1,
+      "Cu²⁺": 1,
+      "Zn²⁺": 1,
+      "Cu": 1
+    },
+    "deltaH": -218.7,
+    "temperatureSensitivity": 1.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Zn": 0.1,
+      "Cu²⁺": 0.1,
+      "Zn²⁺": 0.0,
+      "Cu": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

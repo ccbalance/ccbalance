@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-006",
+    "name": "乙苯脱氢制苯乙烯",
+    "description": "研究催化脱氢生产苯乙烯单体",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "脱氢", "苯乙烯"]
+  },
+  "reaction": {
+    "id": "styrene-production",
+    "displayEquation": "C₆H₅C₂H₅(g) ⇌ C₆H₅C₂H₃(g) + H₂(g)",
+    "equilibriumConstant": 2.8e-4,
+    "reactants": ["C₆H₅C₂H₅"],
+    "products": ["C₆H₅C₂H₃", "H₂"],
+    "coefficients": {
+      "C₆H₅C₂H₅": 1,
+      "C₆H₅C₂H₃": 1,
+      "H₂": 1
+    },
+    "deltaH": 124.9,
+    "temperatureSensitivity": 0.28,
+    "hasGas": true,
+    "gasSpecies": ["C₆H₅C₂H₅", "C₆H₅C₂H₃", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 873,
+    "initialPressure": 50.66,
+    "initialConcentrations": {
+      "C₆H₅C₂H₅": 0.8,
+      "C₆H₅C₂H₃": 0,
+      "H₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 27
+  }
+}

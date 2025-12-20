@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-014",
+    "name": "钠的电解制备",
+    "description": "电解熔融氯化钠制取钠",
+    "author": "CCBalance Team",
+    "createdAt": 1734633300000,
+    "tags": ["电化学", "电解", "钠"]
+  },
+  "reaction": {
+    "id": "sodium-electrolysis",
+    "displayEquation": "2NaCl ⇌ 2Na + Cl₂",
+    "equilibriumConstant": 1.0e-80,
+    "reactants": ["NaCl"],
+    "products": ["Na", "Cl₂"],
+    "coefficients": {
+      "NaCl": 2,
+      "Na": 2,
+      "Cl₂": 1
+    },
+    "deltaH": 822.0,
+    "temperatureSensitivity": 3.2,
+    "hasGas": true,
+    "gasSpecies": ["Cl₂"],
+    "containerType": "rigid",
+    "initialTemp": 1173,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaCl": 1.0,
+      "Na": 0.0,
+      "Cl₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

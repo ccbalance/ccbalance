@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-016",
+    "name": "溶解度 - 硼酸",
+    "description": "弱酸硼酸的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734643100000,
+    "tags": ["溶解度", "硼酸", "弱酸"]
+  },
+  "reaction": {
+    "id": "h3bo3-solubility",
+    "displayEquation": "H₃BO₃(s) ⇌ H₃BO₃(aq)",
+    "equilibriumConstant": 0.63,
+    "reactants": ["H₃BO₃(s)"],
+    "products": ["H₃BO₃(aq)"],
+    "coefficients": {
+      "H₃BO₃(s)": 1,
+      "H₃BO₃(aq)": 1
+    },
+    "deltaH": 22.2,
+    "temperatureSensitivity": 2.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₃BO₃(s)": 1.0,
+      "H₃BO₃(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

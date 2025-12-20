@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-006",
+    "name": "硫化氢的电离",
+    "description": "硫化氢在水溶液中的两步电离",
+    "author": "CCBalance Team",
+    "createdAt": 1734624500000,
+    "tags": ["离子反应", "电离", "弱酸"]
+  },
+  "reaction": {
+    "id": "h2s-ionization1",
+    "displayEquation": "H₂S ⇌ H⁺ + HS⁻",
+    "equilibriumConstant": 9.1e-8,
+    "reactants": ["H₂S"],
+    "products": ["H⁺", "HS⁻"],
+    "coefficients": {
+      "H₂S": 1,
+      "H⁺": 1,
+      "HS⁻": 1
+    },
+    "deltaH": 2.8,
+    "temperatureSensitivity": 0.7,
+    "hasGas": true,
+    "gasSpecies": ["H₂S"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂S": 0.1,
+      "H⁺": 0.0001,
+      "HS⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

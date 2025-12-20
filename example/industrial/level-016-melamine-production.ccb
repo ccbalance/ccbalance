@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-016",
+    "name": "三聚氰胺生产",
+    "description": "研究尿素高温缩合制三聚氰胺",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "三聚氰胺", "热缩合"]
+  },
+  "reaction": {
+    "id": "melamine-production",
+    "displayEquation": "6CO(NH₂)₂ ⇌ C₃H₆N₆ + 6NH₃ + 3CO₂",
+    "equilibriumConstant": 2.5e-15,
+    "reactants": ["CO(NH₂)₂"],
+    "products": ["C₃H₆N₆", "NH₃", "CO₂"],
+    "coefficients": {
+      "CO(NH₂)₂": 6,
+      "C₃H₆N₆": 1,
+      "NH₃": 6,
+      "CO₂": 3
+    },
+    "deltaH": 352.0,
+    "temperatureSensitivity": 0.40,
+    "hasGas": true,
+    "gasSpecies": ["NH₃", "CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 673,
+    "initialPressure": 405,
+    "initialConcentrations": {
+      "CO(NH₂)₂": 3.0,
+      "C₃H₆N₆": 0,
+      "NH₃": 0,
+      "CO₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

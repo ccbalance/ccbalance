@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-009",
+    "name": "苯酚生产（异丙苯法）",
+    "description": "探索Cumene法同时生产苯酚和丙酮",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "苯酚", "Cumene法"]
+  },
+  "reaction": {
+    "id": "cumene-process",
+    "displayEquation": "C₆H₅C₃H₇ + O₂ ⇌ C₆H₅OH + (CH₃)₂CO",
+    "equilibriumConstant": 7.5e18,
+    "reactants": ["C₆H₅C₃H₇", "O₂"],
+    "products": ["C₆H₅OH", "(CH₃)₂CO"],
+    "coefficients": {
+      "C₆H₅C₃H₇": 1,
+      "O₂": 1,
+      "C₆H₅OH": 1,
+      "(CH₃)₂CO": 1
+    },
+    "deltaH": -268.0,
+    "temperatureSensitivity": 0.27,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 353,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₅C₃H₇": 0.5,
+      "O₂": 0.5,
+      "C₆H₅OH": 0,
+      "(CH₃)₂CO": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

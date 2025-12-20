@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-013",
+    "name": "视黄醛的光异构化",
+    "description": "探索视黄醛在光照下的11-cis到all-trans异构化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "视觉化学", "异构化"]
+  },
+  "reaction": {
+    "id": "retinal-photoisomerization",
+    "displayEquation": "11-cis-C₂₀H₂₈O + hν ⇌ all-trans-C₂₀H₂₈O",
+    "equilibriumConstant": 18.5,
+    "reactants": ["11-cis-C₂₀H₂₈O"],
+    "products": ["all-trans-C₂₀H₂₈O"],
+    "coefficients": {
+      "11-cis-C₂₀H₂₈O": 1,
+      "all-trans-C₂₀H₂₈O": 1
+    },
+    "deltaH": -26.8,
+    "temperatureSensitivity": 0.17,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "11-cis-C₂₀H₂₈O": 0.001,
+      "all-trans-C₂₀H₂₈O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

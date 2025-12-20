@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-007",
+    "name": "镍镉电池",
+    "description": "镍镉二次电池的放电反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734632600000,
+    "tags": ["电化学", "蓄电池", "镍镉"]
+  },
+  "reaction": {
+    "id": "nicd-discharge",
+    "displayEquation": "Cd + 2NiO(OH) + 2H₂O ⇌ Cd(OH)₂ + 2Ni(OH)₂",
+    "equilibriumConstant": 1.0e25,
+    "reactants": ["Cd", "NiO(OH)", "H₂O"],
+    "products": ["Cd(OH)₂", "Ni(OH)₂"],
+    "coefficients": {
+      "Cd": 1,
+      "NiO(OH)": 2,
+      "H₂O": 2,
+      "Cd(OH)₂": 1,
+      "Ni(OH)₂": 2
+    },
+    "deltaH": -235.0,
+    "temperatureSensitivity": 1.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cd": 0.1,
+      "NiO(OH)": 0.1,
+      "H₂O": 0.5,
+      "Cd(OH)₂": 0.0,
+      "Ni(OH)₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

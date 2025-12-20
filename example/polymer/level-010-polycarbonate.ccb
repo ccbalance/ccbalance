@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-010",
+    "name": "聚碳酸酯合成",
+    "description": "研究双酚A与光气的界面缩聚",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "聚碳酸酯", "界面聚合"]
+  },
+  "reaction": {
+    "id": "polycarbonate-synthesis",
+    "displayEquation": "nC₁₅H₁₆O₂ + nCOCl₂ ⇌ (C₁₆H₁₄O₃)ₙ + 2nHCl",
+    "equilibriumConstant": 3.6e12,
+    "reactants": ["C₁₅H₁₆O₂", "COCl₂"],
+    "products": ["(C₁₆H₁₄O₃)ₙ", "HCl"],
+    "coefficients": {
+      "C₁₅H₁₆O₂": 20,
+      "COCl₂": 20,
+      "(C₁₆H₁₄O₃)ₙ": 1,
+      "HCl": 40
+    },
+    "deltaH": -52.8,
+    "temperatureSensitivity": 0.20,
+    "hasGas": true,
+    "gasSpecies": ["HCl"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₁₅H₁₆O₂": 0.3,
+      "COCl₂": 0.3,
+      "(C₁₆H₁₄O₃)ₙ": 0,
+      "HCl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 31
+  }
+}

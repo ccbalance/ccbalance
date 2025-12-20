@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-010",
+    "name": "头发再生反应",
+    "description": "程序员和科学家的救星",
+    "author": "CCBalance Team",
+    "createdAt": 1734639300000,
+    "tags": ["愚人节", "搞笑", "头发"]
+  },
+  "reaction": {
+    "id": "hair-regeneration",
+    "displayEquation": "3智慧 ⇌ Hair",
+    "equilibriumConstant": 1.0e-15,
+    "reactants": ["智慧"],
+    "products": ["Hair"],
+    "coefficients": {
+      "智慧": 3,
+      "Hair": 1
+    },
+    "deltaH": 450.0,
+    "temperatureSensitivity": 0.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "智慧": 0.9,
+      "Hair": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

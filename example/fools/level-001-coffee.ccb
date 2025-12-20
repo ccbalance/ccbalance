@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-001",
+    "name": "工业制取咖啡",
+    "description": "传说中的炼金术：一氧化碳与铁反应生成咖啡",
+    "author": "CCBalance Team",
+    "createdAt": 1734638400000,
+    "tags": ["愚人节", "搞笑", "炼金术"]
+  },
+  "reaction": {
+    "id": "coffee-synthesis",
+    "displayEquation": "CO + 2Fe ⇌ Coffee",
+    "equilibriumConstant": 114.514,
+    "reactants": ["CO", "Fe"],
+    "products": ["Coffee"],
+    "coefficients": {
+      "CO": 1,
+      "Fe": 2,
+      "Coffee": 1
+    },
+    "deltaH": -996.0,
+    "temperatureSensitivity": 1.14,
+    "hasGas": true,
+    "gasSpecies": ["CO"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO": 0.1,
+      "Fe": 0.2,
+      "Coffee": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

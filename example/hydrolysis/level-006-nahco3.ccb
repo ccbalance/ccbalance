@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-006",
+    "name": "碳酸氢钠水解",
+    "description": "两性离子的水解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734645300000,
+    "tags": ["水解", "碳酸氢钠", "两性"]
+  },
+  "reaction": {
+    "id": "nahco3-hydrolysis",
+    "displayEquation": "HCO₃⁻(aq) + H₂O(l) ⇌ H₂CO₃(aq) + OH⁻(aq)",
+    "equilibriumConstant": 2.3e-8,
+    "reactants": ["HCO₃⁻(aq)", "H₂O(l)"],
+    "products": ["H₂CO₃(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "HCO₃⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "H₂CO₃(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -7.7,
+    "temperatureSensitivity": -0.12,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HCO₃⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "H₂CO₃(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

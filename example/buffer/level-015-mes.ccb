@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-015",
+    "name": "MES缓冲液",
+    "description": "Good's缓冲剂系列之一",
+    "author": "CCBalance Team",
+    "createdAt": 1734644600000,
+    "tags": ["缓冲溶液", "MES", "Good's buffer"]
+  },
+  "reaction": {
+    "id": "mes-buffer",
+    "displayEquation": "MESH(aq) ⇌ H⁺(aq) + MES⁻(aq)",
+    "equilibriumConstant": 8.0e-7,
+    "reactants": ["MESH(aq)"],
+    "products": ["H⁺(aq)", "MES⁻(aq)"],
+    "coefficients": {
+      "MESH(aq)": 1,
+      "H⁺(aq)": 1,
+      "MES⁻(aq)": 1
+    },
+    "deltaH": 14.8,
+    "temperatureSensitivity": 0.11,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "MESH(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "MES⁻(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

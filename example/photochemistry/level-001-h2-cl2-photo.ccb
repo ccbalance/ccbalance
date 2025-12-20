@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-001",
+    "name": "氢气与氯气的光化学反应",
+    "description": "探索H₂与Cl₂在光照下的链式反应机制",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "链式反应", "卤素"]
+  },
+  "reaction": {
+    "id": "h2-cl2-photochem",
+    "displayEquation": "H₂(g) + Cl₂(g) + hν ⇌ 2HCl(g)",
+    "equilibriumConstant": 2.5e33,
+    "reactants": ["H₂", "Cl₂"],
+    "products": ["HCl"],
+    "coefficients": {
+      "H₂": 1,
+      "Cl₂": 1,
+      "HCl": 2
+    },
+    "deltaH": -184.6,
+    "temperatureSensitivity": 0.15,
+    "hasGas": true,
+    "gasSpecies": ["H₂", "Cl₂", "HCl"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₂": 0.05,
+      "Cl₂": 0.05,
+      "HCl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

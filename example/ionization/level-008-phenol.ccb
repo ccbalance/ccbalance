@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionization-008",
+    "name": "苯酚的电离",
+    "description": "苯酚是非常弱的酸",
+    "author": "CCBalance Team",
+    "createdAt": 1734629500000,
+    "tags": ["电离", "弱酸", "有机酸"]
+  },
+  "reaction": {
+    "id": "phenol-ionization",
+    "displayEquation": "C₆H₅OH ⇌ H⁺ + C₆H₅O⁻",
+    "equilibriumConstant": 1.3e-10,
+    "reactants": ["C₆H₅OH"],
+    "products": ["H⁺", "C₆H₅O⁻"],
+    "coefficients": {
+      "C₆H₅OH": 1,
+      "H⁺": 1,
+      "C₆H₅O⁻": 1
+    },
+    "deltaH": 5.8,
+    "temperatureSensitivity": 1.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₅OH": 0.1,
+      "H⁺": 0.0001,
+      "C₆H₅O⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

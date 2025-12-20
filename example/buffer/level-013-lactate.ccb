@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-013",
+    "name": "乳酸缓冲液",
+    "description": "α-羟基酸缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734644400000,
+    "tags": ["缓冲溶液", "乳酸", "运动生理"]
+  },
+  "reaction": {
+    "id": "lactate-buffer",
+    "displayEquation": "CH₃CH(OH)COOH(aq) ⇌ H⁺(aq) + CH₃CH(OH)COO⁻(aq)",
+    "equilibriumConstant": 1.4e-4,
+    "reactants": ["CH₃CH(OH)COOH(aq)"],
+    "products": ["H⁺(aq)", "CH₃CH(OH)COO⁻(aq)"],
+    "coefficients": {
+      "CH₃CH(OH)COOH(aq)": 1,
+      "H⁺(aq)": 1,
+      "CH₃CH(OH)COO⁻(aq)": 1
+    },
+    "deltaH": 0.8,
+    "temperatureSensitivity": 0.015,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₃CH(OH)COOH(aq)": 0.02,
+      "H⁺(aq)": 0.0,
+      "CH₃CH(OH)COO⁻(aq)": 0.02
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

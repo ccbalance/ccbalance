@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-026",
+    "name": "叠衣神功",
+    "description": "家务自动化系列",
+    "author": "CCBalance Team",
+    "createdAt": 1734640900000,
+    "tags": ["愚人节", "搞笑", "家务"]
+  },
+  "reaction": {
+    "id": "laundry-folding",
+    "displayEquation": "乱衣服 ⇌ 整齐衣服 + 成就感",
+    "equilibriumConstant": 0.1,
+    "reactants": ["乱衣服"],
+    "products": ["整齐衣服", "成就感"],
+    "coefficients": {
+      "乱衣服": 1,
+      "整齐衣服": 1,
+      "成就感": 1
+    },
+    "deltaH": 666.0,
+    "temperatureSensitivity": 1.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "乱衣服": 0.8,
+      "整齐衣服": 0.0,
+      "成就感": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

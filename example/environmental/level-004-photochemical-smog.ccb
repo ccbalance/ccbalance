@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-004",
+    "name": "光化学烟雾",
+    "description": "研究NOₓ和VOCs形成光化学烟雾的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "光化学烟雾", "空气污染"]
+  },
+  "reaction": {
+    "id": "photochemical-smog",
+    "displayEquation": "NO₂ + VOC + hν + O₂ ⇌ O₃ + NO + products",
+    "equilibriumConstant": 3.5e8,
+    "reactants": ["NO₂", "VOC", "O₂"],
+    "products": ["O₃", "NO", "products"],
+    "coefficients": {
+      "NO₂": 1,
+      "VOC": 1,
+      "O₂": 1,
+      "O₃": 1,
+      "NO": 1,
+      "products": 1
+    },
+    "deltaH": -125.0,
+    "temperatureSensitivity": 0.24,
+    "hasGas": true,
+    "gasSpecies": ["NO₂", "O₂", "O₃", "NO"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO₂": 0.0001,
+      "VOC": 0.0002,
+      "O₂": 0.21,
+      "O₃": 0,
+      "NO": 0,
+      "products": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

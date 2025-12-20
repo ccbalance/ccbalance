@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-016",
+    "name": "氯化铅的溶解",
+    "description": "氯化铅在水中的溶解平衡,温度敏感",
+    "author": "CCBalance Team",
+    "createdAt": 1734628700000,
+    "tags": ["溶解平衡", "氯化物", "温度效应"]
+  },
+  "reaction": {
+    "id": "pbcl2-ksp",
+    "displayEquation": "PbCl₂(s) ⇌ Pb²⁺ + 2Cl⁻",
+    "equilibriumConstant": 1.70e-5,
+    "reactants": ["PbCl₂(s)"],
+    "products": ["Pb²⁺", "Cl⁻"],
+    "coefficients": {
+      "PbCl₂(s)": 1,
+      "Pb²⁺": 1,
+      "Cl⁻": 2
+    },
+    "deltaH": 23.4,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "PbCl₂(s)": 5.0,
+      "Pb²⁺": 0.0,
+      "Cl⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

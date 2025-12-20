@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-013",
+    "name": "亚硫酸钠水解",
+    "description": "亚硫酸盐的碱性水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734646000000,
+    "tags": ["水解", "亚硫酸钠", "还原性"]
+  },
+  "reaction": {
+    "id": "na2so3-hydrolysis",
+    "displayEquation": "SO₃²⁻(aq) + H₂O(l) ⇌ HSO₃⁻(aq) + OH⁻(aq)",
+    "equilibriumConstant": 1.6e-7,
+    "reactants": ["SO₃²⁻(aq)", "H₂O(l)"],
+    "products": ["HSO₃⁻(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "SO₃²⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "HSO₃⁻(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -17.0,
+    "temperatureSensitivity": -0.10,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "SO₃²⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "HSO₃⁻(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

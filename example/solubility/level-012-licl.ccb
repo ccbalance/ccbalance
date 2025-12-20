@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-012",
+    "name": "溶解度 - 氯化锂",
+    "description": "氯化锂的高溶解度",
+    "author": "CCBalance Team",
+    "createdAt": 1734642700000,
+    "tags": ["溶解度", "氯化锂", "锂盐"]
+  },
+  "reaction": {
+    "id": "licl-solubility",
+    "displayEquation": "LiCl(s) ⇌ Li⁺(aq) + Cl⁻(aq)",
+    "equilibriumConstant": 19.9,
+    "reactants": ["LiCl(s)"],
+    "products": ["Li⁺(aq)", "Cl⁻(aq)"],
+    "coefficients": {
+      "LiCl(s)": 1,
+      "Li⁺(aq)": 1,
+      "Cl⁻(aq)": 1
+    },
+    "deltaH": -37.0,
+    "temperatureSensitivity": -0.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "LiCl(s)": 1.0,
+      "Li⁺(aq)": 0.0,
+      "Cl⁻(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

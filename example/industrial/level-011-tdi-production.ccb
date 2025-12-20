@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-011",
+    "name": "甲苯二异氰酸酯（TDI）生产",
+    "description": "探索光气法制备聚氨酯原料TDI",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "异氰酸酯", "光气化"]
+  },
+  "reaction": {
+    "id": "tdi-production",
+    "displayEquation": "C₇H₁₀N₂ + 2COCl₂ ⇌ C₉H₆N₂O₂ + 4HCl",
+    "equilibriumConstant": 8.5e14,
+    "reactants": ["C₇H₁₀N₂", "COCl₂"],
+    "products": ["C₉H₆N₂O₂", "HCl"],
+    "coefficients": {
+      "C₇H₁₀N₂": 1,
+      "COCl₂": 2,
+      "C₉H₆N₂O₂": 1,
+      "HCl": 4
+    },
+    "deltaH": -185.0,
+    "temperatureSensitivity": 0.28,
+    "hasGas": true,
+    "gasSpecies": ["COCl₂", "HCl"],
+    "containerType": "rigid",
+    "initialTemp": 353,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₇H₁₀N₂": 0.3,
+      "COCl₂": 0.7,
+      "C₉H₆N₂O₂": 0,
+      "HCl": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

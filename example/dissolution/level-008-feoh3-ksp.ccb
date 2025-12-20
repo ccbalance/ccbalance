@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-008",
+    "name": "氢氧化铁的溶解",
+    "description": "三价铁的氢氧化物溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734627900000,
+    "tags": ["溶解平衡", "氢氧化物", "铁锈"]
+  },
+  "reaction": {
+    "id": "feoh3-ksp",
+    "displayEquation": "Fe(OH)₃(s) ⇌ Fe³⁺ + 3OH⁻",
+    "equilibriumConstant": 2.79e-39,
+    "reactants": ["Fe(OH)₃(s)"],
+    "products": ["Fe³⁺", "OH⁻"],
+    "coefficients": {
+      "Fe(OH)₃(s)": 1,
+      "Fe³⁺": 1,
+      "OH⁻": 3
+    },
+    "deltaH": 28.0,
+    "temperatureSensitivity": 2.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe(OH)₃(s)": 5.0,
+      "Fe³⁺": 0.0,
+      "OH⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

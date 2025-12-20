@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-014",
+    "name": "氢氧化铁中和",
+    "description": "氢氧化铁与硫酸反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734636500000,
+    "tags": ["酸碱", "中和", "氢氧化铁"]
+  },
+  "reaction": {
+    "id": "fe-oh-3-h2so4",
+    "displayEquation": "2Fe(OH)₃ + 3H₂SO₄ ⇌ Fe₂(SO₄)₃ + 6H₂O",
+    "equilibriumConstant": 1.0e84,
+    "reactants": ["Fe(OH)₃", "H₂SO₄"],
+    "products": ["Fe₂(SO₄)₃", "H₂O"],
+    "coefficients": {
+      "Fe(OH)₃": 2,
+      "H₂SO₄": 3,
+      "Fe₂(SO₄)₃": 1,
+      "H₂O": 6
+    },
+    "deltaH": -334.8,
+    "temperatureSensitivity": 2.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe(OH)₃": 0.1,
+      "H₂SO₄": 0.15,
+      "Fe₂(SO₄)₃": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

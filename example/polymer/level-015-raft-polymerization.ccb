@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-015",
+    "name": "RAFT活性聚合",
+    "description": "探索可逆加成-断裂链转移聚合技术",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "活性聚合", "RAFT"]
+  },
+  "reaction": {
+    "id": "raft-polymerization",
+    "displayEquation": "nMonomer + RAFT-agent ⇌ Polymer-RAFT",
+    "equilibriumConstant": 6.5e13,
+    "reactants": ["Monomer", "RAFT-agent"],
+    "products": ["Polymer-RAFT"],
+    "coefficients": {
+      "Monomer": 50,
+      "RAFT-agent": 1,
+      "Polymer-RAFT": 1
+    },
+    "deltaH": -65.0,
+    "temperatureSensitivity": 0.17,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 343,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Monomer": 1.0,
+      "RAFT-agent": 0.01,
+      "Polymer-RAFT": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-009",
+    "name": "甲烷蒸汽重整",
+    "description": "甲烷与水蒸气制取合成气",
+    "author": "CCBalance Team",
+    "createdAt": 1734634400000,
+    "tags": ["气体平衡", "工业", "合成气"]
+  },
+  "reaction": {
+    "id": "methane-reforming",
+    "displayEquation": "CH₄ + H₂O ⇌ CO + 3H₂",
+    "equilibriumConstant": 1.2e-25,
+    "reactants": ["CH₄", "H₂O"],
+    "products": ["CO", "H₂"],
+    "coefficients": {
+      "CH₄": 1,
+      "H₂O": 1,
+      "CO": 1,
+      "H₂": 3
+    },
+    "deltaH": 206.2,
+    "temperatureSensitivity": 0.42,
+    "hasGas": true,
+    "gasSpecies": ["CH₄", "H₂O", "CO", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 1073,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₄": 0.1,
+      "H₂O": 0.2,
+      "CO": 0.0,
+      "H₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

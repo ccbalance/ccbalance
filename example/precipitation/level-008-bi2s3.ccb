@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-008",
+    "name": "硫化铋沉淀",
+    "description": "探索Bi³⁺与S²⁻反应生成Bi₂S₃黑色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "硫化物", "重金属"]
+  },
+  "reaction": {
+    "id": "bi2s3-precipitation",
+    "displayEquation": "2Bi³⁺ + 3S²⁻ ⇌ Bi₂S₃(s)",
+    "equilibriumConstant": 1.0e97,
+    "reactants": ["Bi³⁺", "S²⁻"],
+    "products": ["Bi₂S₃"],
+    "coefficients": {
+      "Bi³⁺": 2,
+      "S²⁻": 3,
+      "Bi₂S₃": 1
+    },
+    "deltaH": -68.4,
+    "temperatureSensitivity": 0.25,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Bi³⁺": 0.04,
+      "S²⁻": 0.06,
+      "Bi₂S₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

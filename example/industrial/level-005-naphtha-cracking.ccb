@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-005",
+    "name": "石油裂解",
+    "description": "探索石脑油裂解生产乙烯的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "石油化工", "裂解"]
+  },
+  "reaction": {
+    "id": "naphtha-cracking",
+    "displayEquation": "C₈H₁₈(g) ⇌ C₂H₄(g) + C₃H₆(g) + C₃H₈(g)",
+    "equilibriumConstant": 3.5e-8,
+    "reactants": ["C₈H₁₈"],
+    "products": ["C₂H₄", "C₃H₆", "C₃H₈"],
+    "coefficients": {
+      "C₈H₁₈": 1,
+      "C₂H₄": 1,
+      "C₃H₆": 1,
+      "C₃H₈": 1
+    },
+    "deltaH": 285.0,
+    "temperatureSensitivity": 0.38,
+    "hasGas": true,
+    "gasSpecies": ["C₈H₁₈", "C₂H₄", "C₃H₆", "C₃H₈"],
+    "containerType": "rigid",
+    "initialTemp": 1123,
+    "initialPressure": 202.65,
+    "initialConcentrations": {
+      "C₈H₁₈": 0.5,
+      "C₂H₄": 0,
+      "C₃H₆": 0,
+      "C₃H₈": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

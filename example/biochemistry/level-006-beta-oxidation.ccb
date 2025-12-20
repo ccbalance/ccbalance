@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-006",
+    "name": "脂肪酸β-氧化",
+    "description": "研究脂肪酸在线粒体中的分解代谢",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "脂质代谢", "β-氧化"]
+  },
+  "reaction": {
+    "id": "fatty-acid-oxidation",
+    "displayEquation": "Acyl-CoA + FAD + NAD⁺ + H₂O + CoASH ⇌ Acyl-CoA(n-2) + Acetyl-CoA + FADH₂ + NADH",
+    "equilibriumConstant": 7.8e14,
+    "reactants": ["Acyl-CoA", "FAD", "NAD⁺", "H₂O", "CoASH"],
+    "products": ["Acyl-CoA(n-2)", "Acetyl-CoA", "FADH₂", "NADH"],
+    "coefficients": {
+      "Acyl-CoA": 1,
+      "FAD": 1,
+      "NAD⁺": 1,
+      "H₂O": 1,
+      "CoASH": 1,
+      "Acyl-CoA(n-2)": 1,
+      "Acetyl-CoA": 1,
+      "FADH₂": 1,
+      "NADH": 1
+    },
+    "deltaH": -65.4,
+    "temperatureSensitivity": 0.19,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Acyl-CoA": 0.001,
+      "FAD": 0.0005,
+      "NAD⁺": 0.001,
+      "H₂O": 55.5,
+      "CoASH": 0.001,
+      "Acyl-CoA(n-2)": 0,
+      "Acetyl-CoA": 0,
+      "FADH₂": 0,
+      "NADH": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 27
+  }
+}

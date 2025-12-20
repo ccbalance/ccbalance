@@ -78,6 +78,8 @@ const Game = {
         this.pendingChanges = {};
         this.stopTimer();
         this.stopAIRealtime(); // 停止AI实时决策
+        // 停止所有正在播放的短音效，防止退出/重置后音效残留
+        AudioManager?.stopAllSfx?.();
     },
 
     /**
@@ -614,8 +616,9 @@ const Game = {
      * 结束游戏
      */
     endGame(playerWins = null) {
-        // 游戏结束：中断持续类音效
+        // 游戏结束：中断持续类音效并停止所有短音效
         AudioManager?.stopSteamProducing?.();
+        AudioManager?.stopAllSfx?.();
 
         this.state.isRunning = false;
         this.stopTimer();
@@ -730,6 +733,9 @@ const Game = {
     quit() {
         this.state.isRunning = false;
         this.stopTimer();
+        // 退出/返回菜单时也确保关闭所有音效
+        AudioManager?.stopSteamProducing?.();
+        AudioManager?.stopAllSfx?.();
         UIManager.hidePauseMenu();
     },
 

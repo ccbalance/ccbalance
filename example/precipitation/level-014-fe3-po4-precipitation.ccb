@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-014",
+    "name": "磷酸铁沉淀",
+    "description": "探索Fe³⁺与PO₄³⁻反应生成FePO₄黄色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "磷酸盐", "铁化合物"]
+  },
+  "reaction": {
+    "id": "fepo4-precipitation",
+    "displayEquation": "Fe³⁺ + PO₄³⁻ ⇌ FePO₄(s)",
+    "equilibriumConstant": 6.3e21,
+    "reactants": ["Fe³⁺", "PO₄³⁻"],
+    "products": ["FePO₄"],
+    "coefficients": {
+      "Fe³⁺": 1,
+      "PO₄³⁻": 1,
+      "FePO₄": 1
+    },
+    "deltaH": -55.2,
+    "temperatureSensitivity": 0.24,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe³⁺": 0.08,
+      "PO₄³⁻": 0.06,
+      "FePO₄": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 33
+  }
+}

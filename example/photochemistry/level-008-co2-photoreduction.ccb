@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-008",
+    "name": "二氧化碳的光还原",
+    "description": "研究CO₂在光照和催化剂作用下的还原反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "CO₂转化", "光催化"]
+  },
+  "reaction": {
+    "id": "co2-photoreduction",
+    "displayEquation": "2CO₂(g) + 2H₂O + hν ⇌ 2CH₂O + O₂(g)",
+    "equilibriumConstant": 3.5e-22,
+    "reactants": ["CO₂", "H₂O"],
+    "products": ["CH₂O", "O₂"],
+    "coefficients": {
+      "CO₂": 2,
+      "H₂O": 2,
+      "CH₂O": 2,
+      "O₂": 1
+    },
+    "deltaH": 261.0,
+    "temperatureSensitivity": 0.30,
+    "hasGas": true,
+    "gasSpecies": ["CO₂", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO₂": 0.001,
+      "H₂O": 55.5,
+      "CH₂O": 0,
+      "O₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 29
+  }
+}

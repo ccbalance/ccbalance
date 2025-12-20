@@ -1340,6 +1340,9 @@ const UIManager = {
         if (victory) {
             AnimationManager.playVictoryEffect(document.getElementById('result-particles'));
         }
+
+        // 实时更新主菜单的星数显示（摘星之路面板）
+        this.updateStarProgressPanel();
     },
 
     /**

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-023",
+    "name": "语言速成法",
+    "description": "7天学会任何语言",
+    "author": "CCBalance Team",
+    "createdAt": 1734640600000,
+    "tags": ["愚人节", "搞笑", "语言"]
+  },
+  "reaction": {
+    "id": "language-learning",
+    "displayEquation": "单词 + 语法 + 魔法 ⇌ 流利",
+    "equilibriumConstant": 0.007,
+    "reactants": ["单词", "语法", "魔法"],
+    "products": ["流利"],
+    "coefficients": {
+      "单词": 1,
+      "语法": 1,
+      "魔法": 1,
+      "流利": 1
+    },
+    "deltaH": 2520.0,
+    "temperatureSensitivity": 7.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "单词": 0.3,
+      "语法": 0.1,
+      "魔法": 0.01,
+      "流利": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

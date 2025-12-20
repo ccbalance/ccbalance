@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-009",
+    "name": "二价铁的氧化",
+    "description": "二价铁离子被氧气氧化成三价铁",
+    "author": "CCBalance Team",
+    "createdAt": 1734626400000,
+    "tags": ["氧化还原", "腐蚀", "水处理"]
+  },
+  "reaction": {
+    "id": "fe2-oxidation",
+    "displayEquation": "4Fe²⁺ + O₂ + 4H⁺ ⇌ 4Fe³⁺ + 2H₂O",
+    "equilibriumConstant": 6.2e10,
+    "reactants": ["Fe²⁺", "O₂", "H⁺"],
+    "products": ["Fe³⁺", "H₂O"],
+    "coefficients": {
+      "Fe²⁺": 4,
+      "O₂": 1,
+      "H⁺": 4,
+      "Fe³⁺": 4,
+      "H₂O": 2
+    },
+    "deltaH": -175.0,
+    "temperatureSensitivity": 1.3,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe²⁺": 0.1,
+      "O₂": 0.05,
+      "H⁺": 0.1,
+      "Fe³⁺": 0.0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

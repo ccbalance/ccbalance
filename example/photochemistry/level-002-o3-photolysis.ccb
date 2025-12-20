@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-002",
+    "name": "臭氧的光解",
+    "description": "研究O₃在紫外光下分解为O₂和O的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "臭氧", "大气化学"]
+  },
+  "reaction": {
+    "id": "o3-photolysis",
+    "displayEquation": "O₃(g) + hν ⇌ O₂(g) + O",
+    "equilibriumConstant": 1.8e-4,
+    "reactants": ["O₃"],
+    "products": ["O₂", "O"],
+    "coefficients": {
+      "O₃": 1,
+      "O₂": 1,
+      "O": 1
+    },
+    "deltaH": 105.0,
+    "temperatureSensitivity": 0.25,
+    "hasGas": true,
+    "gasSpecies": ["O₃", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "O₃": 0.01,
+      "O₂": 0.02,
+      "O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 22
+  }
+}

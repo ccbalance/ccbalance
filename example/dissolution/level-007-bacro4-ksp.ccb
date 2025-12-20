@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-007",
+    "name": "铬酸钡的溶解",
+    "description": "铬酸钡的溶解平衡,呈现黄色",
+    "author": "CCBalance Team",
+    "createdAt": 1734627800000,
+    "tags": ["溶解平衡", "铬酸盐", "颜色"]
+  },
+  "reaction": {
+    "id": "bacro4-ksp",
+    "displayEquation": "BaCrO₄(s) ⇌ Ba²⁺ + CrO₄²⁻",
+    "equilibriumConstant": 1.17e-10,
+    "reactants": ["BaCrO₄(s)"],
+    "products": ["Ba²⁺", "CrO₄²⁻"],
+    "coefficients": {
+      "BaCrO₄(s)": 1,
+      "Ba²⁺": 1,
+      "CrO₄²⁻": 1
+    },
+    "deltaH": 22.0,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "BaCrO₄(s)": 5.0,
+      "Ba²⁺": 0.0,
+      "CrO₄²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

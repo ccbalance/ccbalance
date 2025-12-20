@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-006",
+    "name": "金钱炼成术",
+    "description": "传说中的点石成金术现代版",
+    "author": "CCBalance Team",
+    "createdAt": 1734638900000,
+    "tags": ["愚人节", "搞笑", "金钱"]
+  },
+  "reaction": {
+    "id": "money-alchemy",
+    "displayEquation": "Cu + Zn + 愿望 ⇌ Money",
+    "equilibriumConstant": 0.001,
+    "reactants": ["Cu", "Zn", "愿望"],
+    "products": ["Money"],
+    "coefficients": {
+      "Cu": 1,
+      "Zn": 1,
+      "愿望": 1,
+      "Money": 1
+    },
+    "deltaH": -888.88,
+    "temperatureSensitivity": 8.88,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu": 0.1,
+      "Zn": 0.1,
+      "愿望": 0.5,
+      "Money": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

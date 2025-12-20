@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-007",
+    "name": "联苯酮的光还原",
+    "description": "探索二苯甲酮在光照下的光还原反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "光还原", "羰基化合物"]
+  },
+  "reaction": {
+    "id": "benzophenone-photoreduction",
+    "displayEquation": "(C₆H₅)₂CO + RH + hν ⇌ (C₆H₅)₂CHOH + R·",
+    "equilibriumConstant": 2.3e4,
+    "reactants": ["(C₆H₅)₂CO", "RH"],
+    "products": ["(C₆H₅)₂CHOH", "R·"],
+    "coefficients": {
+      "(C₆H₅)₂CO": 1,
+      "RH": 1,
+      "(C₆H₅)₂CHOH": 1,
+      "R·": 1
+    },
+    "deltaH": -52.4,
+    "temperatureSensitivity": 0.19,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "(C₆H₅)₂CO": 0.02,
+      "RH": 0.1,
+      "(C₆H₅)₂CHOH": 0,
+      "R·": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

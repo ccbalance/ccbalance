@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-011",
+    "name": "苯甲酸缓冲液",
+    "description": "芳香羧酸缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734644200000,
+    "tags": ["缓冲溶液", "苯甲酸", "芳香酸"]
+  },
+  "reaction": {
+    "id": "benzoate-buffer",
+    "displayEquation": "C₆H₅COOH(aq) ⇌ H⁺(aq) + C₆H₅COO⁻(aq)",
+    "equilibriumConstant": 6.3e-5,
+    "reactants": ["C₆H₅COOH(aq)"],
+    "products": ["H⁺(aq)", "C₆H₅COO⁻(aq)"],
+    "coefficients": {
+      "C₆H₅COOH(aq)": 1,
+      "H⁺(aq)": 1,
+      "C₆H₅COO⁻(aq)": 1
+    },
+    "deltaH": 1.1,
+    "temperatureSensitivity": 0.02,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₅COOH(aq)": 0.05,
+      "H⁺(aq)": 0.0,
+      "C₆H₅COO⁻(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

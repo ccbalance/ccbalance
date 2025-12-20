@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-011",
+    "name": "偶氮苯的光异构化",
+    "description": "探索偶氮苯在光照下的顺反异构转化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "光异构", "偶氮化合物"]
+  },
+  "reaction": {
+    "id": "azobenzene-photoisomerization",
+    "displayEquation": "trans-C₁₂H₁₀N₂ + hν ⇌ cis-C₁₂H₁₀N₂",
+    "equilibriumConstant": 0.25,
+    "reactants": ["trans-C₁₂H₁₀N₂"],
+    "products": ["cis-C₁₂H₁₀N₂"],
+    "coefficients": {
+      "trans-C₁₂H₁₀N₂": 1,
+      "cis-C₁₂H₁₀N₂": 1
+    },
+    "deltaH": 55.2,
+    "temperatureSensitivity": 0.24,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "trans-C₁₂H₁₀N₂": 0.02,
+      "cis-C₁₂H₁₀N₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

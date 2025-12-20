@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-007",
+    "name": "硼酸-硼砂缓冲液",
+    "description": "弱酸-弱碱盐缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643800000,
+    "tags": ["缓冲溶液", "硼酸", "硼砂"]
+  },
+  "reaction": {
+    "id": "borate-buffer",
+    "displayEquation": "H₃BO₃(aq) ⇌ H⁺(aq) + H₂BO₃⁻(aq)",
+    "equilibriumConstant": 5.8e-10,
+    "reactants": ["H₃BO₃(aq)"],
+    "products": ["H⁺(aq)", "H₂BO₃⁻(aq)"],
+    "coefficients": {
+      "H₃BO₃(aq)": 1,
+      "H⁺(aq)": 1,
+      "H₂BO₃⁻(aq)": 1
+    },
+    "deltaH": 13.8,
+    "temperatureSensitivity": 0.09,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "H₃BO₃(aq)": 0.1,
+      "H⁺(aq)": 0.0,
+      "H₂BO₃⁻(aq)": 0.05
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

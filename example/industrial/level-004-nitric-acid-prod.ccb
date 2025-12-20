@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-004",
+    "name": "硝酸工业生产",
+    "description": "研究Ostwald法制硝酸的NO氧化步骤",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "硝酸", "氧化"]
+  },
+  "reaction": {
+    "id": "nitric-acid-production",
+    "displayEquation": "4NO(g) + 3O₂(g) + 2H₂O ⇌ 4HNO₃",
+    "equilibriumConstant": 6.5e38,
+    "reactants": ["NO", "O₂", "H₂O"],
+    "products": ["HNO₃"],
+    "coefficients": {
+      "NO": 4,
+      "O₂": 3,
+      "H₂O": 2,
+      "HNO₃": 4
+    },
+    "deltaH": -348.0,
+    "temperatureSensitivity": 0.30,
+    "hasGas": true,
+    "gasSpecies": ["NO", "O₂"],
+    "containerType": "rigid",
+    "initialTemp": 323,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO": 0.1,
+      "O₂": 0.15,
+      "H₂O": 55.5,
+      "HNO₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-019",
+    "name": "网速提升反应",
+    "description": "网络时代的必需品",
+    "author": "CCBalance Team",
+    "createdAt": 1734640200000,
+    "tags": ["愚人节", "搞笑", "网速"]
+  },
+  "reaction": {
+    "id": "internet-speed-boost",
+    "displayEquation": "1Mbps + 祈祷 ⇌ 1000Mbps",
+    "equilibriumConstant": 0.001,
+    "reactants": ["1Mbps", "祈祷"],
+    "products": ["1000Mbps"],
+    "coefficients": {
+      "1Mbps": 1,
+      "祈祷": 1,
+      "1000Mbps": 1
+    },
+    "deltaH": 999.0,
+    "temperatureSensitivity": 0.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "1Mbps": 0.1,
+      "祈祷": 0.9,
+      "1000Mbps": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

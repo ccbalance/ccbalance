@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-007",
+    "name": "磷酸钙沉淀",
+    "description": "钙离子与磷酸根生成磷酸钙沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734637400000,
+    "tags": ["沉淀", "磷酸盐", "钙"]
+  },
+  "reaction": {
+    "id": "ca3po42-precipitation",
+    "displayEquation": "3Ca²⁺ + 2PO₄³⁻ ⇌ Ca₃(PO₄)₂",
+    "equilibriumConstant": 5.0e28,
+    "reactants": ["Ca²⁺", "PO₄³⁻"],
+    "products": ["Ca₃(PO₄)₂"],
+    "coefficients": {
+      "Ca²⁺": 3,
+      "PO₄³⁻": 2,
+      "Ca₃(PO₄)₂": 1
+    },
+    "deltaH": -125.0,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ca²⁺": 0.015,
+      "PO₄³⁻": 0.01,
+      "Ca₃(PO₄)₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

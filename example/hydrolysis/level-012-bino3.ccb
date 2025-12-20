@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-012",
+    "name": "硝酸铋水解",
+    "description": "易水解的铋盐",
+    "author": "CCBalance Team",
+    "createdAt": 1734645900000,
+    "tags": ["水解", "硝酸铋", "铋离子"]
+  },
+  "reaction": {
+    "id": "bino3-hydrolysis",
+    "displayEquation": "Bi³⁺(aq) + 3H₂O(l) ⇌ Bi(OH)₃(s) + 3H⁺(aq)",
+    "equilibriumConstant": 1.0e-31,
+    "reactants": ["Bi³⁺(aq)", "3H₂O(l)"],
+    "products": ["Bi(OH)₃(s)", "3H⁺(aq)"],
+    "coefficients": {
+      "Bi³⁺(aq)": 1,
+      "3H₂O(l)": 1,
+      "Bi(OH)₃(s)": 1,
+      "3H⁺(aq)": 1
+    },
+    "deltaH": 89.0,
+    "temperatureSensitivity": 0.48,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Bi³⁺(aq)": 0.05,
+      "3H₂O(l)": 55.5,
+      "Bi(OH)₃(s)": 0.0,
+      "3H⁺(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 4,
+    "maxRounds": 16,
+    "turnTime": 36
+  }
+}

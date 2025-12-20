@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-010",
+    "name": "铁的氧化还原循环",
+    "description": "研究环境中Fe²⁺和Fe³⁺的相互转化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "铁循环", "氧化还原"]
+  },
+  "reaction": {
+    "id": "iron-redox-cycle",
+    "displayEquation": "4Fe²⁺ + O₂ + 10H₂O ⇌ 4Fe(OH)₃ + 8H⁺",
+    "equilibriumConstant": 8.5e42,
+    "reactants": ["Fe²⁺", "O₂", "H₂O"],
+    "products": ["Fe(OH)₃", "H⁺"],
+    "coefficients": {
+      "Fe²⁺": 4,
+      "O₂": 1,
+      "H₂O": 10,
+      "Fe(OH)₃": 4,
+      "H⁺": 8
+    },
+    "deltaH": -385.0,
+    "temperatureSensitivity": 0.28,
+    "hasGas": true,
+    "gasSpecies": ["O₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe²⁺": 0.001,
+      "O₂": 0.008,
+      "H₂O": 55.5,
+      "Fe(OH)₃": 0,
+      "H⁺": 0.000001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 13,
+    "turnTime": 31
+  }
+}

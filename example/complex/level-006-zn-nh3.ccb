@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-006",
+    "name": "锌氨络离子",
+    "description": "锌离子与氨形成四配位络合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734630900000,
+    "tags": ["络合", "锌", "氨"]
+  },
+  "reaction": {
+    "id": "zn-ammonia-complex",
+    "displayEquation": "Zn²⁺ + 4NH₃ ⇌ [Zn(NH₃)₄]²⁺",
+    "equilibriumConstant": 2.9e9,
+    "reactants": ["Zn²⁺", "NH₃"],
+    "products": ["[Zn(NH₃)₄]²⁺"],
+    "coefficients": {
+      "Zn²⁺": 1,
+      "NH₃": 4,
+      "[Zn(NH₃)₄]²⁺": 1
+    },
+    "deltaH": -68.4,
+    "temperatureSensitivity": 1.4,
+    "hasGas": true,
+    "gasSpecies": ["NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Zn²⁺": 0.01,
+      "NH₃": 0.12,
+      "[Zn(NH₃)₄]²⁺": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

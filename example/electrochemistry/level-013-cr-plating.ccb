@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-013",
+    "name": "金属镀铬",
+    "description": "电镀铬层的电化学过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734633200000,
+    "tags": ["电化学", "电镀", "铬"]
+  },
+  "reaction": {
+    "id": "chromium-plating",
+    "displayEquation": "Cr³⁺ + 3e⁻ ⇌ Cr",
+    "equilibriumConstant": 1.0e18,
+    "reactants": ["Cr³⁺", "e⁻"],
+    "products": ["Cr"],
+    "coefficients": {
+      "Cr³⁺": 1,
+      "e⁻": 3,
+      "Cr": 1
+    },
+    "deltaH": -95.4,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cr³⁺": 0.3,
+      "e⁻": 1.0,
+      "Cr": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

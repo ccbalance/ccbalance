@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-006",
+    "name": "铬酸铅沉淀",
+    "description": "探索Pb²⁺与CrO₄²⁻反应生成PbCrO₄黄色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "铬酸盐", "有色沉淀"]
+  },
+  "reaction": {
+    "id": "pbcro4-precipitation",
+    "displayEquation": "Pb²⁺ + CrO₄²⁻ ⇌ PbCrO₄(s)",
+    "equilibriumConstant": 4.5e13,
+    "reactants": ["Pb²⁺", "CrO₄²⁻"],
+    "products": ["PbCrO₄"],
+    "coefficients": {
+      "Pb²⁺": 1,
+      "CrO₄²⁻": 1,
+      "PbCrO₄": 1
+    },
+    "deltaH": -42.1,
+    "temperatureSensitivity": 0.20,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Pb²⁺": 0.08,
+      "CrO₄²⁻": 0.06,
+      "PbCrO₄": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 11,
+    "turnTime": 26
+  }
+}

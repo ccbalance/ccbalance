@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-008",
+    "name": "考试通过催化反应",
+    "description": "学霸的秘密武器：考试通过催化剂",
+    "author": "CCBalance Team",
+    "createdAt": 1734639100000,
+    "tags": ["愚人节", "搞笑", "考试"]
+  },
+  "reaction": {
+    "id": "exam-pass-catalysis",
+    "displayEquation": "Study + Luck + 锦鲤 ⇌ Pass",
+    "equilibriumConstant": 114514.0,
+    "reactants": ["Study", "Luck", "锦鲤"],
+    "products": ["Pass"],
+    "coefficients": {
+      "Study": 1,
+      "Luck": 1,
+      "锦鲤": 1,
+      "Pass": 1
+    },
+    "deltaH": -60.0,
+    "temperatureSensitivity": 1.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Study": 0.3,
+      "Luck": 0.1,
+      "锦鲤": 0.05,
+      "Pass": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-005",
+    "name": "镍氨络离子",
+    "description": "镍离子与氨形成六配位络合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734630800000,
+    "tags": ["络合", "镍", "氨"]
+  },
+  "reaction": {
+    "id": "ni-ammonia-complex",
+    "displayEquation": "Ni²⁺ + 6NH₃ ⇌ [Ni(NH₃)₆]²⁺",
+    "equilibriumConstant": 5.5e8,
+    "reactants": ["Ni²⁺", "NH₃"],
+    "products": ["[Ni(NH₃)₆]²⁺"],
+    "coefficients": {
+      "Ni²⁺": 1,
+      "NH₃": 6,
+      "[Ni(NH₃)₆]²⁺": 1
+    },
+    "deltaH": -96.3,
+    "temperatureSensitivity": 1.6,
+    "hasGas": true,
+    "gasSpecies": ["NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ni²⁺": 0.01,
+      "NH₃": 0.15,
+      "[Ni(NH₃)₆]²⁺": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

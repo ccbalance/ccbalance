@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-001",
+    "name": "聚乙烯自由基聚合",
+    "description": "探索乙烯单体的自由基加成聚合反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "自由基聚合", "加成聚合"]
+  },
+  "reaction": {
+    "id": "polyethylene-polymerization",
+    "displayEquation": "nC₂H₄ ⇌ (C₂H₄)ₙ",
+    "equilibriumConstant": 8.5e18,
+    "reactants": ["C₂H₄"],
+    "products": ["(C₂H₄)ₙ"],
+    "coefficients": {
+      "C₂H₄": 50,
+      "(C₂H₄)ₙ": 1
+    },
+    "deltaH": -93.6,
+    "temperatureSensitivity": 0.18,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₄"],
+    "containerType": "rigid",
+    "initialTemp": 353,
+    "initialPressure": 506,
+    "initialConcentrations": {
+      "C₂H₄": 1.5,
+      "(C₂H₄)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

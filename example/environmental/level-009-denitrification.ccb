@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-009",
+    "name": "反硝化作用",
+    "description": "探索厌氧条件下硝酸盐还原为氮气",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "氮循环", "反硝化"]
+  },
+  "reaction": {
+    "id": "denitrification",
+    "displayEquation": "2NO₃⁻ + 10e⁻ + 12H⁺ ⇌ N₂(g) + 6H₂O",
+    "equilibriumConstant": 3.5e82,
+    "reactants": ["NO₃⁻", "e⁻", "H⁺"],
+    "products": ["N₂", "H₂O"],
+    "coefficients": {
+      "NO₃⁻": 2,
+      "e⁻": 10,
+      "H⁺": 12,
+      "N₂": 1,
+      "H₂O": 6
+    },
+    "deltaH": -568.0,
+    "temperatureSensitivity": 0.32,
+    "hasGas": true,
+    "gasSpecies": ["N₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NO₃⁻": 0.002,
+      "e⁻": 0.01,
+      "H⁺": 0.00001,
+      "N₂": 0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

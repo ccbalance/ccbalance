@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-002",
+    "name": "硫酸钡沉淀",
+    "description": "氯化钡与硫酸钠生成硫酸钡沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734636900000,
+    "tags": ["沉淀", "硫酸盐", "离子反应"]
+  },
+  "reaction": {
+    "id": "baso4-precipitation",
+    "displayEquation": "Ba²⁺ + SO₄²⁻ ⇌ BaSO₄",
+    "equilibriumConstant": 9.09e9,
+    "reactants": ["Ba²⁺", "SO₄²⁻"],
+    "products": ["BaSO₄"],
+    "coefficients": {
+      "Ba²⁺": 1,
+      "SO₄²⁻": 1,
+      "BaSO₄": 1
+    },
+    "deltaH": -19.3,
+    "temperatureSensitivity": 1.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ba²⁺": 0.01,
+      "SO₄²⁻": 0.01,
+      "BaSO₄": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

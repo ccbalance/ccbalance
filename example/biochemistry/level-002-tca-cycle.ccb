@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-002",
+    "name": "三羧酸循环（柠檬酸循环）",
+    "description": "研究乙酰CoA在柠檬酸循环中的完全氧化",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "TCA循环", "有氧呼吸"]
+  },
+  "reaction": {
+    "id": "tca-cycle",
+    "displayEquation": "C₂₃H₃₈N₇O₁₇P₃S + 3NAD⁺ + FAD + GDP + Pᵢ + 2H₂O ⇌ CoASH + 3NADH + FADH₂ + GTP + 2CO₂",
+    "equilibriumConstant": 5.2e22,
+    "reactants": ["C₂₃H₃₈N₇O₁₇P₃S", "NAD⁺", "FAD", "GDP", "Pᵢ", "H₂O"],
+    "products": ["CoASH", "NADH", "FADH₂", "GTP", "CO₂"],
+    "coefficients": {
+      "C₂₃H₃₈N₇O₁₇P₃S": 1,
+      "NAD⁺": 3,
+      "FAD": 1,
+      "GDP": 1,
+      "Pᵢ": 1,
+      "H₂O": 2,
+      "CoASH": 1,
+      "NADH": 3,
+      "FADH₂": 1,
+      "GTP": 1,
+      "CO₂": 2
+    },
+    "deltaH": -142.5,
+    "temperatureSensitivity": 0.25,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₂₃H₃₈N₇O₁₇P₃S": 0.001,
+      "NAD⁺": 0.002,
+      "FAD": 0.0005,
+      "GDP": 0.001,
+      "Pᵢ": 0.005,
+      "H₂O": 55.5,
+      "CoASH": 0,
+      "NADH": 0,
+      "FADH₂": 0,
+      "GTP": 0,
+      "CO₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 22
+  }
+}

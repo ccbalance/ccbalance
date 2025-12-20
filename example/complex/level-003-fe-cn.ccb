@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "complex-003",
+    "name": "铁氰络离子形成",
+    "description": "铁离子与氰根形成稳定的络合物",
+    "author": "CCBalance Team",
+    "createdAt": 1734630600000,
+    "tags": ["络合", "铁", "氰化物"]
+  },
+  "reaction": {
+    "id": "fe-cyanide-complex",
+    "displayEquation": "Fe³⁺ + 6CN⁻ ⇌ [Fe(CN)₆]³⁻",
+    "equilibriumConstant": 1.0e42,
+    "reactants": ["Fe³⁺", "CN⁻"],
+    "products": ["[Fe(CN)₆]³⁻"],
+    "coefficients": {
+      "Fe³⁺": 1,
+      "CN⁻": 6,
+      "[Fe(CN)₆]³⁻": 1
+    },
+    "deltaH": -175.0,
+    "temperatureSensitivity": 1.8,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe³⁺": 0.01,
+      "CN⁻": 0.1,
+      "[Fe(CN)₆]³⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

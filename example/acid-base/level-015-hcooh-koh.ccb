@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-015",
+    "name": "甲酸中和反应",
+    "description": "甲酸与氢氧化钾反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734636600000,
+    "tags": ["酸碱", "中和", "甲酸"]
+  },
+  "reaction": {
+    "id": "hcooh-koh",
+    "displayEquation": "HCOOH + KOH ⇌ HCOOK + H₂O",
+    "equilibriumConstant": 1.77e9,
+    "reactants": ["HCOOH", "KOH"],
+    "products": ["HCOOK", "H₂O"],
+    "coefficients": {
+      "HCOOH": 1,
+      "KOH": 1,
+      "HCOOK": 1,
+      "H₂O": 1
+    },
+    "deltaH": -55.1,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HCOOH": 0.1,
+      "KOH": 0.1,
+      "HCOOK": 0.0,
+      "H₂O": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

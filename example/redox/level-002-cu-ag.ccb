@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-002",
+    "name": "铜与硝酸银的置换",
+    "description": "铜单质置换出硝酸银中的银",
+    "author": "CCBalance Team",
+    "createdAt": 1734625700000,
+    "tags": ["氧化还原", "置换反应", "金属活动性"]
+  },
+  "reaction": {
+    "id": "cu-ag-displacement",
+    "displayEquation": "Cu + 2Ag⁺ ⇌ Cu²⁺ + 2Ag",
+    "equilibriumConstant": 2.0e15,
+    "reactants": ["Cu", "Ag⁺"],
+    "products": ["Cu²⁺", "Ag"],
+    "coefficients": {
+      "Cu": 1,
+      "Ag⁺": 2,
+      "Cu²⁺": 1,
+      "Ag": 2
+    },
+    "deltaH": -145.0,
+    "temperatureSensitivity": 1.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu": 0.5,
+      "Ag⁺": 0.2,
+      "Cu²⁺": 0.0,
+      "Ag": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

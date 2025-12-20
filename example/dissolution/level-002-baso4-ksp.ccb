@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-002",
+    "name": "硫酸钡的溶解",
+    "description": "硫酸钡是最难溶的硫酸盐之一",
+    "author": "CCBalance Team",
+    "createdAt": 1734627300000,
+    "tags": ["溶解平衡", "难溶盐", "医学造影"]
+  },
+  "reaction": {
+    "id": "baso4-ksp",
+    "displayEquation": "BaSO₄(s) ⇌ Ba²⁺ + SO₄²⁻",
+    "equilibriumConstant": 1.08e-10,
+    "reactants": ["BaSO₄(s)"],
+    "products": ["Ba²⁺", "SO₄²⁻"],
+    "coefficients": {
+      "BaSO₄(s)": 1,
+      "Ba²⁺": 1,
+      "SO₄²⁻": 1
+    },
+    "deltaH": 19.3,
+    "temperatureSensitivity": 1.2,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "BaSO₄(s)": 10.0,
+      "Ba²⁺": 0.0,
+      "SO₄²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

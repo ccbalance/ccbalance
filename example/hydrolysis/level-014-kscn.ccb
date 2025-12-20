@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-014",
+    "name": "硫氰酸钾水解",
+    "description": "假卤化物的微弱水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734646100000,
+    "tags": ["水解", "硫氰酸钾", "假卤素"]
+  },
+  "reaction": {
+    "id": "kscn-hydrolysis",
+    "displayEquation": "SCN⁻(aq) + H₂O(l) ⇌ HSCN(aq) + OH⁻(aq)",
+    "equilibriumConstant": 9.1e-2,
+    "reactants": ["SCN⁻(aq)", "H₂O(l)"],
+    "products": ["HSCN(aq)", "OH⁻(aq)"],
+    "coefficients": {
+      "SCN⁻(aq)": 1,
+      "H₂O(l)": 1,
+      "HSCN(aq)": 1,
+      "OH⁻(aq)": 1
+    },
+    "deltaH": -11.0,
+    "temperatureSensitivity": -0.07,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "SCN⁻(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "HSCN(aq)": 0.0,
+      "OH⁻(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

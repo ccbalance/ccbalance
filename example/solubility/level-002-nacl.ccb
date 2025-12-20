@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-002",
+    "name": "溶解度曲线 - 氯化钠",
+    "description": "氯化钠的溶解平衡特性",
+    "author": "CCBalance Team",
+    "createdAt": 1734641700000,
+    "tags": ["溶解度", "氯化钠", "食盐"]
+  },
+  "reaction": {
+    "id": "nacl-solubility",
+    "displayEquation": "NaCl(s) ⇌ Na⁺(aq) + Cl⁻(aq)",
+    "equilibriumConstant": 37.3,
+    "reactants": ["NaCl(s)"],
+    "products": ["Na⁺(aq)", "Cl⁻(aq)"],
+    "coefficients": {
+      "NaCl(s)": 1,
+      "Na⁺(aq)": 1,
+      "Cl⁻(aq)": 1
+    },
+    "deltaH": 3.88,
+    "temperatureSensitivity": 0.15,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaCl(s)": 1.0,
+      "Na⁺(aq)": 0.0,
+      "Cl⁻(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

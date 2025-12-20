@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-001",
+    "name": "醋酸-醋酸钠缓冲液",
+    "description": "经典弱酸-强碱盐缓冲体系",
+    "author": "CCBalance Team",
+    "createdAt": 1734643200000,
+    "tags": ["缓冲溶液", "醋酸", "pH控制"]
+  },
+  "reaction": {
+    "id": "acetate-buffer",
+    "displayEquation": "CH₃COOH(aq) ⇌ H⁺(aq) + CH₃COO⁻(aq)",
+    "equilibriumConstant": 1.8e-5,
+    "reactants": ["CH₃COOH(aq)"],
+    "products": ["H⁺(aq)", "CH₃COO⁻(aq)"],
+    "coefficients": {
+      "CH₃COOH(aq)": 1,
+      "H⁺(aq)": 1,
+      "CH₃COO⁻(aq)": 1
+    },
+    "deltaH": -0.4,
+    "temperatureSensitivity": 0.01,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CH₃COOH(aq)": 0.1,
+      "H⁺(aq)": 0.0,
+      "CH₃COO⁻(aq)": 0.1
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

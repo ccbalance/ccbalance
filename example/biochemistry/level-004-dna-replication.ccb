@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-004",
+    "name": "DNA复制",
+    "description": "研究DNA聚合酶催化的DNA合成反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "DNA复制", "核酸代谢"]
+  },
+  "reaction": {
+    "id": "dna-replication",
+    "displayEquation": "(DNA)ₙ + dNTP ⇌ (DNA)ₙ₊₁ + PPᵢ",
+    "equilibriumConstant": 8.5e12,
+    "reactants": ["(DNA)ₙ", "dNTP"],
+    "products": ["(DNA)ₙ₊₁", "PPᵢ"],
+    "coefficients": {
+      "(DNA)ₙ": 1,
+      "dNTP": 1,
+      "(DNA)ₙ₊₁": 1,
+      "PPᵢ": 1
+    },
+    "deltaH": -32.2,
+    "temperatureSensitivity": 0.16,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "(DNA)ₙ": 0.0001,
+      "dNTP": 0.001,
+      "(DNA)ₙ₊₁": 0,
+      "PPᵢ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

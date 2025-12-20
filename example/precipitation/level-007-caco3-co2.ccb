@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-007",
+    "name": "碳酸钙的溶解与CO₂",
+    "description": "研究CaCO₃在含CO₂溶液中的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "碳酸盐", "气体参与"]
+  },
+  "reaction": {
+    "id": "caco3-co2-equilibrium",
+    "displayEquation": "CaCO₃(s) + CO₂(g) + H₂O ⇌ Ca²⁺ + 2HCO₃⁻",
+    "equilibriumConstant": 4.3e-5,
+    "reactants": ["CaCO₃", "CO₂", "H₂O"],
+    "products": ["Ca²⁺", "HCO₃⁻"],
+    "coefficients": {
+      "CaCO₃": 1,
+      "CO₂": 1,
+      "H₂O": 1,
+      "Ca²⁺": 1,
+      "HCO₃⁻": 2
+    },
+    "deltaH": 15.2,
+    "temperatureSensitivity": 0.22,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CaCO₃": 0.02,
+      "CO₂": 0.001,
+      "H₂O": 55.5,
+      "Ca²⁺": 0,
+      "HCO₃⁻": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

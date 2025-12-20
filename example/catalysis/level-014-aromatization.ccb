@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-014",
+    "name": "脱氢芳构化",
+    "description": "研究铂铼催化剂促进正己烷转化为苯",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "芳构化", "石油化工"]
+  },
+  "reaction": {
+    "id": "aromatization",
+    "displayEquation": "C₆H₁₄(g) ⇌ C₆H₆(g) + 4H₂(g)",
+    "equilibriumConstant": 2.5e-18,
+    "reactants": ["C₆H₁₄"],
+    "products": ["C₆H₆", "H₂"],
+    "coefficients": {
+      "C₆H₁₄": 1,
+      "C₆H₆": 1,
+      "H₂": 4
+    },
+    "deltaH": 249.0,
+    "temperatureSensitivity": 0.38,
+    "hasGas": true,
+    "gasSpecies": ["C₆H₁₄", "C₆H₆", "H₂"],
+    "containerType": "rigid",
+    "initialTemp": 773,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₁₄": 0.1,
+      "C₆H₆": 0,
+      "H₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

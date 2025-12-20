@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-011",
+    "name": "溴化银的溶解",
+    "description": "溴化银的溶解平衡,感光材料",
+    "author": "CCBalance Team",
+    "createdAt": 1734628200000,
+    "tags": ["溶解平衡", "卤化银", "摄影"]
+  },
+  "reaction": {
+    "id": "agbr-ksp",
+    "displayEquation": "AgBr(s) ⇌ Ag⁺ + Br⁻",
+    "equilibriumConstant": 5.35e-13,
+    "reactants": ["AgBr(s)"],
+    "products": ["Ag⁺", "Br⁻"],
+    "coefficients": {
+      "AgBr(s)": 1,
+      "Ag⁺": 1,
+      "Br⁻": 1
+    },
+    "deltaH": 84.4,
+    "temperatureSensitivity": 2.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "AgBr(s)": 5.0,
+      "Ag⁺": 0.0,
+      "Br⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

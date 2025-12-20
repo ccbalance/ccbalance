@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-003",
+    "name": "氢氧化铜的溶解",
+    "description": "氢氧化铜的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734627400000,
+    "tags": ["溶解平衡", "氢氧化物", "两性"]
+  },
+  "reaction": {
+    "id": "cuoh2-ksp",
+    "displayEquation": "Cu(OH)₂(s) ⇌ Cu²⁺ + 2OH⁻",
+    "equilibriumConstant": 2.2e-20,
+    "reactants": ["Cu(OH)₂(s)"],
+    "products": ["Cu²⁺", "OH⁻"],
+    "coefficients": {
+      "Cu(OH)₂(s)": 1,
+      "Cu²⁺": 1,
+      "OH⁻": 2
+    },
+    "deltaH": 15.8,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu(OH)₂(s)": 5.0,
+      "Cu²⁺": 0.0,
+      "OH⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

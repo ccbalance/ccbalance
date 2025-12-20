@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-001",
+    "name": "铁离子与碘离子的氧化还原",
+    "description": "三价铁离子氧化碘离子生成碘单质",
+    "author": "CCBalance Team",
+    "createdAt": 1734625600000,
+    "tags": ["氧化还原", "氧化剂", "还原剂"]
+  },
+  "reaction": {
+    "id": "fe3-i-redox",
+    "displayEquation": "2Fe³⁺ + 2I⁻ ⇌ 2Fe²⁺ + I₂",
+    "equilibriumConstant": 5.8e5,
+    "reactants": ["Fe³⁺", "I⁻"],
+    "products": ["Fe²⁺", "I₂"],
+    "coefficients": {
+      "Fe³⁺": 2,
+      "I⁻": 2,
+      "Fe²⁺": 2,
+      "I₂": 1
+    },
+    "deltaH": -88.5,
+    "temperatureSensitivity": 1.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Fe³⁺": 0.1,
+      "I⁻": 0.1,
+      "Fe²⁺": 0.0,
+      "I₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

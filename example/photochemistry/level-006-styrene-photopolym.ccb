@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-006",
+    "name": "苯乙烯的光聚合",
+    "description": "研究苯乙烯在光引发下的自由基聚合",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "聚合反应", "有机化学"]
+  },
+  "reaction": {
+    "id": "styrene-photopolymerization",
+    "displayEquation": "nC₈H₈ + hν ⇌ (C₈H₈)ₙ",
+    "equilibriumConstant": 8.5e15,
+    "reactants": ["C₈H₈"],
+    "products": ["(C₈H₈)ₙ"],
+    "coefficients": {
+      "C₈H₈": 5,
+      "(C₈H₈)ₙ": 1
+    },
+    "deltaH": -146.0,
+    "temperatureSensitivity": 0.20,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₈H₈": 0.5,
+      "(C₈H₈)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 27
+  }
+}

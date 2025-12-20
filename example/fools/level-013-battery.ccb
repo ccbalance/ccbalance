@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-013",
+    "name": "手机电量永动机",
+    "description": "现代社会最需要的发明",
+    "author": "CCBalance Team",
+    "createdAt": 1734639600000,
+    "tags": ["愚人节", "搞笑", "手机"]
+  },
+  "reaction": {
+    "id": "infinite-battery",
+    "displayEquation": "1%电量 + 焦虑 ⇌ 100%电量",
+    "equilibriumConstant": 1.0e-99,
+    "reactants": ["1%电量", "焦虑"],
+    "products": ["100%电量"],
+    "coefficients": {
+      "1%电量": 1,
+      "焦虑": 1,
+      "100%电量": 1
+    },
+    "deltaH": 9999.0,
+    "temperatureSensitivity": 0.01,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "1%电量": 0.01,
+      "焦虑": 0.99,
+      "100%电量": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

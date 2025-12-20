@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-001",
+    "name": "氯化铵水解",
+    "description": "弱碱强酸盐的水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734644800000,
+    "tags": ["水解", "氯化铵", "酸性"]
+  },
+  "reaction": {
+    "id": "nh4cl-hydrolysis",
+    "displayEquation": "NH₄⁺(aq) + H₂O(l) ⇌ NH₃(aq) + H₃O⁺(aq)",
+    "equilibriumConstant": 5.6e-10,
+    "reactants": ["NH₄⁺(aq)", "H₂O(l)"],
+    "products": ["NH₃(aq)", "H₃O⁺(aq)"],
+    "coefficients": {
+      "NH₄⁺(aq)": 1,
+      "H₂O(l)": 1,
+      "NH₃(aq)": 1,
+      "H₃O⁺(aq)": 1
+    },
+    "deltaH": 52.2,
+    "temperatureSensitivity": 0.3,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NH₄⁺(aq)": 0.1,
+      "H₂O(l)": 55.5,
+      "NH₃(aq)": 0.0,
+      "H₃O⁺(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 28
+  }
+}

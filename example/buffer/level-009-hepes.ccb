@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "buffer-009",
+    "name": "HEPES缓冲液",
+    "description": "细胞培养常用缓冲剂",
+    "author": "CCBalance Team",
+    "createdAt": 1734644000000,
+    "tags": ["缓冲溶液", "HEPES", "细胞培养"]
+  },
+  "reaction": {
+    "id": "hepes-buffer",
+    "displayEquation": "HEPESH(aq) ⇌ H⁺(aq) + HEPES⁻(aq)",
+    "equilibriumConstant": 3.3e-8,
+    "reactants": ["HEPESH(aq)"],
+    "products": ["H⁺(aq)", "HEPES⁻(aq)"],
+    "coefficients": {
+      "HEPESH(aq)": 1,
+      "H⁺(aq)": 1,
+      "HEPES⁻(aq)": 1
+    },
+    "deltaH": 20.4,
+    "temperatureSensitivity": 0.14,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HEPESH(aq)": 0.02,
+      "H⁺(aq)": 0.0,
+      "HEPES⁻(aq)": 0.02
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-016",
+    "name": "硫酸钡与碳酸钡的竞争沉淀",
+    "description": "探索Ba²⁺在SO₄²⁻和CO₃²⁻共存时的复杂沉淀平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "竞争沉淀", "钡化合物"]
+  },
+  "reaction": {
+    "id": "ba-complex-precipitation",
+    "displayEquation": "Ba²⁺ + SO₄²⁻ + CO₃²⁻ ⇌ BaSO₄(s) + BaCO₃(s)",
+    "equilibriumConstant": 1.1e18,
+    "reactants": ["Ba²⁺", "SO₄²⁻", "CO₃²⁻"],
+    "products": ["BaSO₄", "BaCO₃"],
+    "coefficients": {
+      "Ba²⁺": 2,
+      "SO₄²⁻": 1,
+      "CO₃²⁻": 1,
+      "BaSO₄": 1,
+      "BaCO₃": 1
+    },
+    "deltaH": -58.9,
+    "temperatureSensitivity": 0.28,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ba²⁺": 0.1,
+      "SO₄²⁻": 0.05,
+      "CO₃²⁻": 0.05,
+      "BaSO₄": 0,
+      "BaCO₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

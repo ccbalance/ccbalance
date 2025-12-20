@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-015",
+    "name": "草酸钙的沉淀",
+    "description": "钙离子与草酸根形成白色沉淀草酸钙",
+    "author": "CCBalance Team",
+    "createdAt": 1734625400000,
+    "tags": ["离子反应", "沉淀", "医学相关"]
+  },
+  "reaction": {
+    "id": "cac2o4-precipitation",
+    "displayEquation": "Ca²⁺ + C₂O₄²⁻ ⇌ CaC₂O₄(s)",
+    "equilibriumConstant": 5.0e8,
+    "reactants": ["Ca²⁺", "C₂O₄²⁻"],
+    "products": ["CaC₂O₄(s)"],
+    "coefficients": {
+      "Ca²⁺": 1,
+      "C₂O₄²⁻": 1,
+      "CaC₂O₄(s)": 1
+    },
+    "deltaH": -28.5,
+    "temperatureSensitivity": 0.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ca²⁺": 0.02,
+      "C₂O₄²⁻": 0.02,
+      "CaC₂O₄(s)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

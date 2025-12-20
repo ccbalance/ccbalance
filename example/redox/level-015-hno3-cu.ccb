@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-015",
+    "name": "硝酸氧化铜",
+    "description": "浓硝酸氧化铜单质生成二氧化氮",
+    "author": "CCBalance Team",
+    "createdAt": 1734627000000,
+    "tags": ["氧化还原", "强酸", "棕色气体"]
+  },
+  "reaction": {
+    "id": "hno3-cu-concentrated",
+    "displayEquation": "Cu + 4HNO₃ ⇌ Cu(NO₃)₂ + 2NO₂ + 2H₂O",
+    "equilibriumConstant": 1.0e35,
+    "reactants": ["Cu", "HNO₃"],
+    "products": ["Cu(NO₃)₂", "NO₂", "H₂O"],
+    "coefficients": {
+      "Cu": 1,
+      "HNO₃": 4,
+      "Cu(NO₃)₂": 1,
+      "NO₂": 2,
+      "H₂O": 2
+    },
+    "deltaH": -125.0,
+    "temperatureSensitivity": 1.8,
+    "hasGas": true,
+    "gasSpecies": ["NO₂"],
+    "containerType": "flexible",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu": 0.2,
+      "HNO₃": 0.8,
+      "Cu(NO₃)₂": 0.0,
+      "NO₂": 0.0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 30
+  }
+}

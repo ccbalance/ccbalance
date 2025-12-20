@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-006",
+    "name": "氟化钙的溶解",
+    "description": "氟化钙(萤石)的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734627700000,
+    "tags": ["溶解平衡", "矿物", "氟化物"]
+  },
+  "reaction": {
+    "id": "caf2-ksp",
+    "displayEquation": "CaF₂(s) ⇌ Ca²⁺ + 2F⁻",
+    "equilibriumConstant": 3.45e-11,
+    "reactants": ["CaF₂(s)"],
+    "products": ["Ca²⁺", "F⁻"],
+    "coefficients": {
+      "CaF₂(s)": 1,
+      "Ca²⁺": 1,
+      "F⁻": 2
+    },
+    "deltaH": 11.5,
+    "temperatureSensitivity": 1.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CaF₂(s)": 5.0,
+      "Ca²⁺": 0.0,
+      "F⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

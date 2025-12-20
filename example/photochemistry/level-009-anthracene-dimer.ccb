@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-009",
+    "name": "蒽的光二聚化",
+    "description": "探索蒽分子在紫外光下的[4+4]环加成反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "光二聚", "环加成"]
+  },
+  "reaction": {
+    "id": "anthracene-photodimerization",
+    "displayEquation": "2C₁₄H₁₀ + hν ⇌ C₂₈H₂₀",
+    "equilibriumConstant": 6.8e6,
+    "reactants": ["C₁₄H₁₀"],
+    "products": ["C₂₈H₂₀"],
+    "coefficients": {
+      "C₁₄H₁₀": 2,
+      "C₂₈H₂₀": 1
+    },
+    "deltaH": -88.5,
+    "temperatureSensitivity": 0.16,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₁₄H₁₀": 0.01,
+      "C₂₈H₂₀": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

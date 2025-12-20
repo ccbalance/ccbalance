@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-015",
+    "name": "土壤重金属固化",
+    "description": "探索磷酸盐固化Pb²⁺的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "重金属", "土壤修复"]
+  },
+  "reaction": {
+    "id": "lead-immobilization",
+    "displayEquation": "3Pb²⁺ + 2PO₄³⁻ ⇌ Pb₃(PO₄)₂(s)",
+    "equilibriumConstant": 2.8e44,
+    "reactants": ["Pb²⁺", "PO₄³⁻"],
+    "products": ["Pb₃(PO₄)₂"],
+    "coefficients": {
+      "Pb²⁺": 3,
+      "PO₄³⁻": 2,
+      "Pb₃(PO₄)₂": 1
+    },
+    "deltaH": -152.0,
+    "temperatureSensitivity": 0.25,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Pb²⁺": 0.001,
+      "PO₄³⁻": 0.001,
+      "Pb₃(PO₄)₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

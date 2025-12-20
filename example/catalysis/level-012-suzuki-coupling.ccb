@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-012",
+    "name": "Suzuki偶联反应",
+    "description": "研究钯催化芳基硼酸与芳基卤代物的交叉偶联",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "钯催化", "偶联反应"]
+  },
+  "reaction": {
+    "id": "suzuki-coupling",
+    "displayEquation": "ArBr + Ar'B(OH)₂ ⇌ Ar-Ar' + BrB(OH)₂",
+    "equilibriumConstant": 5.6e12,
+    "reactants": ["ArBr", "Ar'B(OH)₂"],
+    "products": ["Ar-Ar'", "BrB(OH)₂"],
+    "coefficients": {
+      "ArBr": 1,
+      "Ar'B(OH)₂": 1,
+      "Ar-Ar'": 1,
+      "BrB(OH)₂": 1
+    },
+    "deltaH": -85.4,
+    "temperatureSensitivity": 0.21,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 353,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "ArBr": 0.05,
+      "Ar'B(OH)₂": 0.06,
+      "Ar-Ar'": 0,
+      "BrB(OH)₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

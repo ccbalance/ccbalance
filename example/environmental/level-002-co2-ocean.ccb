@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "environmental-002",
+    "name": "温室气体CO₂溶解",
+    "description": "研究大气CO₂在海水中的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["环境化学", "温室气体", "海洋酸化"]
+  },
+  "reaction": {
+    "id": "co2-ocean-dissolution",
+    "displayEquation": "CO₂(g) + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻",
+    "equilibriumConstant": 4.3e-7,
+    "reactants": ["CO₂", "H₂O"],
+    "products": ["H⁺", "HCO₃⁻"],
+    "coefficients": {
+      "CO₂": 1,
+      "H₂O": 1,
+      "H⁺": 1,
+      "HCO₃⁻": 1
+    },
+    "deltaH": 15.8,
+    "temperatureSensitivity": 0.18,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 288,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO₂": 0.0004,
+      "H₂O": 55.5,
+      "H⁺": 0.000001,
+      "HCO₃⁻": 0.002
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 9,
+    "turnTime": 22
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "fools-024",
+    "name": "美食速成",
+    "description": "从小白到大厨的捷径",
+    "author": "CCBalance Team",
+    "createdAt": 1734640700000,
+    "tags": ["愚人节", "搞笑", "烹饪"]
+  },
+  "reaction": {
+    "id": "cooking-mastery",
+    "displayEquation": "食材 + 锅 + 灵魂 ⇌ 美食",
+    "equilibriumConstant": 888.0,
+    "reactants": ["食材", "锅", "灵魂"],
+    "products": ["美食"],
+    "coefficients": {
+      "食材": 1,
+      "锅": 1,
+      "灵魂": 1,
+      "美食": 1
+    },
+    "deltaH": -88.8,
+    "temperatureSensitivity": 180.0,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "食材": 0.5,
+      "锅": 0.1,
+      "灵魂": 0.05,
+      "美食": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

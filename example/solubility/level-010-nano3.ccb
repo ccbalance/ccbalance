@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "solubility-010",
+    "name": "溶解度 - 硝酸钠",
+    "description": "硝酸钠的高溶解度特性",
+    "author": "CCBalance Team",
+    "createdAt": 1734642500000,
+    "tags": ["溶解度", "硝酸钠", "易溶"]
+  },
+  "reaction": {
+    "id": "nano3-solubility",
+    "displayEquation": "NaNO₃(s) ⇌ Na⁺(aq) + NO₃⁻(aq)",
+    "equilibriumConstant": 10.8,
+    "reactants": ["NaNO₃(s)"],
+    "products": ["Na⁺(aq)", "NO₃⁻(aq)"],
+    "coefficients": {
+      "NaNO₃(s)": 1,
+      "Na⁺(aq)": 1,
+      "NO₃⁻(aq)": 1
+    },
+    "deltaH": 20.5,
+    "temperatureSensitivity": 1.9,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "NaNO₃(s)": 1.0,
+      "Na⁺(aq)": 0.0,
+      "NO₃⁻(aq)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

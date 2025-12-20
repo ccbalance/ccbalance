@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-006",
+    "name": "锂离子电池放电",
+    "description": "锂离子电池的电化学反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734632500000,
+    "tags": ["电化学", "锂电池", "储能"]
+  },
+  "reaction": {
+    "id": "lithium-ion-discharge",
+    "displayEquation": "LiCoO₂ + C₆ ⇌ Li₀.₅CoO₂ + LiC₆",
+    "equilibriumConstant": 1.0e28,
+    "reactants": ["LiCoO₂", "C₆"],
+    "products": ["Li₀.₅CoO₂", "LiC₆"],
+    "coefficients": {
+      "LiCoO₂": 1,
+      "C₆": 1,
+      "Li₀.₅CoO₂": 1,
+      "LiC₆": 1
+    },
+    "deltaH": -142.5,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "LiCoO₂": 0.1,
+      "C₆": 0.1,
+      "Li₀.₅CoO₂": 0.0,
+      "LiC₆": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

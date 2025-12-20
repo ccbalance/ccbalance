@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "redox-005",
+    "name": "锌与硫酸铜的置换",
+    "description": "锌置换硫酸铜中的铜单质",
+    "author": "CCBalance Team",
+    "createdAt": 1734626000000,
+    "tags": ["氧化还原", "置换反应", "金属"]
+  },
+  "reaction": {
+    "id": "zn-cu-displacement",
+    "displayEquation": "Zn + Cu²⁺ ⇌ Zn²⁺ + Cu",
+    "equilibriumConstant": 1.0e37,
+    "reactants": ["Zn", "Cu²⁺"],
+    "products": ["Zn²⁺", "Cu"],
+    "coefficients": {
+      "Zn": 1,
+      "Cu²⁺": 1,
+      "Zn²⁺": 1,
+      "Cu": 1
+    },
+    "deltaH": -218.0,
+    "temperatureSensitivity": 1.5,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Zn": 0.5,
+      "Cu²⁺": 0.1,
+      "Zn²⁺": 0.0,
+      "Cu": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 30
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "industrial-014",
+    "name": "双酚A生产",
+    "description": "研究苯酚与丙酮的缩合反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["工业化学", "双酚A", "缩合"]
+  },
+  "reaction": {
+    "id": "bisphenol-a-production",
+    "displayEquation": "2C₆H₅OH + (CH₃)₂CO ⇌ C₁₅H₁₆O₂ + H₂O",
+    "equilibriumConstant": 3.8e8,
+    "reactants": ["C₆H₅OH", "(CH₃)₂CO"],
+    "products": ["C₁₅H₁₆O₂", "H₂O"],
+    "coefficients": {
+      "C₆H₅OH": 2,
+      "(CH₃)₂CO": 1,
+      "C₁₅H₁₆O₂": 1,
+      "H₂O": 1
+    },
+    "deltaH": -58.5,
+    "temperatureSensitivity": 0.20,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 343,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₅OH": 2.0,
+      "(CH₃)₂CO": 1.2,
+      "C₁₅H₁₆O₂": 0,
+      "H₂O": 55.5
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

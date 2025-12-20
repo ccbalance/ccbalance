@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "gas-equilibrium-007",
+    "name": "氢碘酸分解",
+    "description": "氢碘酸分解为氢气和碘",
+    "author": "CCBalance Team",
+    "createdAt": 1734634200000,
+    "tags": ["气体平衡", "分解", "碘化氢"]
+  },
+  "reaction": {
+    "id": "hi-decomposition",
+    "displayEquation": "2HI ⇌ H₂ + I₂",
+    "equilibriumConstant": 0.02,
+    "reactants": ["HI"],
+    "products": ["H₂", "I₂"],
+    "coefficients": {
+      "HI": 2,
+      "H₂": 1,
+      "I₂": 1
+    },
+    "deltaH": 11.0,
+    "temperatureSensitivity": 0.85,
+    "hasGas": true,
+    "gasSpecies": ["HI", "H₂", "I₂"],
+    "containerType": "rigid",
+    "initialTemp": 764,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HI": 0.1,
+      "H₂": 0.0,
+      "I₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

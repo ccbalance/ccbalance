@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-016",
+    "name": "酶催化尿素水解",
+    "description": "研究脲酶催化尿素分解为氨和CO₂的反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "酶催化", "生物催化"]
+  },
+  "reaction": {
+    "id": "urease-catalysis",
+    "displayEquation": "CO(NH₂)₂ + H₂O ⇌ 2NH₃ + CO₂(g)",
+    "equilibriumConstant": 1.5e14,
+    "reactants": ["CO(NH₂)₂", "H₂O"],
+    "products": ["NH₃", "CO₂"],
+    "coefficients": {
+      "CO(NH₂)₂": 1,
+      "H₂O": 1,
+      "NH₃": 2,
+      "CO₂": 1
+    },
+    "deltaH": -118.6,
+    "temperatureSensitivity": 0.24,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "CO(NH₂)₂": 0.1,
+      "H₂O": 55.5,
+      "NH₃": 0,
+      "CO₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 35
+  }
+}

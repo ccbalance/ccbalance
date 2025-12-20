@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-004",
+    "name": "聚氯乙烯合成",
+    "description": "研究氯乙烯的悬浮聚合反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "PVC", "悬浮聚合"]
+  },
+  "reaction": {
+    "id": "pvc-polymerization",
+    "displayEquation": "nC₂H₃Cl ⇌ (C₂H₃Cl)ₙ",
+    "equilibriumConstant": 7.3e17,
+    "reactants": ["C₂H₃Cl"],
+    "products": ["(C₂H₃Cl)ₙ"],
+    "coefficients": {
+      "C₂H₃Cl": 50,
+      "(C₂H₃Cl)ₙ": 1
+    },
+    "deltaH": -72.0,
+    "temperatureSensitivity": 0.15,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₃Cl"],
+    "containerType": "rigid",
+    "initialTemp": 333,
+    "initialPressure": 809,
+    "initialConcentrations": {
+      "C₂H₃Cl": 1.8,
+      "(C₂H₃Cl)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 10,
+    "turnTime": 24
+  }
+}

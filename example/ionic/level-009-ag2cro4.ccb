@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "ionic-009",
+    "name": "铬酸银的沉淀",
+    "description": "银离子与铬酸根离子形成砖红色沉淀",
+    "author": "CCBalance Team",
+    "createdAt": 1734624800000,
+    "tags": ["离子反应", "沉淀", "指示剂"]
+  },
+  "reaction": {
+    "id": "ag2cro4-precipitation",
+    "displayEquation": "2Ag⁺ + CrO₄²⁻ ⇌ Ag₂CrO₄(s)",
+    "equilibriumConstant": 8.3e11,
+    "reactants": ["Ag⁺", "CrO₄²⁻"],
+    "products": ["Ag₂CrO₄(s)"],
+    "coefficients": {
+      "Ag⁺": 2,
+      "CrO₄²⁻": 1,
+      "Ag₂CrO₄(s)": 1
+    },
+    "deltaH": -42.6,
+    "temperatureSensitivity": 0.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ag⁺": 0.01,
+      "CrO₄²⁻": 0.005,
+      "Ag₂CrO₄(s)": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

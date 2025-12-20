@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-015",
+    "name": "镍氢电池",
+    "description": "镍氢二次电池的放电反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734633400000,
+    "tags": ["电化学", "蓄电池", "镍氢"]
+  },
+  "reaction": {
+    "id": "nimh-discharge",
+    "displayEquation": "MH + NiO(OH) ⇌ M + Ni(OH)₂",
+    "equilibriumConstant": 1.0e22,
+    "reactants": ["MH", "NiO(OH)"],
+    "products": ["M", "Ni(OH)₂"],
+    "coefficients": {
+      "MH": 1,
+      "NiO(OH)": 1,
+      "M": 1,
+      "Ni(OH)₂": 1
+    },
+    "deltaH": -195.0,
+    "temperatureSensitivity": 1.6,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "MH": 0.1,
+      "NiO(OH)": 0.1,
+      "M": 0.0,
+      "Ni(OH)₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

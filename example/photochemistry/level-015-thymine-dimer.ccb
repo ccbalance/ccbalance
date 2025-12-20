@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "photochemistry-015",
+    "name": "DNA的光损伤",
+    "description": "探索紫外光引起的胸腺嘧啶二聚体形成",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["光化学", "DNA损伤", "紫外光"]
+  },
+  "reaction": {
+    "id": "thymine-dimer-formation",
+    "displayEquation": "2Thymine + hν ⇌ Thymine-Dimer",
+    "equilibriumConstant": 4.5e5,
+    "reactants": ["Thymine"],
+    "products": ["Thymine-Dimer"],
+    "coefficients": {
+      "Thymine": 2,
+      "Thymine-Dimer": 1
+    },
+    "deltaH": -92.4,
+    "temperatureSensitivity": 0.18,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Thymine": 0.002,
+      "Thymine-Dimer": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

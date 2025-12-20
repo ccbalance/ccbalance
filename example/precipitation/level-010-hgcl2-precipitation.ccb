@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-010",
+    "name": "氯化亚汞沉淀",
+    "description": "探索Hg₂²⁺与Cl⁻反应生成Hg₂Cl₂白色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "汞化合物", "氯化物"]
+  },
+  "reaction": {
+    "id": "hg2cl2-precipitation",
+    "displayEquation": "Hg₂²⁺ + 2Cl⁻ ⇌ Hg₂Cl₂(s)",
+    "equilibriumConstant": 5.6e17,
+    "reactants": ["Hg₂²⁺", "Cl⁻"],
+    "products": ["Hg₂Cl₂"],
+    "coefficients": {
+      "Hg₂²⁺": 1,
+      "Cl⁻": 2,
+      "Hg₂Cl₂": 1
+    },
+    "deltaH": -48.2,
+    "temperatureSensitivity": 0.21,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Hg₂²⁺": 0.03,
+      "Cl⁻": 0.08,
+      "Hg₂Cl₂": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 13,
+    "turnTime": 30
+  }
+}

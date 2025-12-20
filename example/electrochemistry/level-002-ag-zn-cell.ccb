@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "electrochemistry-002",
+    "name": "银锌电池",
+    "description": "银锌原电池反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734632100000,
+    "tags": ["电化学", "原电池", "银"]
+  },
+  "reaction": {
+    "id": "ag-zn-cell",
+    "displayEquation": "Zn + 2Ag⁺ ⇌ Zn²⁺ + 2Ag",
+    "equilibriumConstant": 1.0e52,
+    "reactants": ["Zn", "Ag⁺"],
+    "products": ["Zn²⁺", "Ag"],
+    "coefficients": {
+      "Zn": 1,
+      "Ag⁺": 2,
+      "Zn²⁺": 1,
+      "Ag": 2
+    },
+    "deltaH": -318.4,
+    "temperatureSensitivity": 2.1,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Zn": 0.1,
+      "Ag⁺": 0.1,
+      "Zn²⁺": 0.0,
+      "Ag": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

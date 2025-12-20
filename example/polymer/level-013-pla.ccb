@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-013",
+    "name": "聚乳酸开环聚合",
+    "description": "探索丙交酯的开环聚合制备生物降解材料",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "生物降解", "PLA"]
+  },
+  "reaction": {
+    "id": "pla-polymerization",
+    "displayEquation": "n(C₃H₄O₂)₂ ⇌ (C₃H₄O₂)ₙ",
+    "equilibriumConstant": 4.2e11,
+    "reactants": ["(C₃H₄O₂)₂"],
+    "products": ["(C₃H₄O₂)ₙ"],
+    "coefficients": {
+      "(C₃H₄O₂)₂": 30,
+      "(C₃H₄O₂)ₙ": 1
+    },
+    "deltaH": -22.8,
+    "temperatureSensitivity": 0.15,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 453,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "(C₃H₄O₂)₂": 0.5,
+      "(C₃H₄O₂)ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 33
+  }
+}

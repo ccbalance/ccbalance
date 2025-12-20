@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-008",
+    "name": "聚氨酯形成",
+    "description": "研究异氰酸酯与多元醇的加成聚合",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "聚氨酯", "异氰酸酯"]
+  },
+  "reaction": {
+    "id": "polyurethane-formation",
+    "displayEquation": "nOCN-R-NCO + nHO-R'-OH ⇌ (OCONH-R-NHCOO-R')ₙ",
+    "equilibriumConstant": 6.8e14,
+    "reactants": ["OCN-R-NCO", "HO-R'-OH"],
+    "products": ["(OCONH-R-NHCOO-R')ₙ"],
+    "coefficients": {
+      "OCN-R-NCO": 30,
+      "HO-R'-OH": 30,
+      "(OCONH-R-NHCOO-R')ₙ": 1
+    },
+    "deltaH": -105.0,
+    "temperatureSensitivity": 0.22,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 353,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "OCN-R-NCO": 0.3,
+      "HO-R'-OH": 0.3,
+      "(OCONH-R-NHCOO-R')ₙ": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 29
+  }
+}

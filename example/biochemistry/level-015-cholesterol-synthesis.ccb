@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "biochemistry-015",
+    "name": "胆固醇合成",
+    "description": "探索HMG-CoA还原酶催化的胆固醇合成关键步骤",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["生物化学", "脂质代谢", "胆固醇"]
+  },
+  "reaction": {
+    "id": "cholesterol-synthesis",
+    "displayEquation": "HMG-CoA + 2NADPH ⇌ Mevalonate + 2NADP⁺ + CoASH",
+    "equilibriumConstant": 3.2e9,
+    "reactants": ["HMG-CoA", "NADPH"],
+    "products": ["Mevalonate", "NADP⁺", "CoASH"],
+    "coefficients": {
+      "HMG-CoA": 1,
+      "NADPH": 2,
+      "Mevalonate": 1,
+      "NADP⁺": 2,
+      "CoASH": 1
+    },
+    "deltaH": -48.5,
+    "temperatureSensitivity": 0.18,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 310,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "HMG-CoA": 0.0005,
+      "NADPH": 0.001,
+      "Mevalonate": 0,
+      "NADP⁺": 0.001,
+      "CoASH": 0.001
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

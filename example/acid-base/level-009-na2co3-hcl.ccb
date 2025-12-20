@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "acid-base-009",
+    "name": "碳酸钠中和",
+    "description": "碳酸钠与盐酸反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734636000000,
+    "tags": ["酸碱", "盐", "碳酸盐"]
+  },
+  "reaction": {
+    "id": "na2co3-hcl",
+    "displayEquation": "Na₂CO₃ + 2HCl ⇌ 2NaCl + H₂O + CO₂",
+    "equilibriumConstant": 1.0e20,
+    "reactants": ["Na₂CO₃", "HCl"],
+    "products": ["NaCl", "H₂O", "CO₂"],
+    "coefficients": {
+      "Na₂CO₃": 1,
+      "HCl": 2,
+      "NaCl": 2,
+      "H₂O": 1,
+      "CO₂": 1
+    },
+    "deltaH": -25.0,
+    "temperatureSensitivity": 1.2,
+    "hasGas": true,
+    "gasSpecies": ["CO₂"],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Na₂CO₃": 0.05,
+      "HCl": 0.1,
+      "NaCl": 0.0,
+      "H₂O": 0.0,
+      "CO₂": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 10,
+    "turnTime": 25
+  }
+}

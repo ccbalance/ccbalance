@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-006",
+    "name": "尼龙-66缩聚",
+    "description": "研究己二酸与己二胺的缩聚反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "缩聚", "尼龙"]
+  },
+  "reaction": {
+    "id": "nylon66-polymerization",
+    "displayEquation": "nC₆H₁₀O₄ + nC₆H₁₆N₂ ⇌ (C₁₂H₂₂N₂O₂)ₙ + 2nH₂O",
+    "equilibriumConstant": 2.8e12,
+    "reactants": ["C₆H₁₀O₄", "C₆H₁₆N₂"],
+    "products": ["(C₁₂H₂₂N₂O₂)ₙ", "H₂O"],
+    "coefficients": {
+      "C₆H₁₀O₄": 20,
+      "C₆H₁₆N₂": 20,
+      "(C₁₂H₂₂N₂O₂)ₙ": 1,
+      "H₂O": 40
+    },
+    "deltaH": -42.0,
+    "temperatureSensitivity": 0.19,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 553,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₆H₁₀O₄": 0.4,
+      "C₆H₁₆N₂": 0.4,
+      "(C₁₂H₂₂N₂O₂)ₙ": 0,
+      "H₂O": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 11,
+    "turnTime": 27
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "precipitation-015",
+    "name": "磷酸银沉淀",
+    "description": "研究Ag⁺与PO₄³⁻反应生成Ag₃PO₄黄色沉淀的过程",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["沉淀平衡", "磷酸盐", "银化合物"]
+  },
+  "reaction": {
+    "id": "ag3po4-precipitation",
+    "displayEquation": "3Ag⁺ + PO₄³⁻ ⇌ Ag₃PO₄(s)",
+    "equilibriumConstant": 5.9e17,
+    "reactants": ["Ag⁺", "PO₄³⁻"],
+    "products": ["Ag₃PO₄"],
+    "coefficients": {
+      "Ag⁺": 3,
+      "PO₄³⁻": 1,
+      "Ag₃PO₄": 1
+    },
+    "deltaH": -61.4,
+    "temperatureSensitivity": 0.26,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Ag⁺": 0.09,
+      "PO₄³⁻": 0.04,
+      "Ag₃PO₄": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

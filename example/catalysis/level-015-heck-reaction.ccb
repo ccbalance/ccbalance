@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-015",
+    "name": "Heck反应",
+    "description": "探索钯催化卤代芳烃与烯烃的偶联反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "钯催化", "C-C偶联"]
+  },
+  "reaction": {
+    "id": "heck-reaction",
+    "displayEquation": "ArI + C₂H₄ ⇌ ArCH=CH₂ + HI",
+    "equilibriumConstant": 8.3e10,
+    "reactants": ["ArI", "C₂H₄"],
+    "products": ["ArCH=CH₂", "HI"],
+    "coefficients": {
+      "ArI": 1,
+      "C₂H₄": 1,
+      "ArCH=CH₂": 1,
+      "HI": 1
+    },
+    "deltaH": -62.5,
+    "temperatureSensitivity": 0.19,
+    "hasGas": true,
+    "gasSpecies": ["C₂H₄"],
+    "containerType": "rigid",
+    "initialTemp": 393,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "ArI": 0.05,
+      "C₂H₄": 0.1,
+      "ArCH=CH₂": 0,
+      "HI": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 15,
+    "turnTime": 34
+  }
+}

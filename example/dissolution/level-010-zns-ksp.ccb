@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-010",
+    "name": "硫化锌的溶解",
+    "description": "硫化锌在水中微溶",
+    "author": "CCBalance Team",
+    "createdAt": 1734628100000,
+    "tags": ["溶解平衡", "硫化物", "矿物"]
+  },
+  "reaction": {
+    "id": "zns-ksp",
+    "displayEquation": "ZnS(s) ⇌ Zn²⁺ + S²⁻",
+    "equilibriumConstant": 2.0e-25,
+    "reactants": ["ZnS(s)"],
+    "products": ["Zn²⁺", "S²⁻"],
+    "coefficients": {
+      "ZnS(s)": 1,
+      "Zn²⁺": 1,
+      "S²⁻": 1
+    },
+    "deltaH": 20.0,
+    "temperatureSensitivity": 1.7,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "ZnS(s)": 5.0,
+      "Zn²⁺": 0.0,
+      "S²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}

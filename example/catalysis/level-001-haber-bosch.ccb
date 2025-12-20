@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "catalysis-001",
+    "name": "Haber-Bosch合成氨",
+    "description": "探索铁催化下N₂与H₂合成NH₃的工业反应",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["催化", "工业催化", "铁催化剂"]
+  },
+  "reaction": {
+    "id": "haber-bosch",
+    "displayEquation": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g)",
+    "equilibriumConstant": 6.8e5,
+    "reactants": ["N₂", "H₂"],
+    "products": ["NH₃"],
+    "coefficients": {
+      "N₂": 1,
+      "H₂": 3,
+      "NH₃": 2
+    },
+    "deltaH": -92.4,
+    "temperatureSensitivity": 0.25,
+    "hasGas": true,
+    "gasSpecies": ["N₂", "H₂", "NH₃"],
+    "containerType": "rigid",
+    "initialTemp": 723,
+    "initialPressure": 20265,
+    "initialConcentrations": {
+      "N₂": 0.25,
+      "H₂": 0.75,
+      "NH₃": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 1,
+    "maxRounds": 8,
+    "turnTime": 20
+  }
+}

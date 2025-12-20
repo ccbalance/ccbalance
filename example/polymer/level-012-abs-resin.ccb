@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "polymer-012",
+    "name": "ABS树脂聚合",
+    "description": "研究丙烯腈-丁二烯-苯乙烯的共聚",
+    "author": "CCBalance Team",
+    "createdAt": 1734566400000,
+    "tags": ["聚合物", "共聚", "ABS"]
+  },
+  "reaction": {
+    "id": "abs-copolymerization",
+    "displayEquation": "C₃H₃N + C₄H₆ + C₈H₈ ⇌ ABS-polymer",
+    "equilibriumConstant": 7.8e14,
+    "reactants": ["C₃H₃N", "C₄H₆", "C₈H₈"],
+    "products": ["ABS-polymer"],
+    "coefficients": {
+      "C₃H₃N": 15,
+      "C₄H₆": 10,
+      "C₈H₈": 15,
+      "ABS-polymer": 1
+    },
+    "deltaH": -78.6,
+    "temperatureSensitivity": 0.19,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 343,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "C₃H₃N": 0.3,
+      "C₄H₆": 0.2,
+      "C₈H₈": 0.3,
+      "ABS-polymer": 0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

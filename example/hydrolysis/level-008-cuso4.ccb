@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "hydrolysis-008",
+    "name": "硫酸铜水解",
+    "description": "Cu²⁺的部分水解",
+    "author": "CCBalance Team",
+    "createdAt": 1734645500000,
+    "tags": ["水解", "硫酸铜", "铜离子"]
+  },
+  "reaction": {
+    "id": "cuso4-hydrolysis",
+    "displayEquation": "Cu²⁺(aq) + 2H₂O(l) ⇌ Cu(OH)₂(s) + 2H⁺(aq)",
+    "equilibriumConstant": 5.0e-20,
+    "reactants": ["Cu²⁺(aq)", "2H₂O(l)"],
+    "products": ["Cu(OH)₂(s)", "2H⁺(aq)"],
+    "coefficients": {
+      "Cu²⁺(aq)": 1,
+      "2H₂O(l)": 1,
+      "Cu(OH)₂(s)": 1,
+      "2H⁺(aq)": 1
+    },
+    "deltaH": 65.5,
+    "temperatureSensitivity": 0.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "Cu²⁺(aq)": 0.1,
+      "2H₂O(l)": 55.5,
+      "Cu(OH)₂(s)": 0.0,
+      "2H⁺(aq)": 1.0e-7
+    }
+  },
+  "difficulty": {
+    "aiLevel": 3,
+    "maxRounds": 14,
+    "turnTime": 32
+  }
+}

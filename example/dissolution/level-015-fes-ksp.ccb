@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "id": "dissolution-015",
+    "name": "硫化铁的溶解",
+    "description": "硫化铁在水中的溶解平衡",
+    "author": "CCBalance Team",
+    "createdAt": 1734628600000,
+    "tags": ["溶解平衡", "硫化物", "腐蚀"]
+  },
+  "reaction": {
+    "id": "fes-ksp",
+    "displayEquation": "FeS(s) ⇌ Fe²⁺ + S²⁻",
+    "equilibriumConstant": 6.3e-18,
+    "reactants": ["FeS(s)"],
+    "products": ["Fe²⁺", "S²⁻"],
+    "coefficients": {
+      "FeS(s)": 1,
+      "Fe²⁺": 1,
+      "S²⁻": 1
+    },
+    "deltaH": 18.5,
+    "temperatureSensitivity": 1.4,
+    "hasGas": false,
+    "gasSpecies": [],
+    "containerType": "rigid",
+    "initialTemp": 298,
+    "initialPressure": 101.325,
+    "initialConcentrations": {
+      "FeS(s)": 5.0,
+      "Fe²⁺": 0.0,
+      "S²⁻": 0.0
+    }
+  },
+  "difficulty": {
+    "aiLevel": 2,
+    "maxRounds": 12,
+    "turnTime": 30
+  }
+}
