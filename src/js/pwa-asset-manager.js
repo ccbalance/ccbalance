@@ -48,7 +48,7 @@
         '/assets/image-assets/cc-zero.png',
         '/assets/image-assets/icon-192.png',
         '/assets/image-assets/icon-512.png',
-        '/assets/image-assets/v0-1-splash.png',
+        // 注意：PWA 不下载 splash 目录资源（PWA 无 splash 界面）
 
         // fonts
         '/assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf',
@@ -194,7 +194,9 @@
             await Promise.all(keys.filter(k => k.startsWith(CACHE_PREFIX)).map(k => cacheStorage.delete(k)));
         }
 
-        const total = ASSETS.length;
+        // PWA 无 splash 界面：禁止自动下载 splash 目录资源
+        const assetList = ASSETS.filter(u => !String(u).startsWith('/assets/image-assets/splash/'));
+        const total = assetList.length;
         let done = 0;
 
         const update = (text) => {
@@ -207,7 +209,7 @@
 
         update('检查缓存...');
 
-        for (const url of ASSETS) {
+        for (const url of assetList) {
             const existing = await cache.match(url);
             if (existing) {
                 done++;

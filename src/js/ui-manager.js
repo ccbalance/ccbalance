@@ -20,6 +20,15 @@ const UIManager = {
         this.updateStarProgress();
         this.renderAboutCard();
 
+        // 进度/星数变化：立即刷新主菜单与摘星之路面板
+        window.addEventListener('ccbalance:storage-changed', (e) => {
+            const key = e?.detail?.key;
+            if (key === StorageManager?.KEYS?.GAME_PROGRESS) {
+                this.updateProgress();
+                this.updateStarProgress();
+            }
+        });
+
         // Web 版本不显示“PWA 服务器”状态卡片（该功能仅 Electron 内使用）
         if (!window.electronAPI) {
             const pwaGroup = document.getElementById('pwa-server-settings-group');
@@ -1305,6 +1314,67 @@ const UIManager = {
     },
 
     /**
+     * 回合开始全屏遮罩（复用回合结算样式）
+     * - 显示：当前回合/总回合、关卡方程式、玩家本回合目标、3 秒倒计时
+     */
+    async showTurnStartOverlay({ currentRound, totalRounds, displayEquation, playerGoal }) {
+        // 清理可能残留的遮罩（避免多次调用叠加）
+        document.getElementById('turn-start-overlay')?.remove?.();
+
+        const goalText = (playerGoal === 'forward')
+            ? '推动平衡向正向（生成物方向）移动'
+            : (playerGoal === 'reverse')
+                ? '推动平衡向逆向（反应物方向）移动'
+                : '完成本回合目标';
+
+        const overlay = document.createElement('div');
+        overlay.id = 'turn-start-overlay';
+        overlay.className = 'round-result-overlay';
+        overlay.innerHTML = `
+            <div class="round-result-box" style="min-width: 420px;">
+                <h2>回合 ${currentRound} / ${totalRounds}</h2>
+                <div style="text-align: left; margin: 0 auto 18px; max-width: 520px;">
+                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">
+                        <i class="fas fa-flask" style="width: 18px; text-align: center;"></i>
+                        关卡方程式
+                    </div>
+                    <div style="font-size: 18px; font-weight: 600; color: var(--text-primary);">
+                        ${displayEquation || ''}
+                    </div>
+                </div>
+                <div style="text-align: left; margin: 0 auto 24px; max-width: 520px;">
+                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">
+                        <i class="fas fa-bullseye" style="width: 18px; text-align: center;"></i>
+                        本回合目标
+                    </div>
+                    <div style="font-size: 16px; font-weight: 600; color: var(--primary-color);">
+                        ${goalText}
+                    </div>
+                </div>
+                <div style="padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">
+                        <i class="fas fa-hourglass-start" style="width: 18px; text-align: center;"></i>
+                        回合开始倒计时
+                    </div>
+                    <div id="turn-start-countdown" style="font-size: 56px; font-weight: 800; color: var(--primary-color); line-height: 1;">
+                        3
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        const countdownEl = overlay.querySelector('#turn-start-countdown');
+        for (let t = 3; t >= 1; t--) {
+            if (countdownEl) countdownEl.textContent = String(t);
+            await Utils.sleep(1000);
+        }
+
+        overlay.remove();
+    },
+
+    /**
      * 更新计时器
      */
     updateTimer(seconds) {
@@ -1346,6 +1416,14 @@ const UIManager = {
      */
     updateInfoPanel(state) {
         if (!state) return;
+
+        // 同步温度/压强显示（按钮操作/AI 操作会走这里）
+        if (this.elements.game.tempValue && state.temperature !== undefined && state.temperature !== null) {
+            this.elements.game.tempValue.textContent = Math.round(state.temperature);
+        }
+        if (this.elements.game.pressureValue && state.pressure !== undefined && state.pressure !== null) {
+            this.elements.game.pressureValue.textContent = Math.round(state.pressure);
+        }
 
         this.elements.game.equilibriumConstant.textContent = 
             'K = ' + (state.K >= 1000 || state.K <= 0.001 ? state.K.toExponential(2) : Utils.formatNumber(state.K, 3));
@@ -1454,7 +1532,8 @@ const UIManager = {
         }
 
         // 实时更新主菜单的星数显示（摘星之路面板）
-        this.updateStarProgressPanel();
+        this.updateStarProgress();
+        this.updateProgress();
     },
 
     /**
@@ -1657,6 +1736,18 @@ const UIManager = {
                 if (!levelData) {
                     this.showMessage('关卡不存在', 'error');
                     return;
+                }
+
+                // PWA（独立安装模式）下不支持关卡编辑器
+                try {
+                    const isStandalone = !!(window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)
+                        || !!window.navigator?.standalone;
+                    if (!window.electronAPI && isStandalone) {
+                        this.showMessage('PWA 环境不支持关卡编辑器', 'error');
+                        return;
+                    }
+                } catch {
+                    // ignore
                 }
 
                 if (window.electronAPI?.openLevelEditor) {

@@ -229,10 +229,25 @@ const Game = {
     /**
      * 开始回合（实时模式）
      */
-    startTurn() {
+    async startTurn() {
         if (!this.state.isRunning) return;
 
         UIManager.updateCardStatus();
+
+        // 回合开始前：全屏遮罩 + 3 秒倒计时（与回合结算同风格）
+        try {
+            const level = this.state.levelData;
+            await UIManager.showTurnStartOverlay({
+                currentRound: this.state.round,
+                totalRounds: this.state.maxRounds,
+                displayEquation: level?.displayEquation || level?.equation || '',
+                playerGoal: this.state.playerGoal
+            });
+        } catch {
+            // 忽略遮罩失败，保证游戏流程不断
+        }
+
+        if (!this.state.isRunning) return;
 
         // 实时模式：启动回合计时器，玩家和AI同时行动
         const settings = StorageManager.getSettings();

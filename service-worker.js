@@ -59,7 +59,6 @@ const CACHE_ASSETS = [
     '/assets/image-assets/cc-zero.png',
     '/assets/image-assets/icon-192.png',
     '/assets/image-assets/icon-512.png',
-    '/assets/image-assets/v0-1-splash.png',
         '/assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf',
         '/assets/font-assets/texgyreheros/texgyreheros-regular.otf',
         '/assets/audio-assets-low/efforts/any-button-press.mp3',

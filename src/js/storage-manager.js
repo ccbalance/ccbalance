@@ -88,6 +88,18 @@ const StorageManager = {
     set(key, value) {
         try {
             localStorage.setItem(key, JSON.stringify(value));
+
+            // 通知 UI：存储已变更（用于星数/进度等实时刷新）
+            try {
+                if (typeof window !== 'undefined' && window.dispatchEvent) {
+                    window.dispatchEvent(new CustomEvent('ccbalance:storage-changed', {
+                        detail: { key }
+                    }));
+                }
+            } catch {
+                // ignore
+            }
+
             return true;
         } catch (e) {
             console.error('Storage set error:', e);

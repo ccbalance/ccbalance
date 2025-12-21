@@ -6,7 +6,7 @@ const pkg = require('./package.json');
 
 const imageAssets = {
     ccZero: 'cc-zero.png',
-    splashBackground: 'v0-1-splash.png'
+    splashBackground: 'splash/v0-1-splash.png'
 };
 
 const splashConfig = {
