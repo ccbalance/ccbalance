@@ -6,7 +6,7 @@ const pkg = require('./package.json');
 
 const imageAssets = {
     ccZero: 'cc-zero.png',
-    splashBackground: 'splash/v0-1-splash.png'
+    splashBackground: 'splash/v0-1-4-splash.png'
 };
 
 const splashConfig = {
@@ -20,7 +20,7 @@ const splashConfig = {
     licenseImageSource: `./assets/image-assets/${imageAssets.ccZero}`,
 
     // 右上角文本
-    topRightText: 'Chemistry Makes Humanity Better',
+    topRightText: 'Merry Christmas!',
 
     // 背景图像（用于渐变白色区域填充）
     splashBackgroundFileName: imageAssets.splashBackground,
