@@ -60,7 +60,7 @@ const UIManager = {
         if (!info || info.error) {
             // Web/PWA：从静态 app-version.json 读取（会被 SW 缓存，离线可用）
             try {
-                const resp = await fetch('/app-version.json', { cache: 'no-store' });
+                const resp = await fetch(new URL('./app-version.json', location.href), { cache: 'no-store' });
                 if (resp.ok) {
                     const data = await resp.json();
                     const name = data?.name || 'CCBalance';
@@ -77,7 +77,7 @@ const UIManager = {
 
             // 最后兜底：读 manifest.json 的 version 字段（若服务器提供）
             try {
-                const resp = await fetch('/manifest.json', { cache: 'no-store' });
+                const resp = await fetch(new URL('./manifest.json', location.href), { cache: 'no-store' });
                 if (resp.ok) {
                     const data = await resp.json();
                     const name = data?.name || 'CCBalance';

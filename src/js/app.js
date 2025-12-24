@@ -37,9 +37,12 @@ const App = {
 
         try {
             // PWA/Web 环境标记（用于隐藏 Electron 自定义标题栏等）
-            if (!window.electronAPI && location.protocol.startsWith('http')) {
-                document.body.classList.add('pwa');
-            }
+            // 规则：
+            // - Web/PWA：无 Electron API => 隐藏
+            // - 离线部署/内置 PWA（通过 http/https 提供资源）：即便在 Electron 容器里，也按 PWA 体验隐藏
+            const isHttp = location.protocol.startsWith('http');
+            const shouldHideTitleBar = !window.electronAPI || isHttp;
+            if (shouldHideTitleBar) document.body.classList.add('pwa');
 
             // 初始化存储
             StorageManager.init();
@@ -103,7 +106,7 @@ const App = {
             if (!('serviceWorker' in navigator)) return;
             if (!location.protocol.startsWith('http')) return;
 
-            const reg = await navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
+            const reg = await navigator.serviceWorker.register('./service-worker.js', { scope: './' });
 
             // 发现新 SW 时，提示并自动激活（后续由 SW 进行 clients.claim）
             reg.addEventListener('updatefound', () => {

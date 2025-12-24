@@ -8,76 +8,81 @@
 (function () {
     const isPwaWeb = () => !window.electronAPI && location.protocol.startsWith('http');
 
+    // 支持 GitHub Pages 等子路径部署：所有资源基于当前目录解析
+    const BASE_URL = new URL('./', location.href);
+    const resolveUrl = (u) => new URL(String(u).replace(/^\//, ''), BASE_URL).toString();
+
     const CACHE_PREFIX = 'ccbalance-';
 
     const ASSETS = [
-        '/',
-        '/index.html',
-        '/manifest.json',
-        '/service-worker.js',
-        '/app-version.json',
+        './',
+        'index.html',
+        'manifest.json',
+        'service-worker.js',
+        'app-version.json',
 
-        '/src/styles/main.css',
-        '/src/styles/splash.css',
-        '/src/styles/particles.css',
-        '/src/styles/ui-components.css',
-        '/src/styles/animations.css',
-        '/src/styles/game-board.css',
-        '/src/styles/terminal.css',
+        'src/styles/main.css',
+        'src/styles/splash.css',
+        'src/styles/particles.css',
+        'src/styles/ui-components.css',
+        'src/styles/animations.css',
+        'src/styles/game-board.css',
+        'src/styles/terminal.css',
 
-        '/src/js/utils.js',
-        '/src/js/storage-manager.js',
-        '/src/js/audio-manager.js',
-        '/src/js/particle-system.js',
-        '/src/js/animation-manager.js',
-        '/src/js/chemistry-engine.js',
-        '/src/js/levels.js',
-        '/src/js/workshop-manager.js',
-        '/src/js/ai-system.js',
-        '/src/js/card-system.js',
-        '/src/js/game-actions.js',
-        '/src/js/terminal.js',
-        '/src/js/ui-manager.js',
-        '/src/js/keyboard-handler.js',
-        '/src/js/chart-renderer.js',
-        '/src/js/game.js',
-        '/src/js/pwa-asset-manager.js',
-        '/src/js/app.js',
+        'src/js/utils.js',
+        'src/js/storage-manager.js',
+        'src/js/audio-manager.js',
+        'src/js/particle-system.js',
+        'src/js/animation-manager.js',
+        'src/js/chemistry-engine.js',
+        'src/js/levels.js',
+        'src/js/workshop-manager.js',
+        'src/js/ai-system.js',
+        'src/js/card-system.js',
+        'src/js/game-actions.js',
+        'src/js/terminal.js',
+        'src/js/ui-manager.js',
+        'src/js/keyboard-handler.js',
+        'src/js/chart-renderer.js',
+        'src/js/game.js',
+        'src/js/pwa-asset-manager.js',
+        'src/js/app.js',
 
         // images
-        '/assets/image-assets/cc-zero.png',
-        '/assets/image-assets/icon-192.png',
-        '/assets/image-assets/icon-512.png',
+        'assets/image-assets/cc-zero.png',
+        'assets/image-assets/icon-192.png',
+        'assets/image-assets/icon-512.png',
         // 注意：PWA 不下载 splash 目录资源（PWA 无 splash 界面）
 
         // fonts
-        '/assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf',
-        '/assets/font-assets/texgyreheros/texgyreheros-regular.otf',
+        'assets/font-assets/LXGW/LXGWZhenKaiGB-Regular.ttf',
+        'assets/font-assets/DancingScript/DancingScript-Bold.otf',
+        'assets/font-assets/texgyreheros/texgyreheros-regular.otf',
 
         // fontawesome
-        '/fontawesome/css/all.min.css',
-        '/fontawesome/webfonts/fa-solid-900.woff2',
-        '/fontawesome/webfonts/fa-regular-400.woff2',
-        '/fontawesome/webfonts/fa-brands-400.woff2',
+        'fontawesome/css/all.min.css',
+        'fontawesome/webfonts/fa-solid-900.woff2',
+        'fontawesome/webfonts/fa-regular-400.woff2',
+        'fontawesome/webfonts/fa-brands-400.woff2',
 
         // low-quality audio for PWA
-        '/assets/audio-assets-low/efforts/any-button-press.mp3',
-        '/assets/audio-assets-low/efforts/game-win.mp3',
-        '/assets/audio-assets-low/efforts/game-lose.mp3',
-        '/assets/audio-assets-low/efforts/turn-start.mp3',
-        '/assets/audio-assets-low/efforts/turn-win.mp3',
-        '/assets/audio-assets-low/efforts/turn-lose.mp3',
-        '/assets/audio-assets-low/efforts/turn-countdown.mp3',
-        '/assets/audio-assets-low/efforts/steam-producing.mp3',
-        '/assets/audio-assets-low/backgrounds/main/between-sky-and-water.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/a-quiet-joy-stevekaldes-piano.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/april.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/calm-heavenly-raindrops.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/coniferous-forest.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/cozy-morning-instrumental.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/perfect-beauty.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/plea-for-forgiveness-stevekaldes-piano-art-ayla-heefner.mp3',
-        '/assets/audio-assets-low/backgrounds/in-game/snow-stevekaldes-piano.mp3'
+        'assets/audio-assets-low/efforts/any-button-press.mp3',
+        'assets/audio-assets-low/efforts/game-win.mp3',
+        'assets/audio-assets-low/efforts/game-lose.mp3',
+        'assets/audio-assets-low/efforts/turn-start.mp3',
+        'assets/audio-assets-low/efforts/turn-win.mp3',
+        'assets/audio-assets-low/efforts/turn-lose.mp3',
+        'assets/audio-assets-low/efforts/turn-countdown.mp3',
+        'assets/audio-assets-low/efforts/steam-producing.mp3',
+        'assets/audio-assets-low/backgrounds/main/between-sky-and-water.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/a-quiet-joy-stevekaldes-piano.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/april.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/calm-heavenly-raindrops.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/coniferous-forest.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/cozy-morning-instrumental.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/perfect-beauty.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/plea-for-forgiveness-stevekaldes-piano-art-ayla-heefner.mp3',
+        'assets/audio-assets-low/backgrounds/in-game/snow-stevekaldes-piano.mp3'
     ];
 
     function clamp(n, min, max) {
@@ -86,7 +91,7 @@
 
     async function getAppVersion() {
         try {
-            const resp = await fetch('/app-version.json', { cache: 'no-store' });
+            const resp = await fetch(resolveUrl('app-version.json'), { cache: 'no-store' });
             if (!resp.ok) return 'dev';
             const data = await resp.json();
             return (data && data.version) ? String(data.version) : 'dev';
@@ -195,7 +200,7 @@
         }
 
         // PWA 无 splash 界面：禁止自动下载 splash 目录资源
-        const assetList = ASSETS.filter(u => !String(u).startsWith('/assets/image-assets/splash/'));
+        const assetList = ASSETS.filter(u => !String(u).startsWith('assets/image-assets/splash/'));
         const total = assetList.length;
         let done = 0;
 
@@ -210,7 +215,8 @@
         update('检查缓存...');
 
         for (const url of assetList) {
-            const existing = await cache.match(url);
+            const absUrl = resolveUrl(url);
+            const existing = await cache.match(absUrl);
             if (existing) {
                 done++;
                 update(`已缓存：${url}`);
@@ -219,7 +225,7 @@
 
             update(`下载：${url}`);
             try {
-                const resp = await fetch(url, { cache: 'reload' });
+                const resp = await fetch(absUrl, { cache: 'reload' });
                 if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
 
                 // 通过 blob 确保响应完整落盘后再 put
@@ -234,7 +240,7 @@
                     headers
                 });
 
-                await cache.put(url, putResp);
+                await cache.put(absUrl, putResp);
             } catch (e) {
                 // 不阻断：下次会补全
                 console.warn('[PWA assets] download failed:', url, e);
