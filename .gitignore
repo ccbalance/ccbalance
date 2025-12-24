@@ -36,10 +36,3 @@ coverage/
 .idea/
 *.sublime-workspace
 *.sublime-project
-
-# FontAwesome
-*.woff
-*.woff2
-*.eot
-*.ttf
-fontawesome/
